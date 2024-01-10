@@ -97,72 +97,8 @@
       }, 1.3);
   }
 
-  // ---- PRELOADER ----
-  (function initPreloader() {
-    const preloader = document.getElementById('preloader');
-    const wordEl    = document.getElementById('preloader-word');
-    const pathEl    = document.getElementById('preloader-path');
-
-    if (!preloader || !wordEl) {
-      // No preloader in DOM — still run entrance
-      runEntranceAnimation();
-      return;
-    }
-
-    // Skip preloader on reduced motion — show page immediately
-    if (prefersReducedMotion) {
-      preloader.remove();
-      runEntranceAnimation();
-      return;
-    }
-
-    const words = ['Hello', 'Bonjour', 'Ciao', 'Olà', 'やあ', 'Hallå', 'Guten tag', 'হ্যালো'];
-    let index = 0;
-
-    // Draw the curved SVG path based on viewport size
-    function updatePath(curved) {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      const bulge = curved ? h + 300 : h;
-      pathEl.setAttribute('d',
-        `M0 0 L${w} 0 L${w} ${h} Q${w / 2} ${bulge} 0 ${h} L0 0`
-      );
-    }
-
-    updatePath(true);
-    window.addEventListener('resize', () => updatePath(true), { passive: true });
-
-    // Cycle through words, then trigger exit animation
-    function nextWord() {
-      if (index >= words.length - 1) {
-        // Flatten the curve, then slide the overlay up
-        setTimeout(() => {
-          updatePath(false);
-          preloader.classList.add('slide-out');
-          preloader.addEventListener('animationend', () => {
-            preloader.remove();
-            runEntranceAnimation();   // ← hero + nav animate in here
-          }, { once: true });
-        }, 1000);
-        return;
-      }
-
-      const delay = index === 0 ? 1000 : 150;
-      setTimeout(() => {
-        index++;
-        wordEl.classList.add('fade-word');
-        wordEl.addEventListener('animationend', () => {
-          wordEl.textContent = words[index];
-          wordEl.classList.remove('fade-word');
-          nextWord();
-        }, { once: true });
-      }, delay);
-    }
-
-    // Start cycling after initial fade-in (1.2s)
-    setTimeout(nextWord, 1200);
-  })();
-  // ---- / PRELOADER ----
+  // Run entrance animation immediately (no preloader)
+  runEntranceAnimation();
 
   // ---- NAVBAR SCROLL ----
   const nav = document.getElementById('mainNav');
@@ -180,7 +116,16 @@
   const heroVideo = document.getElementById('heroVideo');
   const svhProgressBar = document.getElementById('svhProgressBar');
   const svhScrollHint = document.getElementById('svhScrollHint');
-  const svhStatusText = document.getElementById('svhStatusText');
+  const svhStatusText  = document.getElementById('svhStatusText');
+  const svhTitleSwap   = document.getElementById('svhTitleSwap');
+
+  // Headline second-line phrases tied to scroll progress
+  const TITLE_STAGES = [
+    { at: 0.0,  text: 'No Surprises.' },
+    { at: 0.33, text: 'No Delays.'    },
+    { at: 0.66, text: 'No Hassle.'    },
+  ];
+  let lastTitleIndex = -1;
 
   // Status labels that change as truck empties
   const STATUS_STAGES = [
@@ -233,6 +178,37 @@
           svhScrollHint.classList.toggle('hidden', progress > 0.015);
         }
 
+        // Headline second line — scroll-ticker swap at each threshold
+        if (svhTitleSwap && !svhTitleSwap._animating) {
+          let titleIndex = 0;
+          for (let i = TITLE_STAGES.length - 1; i >= 0; i--) {
+            if (progress >= TITLE_STAGES[i].at) { titleIndex = i; break; }
+          }
+          if (titleIndex !== lastTitleIndex) {
+            lastTitleIndex = titleIndex;
+            svhTitleSwap._animating = true;
+            // Exit: slide upward out
+            svhTitleSwap.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
+            svhTitleSwap.style.transform = 'translateY(-28px)';
+            svhTitleSwap.style.opacity = '0';
+            setTimeout(() => {
+              // Instantly reposition below, swap text
+              svhTitleSwap.style.transition = 'none';
+              svhTitleSwap.textContent = TITLE_STAGES[titleIndex].text;
+              svhTitleSwap.style.transform = 'translateY(28px)';
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  // Enter: slide up into position
+                  svhTitleSwap.style.transition = 'transform 0.35s ease, opacity 0.35s ease';
+                  svhTitleSwap.style.transform = 'translateY(0)';
+                  svhTitleSwap.style.opacity = '1';
+                  setTimeout(() => { svhTitleSwap._animating = false; }, 350);
+                });
+              });
+            }, 260);
+          }
+        }
+
         // Live status badge — swap label at each threshold
         if (svhStatusText) {
           let stageIndex = 0;
@@ -269,39 +245,54 @@
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileClose = document.getElementById('mobileClose');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    if (mobileOverlay) mobileOverlay.classList.add('open');
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    if (mobileOverlay) mobileOverlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
 
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
     });
   }
 
-  if (mobileClose && mobileMenu) {
-    mobileClose.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-      hamburger?.setAttribute('aria-expanded', 'false');
-    });
-  }
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
 
-  // Close mobile menu on link click
   if (mobileMenu) {
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
 
   // ---- FLOATING CTA ----
   const floatingCTA = document.getElementById('floatingCTA');
   if (floatingCTA) {
+    let floatingVisible = false;
     const toggleFloating = () => {
       const show = window.scrollY > window.innerHeight * 0.6;
-      floatingCTA.classList.toggle('visible', show);
+      if (show === floatingVisible) return;
+      floatingVisible = show;
+      if (show) {
+        floatingCTA.classList.add('visible');
+        requestAnimationFrame(() => { floatingCTA.style.opacity = '1'; });
+      } else {
+        floatingCTA.style.opacity = '0';
+        setTimeout(() => { floatingCTA.classList.remove('visible'); }, 400);
+      }
     };
     window.addEventListener('scroll', toggleFloating, { passive: true });
     toggleFloating();
@@ -743,6 +734,7 @@
     var titleL   = document.getElementById('standardsTitleL');
     var titleR   = document.getElementById('standardsTitleR');
     var hintEl   = document.getElementById('standardsHint');
+    var splitCta = document.getElementById('standardsSplitCta');
 
     if (!wrapper) return;
 
@@ -774,6 +766,15 @@
       // Hint fades quickly
       hintEl.style.opacity   = Math.max(0, 1 - p * 4);
       hintEl.style.transform = 'translateX(' + tx + 'vw)';
+
+      // CTA button fades in as titles split
+      if (splitCta) {
+        var ctaOpacity = Math.min(1, Math.max(0, (p - 0.4) / 0.35));
+        var ctaY = 12 - ctaOpacity * 12;
+        splitCta.style.opacity = ctaOpacity;
+        splitCta.style.transform = 'translateY(' + ctaY + 'px)';
+        splitCta.classList.toggle('visible', ctaOpacity > 0.1);
+      }
     }
 
     function onScroll() {

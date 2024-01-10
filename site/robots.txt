@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /privacy.html
+Disallow: /terms.html
 
 Sitemap: https://www.keylinktransport.ca/sitemap.xml

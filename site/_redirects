@@ -1,0 +1,11 @@
+# Redirect /appointments to contact page
+/appointments        /contact.html    301
+/appointments/       /contact.html    301
+
+# Clean URLs (strip .html)
+/about               /about.html      200
+/services            /services.html   200
+/contact             /contact.html    200
+/careers             /careers.html    200
+/privacy             /privacy.html    200
+/terms               /terms.html      200

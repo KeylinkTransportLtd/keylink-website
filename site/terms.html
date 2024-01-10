@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/687e6bf7e2cc09231aa3fe36/d5959749-1b76-4811-a924-2311d975ac1c/Logo+keylink.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <style>
     .legal-page { padding: 80px 0 100px; background: var(--midnight); }
     .legal-page .legal-header { margin-bottom: 48px; }
@@ -51,14 +51,52 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Overlay -->
+  <div class="nav__mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
   <div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <button id="mobileClose" style="position:absolute;top:24px;right:24px;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;" aria-label="Close menu">✕</button>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html" style="color:var(--gold);">Book a Load →</a>
+    <button id="mobileClose" aria-label="Close menu">&#x2715;</button>
+
+    <!-- Primary nav links -->
+    <nav class="nav__mobile-links" aria-label="Mobile primary navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav__mobile-divider"></div>
+
+    <!-- Book a Load CTA -->
+    <a href="contact.html" class="nav__mobile-book">Book a Load &rarr;</a>
+
+    <!-- Footer links -->
+    <div class="nav__mobile-footer">
+      <div class="nav__mobile-footer-links">
+        <a href="https://www.linkedin.com/company/keylink-transport" target="_blank" rel="noopener noreferrer" class="nav__mobile-footer-link nav__mobile-linkedin">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+            <path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="tel:+17786663626" class="nav__mobile-footer-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          778-666-3626
+        </a>
+      </div>
+      <div class="nav__mobile-footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="nav__mobile-footer-dot">&middot;</span>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+      <p class="nav__mobile-footer-copy">&copy; 2025 Keylink Transport Ltd.</p>
+    </div>
+  </div>
+    <a href="contact.html" class="nav__mobile-book">Book a Load &rarr;</a>
   </div>
 
   <!-- LEGAL CONTENT -->
@@ -90,13 +128,13 @@
         <p>By submitting a form, you consent to being contacted by Keylink Transport via the contact information you provide for purposes related to your request.</p>
 
         <h2>4. Intellectual Property</h2>
-        <p>All content on this website — including text, images, logos, graphics, and design — is the property of Keylink Transport Inc. or its licensors and is protected by applicable Canadian and international copyright laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
+        <p>All content on this website, including text, images, logos, graphics, and design, is the property of Keylink Transport Inc. or its licensors and is protected by applicable Canadian and international copyright laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
 
         <h2>5. Disclaimer of Warranties</h2>
         <p>This website is provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied. Keylink Transport does not warrant that the site will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
 
         <h2>6. Limitation of Liability</h2>
-        <p>To the fullest extent permitted by applicable law, Keylink Transport Inc. shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of — or inability to use — this website or its content.</p>
+        <p>To the fullest extent permitted by applicable law, Keylink Transport Inc. shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, this website or its content.</p>
 
         <h2>7. Third-Party Links</h2>
         <p>This website may contain links to third-party websites for your convenience. These links do not constitute endorsement of those sites. Keylink Transport has no control over the content of third-party sites and accepts no responsibility for them.</p>
@@ -333,5 +371,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
+
+  <!-- Floating CTA -->
+  <div class="floating-cta" id="floatingCTA">
+    <a href="https://www.linkedin.com/company/keylink-transport" target="_blank" rel="noopener noreferrer" class="floating-linkedin" aria-label="Keylink Transport on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+        <path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    </a>
+    <a href="contact.html" class="btn btn--gold">
+      Book a Load →
+    </a>
+  </div>
+
 </body>
 </html>

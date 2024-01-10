@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Keylink Transport | Family-Owned FTL Carrier Since 2019</title>
+  <meta name="description" content="Keylink Transport is a family-owned, BC-based full truckload carrier founded in 2019. Learn about our mission, values, and commitment to reliable Canada-USA freight.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.keylinktransport.ca/about">
+  <meta property="og:title" content="About Keylink Transport | BC-Based FTL Carrier Since 2019">
+  <meta property="og:description" content="Family-owned and operated. Founded in Abbotsford, BC. Built on reliability, safety, and a family culture that extends to every driver and client.">
+  <meta property="og:url" content="https://www.keylinktransport.ca/about">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/687e6bf7e2cc09231aa3fe36/d5959749-1b76-4811-a924-2311d975ac1c/Logo+keylink.png">
+  <style>
+    /* ---- ABOUT PAGE: animated wave paths in page-header ---- */
+    #pageHeaderWaves {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    @keyframes waveFlow {
+      0%   { stroke-dashoffset: 2400; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #pageHeaderWaves { display: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TruckingCompany",
+    "name": "Keylink Transport Inc.",
+    "foundingDate": "2019",
+    "description": "Family-owned BC-based full truckload freight carrier serving Canada and USA.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2629 Progressive Way Unit A",
+      "addressLocality": "Abbotsford",
+      "addressRegion": "BC",
+      "postalCode": "V2T 6H8",
+      "addressCountry": "CA"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="Keylink Transport Home">
+          <img src="assets/logo-keylink.png" alt="Keylink Transport Logo" width="160" height="44">
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="tel:+17786663626" class="nav__phone">778-666-3626</a>
+          <a href="contact.html" class="btn btn--gold">Book a Load</a>
+        </div>
+        <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <button id="mobileClose" style="position:absolute;top:24px;right:24px;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;" aria-label="Close menu">✕</button>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html" style="color:var(--gold);">Book a Load →</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header" role="banner">
+
+    <!-- Animated wave paths background -->
+    <div id="pageHeaderWaves" aria-hidden="true"></div>
+    <script>
+    (function () {
+      var ns = 'http://www.w3.org/2000/svg';
+      var container = document.getElementById('pageHeaderWaves');
+      if (!container) return;
+
+      // Website palette — lighter colours so they show on the navy background
+      var palette = [
+        'rgba(34,160,146,',   // --teal-lt
+        'rgba(26,123,110,',   // --teal
+        'rgba(240,168,32,',   // --gold
+        'rgba(232,237,245,',  // --cloud / white
+        'rgba(34,160,146,',   // teal-lt repeat for balance
+        'rgba(240,168,32,',   // gold repeat
+      ];
+
+      function makeSVG(position) {
+        var svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 696 316');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+
+        for (var i = 0; i < 36; i++) {
+          var p5  = i * 5 * position;
+          var y6  = i * 6;
+          // Path formula from the background-paths component (position-mirrored pairs)
+          var d = 'M' + (-380 + p5) + ' ' + (-(189 + y6)) +
+                  'C' + (-380 + p5) + ' ' + (-(189 + y6)) + ' ' +
+                        (-312 + p5) + ' ' + (216 - y6)    + ' ' +
+                        (152  - p5) + ' ' + (343 - y6)    +
+                  'C' + (616  - p5) + ' ' + (470 - y6)    + ' ' +
+                        (684  - p5) + ' ' + (875 - y6)    + ' ' +
+                        (684  - p5) + ' ' + (875 - y6);
+
+          var path = document.createElementNS(ns, 'path');
+          path.setAttribute('d', d);
+
+          // Opacity: gentle gradient — thin paths stay very subtle, thicker ones more visible
+          var opacity = (0.07 + i * 0.009).toFixed(3);
+          var colorBase = palette[i % palette.length];
+          path.setAttribute('stroke', colorBase + opacity + ')');
+          path.setAttribute('stroke-width', (0.5 + i * 0.04).toFixed(2));
+          // Dash: ~25 % visible segment, rest gap — creates a dashed flow illusion
+          path.setAttribute('stroke-dasharray', '520 1800');
+
+          // Each path gets a unique duration + a negative delay so they start mid-animation
+          var dur = (17 + (i % 13) * 1.1).toFixed(1) + 's';
+          var delay = (-(i * 1.4) % 20).toFixed(1) + 's';
+          path.style.animation = 'waveFlow ' + dur + ' linear infinite';
+          path.style.animationDelay = delay;
+
+          svg.appendChild(path);
+        }
+        return svg;
+      }
+
+      // Two mirrored sets (position +1 and -1) fill the header symmetrically
+      container.appendChild(makeSVG(1));
+      container.appendChild(makeSVG(-1));
+    })();
+    </script>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="tag gsap-reveal">Our Story</div>
+      <h1 class="page-header__title gsap-reveal">Who We Are</h1>
+      <p class="page-header__sub gsap-reveal">
+        Your trusted freight partner across Canada and the USA. Family-owned,
+        BC-based, and built on standards that show up in every load we haul.
+      </p>
+    </div>
+  </header>
+
+  <!-- ABOUT INTRO -->
+  <section class="section section--light" aria-labelledby="about-intro-heading">
+    <div class="container">
+      <div class="about-grid">
+        <div class="gsap-reveal-left">
+
+          <img src="assets/keylink-trucks.png" alt="Keylink Transport trucks on the highway — reliable dry van full-truckload carrier" style="width:100%;border-radius:24px;display:block;">
+
+        </div>
+
+        <div class="gsap-reveal-right">
+          <div class="tag">Founded 2019 · Abbotsford, BC</div>
+          <h2 class="section-title" style="color:var(--navy);">A Carrier Known<br>for Its Standards.</h2>
+          <p style="font-size:1.05rem;color:var(--slate);line-height:1.75;margin-bottom:20px;">
+            Keylink Transport Inc. has 15 years of accumulated experience with a straightforward conviction:
+            the freight industry didn't need another big carrier, it needed a reliable one.
+          </p>
+          <p style="font-size:1.05rem;color:var(--slate);line-height:1.75;margin-bottom:20px;">
+            Based in Abbotsford, British Columbia, we specialize in dry van full-truckload
+            freight across Canada and the United States. As a family-owned and operated carrier,
+            every decision we make is shaped by one question: would we be comfortable if our
+            client could see exactly what we're doing?
+          </p>
+          <p style="font-size:1.05rem;color:var(--slate);line-height:1.75;margin-bottom:36px;">
+            We're USDOT certified, ICBC insured, and 5-star rated by the industry brokers and
+            businesses who move freight with us. We operate from two offices, Abbotsford, BC
+            and Calgary, AB, covering lanes across Western Canada and the US West Coast.
+          </p>
+
+          <div style="display:flex;gap:20px;flex-wrap:wrap;">
+            <div style="text-align:center;padding:20px 24px;background:rgba(18,41,74,0.05);border:1px solid rgba(18,41,74,0.12);border-radius:12px;">
+              <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--gold);">2019</div>
+              <div style="font-size:0.8rem;color:var(--slate);margin-top:4px;text-transform:uppercase;letter-spacing:0.08em;">Founded</div>
+            </div>
+            <div style="text-align:center;padding:20px 24px;background:rgba(18,41,74,0.05);border:1px solid rgba(18,41,74,0.12);border-radius:12px;">
+              <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--gold);">2</div>
+              <div style="font-size:0.8rem;color:var(--slate);margin-top:4px;text-transform:uppercase;letter-spacing:0.08em;">Offices</div>
+            </div>
+            <div style="text-align:center;padding:20px 24px;background:rgba(18,41,74,0.05);border:1px solid rgba(18,41,74,0.12);border-radius:12px;">
+              <div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--gold);">5★</div>
+              <div style="font-size:0.8rem;color:var(--slate);margin-top:4px;text-transform:uppercase;letter-spacing:0.08em;">Rated</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="section section--navy" aria-labelledby="mission-heading">
+    <div class="container">
+      <div style="text-align:center;max-width:700px;margin:0 auto;" class="gsap-reveal">
+        <div class="tag">Mission & Vision</div>
+        <h2 class="section-title" id="mission-heading" style="color:var(--white);">What We Stand For</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px;" class="gsap-reveal">
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--teal);border-radius:16px;padding:40px;">
+          <div style="font-family:var(--font-head);font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:14px;">Our Mission</div>
+          <p style="font-size:1.1rem;color:var(--white);line-height:1.7;font-style:italic;">
+            "Provide safe, reliable, and cost-effective freight transportation services
+            while building long-term relationships rooted in integrity, accountability,
+            and respect."
+          </p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--gold);border-radius:16px;padding:40px;">
+          <div style="font-family:var(--font-head);font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Our Vision</div>
+          <p style="font-size:1.1rem;color:var(--white);line-height:1.7;font-style:italic;">
+            "Become Western Canada's most trusted name in full-truckload logistics —
+            a carrier known not for its size, but for its standards."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section section--light" aria-labelledby="values-page-heading">
+    <div class="container">
+      <div style="text-align:center;max-width:560px;margin:0 auto;" class="gsap-reveal">
+        <div class="tag">Core Values</div>
+        <h2 class="section-title" id="values-page-heading">The Five Things We Never Compromise On.</h2>
+      </div>
+
+      <div class="about-values" style="margin-top:56px;">
+
+        <div class="about-value-item gsap-reveal">
+          <div class="about-value-item__title">Reliability</div>
+          <div class="about-value-item__desc">
+            We deliver when we say we will. No excuses, no rescheduling, no surprises.
+            Your timeline is our commitment.
+          </div>
+        </div>
+
+        <div class="about-value-item gsap-reveal" style="transition-delay:0.1s;">
+          <div class="about-value-item__title">Safety</div>
+          <div class="about-value-item__desc">
+            Modern equipment, trained drivers, and strict safety protocols on every run.
+            We don't cut corners on the road. Ever.
+          </div>
+        </div>
+
+        <div class="about-value-item gsap-reveal" style="transition-delay:0.2s;">
+          <div class="about-value-item__title">Communication</div>
+          <div class="about-value-item__desc">
+            Transparency in all dealings. Real-time updates, full documentation,
+            and one direct contact for every shipment.
+          </div>
+        </div>
+
+        <div class="about-value-item gsap-reveal" style="transition-delay:0.3s;">
+          <div class="about-value-item__title">Efficiency</div>
+          <div class="about-value-item__desc">
+            Simplified freight management that saves you time and up to 90%
+            vs carrier direct pricing. No complexity, no runaround.
+          </div>
+        </div>
+
+        <div class="about-value-item gsap-reveal" style="transition-delay:0.4s;">
+          <div class="about-value-item__title">Family Culture</div>
+          <div class="about-value-item__desc">
+            Respectful and accountable with every driver, every client, every load.
+            We're a small team that acts like partners, not vendors.
+          </div>
+        </div>
+
+        <div class="about-value-item gsap-reveal" style="transition-delay:0.5s;">
+          <div class="about-value-item__title">Integrity</div>
+          <div class="about-value-item__desc">
+            We say what we'll do, and we do what we say. No hidden fees,
+            no shifting timelines, no blame-shifting.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="section section--midnight" aria-labelledby="credentials-heading">
+    <div class="container">
+      <div style="text-align:center;max-width:560px;margin:0 auto;" class="gsap-reveal">
+        <div class="tag">Credentials</div>
+        <h2 class="section-title" id="credentials-heading" style="color:var(--white);">Licensed. Insured. Certified.</h2>
+        <p class="section-sub" style="margin:0 auto;text-align:center;">
+          Every credential required to move your freight safely and legally across Canada and the US border.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;">
+
+        <div class="gsap-scale" style="background:var(--dark-card);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:36px;text-align:center;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:10px;">USDOT Number</div>
+          <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--white);">2832041</div>
+          <div style="font-size:0.82rem;color:var(--cloud);opacity:0.5;margin-top:6px;">US Dept of Transportation</div>
+        </div>
+
+        <div class="gsap-scale" style="background:var(--dark-card);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:36px;text-align:center;transition-delay:0.1s;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:10px;">Motor Carrier</div>
+          <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--white);">MC# 946449</div>
+          <div style="font-size:0.82rem;color:var(--cloud);opacity:0.5;margin-top:6px;">FMCSA Licensed Carrier</div>
+        </div>
+
+        <div class="gsap-scale" style="background:var(--dark-card);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:36px;text-align:center;transition-delay:0.2s;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Insurance</div>
+          <div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--white);">$750,000</div>
+          <div style="font-size:0.82rem;color:var(--cloud);opacity:0.5;margin-top:6px;">BIPD · ICBC Insured</div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:36px;" class="gsap-reveal">
+        <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string=2832041" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" style="font-size:0.9rem;">
+          View FMCSA Profile →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="section section--navy" aria-labelledby="locations-heading">
+    <div class="container">
+      <div style="text-align:center;max-width:560px;margin:0 auto;margin-bottom:48px;" class="gsap-reveal">
+        <div class="tag">Offices</div>
+        <h2 class="section-title" id="locations-heading" style="color:var(--white);">Two Locations.<br>One Standard.</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+
+        <div class="gsap-reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Head Office</div>
+          <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:16px;">Abbotsford, BC</div>
+          <div style="font-size:0.92rem;color:var(--cloud);opacity:0.7;line-height:1.6;margin-bottom:20px;">
+            2629 Progressive Way Unit A<br>
+            Abbotsford, BC V2T 6H8<br>
+            Canada
+          </div>
+          <a href="tel:+17786663626" style="color:var(--teal-lt);font-weight:600;text-decoration:none;font-size:0.92rem;">778-666-3626</a>
+        </div>
+
+        <div class="gsap-reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px;transition-delay:0.15s;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:12px;">Regional Office</div>
+          <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:16px;">Calgary, AB</div>
+          <div style="font-size:0.92rem;color:var(--cloud);opacity:0.7;line-height:1.6;margin-bottom:20px;">
+            Calgary, Alberta<br>
+            Canada
+          </div>
+          <a href="mailto:info@keylinktransport.com" style="color:var(--teal-lt);font-weight:600;text-decoration:none;font-size:0.92rem;">info@keylinktransport.com</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="about-cta-heading">
+    <div class="container" style="position:relative;z-index:2;text-align:center;">
+      <h2 class="section-title gsap-reveal" id="about-cta-heading" style="color:var(--white);">Ready to Work Together?</h2>
+      <p class="section-sub gsap-reveal" style="margin:0 auto 36px;text-align:center;">Get a free freight quote or call us direct. We respond within one business day.</p>
+      <div class="gsap-reveal" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn--gold" style="font-size:1rem;padding:16px 36px;">Get a Quote →</a>
+        <a href="careers.html" class="btn btn--ghost" style="font-size:1rem;">Join Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/logo-keylink.png" alt="Keylink Transport Logo" loading="lazy" width="160" height="44">
+          <p class="footer__tagline">BC-based full truckload carrier. Canada–USA freight solutions for businesses that can't afford surprises.</p>
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/keylink-transport" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Keylink Transport on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Company</div>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__links">
+            <li><a href="services.html#ftl">Dry Van FTL</a></li>
+            <li><a href="services.html#crossborder">Cross-Border</a></li>
+            <li><a href="services.html#corridors">Freight Corridors</a></li>
+            <li><a href="contact.html">Request a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <circle cx="12" cy="11" r="3"/>
+            </svg>
+            <span>2629 Progressive Way Unit A<br>Abbotsford, BC V2T 6H8</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <a href="tel:+17786663626">778-666-3626</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <a href="mailto:info@keylinktransport.com">info@keylinktransport.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <a href="mailto:dispatch@keylinktransport.ca">dispatch@keylinktransport.ca</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">&copy; 2026 Keylink Transport Inc. All rights reserved. USDOT 2832041 | MC# 946449</div>
+        <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       COOKIE CONSENT BANNER
+       ============================================= -->
+  <div id="cookieConsent" role="region" aria-label="Cookie consent">
+    <div class="cookie-card">
+      <div class="cookie-card__header">
+        <div class="cookie-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+            <path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/>
+          </svg>
+        </div>
+        <span class="cookie-card__title">Cookie Preferences</span>
+      </div>
+      <div class="cookie-card__body">
+        <p class="cookie-card__desc">We use cookies to enhance your experience, personalize content, and analyze traffic on our site.</p>
+        <a href="privacy.html" class="cookie-card__link">
+          Privacy Policy
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+      <div class="cookie-card__footer">
+        <button class="cookie-btn cookie-btn--accept" id="cookieAcceptAll">Accept All</button>
+        <button class="cookie-btn cookie-btn--customize" id="cookieCustomize">Customize</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Customize Dialog -->
+  <div id="cookieDialog" role="dialog" aria-modal="true" aria-labelledby="cookieDialogTitle">
+    <div class="cookie-dialog__overlay" id="cookieDialogOverlay"></div>
+    <div class="cookie-dialog__panel">
+      <div class="cookie-dialog__header">
+        <div class="cookie-dialog__title" id="cookieDialogTitle">Manage Cookies</div>
+        <div class="cookie-dialog__desc">Customize your cookie preferences below.</div>
+        <button class="cookie-dialog__close" id="cookieDialogClose" aria-label="Close">&#x2715;</button>
+      </div>
+      <div class="cookie-dialog__body">
+        <div class="cookie-category enabled" id="cat-essential">
+          <div class="cookie-category__row">
+            <span class="cookie-category__name">
+              Essential Cookies
+              <span class="cookie-badge">Required</span>
+            </span>
+            <label class="cookie-toggle">
+              <input type="checkbox" id="toggle-essential" checked disabled>
+              <span class="cookie-toggle__track"></span>
+              <span class="cookie-toggle__thumb"></span>
+            </label>
+          </div>
+          <p class="cookie-category__desc">Required for core website functionality, navigation, and security. These cannot be disabled.</p>
+        </div>
+        <div class="cookie-category" id="cat-analytics">
+          <div class="cookie-category__row">
+            <span class="cookie-category__name">Analytics &amp; Performance</span>
+            <label class="cookie-toggle">
+              <input type="checkbox" id="toggle-analytics">
+              <span class="cookie-toggle__track"></span>
+              <span class="cookie-toggle__thumb"></span>
+            </label>
+          </div>
+          <p class="cookie-category__desc">Help us understand how visitors interact with our website by collecting anonymous usage data.</p>
+        </div>
+        <div class="cookie-category" id="cat-marketing">
+          <div class="cookie-category__row">
+            <span class="cookie-category__name">Marketing &amp; Advertising</span>
+            <label class="cookie-toggle">
+              <input type="checkbox" id="toggle-marketing">
+              <span class="cookie-toggle__track"></span>
+              <span class="cookie-toggle__thumb"></span>
+            </label>
+          </div>
+          <p class="cookie-category__desc">Enable personalized ads and marketing content across websites and social platforms.</p>
+        </div>
+      </div>
+      <div class="cookie-dialog__footer">
+        <button class="cookie-btn cookie-btn--reject" id="cookieRejectAll">Reject All</button>
+        <button class="cookie-btn cookie-btn--save" id="cookieSavePrefs">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var CONSENT_KEY = 'kl_cookie_consent';
+      var PREFS_KEY   = 'kl_cookie_prefs';
+
+      var banner   = document.getElementById('cookieConsent');
+      var dialog   = document.getElementById('cookieDialog');
+      var overlay  = document.getElementById('cookieDialogOverlay');
+      var closeBtn = document.getElementById('cookieDialogClose');
+
+      var toggleAnalytics = document.getElementById('toggle-analytics');
+      var toggleMarketing = document.getElementById('toggle-marketing');
+      var catAnalytics    = document.getElementById('cat-analytics');
+      var catMarketing    = document.getElementById('cat-marketing');
+
+      function syncCategoryStyle(cat, toggle) {
+        if (toggle.checked) { cat.classList.add('enabled'); }
+        else                { cat.classList.remove('enabled'); }
+      }
+
+      toggleAnalytics.addEventListener('change', function () {
+        syncCategoryStyle(catAnalytics, toggleAnalytics);
+      });
+      toggleMarketing.addEventListener('change', function () {
+        syncCategoryStyle(catMarketing, toggleMarketing);
+      });
+
+      function hideBanner() { banner.classList.remove('visible'); }
+
+      function saveAndClose(analytics, marketing) {
+        try {
+          localStorage.setItem(CONSENT_KEY, 'true');
+          localStorage.setItem(PREFS_KEY, JSON.stringify({ analytics: analytics, marketing: marketing }));
+        } catch (e) {}
+        hideBanner();
+        closeDialog();
+      }
+
+      function openDialog() {
+        try {
+          var prefs = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}');
+          toggleAnalytics.checked = !!prefs.analytics;
+          toggleMarketing.checked = !!prefs.marketing;
+          syncCategoryStyle(catAnalytics, toggleAnalytics);
+          syncCategoryStyle(catMarketing, toggleMarketing);
+        } catch (e) {}
+        dialog.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDialog() {
+        dialog.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('cookieAcceptAll').addEventListener('click', function () {
+        saveAndClose(true, true);
+      });
+      document.getElementById('cookieCustomize').addEventListener('click', openDialog);
+      document.getElementById('cookieRejectAll').addEventListener('click', function () {
+        saveAndClose(false, false);
+      });
+      document.getElementById('cookieSavePrefs').addEventListener('click', function () {
+        saveAndClose(toggleAnalytics.checked, toggleMarketing.checked);
+      });
+      closeBtn.addEventListener('click', closeDialog);
+      overlay.addEventListener('click', closeDialog);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && dialog.classList.contains('open')) closeDialog();
+      });
+
+      try {
+        if (localStorage.getItem(CONSENT_KEY) !== 'true') {
+          setTimeout(function () { banner.classList.add('visible'); }, 1200);
+        }
+      } catch (e) {
+        setTimeout(function () { banner.classList.add('visible'); }, 1200);
+      }
+    })();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Keylink Transport | FTL, Cross-Border & Freight Corridors</title>
+  <meta name="description" content="Keylink Transport offers dry van full truckload (FTL) freight, cross-border Canada-USA shipping, and dedicated freight corridors across Western Canada and the US West Coast.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.keylinktransport.ca/services">
+  <meta property="og:title" content="Services | Keylink Transport | FTL & Cross-Border Freight">
+  <meta property="og:description" content="Dry van FTL, cross-border Canada-USA, and dedicated corridors. USDOT certified. 5-star rated.">
+  <meta property="og:url" content="https://www.keylinktransport.ca/services">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/687e6bf7e2cc09231aa3fe36/d5959749-1b76-4811-a924-2311d975ac1c/Logo+keylink.png">
+  <style>
+    /* ================================================================
+       STICKY SECTION TABS — Keylink Transport Services
+       ================================================================ */
+
+    /* ---- PAGE HEADER: animated wave paths ---- */
+    #pageHeaderWaves {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    @keyframes waveFlow {
+      0%   { stroke-dashoffset: 2400; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #pageHeaderWaves { display: none; }
+    }
+
+    :root {
+      --nav-h: 84px;      /* updated dynamically via JS */
+      --sticky-h: 76px;   /* each section's sticky header height */
+    }
+
+    /* ---- PROGRESS RAIL (fixed, right side) ---- */
+    .sp-rail {
+      position: fixed;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .sp-rail.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Background pill */
+    .sp-rail-inner {
+      background: rgba(10,14,26,0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      padding: 20px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .sp-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+      padding: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Label (shown on hover + active) */
+    .sp-label {
+      position: absolute;
+      right: calc(100% + 16px);
+      white-space: nowrap;
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(232,237,245,0.5);
+      opacity: 0;
+      transform: translateX(6px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .sp-item:hover .sp-label,
+    .sp-item--active .sp-label {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--gold);
+    }
+    .sp-item--passed .sp-label {
+      opacity: 0;
+    }
+
+    /* The dot */
+    .sp-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .sp-item--active .sp-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--gold);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(240,168,32,0.2), 0 0 16px rgba(240,168,32,0.5);
+    }
+
+    .sp-item--passed .sp-dot {
+      background: var(--teal-lt);
+      border-color: var(--teal-lt);
+      width: 7px;
+      height: 7px;
+      opacity: 0.7;
+    }
+
+    /* Connector line between dots */
+    .sp-connector {
+      width: 1.5px;
+      height: 20px;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.4s ease;
+      margin: 0 auto;
+    }
+    .sp-connector--passed {
+      background: linear-gradient(to bottom, var(--teal-lt), rgba(34,160,146,0.25));
+    }
+
+    /* Remaining badge below dots */
+    .sp-remaining {
+      margin-top: 14px;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232,237,245,0.3);
+      text-align: center;
+      line-height: 1.4;
+      min-height: 1.4em;
+      transition: color 0.3s;
+    }
+    .sp-remaining.last {
+      color: var(--gold);
+      opacity: 0.8;
+    }
+
+    /* Section number badges inside rail */
+    .sp-num {
+      position: absolute;
+      right: calc(100% + 8px);
+      font-family: var(--font-head);
+      font-size: 0.65rem;
+      color: rgba(240,168,32,0.35);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    /* ---- STICKY SERVICES WRAPPER ---- */
+    .sticky-services {
+      background: var(--midnight);
+    }
+
+    /* ---- STICKY SECTION ---- */
+    .sticky-section {
+      position: relative;
+      overflow: clip;
+    }
+
+    .sticky-section__header {
+      position: sticky;
+      z-index: 50;
+      height: var(--sticky-h);
+      display: flex;
+      align-items: center;
+      background: rgba(10,14,26,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    /* Stacking offsets — each header rests below the ones above */
+    #sticky-ftl        .sticky-section__header { top: var(--nav-h); }
+    #sticky-crossborder .sticky-section__header { top: var(--nav-h); }
+    #sticky-corridors  .sticky-section__header { top: var(--nav-h); }
+
+    .sticky-section__header-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .sticky-section__left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .sticky-section__num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.3;
+      flex-shrink: 0;
+      width: 36px;
+    }
+
+    .sticky-section__badge {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(240,168,32,0.1);
+      border: 1px solid rgba(240,168,32,0.25);
+      padding: 3px 10px;
+      border-radius: 100px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .sticky-section__title {
+      font-family: var(--font-head);
+      font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sticky-section__cta-link {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: 1px solid rgba(240,168,32,0.3);
+      border-radius: 8px;
+      background: rgba(240,168,32,0.06);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .sticky-section__cta-link:hover {
+      background: var(--gold);
+      color: var(--midnight);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+    .sticky-section__cta-link svg {
+      width: 13px; height: 13px;
+    }
+
+    /* Active header highlight — left accent bar */
+    .sticky-section--active .sticky-section__header::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* Section content */
+    .sticky-section__body {
+      padding: 72px 0 88px;
+      background: #0e1320;
+    }
+
+    /* Alternating section backgrounds */
+    #sticky-crossborder .sticky-section__body {
+      background: #0a0e1a;
+    }
+    #sticky-corridors .sticky-section__body {
+      background: #0d1219;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1100px) {
+      .sp-rail { right: 14px; }
+    }
+    @media (max-width: 768px) {
+      .sp-rail { display: none; }
+      :root { --sticky-h: 60px; }
+      .sticky-section__num { font-size: 1.5rem; width: 28px; }
+      .sticky-section__badge { display: none; }
+      .sticky-section__title { font-size: 1.1rem; }
+      .sticky-section__cta-link { display: none; }
+    }
+
+    /* ================================================================
+       LOGO MARQUEE BAR
+       ================================================================ */
+    .logo-marquee-wrap {
+      background: #000;
+      overflow: hidden;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+
+    /* Fade edges */
+    .logo-marquee-wrap::before,
+    .logo-marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .logo-marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #000 0%, transparent 100%);
+    }
+    .logo-marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #000 0%, transparent 100%);
+    }
+
+    .logo-marquee-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: marqueeScroll 22s linear infinite;
+      will-change: transform;
+    }
+
+    .logo-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .logo-marquee-item {
+      padding: 0 36px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .lm-logo {
+      height: 24px;
+      width: auto;
+      color: #555;
+      fill: currentColor;
+      transition: color 0.3s ease;
+    }
+
+    .logo-marquee-item:hover .lm-logo {
+      color: #888;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo-marquee-track { animation: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Full Truckload Freight",
+    "provider": {
+      "@type": "TruckingCompany",
+      "name": "Keylink Transport Inc.",
+      "url": "https://www.keylinktransport.ca"
+    },
+    "areaServed": ["Canada", "United States"],
+    "description": "Dry van full truckload freight, cross-border Canada-USA shipping, and dedicated freight corridors."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="Keylink Transport Home">
+          <img src="assets/logo-keylink.png" alt="Keylink Transport Logo" width="160" height="44">
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" aria-current="page">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="tel:+17786663626" class="nav__phone">778-666-3626</a>
+          <a href="contact.html" class="btn btn--gold">Book a Load</a>
+        </div>
+        <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <button id="mobileClose" style="position:absolute;top:24px;right:24px;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;" aria-label="Close menu">✕</button>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html" style="color:var(--gold);">Book a Load →</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header" role="banner">
+
+    <!-- Animated wave paths background -->
+    <div id="pageHeaderWaves" aria-hidden="true"></div>
+    <script>
+    (function () {
+      var ns = 'http://www.w3.org/2000/svg';
+      var container = document.getElementById('pageHeaderWaves');
+      if (!container) return;
+
+      var palette = [
+        'rgba(34,160,146,',
+        'rgba(26,123,110,',
+        'rgba(240,168,32,',
+        'rgba(232,237,245,',
+        'rgba(34,160,146,',
+        'rgba(240,168,32,',
+      ];
+
+      function makeSVG(position) {
+        var svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 696 316');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+        svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+
+        for (var i = 0; i < 36; i++) {
+          var p5 = i * 5 * position;
+          var y6 = i * 6;
+          var d = 'M' + (-380 + p5) + ' ' + (-(189 + y6)) +
+                  'C' + (-380 + p5) + ' ' + (-(189 + y6)) + ' ' +
+                        (-312 + p5) + ' ' + (216 - y6)    + ' ' +
+                        (152  - p5) + ' ' + (343 - y6)    +
+                  'C' + (616  - p5) + ' ' + (470 - y6)    + ' ' +
+                        (684  - p5) + ' ' + (875 - y6)    + ' ' +
+                        (684  - p5) + ' ' + (875 - y6);
+
+          var path = document.createElementNS(ns, 'path');
+          path.setAttribute('d', d);
+
+          var opacity = (0.07 + i * 0.009).toFixed(3);
+          var colorBase = palette[i % palette.length];
+          path.setAttribute('stroke', colorBase + opacity + ')');
+          path.setAttribute('stroke-width', (0.5 + i * 0.04).toFixed(2));
+          path.setAttribute('stroke-dasharray', '520 1800');
+
+          var dur = (17 + (i % 13) * 1.1).toFixed(1) + 's';
+          var delay = (-(i * 1.4) % 20).toFixed(1) + 's';
+          path.style.animation = 'waveFlow ' + dur + ' linear infinite';
+          path.style.animationDelay = delay;
+
+          svg.appendChild(path);
+        }
+        return svg;
+      }
+
+      container.appendChild(makeSVG(1));
+      container.appendChild(makeSVG(-1));
+    })();
+    </script>
+
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="tag gsap-reveal">What We Offer</div>
+      <h1 class="page-header__title gsap-reveal">Our Services</h1>
+      <p class="page-header__sub gsap-reveal">
+        Full truckload expertise. Cross-border confidence. Dedicated corridors that keep
+        your supply chain moving. No excuses.
+      </p>
+    </div>
+  </header>
+
+  <!-- LOGO MARQUEE BAR -->
+  <div class="logo-marquee-wrap" aria-label="Trusted by leading retailers">
+    <div class="logo-marquee-track">
+      <!-- Set 1 -->
+      <div class="logo-marquee-item">
+        <!-- Home Depot -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" class="lm-logo" aria-label="The Home Depot">
+          <rect x="0" y="10" width="40" height="40" fill="currentColor"/>
+          <polygon points="20,2 40,14 40,10 20,0 0,10 0,14" fill="currentColor"/>
+          <text x="50" y="40" font-family="Arial Black, Arial" font-weight="900" font-size="22" fill="currentColor" letter-spacing="-0.5">HOME DEPOT</text>
+        </svg>
+      </div>
+      <div class="logo-marquee-item">
+        <!-- Walmart wordmark -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" class="lm-logo" aria-label="Walmart">
+          <!-- spark icon (simplified) -->
+          <g transform="translate(0,0)">
+            <line x1="24" y1="0"  x2="24" y2="14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <line x1="24" y1="34" x2="24" y2="48" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <line x1="0"  y1="24" x2="14" y2="24" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <line x1="34" y1="24" x2="48" y2="24" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <line x1="7"  y1="7"  x2="17" y2="17" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <line x1="31" y1="31" x2="41" y2="41" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <line x1="41" y1="7"  x2="31" y2="17" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <line x1="17" y1="31" x2="7"  y2="41" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <text x="58" y="34" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="currentColor">Walmart</text>
+        </svg>
+      </div>
+      <div class="logo-marquee-item">
+        <!-- Costco wordmark -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" class="lm-logo" aria-label="Costco Wholesale">
+          <text x="0" y="36" font-family="Arial Black, Arial" font-weight="900" font-size="30" fill="currentColor" letter-spacing="1">COSTCO</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS RAIL (fixed right-side dots) -->
+  <div class="sp-rail" id="spRail" aria-label="Service sections progress" role="navigation">
+    <div class="sp-rail-inner">
+
+      <!-- Dot 1: FTL -->
+      <div class="sp-item sp-item--active" data-idx="0" title="Dry Van FTL">
+        <span class="sp-label">Dry Van FTL</span>
+        <span class="sp-dot"></span>
+      </div>
+
+      <div class="sp-connector" data-connector="0"></div>
+
+      <!-- Dot 2: Cross-Border -->
+      <div class="sp-item" data-idx="1" title="Cross-Border">
+        <span class="sp-label">Cross-Border</span>
+        <span class="sp-dot"></span>
+      </div>
+
+      <div class="sp-connector" data-connector="1"></div>
+
+      <!-- Dot 3: Corridors -->
+      <div class="sp-item" data-idx="2" title="Corridors">
+        <span class="sp-label">Corridors</span>
+        <span class="sp-dot"></span>
+      </div>
+
+    </div>
+    <!-- Remaining count -->
+    <div class="sp-remaining" id="spRemaining">2 more below</div>
+  </div>
+
+  <!-- STICKY SECTION TABS -->
+  <div class="sticky-services" id="stickyServicesWrapper">
+
+    <!-- ── SECTION 1: FTL ── -->
+    <section class="sticky-section sticky-section--active" id="sticky-ftl" aria-label="Dry Van Full Truckload service">
+      <div class="sticky-section__header">
+        <div class="sticky-section__header-inner">
+          <div class="sticky-section__left">
+            <span class="sticky-section__num" aria-hidden="true">01</span>
+            <span class="sticky-section__badge">Core Service</span>
+            <h2 class="sticky-section__title">Dry Full Truckload or LTL</h2>
+          </div>
+          <a href="contact.html" class="sticky-section__cta-link" aria-label="Request a load for Dry Van FTL">
+            Request a Load
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="sticky-section__body">
+        <div class="container">
+          <div class="service-detail gsap-reveal" id="ftl">
+            <div>
+              <p class="section-sub" style="color:var(--cloud);opacity:0.75;margin-bottom:28px;">
+                53-foot dry vans for general cargo. Your load, your trailer, your timeline.
+                No co-loading, no hand-offs, full accountability from dock to delivery.
+              </p>
+              <ul class="service-detail__features" aria-label="FTL service features">
+                <li>Dedicated 53-foot dry van trailers</li>
+                <li>No co-loading. Your freight only</li>
+                <li>Full chain-of-custody documentation</li>
+                <li>Real-time shipment tracking</li>
+                <li>General cargo, packaged goods, industrial equipment</li>
+                <li>Large enterprise and SME pricing</li>
+                <li>Dry or Reefer</li>
+                <li>Full Truckload (FTL) or Less-than-Truckload (LTL)</li>
+                <li>Single or Multiple Drops</li>
+                <li>Live Loading and Unloading</li>
+                <li>Trailer Drop</li>
+                <li>Power Only</li>
+              </ul>
+              <a href="contact.html" class="btn btn--gold" style="margin-top:24px;">Request a Load</a>
+            </div>
+            <div class="service-detail__visual service-detail__visual--has-image gsap-scale" aria-label="Dry Van FTL loaded trailer with Canadian freight">
+              <img
+                src="assets/ftl-truck.png"
+                alt="Rear view of a loaded 53-foot dry van trailer packed with Canadian freight"
+                class="corridor-map-img"
+                loading="lazy"
+                width="1200"
+                height="896"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: CROSS-BORDER ── -->
+    <section class="sticky-section" id="sticky-crossborder" aria-label="Canada–USA Cross-Border Freight service">
+      <div class="sticky-section__header">
+        <div class="sticky-section__header-inner">
+          <div class="sticky-section__left">
+            <span class="sticky-section__num" aria-hidden="true">02</span>
+            <span class="sticky-section__badge">Cross-Border</span>
+            <h2 class="sticky-section__title">Canada–USA Cross-Border</h2>
+          </div>
+          <a href="contact.html" class="sticky-section__cta-link" aria-label="Request cross-border freight quote">
+            Get a Quote
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="sticky-section__body">
+        <div class="container">
+          <div class="service-detail gsap-reveal" id="crossborder">
+            <div>
+              <p class="section-sub" style="color:var(--cloud);opacity:0.75;margin-bottom:28px;">
+                Licensed, insured, and USDOT certified for seamless border crossings.
+                We handle the compliance paperwork so your freight doesn't stop at the line.
+              </p>
+              <ul class="service-detail__features" aria-label="Cross-border service features">
+                <li>USDOT 2832041 | MC# 946449 certified</li>
+                <li>$750,000 BIPD ICBC insurance</li>
+                <li>Full customs documentation support</li>
+                <li>FAST &amp; border-ready drivers</li>
+                <li>BC ↔ Washington, Oregon, California, Idaho</li>
+                <li>Midwest &amp; East Coast routes available on request</li>
+              </ul>
+              <a href="contact.html" class="btn btn--gold" style="margin-top:24px;">Request Cross-Border Quote</a>
+            </div>
+            <div class="service-detail__visual service-detail__visual--has-image gsap-scale" aria-label="Canada–USA border crossing sign">
+              <img
+                src="assets/crossborder-sign.png"
+                alt="Canada–USA border crossing sign with Canadian and American flags"
+                class="corridor-map-img"
+                loading="lazy"
+                width="560"
+                height="420"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: CORRIDORS ── -->
+    <section class="sticky-section" id="sticky-corridors" aria-label="Dedicated Freight Corridors service">
+      <div class="sticky-section__header">
+        <div class="sticky-section__header-inner">
+          <div class="sticky-section__left">
+            <span class="sticky-section__num" aria-hidden="true">03</span>
+            <span class="sticky-section__badge">Dedicated Routes</span>
+            <h2 class="sticky-section__title">Dedicated Freight Corridors</h2>
+          </div>
+          <a href="contact.html" class="sticky-section__cta-link" aria-label="Check your freight corridor">
+            Check Your Corridor
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="sticky-section__body">
+        <div class="container">
+          <div class="service-detail gsap-reveal" id="corridors">
+            <div>
+              <p class="section-sub" style="color:var(--cloud);opacity:0.75;margin-bottom:28px;">
+                Regular lanes mean consistent pricing, familiar routes, and fewer surprises.
+                Our core corridors run BC–California and Alberta–Ontario on a reliable schedule.
+              </p>
+              <ul class="service-detail__features" aria-label="Freight corridors features">
+                <li>BC → Alberta → Saskatchewan → Ontario</li>
+                <li>BC → Washington → Oregon → California</li>
+                <li>Alberta → Manitoba → Ontario</li>
+                <li>Regular schedules for predictable ETAs</li>
+                <li>Lane pricing advantages for repeat shippers</li>
+                <li>Custom routing on request</li>
+              </ul>
+              <a href="contact.html" class="btn btn--gold" style="margin-top:24px;">Check Your Corridor</a>
+            </div>
+            <div class="service-detail__visual service-detail__visual--has-image gsap-scale" aria-label="Freight corridor map showing Keylink Transport routes across Canada and USA">
+              <img
+                src="assets/corridor-map.png"
+                alt="3D North America freight corridor map with Canada and USA flags showing Keylink Transport's dedicated freight routes"
+                class="corridor-map-img"
+                loading="lazy"
+                width="1200"
+                height="896"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /sticky-services -->
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" role="complementary" aria-label="Credentials">
+    <div class="container">
+      <div class="trust-bar__inner">
+        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><span class="trust-item__label">USDOT</span> 2832041</span></div>
+        <div class="trust-bar__divider" aria-hidden="true"></div>
+        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span><span class="trust-item__label">MC#</span> 946449</span></div>
+        <div class="trust-bar__divider" aria-hidden="true"></div>
+        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span><span class="trust-item__label">$750K</span> ICBC Insured</span></div>
+        <div class="trust-bar__divider" aria-hidden="true"></div>
+        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span><span class="trust-item__label">5-Star</span> Rated</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="services-cta-heading">
+    <div class="container" style="position:relative;z-index:2;text-align:center;">
+      <h2 class="section-title gsap-reveal" id="services-cta-heading" style="color:var(--white);">Ready to Ship?</h2>
+      <p class="section-sub gsap-reveal" style="margin:0 auto 36px;text-align:center;">Get a quote within one business day. No hidden fees.</p>
+      <div class="gsap-reveal">
+        <a href="contact.html" class="btn btn--gold" style="font-size:1rem;padding:16px 36px;">Book a Load →</a>
+        <span style="display:inline-block;margin:0 16px;opacity:0.3;color:var(--white);">or</span>
+        <a href="tel:+17786663626" class="btn btn--ghost" style="font-size:1rem;">778-666-3626</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/logo-keylink.png" alt="Keylink Transport Logo" loading="lazy" width="160" height="44">
+          <p class="footer__tagline">BC-based full truckload carrier. Canada–USA freight solutions for businesses that can't afford surprises.</p>
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/keylink-transport" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Keylink Transport on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Company</div>
+          <ul class="footer__links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__links">
+            <li><a href="services.html#ftl">Dry Van FTL</a></li>
+            <li><a href="services.html#crossborder">Cross-Border</a></li>
+            <li><a href="services.html#corridors">Freight Corridors</a></li>
+            <li><a href="contact.html">Request a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:15px;height:15px;color:var(--teal-lt);flex-shrink:0;margin-top:2px;"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><a href="tel:+17786663626">778-666-3626</a></div>
+          <div class="footer__contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:15px;height:15px;color:var(--teal-lt);flex-shrink:0;margin-top:2px;"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><a href="mailto:info@keylinktransport.com">info@keylinktransport.com</a></div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">&copy; 2026 Keylink Transport Inc. All rights reserved. USDOT 2832041 | MC# 946449</div>
+        <div class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       COOKIE CONSENT BANNER
+       ============================================= -->
+  <div id="cookieConsent" role="region" aria-label="Cookie consent">
+    <div class="cookie-card">
+      <div class="cookie-card__header">
+        <div class="cookie-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+            <path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/>
+          </svg>
+        </div>
+        <span class="cookie-card__title">Cookie Preferences</span>
+      </div>
+      <div class="cookie-card__body">
+        <p class="cookie-card__desc">We use cookies to enhance your experience, personalize content, and analyze traffic on our site.</p>
+        <a href="privacy.html" class="cookie-card__link">
+          Privacy Policy
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+      <div class="cookie-card__footer">
+        <button class="cookie-btn cookie-btn--accept" id="cookieAcceptAll">Accept All</button>
+        <button class="cookie-btn cookie-btn--customize" id="cookieCustomize">Customize</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Customize Dialog -->
+  <div id="cookieDialog" role="dialog" aria-modal="true" aria-labelledby="cookieDialogTitle">
+    <div class="cookie-dialog__overlay" id="cookieDialogOverlay"></div>
+    <div class="cookie-dialog__panel">
+      <div class="cookie-dialog__header">
+        <div class="cookie-dialog__title" id="cookieDialogTitle">Manage Cookies</div>
+        <div class="cookie-dialog__desc">Customize your cookie preferences below.</div>
+        <button class="cookie-dialog__close" id="cookieDialogClose" aria-label="Close">&#x2715;</button>
+      </div>
+      <div class="cookie-dialog__body">
+        <div class="cookie-category enabled" id="cat-essential">
+          <div class="cookie-category__row">
+            <span class="cookie-category__name">
+              Essential Cookies
+              <span class="cookie-badge">Required</span>
+            </span>
+            <label class="cookie-toggle">
+              <input type="checkbox" id="toggle-essential" checked disabled>
+              <span class="cookie-toggle__track"></span>
+              <span class="cookie-toggle__thumb"></span>
+            </label>
+          </div>
+          <p class="cookie-category__desc">Required for core website functionality, navigation, and security. These cannot be disabled.</p>
+        </div>
+        <div class="cookie-category" id="cat-analytics">
+          <div class="cookie-category__row">
+            <span class="cookie-category__name">Analytics &amp; Performance</span>
+            <label class="cookie-toggle">
+              <input type="checkbox" id="toggle-analytics">
+              <span class="cookie-toggle__track"></span>
+              <span class="cookie-toggle__thumb"></span>
+            </label>
+          </div>
+          <p class="cookie-category__desc">Help us understand how visitors interact with our website by collecting anonymous usage data.</p>
+        </div>
+        <div class="cookie-category" id="cat-marketing">
+          <div class="cookie-category__row">
+            <span class="cookie-category__name">Marketing &amp; Advertising</span>
+            <label class="cookie-toggle">
+              <input type="checkbox" id="toggle-marketing">
+              <span class="cookie-toggle__track"></span>
+              <span class="cookie-toggle__thumb"></span>
+            </label>
+          </div>
+          <p class="cookie-category__desc">Enable personalized ads and marketing content across websites and social platforms.</p>
+        </div>
+      </div>
+      <div class="cookie-dialog__footer">
+        <button class="cookie-btn cookie-btn--reject" id="cookieRejectAll">Reject All</button>
+        <button class="cookie-btn cookie-btn--save" id="cookieSavePrefs">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var CONSENT_KEY = 'kl_cookie_consent';
+      var PREFS_KEY   = 'kl_cookie_prefs';
+
+      var banner   = document.getElementById('cookieConsent');
+      var dialog   = document.getElementById('cookieDialog');
+      var overlay  = document.getElementById('cookieDialogOverlay');
+      var closeBtn = document.getElementById('cookieDialogClose');
+
+      var toggleAnalytics = document.getElementById('toggle-analytics');
+      var toggleMarketing = document.getElementById('toggle-marketing');
+      var catAnalytics    = document.getElementById('cat-analytics');
+      var catMarketing    = document.getElementById('cat-marketing');
+
+      function syncCategoryStyle(cat, toggle) {
+        if (toggle.checked) { cat.classList.add('enabled'); }
+        else                { cat.classList.remove('enabled'); }
+      }
+
+      toggleAnalytics.addEventListener('change', function () {
+        syncCategoryStyle(catAnalytics, toggleAnalytics);
+      });
+      toggleMarketing.addEventListener('change', function () {
+        syncCategoryStyle(catMarketing, toggleMarketing);
+      });
+
+      function hideBanner() { banner.classList.remove('visible'); }
+
+      function saveAndClose(analytics, marketing) {
+        try {
+          localStorage.setItem(CONSENT_KEY, 'true');
+          localStorage.setItem(PREFS_KEY, JSON.stringify({ analytics: analytics, marketing: marketing }));
+        } catch (e) {}
+        hideBanner();
+        closeDialog();
+      }
+
+      function openDialog() {
+        try {
+          var prefs = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}');
+          toggleAnalytics.checked = !!prefs.analytics;
+          toggleMarketing.checked = !!prefs.marketing;
+          syncCategoryStyle(catAnalytics, toggleAnalytics);
+          syncCategoryStyle(catMarketing, toggleMarketing);
+        } catch (e) {}
+        dialog.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDialog() {
+        dialog.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('cookieAcceptAll').addEventListener('click', function () {
+        saveAndClose(true, true);
+      });
+      document.getElementById('cookieCustomize').addEventListener('click', openDialog);
+      document.getElementById('cookieRejectAll').addEventListener('click', function () {
+        saveAndClose(false, false);
+      });
+      document.getElementById('cookieSavePrefs').addEventListener('click', function () {
+        saveAndClose(toggleAnalytics.checked, toggleMarketing.checked);
+      });
+      closeBtn.addEventListener('click', closeDialog);
+      overlay.addEventListener('click', closeDialog);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && dialog.classList.contains('open')) closeDialog();
+      });
+
+      try {
+        if (localStorage.getItem(CONSENT_KEY) !== 'true') {
+          setTimeout(function () { banner.classList.add('visible'); }, 1200);
+        }
+      } catch (e) {
+        setTimeout(function () { banner.classList.add('visible'); }, 1200);
+      }
+    })();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <!-- ================================================================
+       STICKY SECTION TABS — Progress Rail Logic
+       ================================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    const mainNav     = document.getElementById('mainNav');
+    const rail        = document.getElementById('spRail');
+    const wrapper     = document.getElementById('stickyServicesWrapper');
+    const remainingEl = document.getElementById('spRemaining');
+
+    if (!rail || !wrapper || !mainNav) return;
+
+    const spItems      = Array.from(rail.querySelectorAll('.sp-item'));
+    const spConnectors = Array.from(rail.querySelectorAll('.sp-connector'));
+
+    const sectionIds = ['sticky-ftl', 'sticky-crossborder', 'sticky-corridors'];
+    const sections   = sectionIds.map(id => document.getElementById(id));
+    const TOTAL      = sections.length;
+
+    /* ── 1. Keep --nav-h in sync with actual nav height ── */
+    function syncNavHeight() {
+      const h = mainNav.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--nav-h', h + 'px');
+    }
+    syncNavHeight();
+    window.addEventListener('resize', syncNavHeight, { passive: true });
+
+    /* ── 2. Show / hide rail when wrapper is in view ── */
+    const wrapObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        rail.classList.toggle('visible', e.isIntersecting);
+      });
+    }, { threshold: 0.02 });
+    wrapObserver.observe(wrapper);
+
+    /* ── 3. Update dot states ── */
+    let currentIdx = 0;
+
+    function setActive(idx) {
+      if (idx === currentIdx && spItems[idx].classList.contains('sp-item--active')) return;
+      currentIdx = idx;
+
+      spItems.forEach((item, i) => {
+        item.classList.toggle('sp-item--active', i === idx);
+        item.classList.toggle('sp-item--passed',  i < idx);
+        /* remove conflicting class */
+        if (i === idx)  item.classList.remove('sp-item--passed');
+        if (i < idx)    item.classList.remove('sp-item--active');
+        if (i > idx)    item.classList.remove('sp-item--active', 'sp-item--passed');
+      });
+
+      spConnectors.forEach((conn, i) => {
+        conn.classList.toggle('sp-connector--passed', i < idx);
+      });
+
+      /* update active-section class on sections */
+      sections.forEach((sec, i) => {
+        if (sec) sec.classList.toggle('sticky-section--active', i === idx);
+      });
+
+      /* remaining count badge */
+      const remaining = TOTAL - idx - 1;
+      if (remainingEl) {
+        if (remaining > 0) {
+          remainingEl.textContent = remaining + ' more below';
+          remainingEl.classList.remove('last');
+        } else {
+          remainingEl.textContent = 'Last section';
+          remainingEl.classList.add('last');
+        }
+      }
+    }
+
+    /* ── 4. Determine active section on scroll ── */
+    function onScroll() {
+      const navH = mainNav.getBoundingClientRect().height;
+      /* find the lowest section whose top edge is at or above midpoint of viewport */
+      let best = 0;
+      sections.forEach((sec, i) => {
+        if (!sec) return;
+        const rect = sec.getBoundingClientRect();
+        /* section's top has entered the viewport (past nav) */
+        if (rect.top <= navH + 80) {
+          best = i;
+        }
+      });
+      setActive(best);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); /* run once on load */
+
+    /* ── 5. Click dot → smooth-scroll to section ── */
+    spItems.forEach((item, i) => {
+      item.addEventListener('click', () => {
+        const target = sections[i];
+        if (!target) return;
+        const navH   = mainNav.getBoundingClientRect().height;
+        const rawTop = target.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top: rawTop, behavior: 'smooth' });
+      });
+    });
+
+    /* ── 6. Keyboard accessibility for dot navigation ── */
+    spItems.forEach((item, i) => {
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      });
+    });
+
+    setActive(0);
+  })();
+  </script>
+  <script>
+    (function () {
+      var track = document.querySelector('.logo-marquee-track');
+      if (!track) return;
+      var original = Array.from(track.children);
+      var setWidth = track.scrollWidth;
+      while (track.scrollWidth < window.innerWidth * 3) {
+        original.forEach(function (item) { track.appendChild(item.cloneNode(true)); });
+      }
+      var s = document.createElement('style');
+      s.textContent = '@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-' + setWidth + 'px)}}';
+      document.head.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

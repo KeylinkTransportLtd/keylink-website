@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 | Page Not Found | Keylink Transport</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/687e6bf7e2cc09231aa3fe36/d5959749-1b76-4811-a924-2311d975ac1c/Logo+keylink.png">
+</head>
+<body>
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="Keylink Transport Home">
+          <img src="assets/logo-keylink.png" alt="Keylink Transport Logo" width="160" height="44">
+        </a>
+        <div class="nav__actions">
+          <a href="index.html" class="btn btn--gold">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--midnight);text-align:center;padding:40px 24px;" role="main">
+    <div>
+      <div style="font-family:var(--font-head);font-size:clamp(6rem,20vw,12rem);font-weight:800;color:rgba(26,123,110,0.15);line-height:1;margin-bottom:-20px;" aria-hidden="true">404</div>
+      <h1 style="font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);margin-bottom:16px;">This Load Got Lost.</h1>
+      <p style="font-size:1rem;color:var(--cloud);opacity:0.65;max-width:420px;margin:0 auto 40px;line-height:1.7;">
+        The page you're looking for doesn't exist. It may have moved or been removed.
+        Let's get you back on the right route.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="index.html" class="btn btn--gold">Go Home</a>
+        <a href="contact.html" class="btn btn--ghost">Get a Quote</a>
+        <a href="services.html" class="btn btn--ghost">Our Services</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- COOKIE CONSENT BANNER -->
+  <div id="cookieConsent" role="region" aria-label="Cookie consent">
+    <div class="cookie-card">
+      <div class="cookie-card__header">
+        <div class="cookie-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+            <path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/>
+          </svg>
+        </div>
+        <span class="cookie-card__title">Cookie Preferences</span>
+      </div>
+      <div class="cookie-card__body">
+        <p class="cookie-card__desc">We use cookies to enhance your experience, personalize content, and analyze traffic on our site.</p>
+        <a href="privacy.html" class="cookie-card__link">Privacy Policy <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+      </div>
+      <div class="cookie-card__footer">
+        <button class="cookie-btn cookie-btn--accept" id="cookieAcceptAll">Accept All</button>
+        <button class="cookie-btn cookie-btn--customize" id="cookieCustomize">Customize</button>
+      </div>
+    </div>
+  </div>
+  <div id="cookieDialog" role="dialog" aria-modal="true" aria-labelledby="cookieDialogTitle">
+    <div class="cookie-dialog__overlay" id="cookieDialogOverlay"></div>
+    <div class="cookie-dialog__panel">
+      <div class="cookie-dialog__header">
+        <div class="cookie-dialog__title" id="cookieDialogTitle">Manage Cookies</div>
+        <div class="cookie-dialog__desc">Customize your cookie preferences below.</div>
+        <button class="cookie-dialog__close" id="cookieDialogClose" aria-label="Close">&#x2715;</button>
+      </div>
+      <div class="cookie-dialog__body">
+        <div class="cookie-category enabled" id="cat-essential">
+          <div class="cookie-category__row"><span class="cookie-category__name">Essential Cookies <span class="cookie-badge">Required</span></span><label class="cookie-toggle"><input type="checkbox" id="toggle-essential" checked disabled><span class="cookie-toggle__track"></span><span class="cookie-toggle__thumb"></span></label></div>
+          <p class="cookie-category__desc">Required for core website functionality, navigation, and security.</p>
+        </div>
+        <div class="cookie-category" id="cat-analytics">
+          <div class="cookie-category__row"><span class="cookie-category__name">Analytics &amp; Performance</span><label class="cookie-toggle"><input type="checkbox" id="toggle-analytics"><span class="cookie-toggle__track"></span><span class="cookie-toggle__thumb"></span></label></div>
+          <p class="cookie-category__desc">Help us understand how visitors interact with our website by collecting anonymous usage data.</p>
+        </div>
+        <div class="cookie-category" id="cat-marketing">
+          <div class="cookie-category__row"><span class="cookie-category__name">Marketing &amp; Advertising</span><label class="cookie-toggle"><input type="checkbox" id="toggle-marketing"><span class="cookie-toggle__track"></span><span class="cookie-toggle__thumb"></span></label></div>
+          <p class="cookie-category__desc">Enable personalized ads and marketing content across websites and social platforms.</p>
+        </div>
+      </div>
+      <div class="cookie-dialog__footer">
+        <button class="cookie-btn cookie-btn--reject" id="cookieRejectAll">Reject All</button>
+        <button class="cookie-btn cookie-btn--save" id="cookieSavePrefs">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){var C='kl_cookie_consent',P='kl_cookie_prefs',b=document.getElementById('cookieConsent'),d=document.getElementById('cookieDialog'),o=document.getElementById('cookieDialogOverlay'),x=document.getElementById('cookieDialogClose'),ta=document.getElementById('toggle-analytics'),tm=document.getElementById('toggle-marketing'),ca=document.getElementById('cat-analytics'),cm=document.getElementById('cat-marketing');function s(c,t){t.checked?c.classList.add('enabled'):c.classList.remove('enabled');}ta.addEventListener('change',function(){s(ca,ta);});tm.addEventListener('change',function(){s(cm,tm);});function save(a,m){try{localStorage.setItem(C,'true');localStorage.setItem(P,JSON.stringify({analytics:a,marketing:m}));}catch(e){}b.classList.remove('visible');d.classList.remove('open');document.body.style.overflow='';}function open(){try{var p=JSON.parse(localStorage.getItem(P)||'{}');ta.checked=!!p.analytics;tm.checked=!!p.marketing;s(ca,ta);s(cm,tm);}catch(e){}d.classList.add('open');document.body.style.overflow='hidden';}function close(){d.classList.remove('open');document.body.style.overflow='';}document.getElementById('cookieAcceptAll').onclick=function(){save(true,true);};document.getElementById('cookieCustomize').onclick=open;document.getElementById('cookieRejectAll').onclick=function(){save(false,false);};document.getElementById('cookieSavePrefs').onclick=function(){save(ta.checked,tm.checked);};x.onclick=close;o.onclick=close;document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open'))close();});try{if(localStorage.getItem(C)!=='true')setTimeout(function(){b.classList.add('visible');},1200);}catch(e){setTimeout(function(){b.classList.add('visible');},1200);}})();
+  </script>
+</body>
+</html>

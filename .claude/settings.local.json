@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/shahazeen/.claude/**)",
+      "Bash(ls -lt ~/Downloads/*.mp4 ~/Downloads/*.mov ~/Downloads/*.MP4 ~/Downloads/*.MOV)",
+      "Skill(12k-site-builder)",
+      "Skill(12k-site-builder:*)",
+      "Bash(ls -lt /Users/shahazeen/Downloads/*.png)",
+      "Bash(/usr/bin/sed --version)",
+      "Bash(/usr/bin/sed -e 's/a/b/' /dev/null)",
+      "Bash(ls -lt /Users/shahazeen/Downloads/*.png /Users/shahazeen/Downloads/*.jpg /Users/shahazeen/Downloads/*.jpeg /Users/shahazeen/Downloads/*.PNG /Users/shahazeen/Downloads/*.JPG /Users/shahazeen/Downloads/*.JPEG)",
+      "Bash(python3 -c ':*)",
+      "Bash(ls -lt /Users/shahazeen/Downloads/*.mp4 /Users/shahazeen/Downloads/*.mov /Users/shahazeen/Downloads/*.webm)",
+      "Bash(ls -lt /Users/shahazeen/Downloads/*.mp4 /Users/shahazeen/Downloads/*.mov)"
+    ]
+  }
+}

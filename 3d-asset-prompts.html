@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Asset Prompts — Freight Truck Loaded to Empty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-body: 'Archivo', sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --gold: #F0A820;
+      --teal: #1A7B6E;
+      --navy: #12294A;
+      --bg: #02040a;
+      --card-bg: rgba(255,255,255,0.03);
+      --card-border: rgba(255,255,255,0.06);
+      --text-secondary: #99A1AF;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background-color: var(--gold); color: #000; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3 { font-family: var(--font-display); }
+
+    .bg-grid {
+      position: fixed; inset: 0;
+      background: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .bg-orb-1 {
+      position: fixed; top: -15%; left: -10%; width: 700px; height: 700px;
+      background: var(--navy); border-radius: 50%; filter: blur(280px);
+      opacity: 0.3; pointer-events: none; z-index: 0;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+    .bg-orb-2 {
+      position: fixed; bottom: -15%; right: -10%; width: 500px; height: 500px;
+      background: var(--gold); border-radius: 50%; filter: blur(220px);
+      opacity: 0.1; pointer-events: none; z-index: 0;
+      animation: orbFloat 25s ease-in-out infinite reverse;
+    }
+    .bg-orb-3 {
+      position: fixed; top: 40%; left: 30%; width: 400px; height: 400px;
+      background: var(--teal); border-radius: 50%; filter: blur(240px);
+      opacity: 0.08; pointer-events: none; z-index: 0;
+      animation: orbFloat 18s ease-in-out infinite 3s;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(40px, 25px); }
+    }
+
+    .confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+
+    .app {
+      position: relative; z-index: 1; display: flex; flex-direction: column;
+      height: 100vh; max-width: 960px; margin: 0 auto; padding: 2rem 2rem 0; width: 100%;
+    }
+
+    .header { text-align: center; padding: 1.5rem 0 1.75rem; flex-shrink: 0; }
+
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 0.9rem; margin-bottom: 1rem; border-radius: 980px;
+      border: 1px solid rgba(240,168,32,0.35); background: rgba(240,168,32,0.07);
+      color: var(--gold); font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.2em; backdrop-filter: blur(10px);
+    }
+    .header-badge svg { width: 12px; height: 12px; }
+
+    .header h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900;
+      letter-spacing: -0.06em; line-height: 0.9; margin-bottom: 0.75rem;
+    }
+    .header h1 .gold { color: var(--gold); }
+    .header h1 .faded {
+      background: linear-gradient(to right, #fff, rgba(255,255,255,0.35));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .header p {
+      font-size: 0.95rem; color: var(--text-secondary); max-width: 500px;
+      margin: 0 auto; line-height: 1.5; font-weight: 300;
+    }
+
+    .tabs-row { display: flex; gap: 0.5rem; flex-shrink: 0; margin-bottom: 1.25rem; }
+
+    .tab {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      padding: 0.85rem 1rem; border-radius: 20px; border: 1px solid var(--card-border);
+      background: var(--card-bg); color: var(--text-secondary); font-size: 0.82rem;
+      font-weight: 600; cursor: pointer; transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+      position: relative; overflow: hidden;
+    }
+    .tab::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; border-radius: 20px; }
+    .tab[data-tab="A"]::before { background: linear-gradient(135deg, rgba(26,123,110,0.18), transparent); }
+    .tab[data-tab="B"]::before { background: linear-gradient(135deg, rgba(18,41,74,0.35), transparent); }
+    .tab[data-tab="C"]::before { background: linear-gradient(135deg, rgba(240,168,32,0.15), transparent); }
+    .tab:hover { border-color: rgba(255,255,255,0.12); color: #fff; transform: translateY(-1px); }
+    .tab:hover::before, .tab.active::before { opacity: 1; }
+    .tab.active { border-color: rgba(255,255,255,0.15); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+
+    .tab .tab-letter {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 10px; font-size: 0.75rem;
+      font-weight: 900; font-family: var(--font-display); flex-shrink: 0; transition: all 0.35s ease;
+    }
+    .tab[data-tab="A"] .tab-letter { background: rgba(26,123,110,0.2); color: #1A7B6E; }
+    .tab[data-tab="B"] .tab-letter { background: rgba(100,149,237,0.2); color: #6495ED; }
+    .tab[data-tab="C"] .tab-letter { background: rgba(240,168,32,0.2); color: var(--gold); }
+    .tab.active[data-tab="A"] .tab-letter { background: #1A7B6E; color: #fff; }
+    .tab.active[data-tab="B"] .tab-letter { background: #6495ED; color: #fff; }
+    .tab.active[data-tab="C"] .tab-letter { background: var(--gold); color: #000; }
+    .tab .tab-name { position: relative; z-index: 1; }
+
+    .prompt-panel {
+      flex: 1; min-height: 0; display: flex; flex-direction: column;
+      background: linear-gradient(145deg, rgba(12,14,22,0.92), rgba(6,8,14,0.95));
+      border: 1px solid var(--card-border); border-radius: 28px 28px 0 0; overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--card-border); flex-shrink: 0;
+    }
+    .panel-header-left { display: flex; align-items: center; gap: 0.75rem; }
+
+    .panel-icon {
+      width: 36px; height: 36px; border-radius: 11px; display: flex;
+      align-items: center; justify-content: center; font-size: 0.9rem;
+      font-weight: 900; font-family: var(--font-display); flex-shrink: 0; transition: all 0.35s ease;
+    }
+    .panel-icon.a { background: #1A7B6E; color: #fff; }
+    .panel-icon.b { background: #6495ED; color: #fff; }
+    .panel-icon.c { background: var(--gold); color: #000; }
+
+    .panel-meta .panel-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); font-weight: 700; }
+    .panel-meta .panel-title { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; margin-top: 1px; }
+    .panel-header-right { display: flex; align-items: center; gap: 0.5rem; }
+
+    .instruction-tag {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.3rem 0.75rem; border-radius: 980px; font-size: 0.65rem; font-weight: 600; white-space: nowrap;
+    }
+    .instruction-tag.img { background: rgba(26,123,110,0.1); color: #1A7B6E; border: 1px solid rgba(26,123,110,0.2); }
+    .instruction-tag.vid { background: rgba(240,168,32,0.08); color: var(--gold); border: 1px solid rgba(240,168,32,0.2); }
+    .instruction-tag svg { width: 11px; height: 11px; }
+
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.15rem;
+      border-radius: 980px; border: 1px solid var(--card-border); background: transparent;
+      color: var(--text-secondary); font-size: 0.78rem; font-weight: 600; cursor: pointer;
+      transition: all 0.25s ease; font-family: var(--font-body);
+    }
+    .copy-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); transform: scale(1.03); }
+    .copy-btn.copied { background: var(--gold); color: #000; border-color: var(--gold); }
+    .copy-btn svg { width: 14px; height: 14px; }
+
+    .panel-body { flex: 1; min-height: 0; position: relative; }
+    .prompt-content { display: none; position: absolute; inset: 0; opacity: 0; transform: translateY(8px); transition: opacity 0.3s ease, transform 0.3s ease; }
+    .prompt-content.active { display: block; opacity: 1; transform: translateY(0); }
+
+    .prompt-text {
+      font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.8;
+      color: rgba(255,255,255,0.72); white-space: pre-wrap; word-break: break-word;
+      padding: 1.75rem; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+    }
+    .prompt-text::-webkit-scrollbar { width: 6px; }
+    .prompt-text::-webkit-scrollbar-track { background: transparent; }
+    .prompt-text::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+
+    @media (max-width: 640px) {
+      .app { padding: 1.25rem 1rem 0; }
+      .header { padding: 1rem 0 1.25rem; }
+      .header h1 { font-size: clamp(1.5rem, 8vw, 2.2rem); }
+      .tab { padding: 0.7rem 0.5rem; font-size: 0.72rem; border-radius: 16px; }
+      .tab .tab-name { display: none; }
+      .tab .tab-subtitle { display: block; font-size: 0.65rem; color: var(--text-secondary); margin-top: 2px; }
+      .panel-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1rem 1.25rem; }
+      .panel-header-right { width: 100%; justify-content: space-between; }
+      .prompt-text { padding: 1.25rem; font-size: 0.73rem; line-height: 1.7; }
+      .prompt-panel { border-radius: 22px 22px 0 0; }
+    }
+    @media (min-width: 641px) { .tab .tab-subtitle { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+  <div class="bg-orb-3"></div>
+  <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+  <div class="app">
+    <header class="header">
+      <div class="header-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        Keylink Transport &mdash; 3D Asset Generator
+      </div>
+      <h1>FREIGHT TRUCK <span class="faded">3D ASSET</span> <span class="gold">PROMPTS.</span></h1>
+      <p>Three CGI prompts: fully loaded trailer &rarr; spotlessly empty. Scroll-scrub ready for your website hero.</p>
+    </header>
+
+    <div class="tabs-row">
+      <button class="tab active" data-tab="A" onclick="switchTab('A')">
+        <span class="tab-letter">A</span>
+        <span class="tab-name">Loaded State</span>
+        <span class="tab-subtitle">Loaded</span>
+      </button>
+      <button class="tab" data-tab="B" onclick="switchTab('B')">
+        <span class="tab-letter">B</span>
+        <span class="tab-name">Empty State</span>
+        <span class="tab-subtitle">Empty</span>
+      </button>
+      <button class="tab" data-tab="C" onclick="switchTab('C')">
+        <span class="tab-letter">C</span>
+        <span class="tab-name">Scroll-Scrub Video</span>
+        <span class="tab-subtitle">Video</span>
+      </button>
+    </div>
+
+    <div class="prompt-panel">
+      <div class="panel-header">
+        <div class="panel-header-left">
+          <div class="panel-icon a" id="panelIcon">A</div>
+          <div class="panel-meta">
+            <div class="panel-label" id="panelLabel">Prompt A &mdash; 3D Image Generator</div>
+            <div class="panel-title" id="panelTitle">Loaded Truck — Full State</div>
+          </div>
+        </div>
+        <div class="panel-header-right">
+          <div class="instruction-tag img" id="panelTag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span id="panelTagText">16:9 &middot; 3D Image Generator</span>
+          </div>
+          <button class="copy-btn" id="copyBtn" onclick="copyCurrentPrompt()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <div class="prompt-content active" id="contentA">
+          <div class="prompt-text">PROMPT A — FREIGHT TRUCK: FULLY LOADED STATE
+Paste into your 3D image generator (Midjourney, Flux, DALL-E, Firefly, Ideogram, etc.)
+Set aspect ratio to 16:9. Generate this first.
+
+Photorealistic 3D CGI render of a full-size North American Class 8 semi-truck with a 53-foot dry van trailer. Rear three-quarter view, camera slightly elevated (eye level at mid-trailer height), looking directly into the wide-open rear trailer doors. The trailer fills approximately 70% of the frame width.
+
+Pure white studio background (#FFFFFF). Absolute infinity white — no gradient, no vignette, no ambient occlusion darkening on the background surface. Perfect diffused studio lighting: single large overhead softbox centered above, white V-flat reflectors on both sides of the scene. One clean, soft ground shadow directly beneath the rig — nothing else.
+
+TRUCK CAB: Deep navy blue (#12294A) painted steel cab, long-nose conventional style. Warm gold (#F0A820) accent pinstripes running the full length of the cab door panels. Polished chrome exhaust stacks rising behind the cab. Chrome bumper, chrome mirror housings. Dark tinted windshield. The cab is partially visible at the left edge of frame — the trailer dominates.
+
+TRAILER EXTERIOR: Bright white aluminum corrugated trailer walls. Clean, professional. No markings, no dirt. Stainless steel door frame and locking hardware. Both rear swing doors fully open and pinned back flat against the trailer sides.
+
+TRAILER INTERIOR — THE LOADED STATE:
+The trailer is packed absolutely floor-to-ceiling, wall-to-wall, front-to-back with uniform brown corrugated cardboard freight boxes. Every single cubic foot of usable space is occupied — not one gap, not one empty corner. Boxes are uniform size (approximately 18"×18"×24"), stacked in a perfect grid formation: rows run left-to-right, columns front-to-back, tiers bottom-to-top.
+
+Each box shows natural cardboard texture — the faint ribbing of corrugated kraft, slightly different shades of brown per box from natural material variation. Some boxes have visible shipping tape (clear, matte finish) running across the top seam. Some have faint barcode labels and handling instruction stamps (FRAGILE, THIS SIDE UP) in standard warehouse black ink. The label detail is present but secondary — the overwhelming impression is MASS and VOLUME.
+
+The trailer sits visibly low and heavy on its suspension. All six dual rear tires (Michelin-style radials, black, with visible tread) press firmly and wide against the white studio floor under the full weight. The trailer frame sits noticeably lower than its design height.
+
+Render quality: Octane Render or V-Ray, physically based rendering (PBR). Ray-traced shadows and reflections. Subsurface detail on cardboard. Sharp focus across the entire scene with very mild depth-of-field falloff at the very front of the trailer interior. 8K resolution quality output. 16:9 aspect ratio. No text overlays, no logos, no watermarks, no UI elements.</div>
+        </div>
+
+        <div class="prompt-content" id="contentB">
+          <div class="prompt-text">PROMPT B — FREIGHT TRUCK: EMPTY/DELIVERED STATE
+Paste into your 3D image generator. Reference Prompt A's output for visual consistency.
+Set aspect ratio to 16:9. CRITICAL: Match camera angle and lighting exactly to Prompt A.
+
+Photorealistic 3D CGI render of the EXACT SAME Class 8 semi-truck and 53-foot dry van trailer from Prompt A. This is the same vehicle, same scene, same camera, same lighting. The ONLY thing that has changed is the state of the trailer interior.
+
+IDENTICAL to Prompt A:
+- Same rear three-quarter camera angle, same elevation, same field of view
+- Same pure white #FFFFFF background, same infinity white floor
+- Same overhead softbox lighting, same V-flat reflectors, same shadow position and intensity
+- Same navy blue (#12294A) cab, same gold (#F0A820) pinstripes, same chrome details
+- Same white trailer exterior, same open rear doors pinned back
+
+TRAILER INTERIOR — THE EMPTY STATE:
+The trailer is completely, spotlessly, magnificently empty. Not a single box. Not a scrap of packaging. Not a piece of tape. Delivery: complete.
+
+The corrugated aluminum trailer floor is fully exposed — a beautiful ribbed metal surface in brushed silver-aluminum. Under the studio lights it reflects cleanly, catching highlights along each ridge. The floor shows the faintest marks of honest use: very subtle scuff lines from past load movements, barely perceptible, adding authenticity without looking dirty.
+
+The trailer walls and ceiling are ribbed white-painted steel, slightly glossy. They reflect the studio light softly. The full interior depth is now visible — the trailer stretches back 53 feet into a bright, open, airy space. The interior is noticeably brighter than in Prompt A because there is no dark mass of boxes absorbing the light.
+
+The tie-down rails (E-track logistics rails) run along both walls at floor level and mid-height — polished steel, properly mounted, now clearly visible with nothing covering them. The trailer nose wall (the front bulkhead) is visible at the far end — a clean white painted steel wall with a rubber bumper strip at floor level.
+
+PHYSICAL WEIGHT CUE — CRITICAL DETAIL:
+The truck's suspension has risen now that the load is gone. The trailer frame sits visibly higher than in Prompt A. The dual rear tires are rounder, fuller, with more space between the tire crown and the wheel arch — the natural height of an unladen rig. This subtle physical detail communicates "delivered" more powerfully than any text could.
+
+The mood is: clean, proud, light, mission accomplished. Where Prompt A felt heavy and dense, this feels open and free.
+
+Same render quality: Octane/V-Ray, PBR, ray-traced. 8K output. 16:9. No text, no logos, no watermarks.</div>
+        </div>
+
+        <div class="prompt-content" id="contentC">
+          <div class="prompt-text">PROMPT C — SCROLL-SCRUB VIDEO TRANSITION
+Paste into your video model (Runway Gen-3 Alpha, Kling 1.6, Pika 2.1, Higgsfield, Luma Dream Machine, etc.)
+Upload Prompt A's rendered image as the START FRAME.
+Upload Prompt B's rendered image as the END FRAME.
+
+START FRAME:
+A photorealistic 3D CGI semi-truck, navy blue cab, white 53-foot dry van trailer, rear doors open, packed absolutely floor-to-ceiling with uniform brown cardboard freight boxes in a perfect grid. Pure white studio background. Camera: rear three-quarter elevated view. Trailer sits low under full load.
+
+END FRAME:
+The identical truck from the identical angle — same navy cab, same white trailer, same camera, same white background. Rear doors open. Trailer completely empty: gleaming corrugated aluminum floor catching studio light, bright airy interior visible to the front bulkhead, tie-down rails exposed on both walls. Truck suspension visibly higher.
+
+TRANSITION MOTION — THE UNLOADING SEQUENCE:
+
+Hold perfectly still on the loaded truck for 0.5 seconds. Then:
+
+The boxes begin to exit the trailer in a cascading sequence, starting from the rearmost visible column. The unloading proceeds column by column, front edge to back, over 2.8 seconds:
+
+Each box in the departing column simultaneously tilts upward approximately 15 degrees on its horizontal axis (like a forklift tine lifting from the front), then lifts off the stack with a slight elastic ease — just a hair of bounce as it breaks contact. The box then moves outward from the trailer mouth in a smooth, confident arc: accelerating through the trailer doorframe, maintaining a steady velocity through mid-air, then cleanly exiting the right edge of the frame. During transit, each box rotates gently on two axes — a 20-degree yaw and a slight roll — to reveal its three-dimensional depth and the faint texture of the cardboard faces. Boxes in each column depart in a tight cascade: bottom box first, then middle, then top, each departing 0.15 seconds after the one below — giving a satisfying upward ripple to each column's exit.
+
+As each column of boxes clears, the corrugated aluminum floor and white walls behind them catch progressively more studio light. The interior grows noticeably brighter, column by column, from rear to front — a visual wave of light opening up as the space empties. By the time the final front columns depart, the trailer interior is fully bright and gleaming.
+
+In the final 0.8 seconds, after the last box exits, the truck suspension gently and smoothly rises — a slow, satisfying mechanical lift of the entire trailer frame, settling into its unladen height. Hold the final empty state for 1 full second.
+
+LOCKED STYLE RULES — NON-NEGOTIABLE:
+- White background remains pure #FFFFFF throughout. No color shift, no vignette appearing mid-clip.
+- Studio lighting stays constant in direction and intensity. No flicker, no color temperature drift.
+- Camera is absolutely locked. Zero movement. Zero parallax. Zero zoom. Zero breathing. Tripod-rigid.
+- All box motion is eased: slow-in off the stack (0.2s ease), confident mid-flight, soft ease-out at frame exit.
+- Boxes do not wobble, jitter, or clip through each other. Physics are clean and believable.
+- ASMR-precision pacing — deliberate, satisfying, not rushed, not frantic.
+- Photorealistic throughout — same CGI quality as the still renders.
+
+DURATION: 6 seconds total
+ASPECT RATIO: 16:9
+FRAME RATE: 60fps strongly preferred (essential for smooth scroll-scrub on website). 24fps minimum.
+QUALITY: Highest fidelity available. No motion-blur artifacts on box edges. No temporal flickering.
+
+---
+BONUS VARIATIONS — equally scroll-stopping:
+
+REVERSE VERSION (Load Animation):
+Swap start and end frames. Boxes cascade IN from right edge of frame and self-stack in perfect formation inside the trailer. Column by column, front-to-back. The truck suspension sinks progressively as the load builds. Use for "we take on your freight" messaging.
+
+SEAMLESS LOOP:
+Unload forward (6s) then reload in reverse (6s), crossfading at the empty state. Perfect for autoplay website hero backgrounds.
+
+SLOW-MOTION VERSION:
+Same animation stretched to 14–16 seconds. Every box float becomes cinematic. Perfect for scroll-scrub on tall hero sections (400vh+). Pair with deep resonant audio design: cardboard slides, metal trailer floor ring, suspension creak, dock door chain.
+
+HOW TO USE ON YOUR WEBSITE:
+1. Set hero section height: 350vh
+2. Sticky inner container: 100vh, position: sticky, top: 0
+3. Video element: muted, preload="auto", no autoplay
+4. JS: map window.scrollY within the section to video.currentTime
+5. Progress = (scrollY - sectionTop) / (sectionHeight - windowHeight)
+6. video.currentTime = progress * video.duration</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Confetti
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let pieces = [], animating = false;
+    function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+    resize(); addEventListener('resize', resize);
+    const colors = ['#F0A820','#1A7B6E','#12294A','#6495ED','#fff','#fb923c','#34d399','#f472b6'];
+    function launch() {
+      pieces = [];
+      for (let i = 0; i < 160; i++) pieces.push({
+        x: innerWidth/2 + (Math.random()-.5)*200, y: innerHeight/2,
+        vx: (Math.random()-.5)*22, vy: -(Math.random()*20+6),
+        w: Math.random()*11+4, h: Math.random()*7+3,
+        color: colors[Math.floor(Math.random()*colors.length)],
+        rot: Math.random()*360, rs: (Math.random()-.5)*16,
+        g: 0.35+Math.random()*0.15, op: 1, decay: 0.007+Math.random()*0.009,
+        shape: Math.random() > 0.5 ? 'rect' : 'circle'
+      });
+      if (!animating) { animating = true; animate(); }
+    }
+    function animate() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      let alive = 0;
+      for (const p of pieces) {
+        if (p.op <= 0) continue; alive++;
+        p.x+=p.vx; p.vy+=p.g; p.y+=p.vy; p.vx*=0.99;
+        p.rot+=p.rs; p.op-=p.decay;
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+        ctx.globalAlpha=Math.max(0,p.op); ctx.fillStyle=p.color;
+        if (p.shape==='rect') ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+        else { ctx.beginPath(); ctx.arc(0,0,p.w/2,0,Math.PI*2); ctx.fill(); }
+        ctx.restore();
+      }
+      if (alive > 0) requestAnimationFrame(animate);
+      else { animating = false; ctx.clearRect(0,0,canvas.width,canvas.height); }
+    }
+
+    // Tab system
+    const tabsData = {
+      A: { label: 'Prompt A &mdash; 3D Image Generator', title: 'Loaded Truck — Full State', iconClass: 'a', tagClass: 'img',
+           tagIcon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>',
+           tagText: '16:9 &middot; 3D Image Generator' },
+      B: { label: 'Prompt B &mdash; 3D Image Generator', title: 'Empty Truck — Delivered State', iconClass: 'b', tagClass: 'img',
+           tagIcon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>',
+           tagText: '16:9 &middot; Reference Prompt A' },
+      C: { label: 'Prompt C &mdash; Video Model', title: 'Scroll-Scrub Animation', iconClass: 'c', tagClass: 'vid',
+           tagIcon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>',
+           tagText: 'Start: A &middot; End: B &middot; 60fps' }
+    };
+    let current = 'A';
+    function switchTab(tab) {
+      if (tab === current) return; current = tab;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelector(`.tab[data-tab="${tab}"]`).classList.add('active');
+      const d = tabsData[tab];
+      const icon = document.getElementById('panelIcon');
+      icon.textContent = tab; icon.className = 'panel-icon ' + d.iconClass;
+      document.getElementById('panelLabel').innerHTML = d.label;
+      document.getElementById('panelTitle').textContent = d.title;
+      const tag = document.getElementById('panelTag');
+      tag.className = 'instruction-tag ' + d.tagClass;
+      tag.innerHTML = d.tagIcon + ' <span>' + d.tagText + '</span>';
+      const btn = document.getElementById('copyBtn');
+      btn.classList.remove('copied');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+      document.querySelectorAll('.prompt-content').forEach(c => c.classList.remove('active'));
+      requestAnimationFrame(() => document.getElementById('content'+tab).classList.add('active'));
+    }
+    function copyCurrentPrompt() {
+      const text = document.querySelector('.prompt-content.active .prompt-text').textContent;
+      const btn = document.getElementById('copyBtn');
+      navigator.clipboard.writeText(text).then(() => {
+        launch();
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+        }, 2000);
+      });
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key==='1') switchTab('A');
+      if (e.key==='2') switchTab('B');
+      if (e.key==='3') switchTab('C');
+      if ((e.metaKey||e.ctrlKey) && e.key==='c' && !getSelection().toString()) { e.preventDefault(); copyCurrentPrompt(); }
+    });
+  </script>
+</body>
+</html>

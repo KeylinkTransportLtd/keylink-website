@@ -38,6 +38,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="careers.html">Careers</a></li>
         </ul>
         <div class="nav__actions">
@@ -63,6 +64,7 @@
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
       <a href="careers.html">Careers</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -180,6 +182,7 @@
           <ul class="footer__links">
             <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -204,169 +207,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- =============================================
-       COOKIE CONSENT BANNER
-       ============================================= -->
-  <div id="cookieConsent" role="region" aria-label="Cookie consent">
-    <div class="cookie-card">
-      <div class="cookie-card__header">
-        <div class="cookie-card__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
-            <path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/>
-          </svg>
-        </div>
-        <span class="cookie-card__title">Cookie Preferences</span>
-      </div>
-      <div class="cookie-card__body">
-        <p class="cookie-card__desc">We use cookies to enhance your experience, personalize content, and analyze traffic on our site.</p>
-        <a href="privacy.html" class="cookie-card__link">
-          Privacy Policy
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-      </div>
-      <div class="cookie-card__footer">
-        <button class="cookie-btn cookie-btn--accept" id="cookieAcceptAll">Accept All</button>
-        <button class="cookie-btn cookie-btn--customize" id="cookieCustomize">Customize</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cookie Customize Dialog -->
-  <div id="cookieDialog" role="dialog" aria-modal="true" aria-labelledby="cookieDialogTitle">
-    <div class="cookie-dialog__overlay" id="cookieDialogOverlay"></div>
-    <div class="cookie-dialog__panel">
-      <div class="cookie-dialog__header">
-        <div class="cookie-dialog__title" id="cookieDialogTitle">Manage Cookies</div>
-        <div class="cookie-dialog__desc">Customize your cookie preferences below.</div>
-        <button class="cookie-dialog__close" id="cookieDialogClose" aria-label="Close">&#x2715;</button>
-      </div>
-      <div class="cookie-dialog__body">
-        <div class="cookie-category enabled" id="cat-essential">
-          <div class="cookie-category__row">
-            <span class="cookie-category__name">
-              Essential Cookies
-              <span class="cookie-badge">Required</span>
-            </span>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="toggle-essential" checked disabled>
-              <span class="cookie-toggle__track"></span>
-              <span class="cookie-toggle__thumb"></span>
-            </label>
-          </div>
-          <p class="cookie-category__desc">Required for core website functionality, navigation, and security. These cannot be disabled.</p>
-        </div>
-        <div class="cookie-category" id="cat-analytics">
-          <div class="cookie-category__row">
-            <span class="cookie-category__name">Analytics &amp; Performance</span>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="toggle-analytics">
-              <span class="cookie-toggle__track"></span>
-              <span class="cookie-toggle__thumb"></span>
-            </label>
-          </div>
-          <p class="cookie-category__desc">Help us understand how visitors interact with our website by collecting anonymous usage data.</p>
-        </div>
-        <div class="cookie-category" id="cat-marketing">
-          <div class="cookie-category__row">
-            <span class="cookie-category__name">Marketing &amp; Advertising</span>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="toggle-marketing">
-              <span class="cookie-toggle__track"></span>
-              <span class="cookie-toggle__thumb"></span>
-            </label>
-          </div>
-          <p class="cookie-category__desc">Enable personalized ads and marketing content across websites and social platforms.</p>
-        </div>
-      </div>
-      <div class="cookie-dialog__footer">
-        <button class="cookie-btn cookie-btn--reject" id="cookieRejectAll">Reject All</button>
-        <button class="cookie-btn cookie-btn--save" id="cookieSavePrefs">Save Preferences</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      var CONSENT_KEY = 'kl_cookie_consent';
-      var PREFS_KEY   = 'kl_cookie_prefs';
-
-      var banner   = document.getElementById('cookieConsent');
-      var dialog   = document.getElementById('cookieDialog');
-      var overlay  = document.getElementById('cookieDialogOverlay');
-      var closeBtn = document.getElementById('cookieDialogClose');
-
-      var toggleAnalytics = document.getElementById('toggle-analytics');
-      var toggleMarketing = document.getElementById('toggle-marketing');
-      var catAnalytics    = document.getElementById('cat-analytics');
-      var catMarketing    = document.getElementById('cat-marketing');
-
-      function syncCategoryStyle(cat, toggle) {
-        if (toggle.checked) { cat.classList.add('enabled'); }
-        else                { cat.classList.remove('enabled'); }
-      }
-
-      toggleAnalytics.addEventListener('change', function () {
-        syncCategoryStyle(catAnalytics, toggleAnalytics);
-      });
-      toggleMarketing.addEventListener('change', function () {
-        syncCategoryStyle(catMarketing, toggleMarketing);
-      });
-
-      function hideBanner() { banner.classList.remove('visible'); }
-
-      function saveAndClose(analytics, marketing) {
-        try {
-          localStorage.setItem(CONSENT_KEY, 'true');
-          localStorage.setItem(PREFS_KEY, JSON.stringify({ analytics: analytics, marketing: marketing }));
-        } catch (e) {}
-        hideBanner();
-        closeDialog();
-      }
-
-      function openDialog() {
-        try {
-          var prefs = JSON.parse(localStorage.getItem(PREFS_KEY) || '{}');
-          toggleAnalytics.checked = !!prefs.analytics;
-          toggleMarketing.checked = !!prefs.marketing;
-          syncCategoryStyle(catAnalytics, toggleAnalytics);
-          syncCategoryStyle(catMarketing, toggleMarketing);
-        } catch (e) {}
-        dialog.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeDialog() {
-        dialog.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      document.getElementById('cookieAcceptAll').addEventListener('click', function () {
-        saveAndClose(true, true);
-      });
-      document.getElementById('cookieCustomize').addEventListener('click', openDialog);
-      document.getElementById('cookieRejectAll').addEventListener('click', function () {
-        saveAndClose(false, false);
-      });
-      document.getElementById('cookieSavePrefs').addEventListener('click', function () {
-        saveAndClose(toggleAnalytics.checked, toggleMarketing.checked);
-      });
-      closeBtn.addEventListener('click', closeDialog);
-      overlay.addEventListener('click', closeDialog);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && dialog.classList.contains('open')) closeDialog();
-      });
-
-      try {
-        if (localStorage.getItem(CONSENT_KEY) !== 'true') {
-          setTimeout(function () { banner.classList.add('visible'); }, 1200);
-        }
-      } catch (e) {
-        setTimeout(function () { banner.classList.add('visible'); }, 1200);
-      }
-    })();
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>

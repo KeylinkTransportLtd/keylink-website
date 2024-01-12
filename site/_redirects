@@ -1,11 +1,64 @@
-# Redirect /appointments to contact page
-/appointments        /contact.html    301
-/appointments/       /contact.html    301
+# Redirect .html URLs to clean canonical URLs
+/index.html          /               301
+/about.html          /about          301
+/services.html       /services       301
+/contact.html        /contact        301
+/careers.html        /careers        301
+/faq.html            /faq            301
+/blog.html           /blog           301
+/privacy.html        /privacy        301
+/terms.html          /terms          301
 
-# Clean URLs (strip .html)
-/about               /about.html      200
-/services            /services.html   200
-/contact             /contact.html    200
-/careers             /careers.html    200
-/privacy             /privacy.html    200
-/terms               /terms.html      200
+# Redirect /appointments to contact page
+/appointments        /contact        301
+/appointments/       /contact        301
+
+# Clean URLs (serve .html files at extensionless paths)
+/about               /about.html     200
+/services            /services.html  200
+/contact             /contact.html   200
+/careers             /careers.html   200
+/privacy             /privacy.html   200
+/terms               /terms.html     200
+/faq                 /faq.html       200
+/blog                /blog.html      200
+
+# ── Blog posts: old root paths → new /blog/ canonical (301) ──────────────────
+/supply-chain-disruptions.html          /blog/supply-chain-disruptions          301
+/supply-chain-disruptions               /blog/supply-chain-disruptions          301
+/cross-border-freight-2026.html         /blog/cross-border-freight-2026         301
+/cross-border-freight-2026              /blog/cross-border-freight-2026         301
+/optimize-freight-routes.html           /blog/optimize-freight-routes           301
+/optimize-freight-routes                /blog/optimize-freight-routes           301
+/winter-driving-protocols.html          /blog/winter-driving-protocols          301
+/winter-driving-protocols               /blog/winter-driving-protocols          301
+/safety-first-culture.html              /blog/safety-first-culture              301
+/safety-first-culture                   /blog/safety-first-culture              301
+/eld-compliance-2026.html               /blog/eld-compliance-2026               301
+/eld-compliance-2026                    /blog/eld-compliance-2026               301
+/best-freight-quote.html                /blog/best-freight-quote                301
+/best-freight-quote                     /blog/best-freight-quote                301
+/first-time-ftl-shipping.html           /blog/first-time-ftl-shipping           301
+/first-time-ftl-shipping                /blog/first-time-ftl-shipping           301
+/keylink-growth-story.html              /blog/keylink-growth-story              301
+/keylink-growth-story                   /blog/keylink-growth-story              301
+/real-time-tracking-ftl.html            /blog/real-time-tracking-ftl            301
+/real-time-tracking-ftl                 /blog/real-time-tracking-ftl            301
+/driver-retention-culture.html          /blog/driver-retention-culture          301
+/driver-retention-culture               /blog/driver-retention-culture          301
+/day-in-the-life-keylink.html           /blog/day-in-the-life-keylink           301
+/day-in-the-life-keylink                /blog/day-in-the-life-keylink           301
+
+# ── Blog posts: new /blog/ clean URLs → serve HTML files (200) ───────────────
+/blog/supply-chain-disruptions          /blog/supply-chain-disruptions.html     200
+/blog/cross-border-freight-2026         /blog/cross-border-freight-2026.html    200
+/blog/optimize-freight-routes           /blog/optimize-freight-routes.html      200
+/blog/winter-driving-protocols          /blog/winter-driving-protocols.html     200
+/blog/safety-first-culture              /blog/safety-first-culture.html         200
+/blog/eld-compliance-2026               /blog/eld-compliance-2026.html          200
+/blog/best-freight-quote                /blog/best-freight-quote.html           200
+/blog/first-time-ftl-shipping           /blog/first-time-ftl-shipping.html      200
+/blog/keylink-growth-story              /blog/keylink-growth-story.html         200
+/blog/real-time-tracking-ftl            /blog/real-time-tracking-ftl.html       200
+/blog/driver-retention-culture          /blog/driver-retention-culture.html     200
+/blog/day-in-the-life-keylink           /blog/day-in-the-life-keylink.html      200

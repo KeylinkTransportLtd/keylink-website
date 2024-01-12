@@ -90,11 +90,11 @@
         ease: 'back.out(1.4)'
       }, 1.05)
 
-      // 9 — Scroll hint last
+      // 9 — Scroll hint: fade in immediately on load
       .to('.svh__scroll-hint', {
         opacity: 1,
-        duration: 0.6
-      }, 1.3);
+        duration: 0.3
+      }, 0.1);
   }
 
   // Run entrance animation immediately (no preloader)
@@ -118,6 +118,8 @@
   const svhScrollHint = document.getElementById('svhScrollHint');
   const svhStatusText  = document.getElementById('svhStatusText');
   const svhTitleSwap   = document.getElementById('svhTitleSwap');
+  const svhLabelText   = svhScrollHint ? svhScrollHint.querySelector('.svh__scroll-label-text') : null;
+  let   svhLabelPhase  = 0; // 0 = "Scroll to explore", 1 = "Keep scrolling"
 
   // Headline second-line phrases tied to scroll progress
   const TITLE_STAGES = [
@@ -147,35 +149,83 @@
       heroVideo.play().catch(() => {});
     } else {
       // Desktop: scroll-scrub the video
-      heroVideo.load();
+      heroVideo.muted = true;
+      heroVideo.preload = 'auto';
       heroVideo.pause();
 
-      let videoReady = false;
-      heroVideo.addEventListener('loadedmetadata', () => { videoReady = true; scrubVideo(); });
-      heroVideo.addEventListener('canplaythrough',  () => { videoReady = true; scrubVideo(); });
+      let videoReady  = false;
+      let targetTime  = 0;
+      let currentTime = 0;
+      let rafId       = null;
+      let seeking     = false;
+
+      function onReady() {
+        if (videoReady) return;
+        videoReady = true;
+        heroVideo.pause();
+        scrubVideo(); // sync to current scroll on load
+        if (!rafId) rafId = requestAnimationFrame(lerpLoop);
+      }
+
+      heroVideo.addEventListener('loadedmetadata', onReady);
+      heroVideo.addEventListener('canplay', onReady);
+      heroVideo.addEventListener('canplaythrough', onReady);
+
+      // Force load in Chrome
+      heroVideo.load();
+
+      // Lerp loop — runs every frame, eases currentTime toward targetTime
+      function lerpLoop() {
+        rafId = requestAnimationFrame(lerpLoop);
+        if (!videoReady || seeking) return;
+        const diff = targetTime - currentTime;
+        if (Math.abs(diff) < 0.005) return;
+        currentTime += diff * 0.1;
+        seeking = true;
+        heroVideo.currentTime = currentTime;
+        heroVideo.addEventListener('seeked', () => { seeking = false; }, { once: true });
+      }
+
+      // Cache hero geometry — avoids getBoundingClientRect on every scroll tick
+      let _svhTop = 0, _svhScrollable = 1;
+      function cacheSvhGeometry() {
+        _svhTop = svhSection.getBoundingClientRect().top + window.scrollY;
+        _svhScrollable = Math.max(1, svhSection.offsetHeight - window.innerHeight);
+      }
+      cacheSvhGeometry();
+      window.addEventListener('resize', cacheSvhGeometry, { passive: true });
 
       function scrubVideo() {
-        if (!videoReady || !heroVideo.duration) return;
+        const progress = Math.max(0, Math.min(1, (window.scrollY - _svhTop) / _svhScrollable));
 
-        const sectionTop  = svhSection.offsetTop;
-        const scrollable  = svhSection.offsetHeight - window.innerHeight;
-        const scrolled    = window.scrollY - sectionTop;
-        const progress    = Math.max(0, Math.min(1, scrolled / scrollable));
-
-        // Scrub video time
-        const targetTime = progress * heroVideo.duration;
-        if (Math.abs(heroVideo.currentTime - targetTime) > 0.04) {
-          heroVideo.currentTime = targetTime;
+        if (videoReady && heroVideo.duration) {
+          targetTime = progress * heroVideo.duration;
         }
 
-        // Progress bar
+        // Progress bar — scaleX is GPU-composited, avoids layout reflow
         if (svhProgressBar) {
-          svhProgressBar.style.width = (progress * 100) + '%';
+          svhProgressBar.style.transform = 'scaleX(' + progress + ')';
         }
 
-        // Scroll hint
+        // Scroll hint visibility
         if (svhScrollHint) {
-          svhScrollHint.classList.toggle('hidden', progress > 0.015);
+          svhScrollHint.classList.toggle('hidden', progress >= 1);
+        }
+
+        // Scroll hint label swap at 50%
+        if (svhLabelText) {
+          const newPhase = progress >= 0.5 ? 1 : 0;
+          if (newPhase !== svhLabelPhase) {
+            svhLabelPhase = newPhase;
+            const nextText = newPhase === 1 ? 'Keep scrolling' : 'Scroll to explore';
+            svhLabelText.classList.remove('roll-in');
+            svhLabelText.classList.add('roll-out');
+            setTimeout(function () {
+              svhLabelText.textContent = nextText;
+              svhLabelText.classList.remove('roll-out');
+              svhLabelText.classList.add('roll-in');
+            }, 300);
+          }
         }
 
         // Headline second line — scroll-ticker swap at each threshold
@@ -278,12 +328,63 @@
     });
   }
 
+  // ---- OFFICE MOVE BANNER ----
+  const officeBanner = document.getElementById('officeBanner');
+  const officeBannerClose = document.getElementById('officeBannerClose');
+  const officeBannerTab = document.getElementById('officeBannerTab');
+
+  if (officeBanner && officeBannerClose && officeBannerTab) {
+    if (sessionStorage.getItem('officeBannerDismissed')) {
+      // Previously dismissed — keep collapsed (show only the small tab)
+      officeBanner.classList.add('collapsed');
+    } else {
+      // Hide entirely until the right moment; CSS animation fires when display is restored
+      officeBanner.style.display = 'none';
+
+      function revealBanner() {
+        officeBanner.style.display = '';
+      }
+
+      if (svhSection) {
+        // Main page: reveal once the hero's sticky frame has fully scrolled past
+        function onHeroScroll() {
+          if (window.scrollY >= svhSection.offsetHeight - window.innerHeight) {
+            revealBanner();
+            window.removeEventListener('scroll', onHeroScroll);
+          }
+        }
+        window.addEventListener('scroll', onHeroScroll, { passive: true });
+        onHeroScroll(); // handle page load with scroll position already past hero
+      } else {
+        // All other pages: reveal after 2 s
+        setTimeout(revealBanner, 2000);
+      }
+    }
+
+    officeBannerClose.addEventListener('click', () => {
+      officeBanner.classList.add('collapsed');
+      sessionStorage.setItem('officeBannerDismissed', '1');
+    });
+
+    officeBannerTab.addEventListener('click', () => {
+      officeBanner.classList.remove('collapsed');
+      sessionStorage.removeItem('officeBannerDismissed');
+    });
+  }
+
   // ---- FLOATING CTA ----
   const floatingCTA = document.getElementById('floatingCTA');
   if (floatingCTA) {
+    const siteFooter = document.querySelector('.footer');
     let floatingVisible = false;
     const toggleFloating = () => {
-      const show = window.scrollY > window.innerHeight * 0.6;
+      const pastHero = window.scrollY > window.innerHeight * 0.6;
+      let inFooter = false;
+      if (siteFooter) {
+        const footerTop = siteFooter.getBoundingClientRect().top;
+        inFooter = footerTop < window.innerHeight;
+      }
+      const show = pastHero && !inFooter;
       if (show === floatingVisible) return;
       floatingVisible = show;
       if (show) {
@@ -294,7 +395,24 @@
         setTimeout(() => { floatingCTA.classList.remove('visible'); }, 400);
       }
     };
-    window.addEventListener('scroll', toggleFloating, { passive: true });
+    // Mobile tooltip — shows once at halfway point, auto-dismisses
+    const tooltip = document.getElementById('floatingTooltip');
+    let tooltipShown = false;
+    const checkTooltip = () => {
+      if (tooltipShown || !tooltip || window.innerWidth > 768) return;
+      const halfway = document.documentElement.scrollHeight / 2;
+      if (window.scrollY >= halfway - window.innerHeight) {
+        tooltipShown = true;
+        tooltip.classList.add('visible');
+        setTimeout(() => {
+          tooltip.style.transition = 'opacity 0.4s ease';
+          tooltip.style.opacity = '0';
+          setTimeout(() => { tooltip.classList.remove('visible'); tooltip.style.opacity = ''; }, 400);
+        }, 4000);
+      }
+    };
+
+    window.addEventListener('scroll', () => { toggleFloating(); checkTooltip(); }, { passive: true });
     toggleFloating();
   }
 
@@ -332,17 +450,16 @@
 
     // ---- Generic reveal animations ----
     gsap.utils.toArray('.gsap-reveal').forEach(el => {
-      if (el.closest('.hero__title')) return; // already handled
+      if (el.closest('.hero__title')) return;
       gsap.fromTo(el,
-        { y: 30, opacity: 0 },
+        { opacity: 0 },
         {
-          y: 0,
           opacity: 1,
-          duration: 0.5,
-          ease: 'power2.out',
+          duration: 0.6,
+          ease: 'power1.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 96%',
+            start: 'top bottom',
             toggleActions: 'play none none none',
             once: true
           },
@@ -353,15 +470,14 @@
 
     gsap.utils.toArray('.gsap-reveal-left').forEach(el => {
       gsap.fromTo(el,
-        { x: -50, opacity: 0 },
+        { opacity: 0 },
         {
-          x: 0,
           opacity: 1,
-          duration: 0.9,
-          ease: 'power2.out',
+          duration: 0.6,
+          ease: 'power1.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 85%',
+            start: 'top 90%',
             toggleActions: 'play none none none',
             once: true
           }
@@ -371,15 +487,14 @@
 
     gsap.utils.toArray('.gsap-reveal-right').forEach(el => {
       gsap.fromTo(el,
-        { x: 50, opacity: 0 },
+        { opacity: 0 },
         {
-          x: 0,
           opacity: 1,
-          duration: 0.9,
-          ease: 'power2.out',
+          duration: 0.6,
+          ease: 'power1.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 85%',
+            start: 'top 90%',
             toggleActions: 'play none none none',
             once: true
           }
@@ -387,81 +502,64 @@
       );
     });
 
-    gsap.utils.toArray('.gsap-scale').forEach((el) => {
+
+    // ---- Scale-in cards (desktop only) ----
+    gsap.utils.toArray('.gsap-scale').forEach(el => {
+      if (window.innerWidth <= 768) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        return;
+      }
       gsap.fromTo(el,
-        { scale: 0.9, opacity: 0 },
+        { opacity: 0, scale: 0.92 },
         {
-          scale: 1,
           opacity: 1,
-          duration: 0.7,
-          ease: 'back.out(1.4)',
+          scale: 1,
+          duration: 0.55,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 88%',
+            start: 'top 90%',
             toggleActions: 'play none none none',
             once: true
-          },
-          delay: (parseFloat(el.style.transitionDelay) || 0)
+          }
         }
       );
     });
 
-    // ---- Service cards stagger ----
-    const serviceCards = document.querySelectorAll('.service-card');
-    if (serviceCards.length) {
-      gsap.fromTo(serviceCards,
-        { y: 30, opacity: 0 },
+    // ---- Video duo parallax ----
+    const videoDuoBg = document.querySelector('.video-duo-bg');
+    if (videoDuoBg) {
+      gsap.fromTo(videoDuoBg,
+        { y: '0%' },
         {
-          y: 0,
-          opacity: 1,
-          duration: 0.45,
-          ease: 'power2.out',
-          stagger: 0.06,
+          y: '20%',
+          ease: 'none',
           scrollTrigger: {
-            trigger: '.services-grid',
-            start: 'top 96%',
-            toggleActions: 'play none none none',
-            once: true
+            trigger: '.video-duo-wrapper',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
           }
         }
       );
     }
 
-    // ---- Value cards stagger ----
-    const valueCards = document.querySelectorAll('.value-card');
-    if (valueCards.length) {
-      gsap.fromTo(valueCards,
-        { y: 25, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.45,
-          ease: 'power2.out',
-          stagger: 0.06,
-          scrollTrigger: {
-            trigger: '.values-grid',
-            start: 'top 96%',
-            toggleActions: 'play none none none',
-            once: true
-          }
-        }
-      );
-    }
+    // Value cards — static, no animation
 
     // ---- Route pills stagger ----
     const routePills = document.querySelectorAll('.route-pill');
     if (routePills.length) {
       gsap.fromTo(routePills,
-        { scale: 0.8, opacity: 0 },
+        { opacity: 0 },
         {
-          scale: 1,
           opacity: 1,
-          duration: 0.5,
-          ease: 'back.out(1.6)',
+          duration: 0.6,
+          ease: 'power1.out',
           stagger: 0.05,
           scrollTrigger: {
             trigger: '.coverage-routes',
-            start: 'top 80%',
+            start: 'top 90%',
             toggleActions: 'play none none none',
             once: true
           }
@@ -474,15 +572,14 @@
     if (corridorImg) {
       // Entrance: scale up from slightly smaller, fade in
       gsap.fromTo(corridorImg,
-        { scale: 0.88, opacity: 0 },
+        { opacity: 0 },
         {
-          scale: 1,
           opacity: 1,
-          duration: 1.2,
-          ease: 'power3.out',
+          duration: 0.6,
+          ease: 'power1.out',
           scrollTrigger: {
             trigger: corridorImg,
-            start: 'top 80%',
+            start: 'top 90%',
             toggleActions: 'play none none none',
             once: true
           }
@@ -529,7 +626,7 @@
           ease: 'power2.inOut',
           scrollTrigger: {
             trigger: '.coverage-map',
-            start: 'top 75%',
+            start: 'top 90%',
             toggleActions: 'play none none none',
             once: true
           }
@@ -541,6 +638,23 @@
     const slider = document.getElementById('testimonialsSlider');
     const prevBtn = document.getElementById('prevTestimonial');
     const nextBtn = document.getElementById('nextTestimonial');
+
+    if (slider) {
+      gsap.fromTo(slider,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: slider,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+            once: true
+          }
+        }
+      );
+    }
 
     if (slider && prevBtn && nextBtn) {
       const cards = slider.querySelectorAll('.testimonial-card');
@@ -777,16 +891,63 @@
       }
     }
 
+    // Cache wrapper geometry — avoids getBoundingClientRect on every scroll tick
+    var _stdTop = 0, _stdSpace = 1;
+    function cacheStdGeometry() {
+      _stdTop   = wrapper.getBoundingClientRect().top + window.scrollY;
+      _stdSpace = Math.max(1, wrapper.offsetHeight - window.innerHeight);
+    }
+    cacheStdGeometry();
+    window.addEventListener('resize', cacheStdGeometry, { passive: true });
+
     function onScroll() {
-      var wrapperTop  = wrapper.getBoundingClientRect().top + window.scrollY;
-      var scrollSpace = wrapper.offsetHeight - window.innerHeight;
-      var p = Math.min(1, Math.max(0, (window.scrollY - wrapperTop) / scrollSpace));
+      var p = Math.min(1, Math.max(0, (window.scrollY - _stdTop) / _stdSpace));
       applyProgress(p);
     }
 
     applyProgress(0);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll(); // run once on load in case section is already in view
+  })();
+
+  // ---- COOKIE CONSENT BANNER ----
+  (function () {
+    const STORAGE_KEY = 'kl_cookie_consent';
+    if (localStorage.getItem(STORAGE_KEY)) return; // already decided
+
+    const banner = document.createElement('div');
+    banner.id = 'cookieBanner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.innerHTML =
+      '<span class="cb-icon" aria-hidden="true">🍪</span>' +
+      '<div class="cb-body">' +
+        '<h4>We use cookies</h4>' +
+        '<p>We use cookies to improve your experience, remember preferences, and analyze traffic. ' +
+        'See our <a href="/privacy.html">Privacy Policy</a> for details.</p>' +
+      '</div>' +
+      '<div class="cb-actions">' +
+        '<button class="cb-decline" id="cbDecline" type="button">Decline</button>' +
+        '<button class="cb-accept"  id="cbAccept"  type="button">Accept All</button>' +
+      '</div>';
+
+    document.body.appendChild(banner);
+
+    // Slide in after a beat so it doesn't compete with page entrance animation
+    var showTimer = setTimeout(function () {
+      banner.classList.add('cb-visible');
+    }, 1200);
+
+    function dismiss(accepted) {
+      clearTimeout(showTimer);
+      localStorage.setItem(STORAGE_KEY, accepted ? 'accepted' : 'declined');
+      banner.classList.remove('cb-visible');
+      banner.classList.add('cb-hiding');
+      setTimeout(function () { banner.remove(); }, 600);
+    }
+
+    document.getElementById('cbAccept').addEventListener('click', function () { dismiss(true);  });
+    document.getElementById('cbDecline').addEventListener('click', function () { dismiss(false); });
   })();
 
 })();

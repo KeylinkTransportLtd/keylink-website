@@ -3226,6 +3226,7 @@ body.js-loading .svh__scroll-hint {
   font-weight: 700;
   letter-spacing: 0.06em;
   white-space: nowrap;
+  color: var(--gold);
 }
 
 /* States */

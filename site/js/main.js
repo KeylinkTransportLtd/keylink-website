@@ -334,41 +334,35 @@
   const officeBannerTab = document.getElementById('officeBannerTab');
 
   if (officeBanner && officeBannerClose && officeBannerTab) {
-    if (sessionStorage.getItem('officeBannerDismissed')) {
-      // Previously dismissed — keep collapsed (show only the small tab)
-      officeBanner.classList.add('collapsed');
-    } else {
-      // Hide entirely until the right moment; CSS animation fires when display is restored
-      officeBanner.style.display = 'none';
+    // Always reveal fresh on every page load — dismissal only collapses for that visit
+    officeBanner.style.display = 'none';
 
-      function revealBanner() {
-        officeBanner.style.display = '';
-      }
+    function revealBanner() {
+      officeBanner.style.display = '';
+      officeBanner.classList.remove('collapsed');
+    }
 
-      if (svhSection) {
-        // Main page: reveal once the hero's sticky frame has fully scrolled past
-        function onHeroScroll() {
-          if (window.scrollY >= svhSection.offsetHeight - window.innerHeight) {
-            revealBanner();
-            window.removeEventListener('scroll', onHeroScroll);
-          }
+    if (svhSection) {
+      // Main page: reveal once the hero scroll-scrub has fully passed
+      function onHeroScroll() {
+        if (window.scrollY >= svhSection.offsetHeight - window.innerHeight) {
+          revealBanner();
+          window.removeEventListener('scroll', onHeroScroll);
         }
-        window.addEventListener('scroll', onHeroScroll, { passive: true });
-        onHeroScroll(); // handle page load with scroll position already past hero
-      } else {
-        // All other pages: reveal after 2 s
-        setTimeout(revealBanner, 2000);
       }
+      window.addEventListener('scroll', onHeroScroll, { passive: true });
+      onHeroScroll();
+    } else {
+      // All other pages: reveal after 2 s
+      setTimeout(revealBanner, 2000);
     }
 
     officeBannerClose.addEventListener('click', () => {
       officeBanner.classList.add('collapsed');
-      sessionStorage.setItem('officeBannerDismissed', '1');
     });
 
     officeBannerTab.addEventListener('click', () => {
       officeBanner.classList.remove('collapsed');
-      sessionStorage.removeItem('officeBannerDismissed');
     });
   }
 

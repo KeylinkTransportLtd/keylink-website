@@ -1,0 +1,9 @@
+# Raw source files — not needed in the deployed site
+site/assets/originals/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Claude Code local settings (not part of the site)
+.claude/settings.local.json

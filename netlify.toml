@@ -1,0 +1,33 @@
+[build]
+  publish = "site"
+  # Skip deploy entirely if nothing inside site/ changed.
+  # This means pushing .claude/, README updates, etc. costs zero build minutes.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- site/"
+
+# Long-lived cache for versioned assets (images, video, fonts, JS, CSS)
+# Browser caches these for 1 year — no re-download on repeat visits.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML pages: always revalidate so updates go live immediately
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

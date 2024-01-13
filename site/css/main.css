@@ -3921,28 +3921,12 @@ body.js-loading .svh__scroll-hint {
 }
 
 /* ---- SCROLL ANIMATION CLASSES ---- */
-.gsap-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  will-change: transform, opacity;
-}
-
-.gsap-reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  will-change: transform, opacity;
-}
-
-.gsap-reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  will-change: transform, opacity;
-}
-
+/* Only opacity:0 here — GSAP sets/clears the transform via inline style */
+.gsap-reveal,
+.gsap-reveal-left,
+.gsap-reveal-right,
 .gsap-scale {
   opacity: 0;
-  transform: scale(0.92);
-  will-change: transform, opacity;
 }
 
 /* ---- PREFERS REDUCED MOTION ---- */

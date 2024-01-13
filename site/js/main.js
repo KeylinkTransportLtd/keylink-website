@@ -417,113 +417,76 @@
   }
 
   // ---- GSAP ANIMATIONS ----
-  // Wait for GSAP to load
-  window.addEventListener('load', () => {
-    if (typeof gsap === 'undefined') return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    if (prefersReducedMotion) {
-      // Instantly show all animated elements
+  // All three scripts (gsap, ScrollTrigger, main.js) share the same `defer`
+  // queue — GSAP is already loaded when this line runs. Do NOT wait for
+  // window.load; that leaves every element at opacity:0 for the whole load gap.
+  (function initGSAP() {
+    const showAll = () => {
       document.querySelectorAll('.gsap-reveal, .gsap-reveal-left, .gsap-reveal-right, .gsap-scale').forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';
       });
-      return;
-    }
+    };
 
-    // ---- Hero stagger ----
+    if (typeof gsap === 'undefined') { showAll(); return; }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (prefersReducedMotion) { showAll(); return; }
+
+    // Shared trigger config — fires just before element enters viewport
+    const triggerCfg = (el, offset) => ({
+      trigger: el,
+      start: 'top ' + (offset || '95%'),
+      toggleActions: 'play none none none',
+      once: true
+    });
+
+    // ---- Hero stagger (sub-pages with .hero__title) ----
     const heroTitle = document.querySelectorAll('.hero__title .gsap-reveal');
     if (heroTitle.length) {
       gsap.fromTo(heroTitle,
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.9,
-          ease: 'power3.out',
-          stagger: 0.15,
-          delay: 0.3
-        }
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', stagger: 0.13, delay: 0.3 }
       );
     }
 
-    // ---- Generic reveal animations ----
+    // ---- Generic reveal (fade + rise) ----
     gsap.utils.toArray('.gsap-reveal').forEach(el => {
       if (el.closest('.hero__title')) return;
       gsap.fromTo(el,
-        { opacity: 0 },
+        { opacity: 0, y: 22 },
         {
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power1.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top bottom',
-            toggleActions: 'play none none none',
-            once: true
-          },
+          opacity: 1, y: 0,
+          duration: 0.5, ease: 'power2.out',
+          scrollTrigger: triggerCfg(el),
           delay: parseFloat(el.style.transitionDelay) || 0
         }
       );
     });
 
+    // ---- Slide from left ----
     gsap.utils.toArray('.gsap-reveal-left').forEach(el => {
       gsap.fromTo(el,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power1.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true
-          }
-        }
+        { opacity: 0, x: -28 },
+        { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out', scrollTrigger: triggerCfg(el) }
       );
     });
 
+    // ---- Slide from right ----
     gsap.utils.toArray('.gsap-reveal-right').forEach(el => {
       gsap.fromTo(el,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power1.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true
-          }
-        }
+        { opacity: 0, x: 28 },
+        { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out', scrollTrigger: triggerCfg(el) }
       );
     });
-
 
     // ---- Scale-in cards (desktop only) ----
     gsap.utils.toArray('.gsap-scale').forEach(el => {
-      if (window.innerWidth <= 768) {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        return;
-      }
+      if (window.innerWidth <= 768) { el.style.opacity = '1'; el.style.transform = 'none'; return; }
       gsap.fromTo(el,
-        { opacity: 0, scale: 0.92 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.55,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true
-          }
-        }
+        { opacity: 0, scale: 0.95 },
+        { opacity: 1, scale: 1, duration: 0.45, ease: 'power2.out', scrollTrigger: triggerCfg(el) }
       );
     });
 
@@ -681,13 +644,20 @@
       });
     }
 
-    // ---- Refresh ScrollTrigger on resize ----
+    // Refresh positions once images/fonts finish loading (fixes offset errors)
+    if (document.readyState === 'complete') {
+      ScrollTrigger.refresh();
+    } else {
+      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+    }
+
+    // Re-refresh on resize
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 150);
     });
-  });
+  })();
 
   // ---- STAT COUNTER ANIMATION ----
   // Runs without GSAP for robustness

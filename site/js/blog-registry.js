@@ -24,8 +24,8 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-04-15',
     dateLabel: 'April 15, 2026',
-    image: 'https://images.unsplash.com/photo-8koWngCqqzM?auto=format&fit=crop&w=600&q=70',
-    imageAlt: 'Aerial view of the Strait of Hormuz between Iran and Oman',
+    image: '/assets/hormuz-strait-map-thumb.jpg',
+    imageAlt: 'Topographic map of the Strait of Hormuz between Iran and Oman',
     featured: true,
   },
   {

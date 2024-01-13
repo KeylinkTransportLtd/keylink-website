@@ -353,8 +353,9 @@
       window.addEventListener('scroll', onHeroScroll, { passive: true });
       onHeroScroll();
     } else {
-      // All other pages: reveal after 2 s
-      setTimeout(revealBanner, 2000);
+      // All other pages: show collapsed — user must click the tab to expand
+      officeBanner.style.display = '';
+      officeBanner.classList.add('collapsed');
     }
 
     officeBannerClose.addEventListener('click', () => {
@@ -876,8 +877,6 @@
 
   // ---- COOKIE CONSENT BANNER ----
   (function () {
-    const STORAGE_KEY = 'kl_cookie_consent';
-    if (localStorage.getItem(STORAGE_KEY)) return; // already decided
 
     const banner = document.createElement('div');
     banner.id = 'cookieBanner';
@@ -902,16 +901,15 @@
       banner.classList.add('cb-visible');
     }, 1200);
 
-    function dismiss(accepted) {
+    function dismiss() {
       clearTimeout(showTimer);
-      localStorage.setItem(STORAGE_KEY, accepted ? 'accepted' : 'declined');
       banner.classList.remove('cb-visible');
       banner.classList.add('cb-hiding');
       setTimeout(function () { banner.remove(); }, 600);
     }
 
-    document.getElementById('cbAccept').addEventListener('click', function () { dismiss(true);  });
-    document.getElementById('cbDecline').addEventListener('click', function () { dismiss(false); });
+    document.getElementById('cbAccept').addEventListener('click', dismiss);
+    document.getElementById('cbDecline').addEventListener('click', dismiss);
   })();
 
 })();

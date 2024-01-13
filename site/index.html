@@ -900,89 +900,85 @@
 
   </div><!-- /.video-duo-wrapper -->
 
-  <!-- ======= ROUTES GLOBE ======= -->
+  <!-- ======= ROUTES ======= -->
   <section class="routes-section" id="routes" aria-labelledby="routes-heading">
     <div class="container">
-      <div class="routes-layout">
 
-        <!-- Left: text + route list -->
-        <div class="routes-content gsap-reveal">
-          <div class="tag">Freight Corridors</div>
-          <h2 class="section-title" id="routes-heading">Ever&#8209;Expanding<br>Routes</h2>
-          <p class="routes-sub">
-            Based in Abbotsford, BC, Keylink Transport keeps adding new lanes to our freight network.
-            We run proven corridors coast-to-coast and cross-border — growing with every client
-            relationship we build.
-          </p>
+      <!-- Header -->
+      <div class="routes-header gsap-reveal">
+        <div class="tag">Freight Corridors</div>
+        <h2 class="section-title routes-title" id="routes-heading">Ever&#8209;Expanding<br>Routes</h2>
+        <p class="routes-sub">
+          Based in Abbotsford, BC, we keep adding new lanes to our network. Proven corridors
+          coast&#8209;to&#8209;coast and cross&#8209;border — growing with every client relationship we build.
+        </p>
+      </div>
 
-          <ul class="routes-list" aria-label="Active freight routes">
+      <!-- Cards -->
+      <div class="routes-cards" role="list">
 
-            <li class="route-item gsap-reveal">
-              <div class="route-item__accent"></div>
-              <div class="route-item__body">
-                <div class="route-item__cities">
-                  <span>Vancouver</span>
-                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
-                  <span class="route-item__dest">California</span>
-                </div>
-                <div class="route-item__detail">~1,920 km &middot; Cross-border I-5 corridor</div>
-              </div>
-              <span class="route-item__badge route-item__badge--us">US</span>
-            </li>
-
-            <li class="route-item gsap-reveal" style="transition-delay:0.08s">
-              <div class="route-item__accent"></div>
-              <div class="route-item__body">
-                <div class="route-item__cities">
-                  <span>Vancouver</span>
-                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
-                  <span class="route-item__dest">Alberta</span>
-                </div>
-                <div class="route-item__detail">~970 km &middot; Trans-Canada domestic run</div>
-              </div>
-              <span class="route-item__badge route-item__badge--ca">CA</span>
-            </li>
-
-            <li class="route-item gsap-reveal" style="transition-delay:0.16s">
-              <div class="route-item__accent"></div>
-              <div class="route-item__body">
-                <div class="route-item__cities">
-                  <span>Vancouver</span>
-                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
-                  <span class="route-item__dest">Toronto</span>
-                </div>
-                <div class="route-item__detail">~4,400 km &middot; National long-haul corridor</div>
-              </div>
-              <span class="route-item__badge route-item__badge--ca">CA</span>
-            </li>
-
-            <li class="route-item gsap-reveal" style="transition-delay:0.24s">
-              <div class="route-item__accent"></div>
-              <div class="route-item__body">
-                <div class="route-item__cities">
-                  <span>Vancouver</span>
-                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
-                  <span class="route-item__dest">Seattle</span>
-                </div>
-                <div class="route-item__detail">~230 km &middot; Border run via Peace Arch</div>
-              </div>
-              <span class="route-item__badge route-item__badge--us">US</span>
-            </li>
-
-          </ul>
-
-          <a href="contact.html" class="btn btn--teal routes-cta">
-            Book a Lane
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+        <div class="route-card gsap-reveal" role="listitem">
+          <div class="route-card__num" aria-hidden="true">01</div>
+          <div class="route-card__top">
+            <span class="route-card__badge route-card__badge--us">US</span>
+          </div>
+          <div class="route-card__from">Vancouver</div>
+          <div class="route-card__arrow" aria-hidden="true">&#8594;</div>
+          <div class="route-card__to">California</div>
+          <div class="route-card__divider"></div>
+          <div class="route-card__km">~1,920 km</div>
+          <div class="route-card__desc">Cross-border I-5 corridor</div>
         </div>
 
-        <!-- Right: interactive globe -->
-        <div class="routes-globe-wrap" aria-hidden="true">
-          <canvas id="routeGlobe" class="routes-globe-canvas"></canvas>
+        <div class="route-card gsap-reveal" role="listitem" style="transition-delay:0.1s">
+          <div class="route-card__num" aria-hidden="true">02</div>
+          <div class="route-card__top">
+            <span class="route-card__badge route-card__badge--ca">CA</span>
+          </div>
+          <div class="route-card__from">Vancouver</div>
+          <div class="route-card__arrow" aria-hidden="true">&#8594;</div>
+          <div class="route-card__to">Alberta</div>
+          <div class="route-card__divider"></div>
+          <div class="route-card__km">~970 km</div>
+          <div class="route-card__desc">Trans-Canada domestic run</div>
+        </div>
+
+        <div class="route-card gsap-reveal" role="listitem" style="transition-delay:0.2s">
+          <div class="route-card__num" aria-hidden="true">03</div>
+          <div class="route-card__top">
+            <span class="route-card__badge route-card__badge--ca">CA</span>
+          </div>
+          <div class="route-card__from">Vancouver</div>
+          <div class="route-card__arrow" aria-hidden="true">&#8594;</div>
+          <div class="route-card__to">Toronto</div>
+          <div class="route-card__divider"></div>
+          <div class="route-card__km">~4,400 km</div>
+          <div class="route-card__desc">National long-haul corridor</div>
+        </div>
+
+        <div class="route-card gsap-reveal" role="listitem" style="transition-delay:0.3s">
+          <div class="route-card__num" aria-hidden="true">04</div>
+          <div class="route-card__top">
+            <span class="route-card__badge route-card__badge--us">US</span>
+          </div>
+          <div class="route-card__from">Vancouver</div>
+          <div class="route-card__arrow" aria-hidden="true">&#8594;</div>
+          <div class="route-card__to">Seattle</div>
+          <div class="route-card__divider"></div>
+          <div class="route-card__km">~230 km</div>
+          <div class="route-card__desc">Border run via Peace Arch</div>
         </div>
 
       </div>
+
+      <!-- CTA -->
+      <div class="routes-footer gsap-reveal">
+        <a href="contact.html" class="btn btn--teal routes-cta">
+          Book a Lane
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -1671,7 +1667,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script type="module" src="js/globe.js"></script>
   <script>
     (function () {
       var track = document.querySelector('.logo-marquee-track');

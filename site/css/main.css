@@ -4678,8 +4678,8 @@ body.js-loading .svh__scroll-hint {
   /* ---- Header ---- */
   /* Push entire page below the fixed nav (76px) so hero content is never hidden */
   .blog-page { padding-top: 76px; }
-  .blog-header { min-height: 460px; align-items: flex-start; }
-  .blog-header__content { padding-top: 48px; }
+  .blog-header { min-height: 460px; align-items: center; }
+  .blog-header__content { padding-top: 0; padding-bottom: 0; }
   .blog-header__title { font-size: clamp(2.6rem, 11vw, 3.8rem); }
   .blog-header__sub { font-size: 0.9rem; margin-bottom: 24px; }
   /* font-size 1rem (16px) prevents iOS auto-zoom on input focus */
@@ -4752,8 +4752,8 @@ body.js-loading .svh__scroll-hint {
 
 @media (max-width: 480px) {
   .blog-page { padding-top: 76px; }
-  .blog-header { min-height: 440px; align-items: flex-start; }
-  .blog-header__content { padding-top: 36px; }
+  .blog-header { min-height: 440px; align-items: center; }
+  .blog-header__content { padding-top: 0; padding-bottom: 0; }
   .blog-header__title { font-size: clamp(2.2rem, 10vw, 3rem); }
   .blog-header__sub { font-size: 0.85rem; }
   .blog-grid { gap: 12px; }

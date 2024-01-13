@@ -1,6 +1,12 @@
 [build]
   publish = "."
 
+# Redirects for stale external links
+[[redirects]]
+  from = "/contact-6"
+  to   = "/contact.html"
+  status = 301
+
 # Long-lived cache for versioned assets (images, video, fonts, JS, CSS)
 # Browser caches these for 1 year — no re-download on repeat visits.
 [[headers]]

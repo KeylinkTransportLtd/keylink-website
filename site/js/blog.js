@@ -124,13 +124,8 @@
   var searchInput  = document.getElementById('blogSearch');
   var emptyState   = document.getElementById('blogEmpty');
   var clearBtn     = document.getElementById('blogClearSearch');
-  var loadMoreWrap = document.getElementById('blogLoadMore');
-  var loadMoreBtn  = document.getElementById('blogLoadBtn');
-
   var activeFilter = 'all';
   var searchQuery  = '';
-  var VISIBLE_LIMIT = 9;
-  var showAll = false;
 
   function applyFilters() {
     var posts        = grid.querySelectorAll('.blog-post');
@@ -146,12 +141,10 @@
       var matches = catMatch && textMatch;
       if (matches) totalMatched++;
 
-      var show = matches && (showAll || totalMatched <= VISIBLE_LIMIT);
-      post.classList.toggle('hidden', !show);
+      post.classList.toggle('hidden', !matches);
     });
 
     if (emptyState) emptyState.style.display = totalMatched === 0 ? 'block' : 'none';
-    if (loadMoreWrap) loadMoreWrap.style.display = (totalMatched > VISIBLE_LIMIT && !showAll) ? 'block' : 'none';
     grid.classList.toggle('blog-grid--filtered', activeFilter !== 'all' || !!searchQuery);
   }
 
@@ -161,7 +154,6 @@
       var tab = e.target.closest('.blog-tab');
       if (!tab) return;
       activeFilter = tab.dataset.filter;
-      showAll = false;
       tabsEl.querySelectorAll('.blog-tab').forEach(function (t) {
         t.classList.toggle('active', t === tab);
         t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
@@ -176,7 +168,6 @@
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(function () {
         searchQuery = searchInput.value.trim().toLowerCase();
-        showAll = false;
         applyFilters();
       }, 200);
     });
@@ -185,7 +176,6 @@
   function resetFilters() {
     searchQuery  = '';
     activeFilter = 'all';
-    showAll      = false;
     if (searchInput) searchInput.value = '';
     if (tabsEl) {
       tabsEl.querySelectorAll('.blog-tab').forEach(function (t) {
@@ -198,7 +188,6 @@
   }
 
   if (clearBtn) clearBtn.addEventListener('click', resetFilters);
-  if (loadMoreBtn) loadMoreBtn.addEventListener('click', function () { showAll = true; applyFilters(); });
 
   applyFilters();
 

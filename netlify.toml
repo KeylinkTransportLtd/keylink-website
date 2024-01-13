@@ -1,8 +1,5 @@
 [build]
   publish = "site"
-  # Skip deploy only if site/ has no changes.
-  # Guard: if CACHED_COMMIT_REF is empty (first deploy or unavailable), always build.
-  ignore = "[ -z \"$CACHED_COMMIT_REF\" ] && exit 1; git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- site/"
 
 # Long-lived cache for versioned assets (images, video, fonts, JS, CSS)
 # Browser caches these for 1 year — no re-download on repeat visits.

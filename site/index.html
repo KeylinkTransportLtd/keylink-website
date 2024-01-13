@@ -1719,6 +1719,9 @@
     }
     cacheRailGeometry();
     window.addEventListener('resize', cacheRailGeometry, { passive: true });
+    /* Re-cache once all resources are loaded — fixes incorrect positions
+       on first load before images/fonts have settled the page height */
+    window.addEventListener('load', function () { cacheRailGeometry(); onScroll(); }, { once: true });
 
     function setActive(idx) {
       currentIdx = idx;

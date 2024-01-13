@@ -900,6 +900,92 @@
 
   </div><!-- /.video-duo-wrapper -->
 
+  <!-- ======= ROUTES GLOBE ======= -->
+  <section class="routes-section" id="routes" aria-labelledby="routes-heading">
+    <div class="container">
+      <div class="routes-layout">
+
+        <!-- Left: text + route list -->
+        <div class="routes-content gsap-reveal">
+          <div class="tag">Freight Corridors</div>
+          <h2 class="section-title" id="routes-heading">Ever&#8209;Expanding<br>Routes</h2>
+          <p class="routes-sub">
+            Based in Abbotsford, BC, Keylink Transport keeps adding new lanes to our freight network.
+            We run proven corridors coast-to-coast and cross-border — growing with every client
+            relationship we build.
+          </p>
+
+          <ul class="routes-list" aria-label="Active freight routes">
+
+            <li class="route-item gsap-reveal">
+              <div class="route-item__accent"></div>
+              <div class="route-item__body">
+                <div class="route-item__cities">
+                  <span>Vancouver</span>
+                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
+                  <span class="route-item__dest">California</span>
+                </div>
+                <div class="route-item__detail">~1,920 km &middot; Cross-border I-5 corridor</div>
+              </div>
+              <span class="route-item__badge route-item__badge--us">US</span>
+            </li>
+
+            <li class="route-item gsap-reveal" style="transition-delay:0.08s">
+              <div class="route-item__accent"></div>
+              <div class="route-item__body">
+                <div class="route-item__cities">
+                  <span>Vancouver</span>
+                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
+                  <span class="route-item__dest">Alberta</span>
+                </div>
+                <div class="route-item__detail">~970 km &middot; Trans-Canada domestic run</div>
+              </div>
+              <span class="route-item__badge route-item__badge--ca">CA</span>
+            </li>
+
+            <li class="route-item gsap-reveal" style="transition-delay:0.16s">
+              <div class="route-item__accent"></div>
+              <div class="route-item__body">
+                <div class="route-item__cities">
+                  <span>Vancouver</span>
+                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
+                  <span class="route-item__dest">Toronto</span>
+                </div>
+                <div class="route-item__detail">~4,400 km &middot; National long-haul corridor</div>
+              </div>
+              <span class="route-item__badge route-item__badge--ca">CA</span>
+            </li>
+
+            <li class="route-item gsap-reveal" style="transition-delay:0.24s">
+              <div class="route-item__accent"></div>
+              <div class="route-item__body">
+                <div class="route-item__cities">
+                  <span>Vancouver</span>
+                  <span class="route-item__arrow" aria-hidden="true">&#8594;</span>
+                  <span class="route-item__dest">Seattle</span>
+                </div>
+                <div class="route-item__detail">~230 km &middot; Border run via Peace Arch</div>
+              </div>
+              <span class="route-item__badge route-item__badge--us">US</span>
+            </li>
+
+          </ul>
+
+          <a href="contact.html" class="btn btn--teal routes-cta">
+            Book a Lane
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Right: interactive globe -->
+        <div class="routes-globe-wrap" aria-hidden="true">
+          <canvas id="routeGlobe" class="routes-globe-canvas"></canvas>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ======= STATS ======= -->
   <section class="stats-section" aria-label="Company statistics">
     <div class="container">
@@ -1583,6 +1669,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script type="module" src="js/globe.js"></script>
   <script>
     (function () {
       var track = document.querySelector('.logo-marquee-track');

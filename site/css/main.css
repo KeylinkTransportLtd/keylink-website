@@ -4153,6 +4153,204 @@ body.js-loading .svh__scroll-hint {
 }
 
 /* ==========================================================
+   ROUTES GLOBE SECTION
+   ========================================================== */
+
+.routes-section {
+  padding: 100px 0;
+  background: var(--midnight);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Teal/gold rule separating from the section above */
+.routes-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(26,123,110,0.5) 25%,
+    rgba(240,168,32,0.35) 75%,
+    transparent 100%
+  );
+}
+
+.routes-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* ---- Left column: text ---- */
+.routes-content .section-title {
+  color: var(--white);
+  margin: 14px 0 18px;
+  line-height: 1;
+}
+
+.routes-sub {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--cloud);
+  opacity: 0.62;
+  max-width: 460px;
+  margin-bottom: 36px;
+}
+
+/* Route list */
+.routes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.route-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 16px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition), border-color var(--transition);
+  cursor: default;
+}
+
+.route-item:hover {
+  background: rgba(26,123,110,0.08);
+  border-color: rgba(26,123,110,0.3);
+}
+
+/* Teal left-edge accent bar */
+.route-item__accent {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--teal-lt), var(--teal));
+  border-radius: 3px 0 0 3px;
+}
+
+.route-item__body {
+  flex: 1;
+  padding-left: 16px;
+}
+
+.route-item__cities {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.route-item__arrow {
+  color: var(--teal-lt);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.route-item__dest {
+  color: var(--gold);
+}
+
+.route-item__detail {
+  font-size: 0.72rem;
+  color: var(--slate);
+  letter-spacing: 0.025em;
+}
+
+.route-item__badge {
+  flex-shrink: 0;
+  margin-left: 14px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+.route-item__badge--us {
+  background: rgba(59,130,246,0.15);
+  color: #7eb6ff;
+  border: 1px solid rgba(59,130,246,0.25);
+}
+
+.route-item__badge--ca {
+  background: rgba(220,38,38,0.12);
+  color: #ff9090;
+  border: 1px solid rgba(220,38,38,0.2);
+}
+
+.routes-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---- Right column: globe ---- */
+.routes-globe-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 520px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Radial glow behind the sphere */
+.routes-globe-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(26,123,110,0.22) 0%,
+    rgba(240,168,32,0.07) 40%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.routes-globe-canvas {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .routes-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .routes-globe-wrap {
+    order: -1;  /* globe on top on mobile */
+    max-width: 400px;
+  }
+  .routes-sub { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .routes-section { padding: 64px 0; }
+  .routes-globe-wrap { max-width: 300px; }
+  .route-item { padding: 13px 16px; }
+  .route-item__cities { font-size: 0.85rem; }
+}
+
+/* ==========================================================
    BLOG PAGE — Clean magazine-style grid (Kota-inspired)
    ========================================================== */
 

@@ -878,6 +878,9 @@
   // ---- COOKIE CONSENT BANNER ----
   (function () {
 
+    // If the user has already chosen, never show the banner again
+    if (localStorage.getItem('cookieConsent')) return;
+
     const banner = document.createElement('div');
     banner.id = 'cookieBanner';
     banner.setAttribute('role', 'dialog');
@@ -901,15 +904,16 @@
       banner.classList.add('cb-visible');
     }, 1200);
 
-    function dismiss() {
+    function dismiss(choice) {
+      localStorage.setItem('cookieConsent', choice);
       clearTimeout(showTimer);
       banner.classList.remove('cb-visible');
       banner.classList.add('cb-hiding');
       setTimeout(function () { banner.remove(); }, 600);
     }
 
-    document.getElementById('cbAccept').addEventListener('click', dismiss);
-    document.getElementById('cbDecline').addEventListener('click', dismiss);
+    document.getElementById('cbAccept').addEventListener('click', function () { dismiss('accepted'); });
+    document.getElementById('cbDecline').addEventListener('click', function () { dismiss('declined'); });
   })();
 
 })();

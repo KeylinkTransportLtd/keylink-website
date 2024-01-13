@@ -1621,7 +1621,9 @@
       <div class="hp-connector"></div>
       <div class="hp-item" data-idx="2" title="Specializations"><span class="hp-label">Specializations</span><span class="hp-dot"></span></div>
       <div class="hp-connector"></div>
-      <div class="hp-item" data-idx="3" title="Coverage"><span class="hp-label">Coverage</span><span class="hp-dot"></span></div>
+      <div class="hp-item" data-idx="3" title="Routes"><span class="hp-label">Routes</span><span class="hp-dot"></span></div>
+      <div class="hp-connector"></div>
+      <div class="hp-item" data-idx="4" title="Coverage"><span class="hp-label">Coverage</span><span class="hp-dot"></span></div>
       <div class="hp-connector"></div>
       <div class="hp-item" data-idx="4" title="Testimonials"><span class="hp-label">Partners</span><span class="hp-dot"></span></div>
       <div class="hp-connector"></div>
@@ -1698,7 +1700,7 @@
     const hpItems      = Array.from(rail.querySelectorAll('.hp-item'));
     const hpConnectors = Array.from(rail.querySelectorAll('.hp-connector'));
 
-    const sectionIds = ['svh', 'home-services', 'specializations', 'home-coverage', 'home-testimonials', 'homeBlog', 'bookALoad'];
+    const sectionIds = ['svh', 'home-services', 'specializations', 'routes', 'home-coverage', 'home-testimonials', 'homeBlog', 'bookALoad'];
     const sections   = sectionIds.map(id => document.getElementById(id));
 
     /* Show rail after scrolling past the hero */

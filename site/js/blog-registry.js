@@ -13,7 +13,7 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-03-18',
     dateLabel: 'March 18, 2026',
-    image: 'assets/canada-us-tariffs-trucking.jpg',
+    image: '/assets/canada-us-tariffs-trucking.jpg',
     imageAlt: 'Transport trucks blocked by tariff tape representing Canada-US trade dispute',
     featured: true,
   },

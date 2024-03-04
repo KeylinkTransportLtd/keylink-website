@@ -1161,13 +1161,15 @@
     <div class="erp-media" aria-hidden="true">
       <video
         class="erp-media__video"
+        id="erpVideo"
         autoplay
         muted
         loop
         playsinline
         preload="metadata"
+        data-start="2.5"
       >
-        <source src="assets/erp-tracking-bg.mp4" type="video/mp4">
+        <source src="assets/erp-tracking-bg.mp4#t=2.5" type="video/mp4">
       </video>
       <div class="erp-media__fade"></div>
       <div class="erp-media__tag">
@@ -1175,6 +1177,20 @@
         Keylink ERP · Beta 2.4.1 · Live
       </div>
     </div>
+    <script>
+      (function () {
+        var v = document.getElementById('erpVideo');
+        if (!v) return;
+        var start = parseFloat(v.dataset.start) || 0;
+        function seekToStart() { try { v.currentTime = start; } catch (e) {} }
+        // Initial load: jump to 2.5s once we know the duration
+        v.addEventListener('loadedmetadata', seekToStart, { once: true });
+        // On every loop wrap: video.currentTime jumps back to 0; reseek to start
+        v.addEventListener('timeupdate', function () {
+          if (v.currentTime < start - 0.05) seekToStart();
+        });
+      })();
+    </script>
 
     <div class="container">
       <div class="erp-layout">

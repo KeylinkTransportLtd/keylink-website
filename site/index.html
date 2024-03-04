@@ -69,7 +69,8 @@
     .svh__video{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;padding:24px 48px 24px 16px}
     .svh__overlay{padding:0 32px 0 64px;z-index:3}
   </style>
-  <link rel="stylesheet" href="css/main.css?v=25">
+  <link rel="preload" as="style" href="css/main.css?v=26" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.css?v=26"></noscript>
   <style>
     /* ================================================================
        HOME PAGE PROGRESS RAIL
@@ -1221,14 +1222,17 @@
 
         <div>
           <div class="service-detail__visual service-detail__visual--has-image service-detail__visual--orange-bg">
-            <img
-              src="assets/freight-corridor-handshake.png"
-              alt="Business handshake representing Keylink Transport's trusted Canada–USA freight partnerships"
-              class="corridor-map-img"
-              loading="lazy"
-              width="1200"
-              height="896"
-            >
+            <picture>
+              <source srcset="assets/freight-corridor-handshake.webp" type="image/webp">
+              <img
+                src="assets/freight-corridor-handshake.png"
+                alt="Business handshake representing Keylink Transport's trusted Canada–USA freight partnerships"
+                class="corridor-map-img"
+                loading="lazy"
+                width="1200"
+                height="896"
+              >
+            </picture>
           </div>
         </div>
 

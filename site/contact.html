@@ -61,8 +61,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="preload" href="css/main.css?v=18" as="style">
-  <link rel="stylesheet" href="css/main.css?v=18">
+<link rel="preload" as="style" href="css/main.css?v=26" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.css?v=26"></noscript>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <style>
     .page-header::before { display: none; }
@@ -167,7 +167,7 @@
         </p>
       </div>
       <div class="gsap-reveal" style="flex:0 0 auto;position:relative;align-self:flex-end;">
-        <img
+        <picture><source srcset="assets/worker-with-box.webp" type="image/webp"><img
           src="assets/worker-with-box.jpg" loading="lazy"
           alt="Keylink Transport worker with package"
           style="
@@ -177,8 +177,7 @@
             object-fit:contain;
             object-position:bottom;
             filter:contrast(1.05) saturate(1.1);
-          "
-        />
+          "></picture>
       </div>
     </div>
   </header>

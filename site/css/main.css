@@ -5980,11 +5980,11 @@ body.js-loading .svh__scroll-hint {
   background-size: cover;
   background-position: center;
 }
-.proc__stack-img--1 { background-image: url('../assets/quote-contact.png'); background-size: cover; background-position: center top; }
-.proc__stack-img--2 { background-image: url('../assets/proc-step2.png'); background-size: cover; background-position: center top; }
-.proc__stack-img--3 { background-image: url('../assets/proc-step3.png'); background-size: cover; background-position: center top; }
-.proc__stack-img--4 { background-image: url('../assets/proc-step4.png'); background-size: cover; background-position: center top; }
-.proc__stack-img--5 { background-image: url('../assets/proc-step5.png'); background-size: cover; background-position: center top; }
+.proc__stack-img--1 { background-image: url('../assets/quote-contact.webp'); background-size: cover; background-position: center top; }
+.proc__stack-img--2 { background-image: url('../assets/proc-step2.webp'); background-size: cover; background-position: center top; }
+.proc__stack-img--3 { background-image: url('../assets/proc-step3.webp'); background-size: cover; background-position: center top; }
+.proc__stack-img--4 { background-image: url('../assets/proc-step4.webp'); background-size: cover; background-position: center top; }
+.proc__stack-img--5 { background-image: url('../assets/proc-step5.webp'); background-size: cover; background-position: center top; }
 
 /* Card overlay with content */
 .proc__stack-body {

@@ -38,8 +38,26 @@
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/blog</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/ontario-truck-driver-training-audit-2026</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/oil-shock-canadian-trucking-may-2026</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/carney-trade-calgary-trucking-2026</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -51,6 +69,12 @@
   <url>
     <loc>https://www.keylinktransport.ca/blog/cross-border-freight-2026</loc>
     <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/peak-season-2025-tariffs-capacity</loc>
+    <lastmod>2025-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -67,6 +91,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.keylinktransport.ca/blog/bc-wildfires-2025-freight-disruption</loc>
+    <lastmod>2025-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.keylinktransport.ca/blog/safety-first-culture</loc>
     <lastmod>2025-08-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -79,6 +109,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.keylinktransport.ca/blog/freight-rate-recovery-q2-2025</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.keylinktransport.ca/blog/best-freight-quote</loc>
     <lastmod>2025-06-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -87,6 +123,12 @@
   <url>
     <loc>https://www.keylinktransport.ca/blog/first-time-ftl-shipping</loc>
     <lastmod>2025-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/liberation-day-tariffs-canadian-freight</loc>
+    <lastmod>2025-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -111,6 +153,24 @@
   <url>
     <loc>https://www.keylinktransport.ca/blog/day-in-the-life-keylink</loc>
     <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/trump-tariff-threat-canada-2024</loc>
+    <lastmod>2024-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/crowdstrike-outage-trucking-2024</loc>
+    <lastmod>2024-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/baltimore-key-bridge-collapse-2024</loc>
+    <lastmod>2024-07-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

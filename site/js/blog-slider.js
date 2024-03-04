@@ -113,7 +113,7 @@
     function applyScroll(pos, animate) {
       scrollPos = Math.max(0, Math.min(getMaxScroll(), pos));
       trackEl.style.transition = animate
-        ? 'transform 0.52s cubic-bezier(0.4, 0, 0.2, 1)'
+        ? 'transform 0.11s cubic-bezier(0.4, 0, 0.2, 1)'
         : 'none';
       trackEl.style.transform = 'translateX(-' + scrollPos + 'px)';
       updateArrowState();

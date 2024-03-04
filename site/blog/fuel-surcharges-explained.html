@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-00K6DC8WPQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-00K6DC8WPQ');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Fuel Surcharges Actually Work in Canadian Trucking: What Every Shipper Should Know | Keylink Transport Blog</title>
+  <meta name="description" content="A clear explanation of how fuel surcharges are calculated in Canadian trucking, why they exist, and what shippers need to know about FSC benchmarks, the DOE index, NRCan surveys, and carbon tax impacts in 2025.">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="fuel surcharge Canadian trucking, FSC trucking Canada, DOE index fuel surcharge, NRCan fuel price survey, diesel fuel surcharge 2025, carbon tax trucking Canada, fuel surcharge calculation, Canadian freight rates">
+  <link rel="canonical" href="https://www.keylinktransport.ca/blog/fuel-surcharges-explained">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How Fuel Surcharges Actually Work in Canadian Trucking: What Every Shipper Should Know">
+  <meta property="og:description" content="Fuel surcharges are one of the most misunderstood line items on a freight invoice. Here is how they actually work, how they are calculated, and what Canadian shippers need to know in 2025.">
+  <meta property="og:url" content="https://www.keylinktransport.ca/blog/fuel-surcharges-explained">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Close-up of diesel fuel pump nozzle representing fuel surcharges in Canadian trucking">
+  <meta property="og:site_name" content="Keylink Transport">
+  <meta property="og:locale" content="en_CA">
+  <meta property="article:published_time" content="2025-02-05">
+  <meta property="article:author" content="Shahazeen Shaheer">
+  <meta property="article:section" content="Logistics">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Fuel Surcharges Actually Work in Canadian Trucking">
+  <meta name="twitter:description" content="Fuel surcharges are one of the most misunderstood line items on a freight invoice. Here is how they actually work and what Canadian shippers should know.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=1200&q=80">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Fuel Surcharges Actually Work in Canadian Trucking: What Every Shipper Should Know",
+    "description": "A clear explanation of how fuel surcharges are calculated in Canadian trucking, why they exist, and what shippers need to know about FSC benchmarks, the DOE index, NRCan surveys, and carbon tax impacts in 2025.",
+    "image": "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=1200&q=80",
+    "datePublished": "2025-02-05",
+    "dateModified": "2025-02-05",
+    "author": {
+      "@type": "Person",
+      "name": "Shahazeen Shaheer",
+      "email": "Shahazeen@keylinktransport.com",
+      "jobTitle": "Vice President of Marketing",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Keylink Transport"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Keylink Transport",
+      "url": "https://www.keylinktransport.ca",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.keylinktransport.ca/assets/logo-keylink.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.keylinktransport.ca/blog/fuel-surcharges-explained"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="preload" href="../css/main.css?v=18" as="style">
+  <link rel="stylesheet" href="../css/main.css?v=18">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+  <style>
+    .post-page { background: var(--midnight); min-height: 100vh; }
+    .post-hero { position: relative; height: clamp(380px, 52vw, 560px); overflow: hidden; }
+    .post-hero__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,14,26,0.20) 0%, rgba(10,14,26,0.50) 40%, rgba(10,14,26,0.92) 80%, rgba(10,14,26,1.00) 100%);
+    }
+    .post-hero__content { position: absolute; bottom: 0; left: 0; right: 0; padding: 0 0 48px; }
+    .post-hero__cat {
+      display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 14px;
+      background: rgba(34,160,146,0.15); color: var(--teal-lt); border: 1px solid rgba(34,160,146,0.3);
+    }
+    .post-hero__title {
+      font-family: var(--font-head); font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.05; letter-spacing: 0.03em; text-transform: uppercase;
+      color: var(--white); max-width: 820px; margin-bottom: 22px;
+    }
+    .post-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .post-hero__author { display: flex; align-items: center; gap: 10px; }
+    .post-hero__avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; color: var(--white); flex-shrink: 0;
+      border: 2px solid rgba(34,160,146,0.4);
+    }
+    .post-hero__author-info { display: flex; flex-direction: column; gap: 1px; }
+    .post-hero__author-name { font-size: 0.88rem; font-weight: 600; color: var(--cloud); }
+    .post-hero__author-role { font-size: 0.72rem; color: var(--slate); }
+    .post-hero__divider { width: 1px; height: 28px; background: rgba(255,255,255,0.12); }
+    .post-hero__date { font-size: 0.8rem; color: var(--slate); }
+    .post-hero__date time { color: var(--cloud); font-weight: 500; }
+    .post-hero__readtime { font-size: 0.8rem; color: var(--slate); }
+    .post-nav-share { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .post-nav-share__label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-right: 2px; }
+    .post-nav-share__icon { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: var(--slate); text-decoration: none; transition: all 0.2s; }
+    .post-nav-share__icon:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: var(--white); transform: translateY(-1px); }
+    .post-share { display: flex; align-items: center; gap: 16px; margin: 32px 0 36px; flex-wrap: wrap; }
+    .post-share__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); white-space: nowrap; }
+    .post-share__buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    .post-share__btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.25s ease; border: 1px solid transparent; }
+    .post-share__btn--linkedin { background: rgba(10,102,194,0.12); color: #6daef7; border-color: rgba(10,102,194,0.28); }
+    .post-share__btn--linkedin:hover { background: rgba(10,102,194,0.25); border-color: rgba(10,102,194,0.5); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10,102,194,0.2); }
+    .post-share__btn--facebook { background: rgba(24,119,242,0.1); color: #7ab3f7; border-color: rgba(24,119,242,0.24); }
+    .post-share__btn--facebook:hover { background: rgba(24,119,242,0.24); border-color: rgba(24,119,242,0.45); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(24,119,242,0.18); }
+    .post-share__btn--x { background: rgba(255,255,255,0.05); color: var(--cloud); border-color: rgba(255,255,255,0.1); }
+    .post-share__btn--x:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+    .post-nav-bar { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 14px 0; }
+    .post-nav-bar__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .post-nav-bar__back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: var(--teal-lt); text-decoration: none; transition: color 0.2s, gap 0.2s; }
+    .post-nav-bar__back:hover { color: var(--gold); gap: 4px; }
+    .post-breadcrumb { font-size: 0.76rem; color: var(--slate); display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .post-breadcrumb a { color: var(--slate); text-decoration: none; transition: color 0.2s; }
+    .post-breadcrumb a:hover { color: var(--teal-lt); }
+    .post-breadcrumb__sep { opacity: 0.3; }
+    .post-breadcrumb__current { color: rgba(232,237,245,0.55); }
+    .post-body { max-width: 760px; margin: 0 auto; padding: 52px 24px 80px; }
+    .post-toc { background: rgba(18,41,74,0.3); border: 1px solid rgba(255,255,255,0.07); border-left: 3px solid var(--teal-lt); border-radius: 12px; padding: 22px 26px; margin-bottom: 48px; }
+    .post-toc__label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 12px; }
+    .post-toc ol { padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
+    .post-toc li { font-size: 0.88rem; color: rgba(232,237,245,0.75); }
+    .post-toc a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .post-toc a:hover { color: var(--gold); }
+    .post-body p { font-size: 1.01rem; line-height: 1.88; color: rgba(232,237,245,0.82); margin-bottom: 1.4em; }
+    .post-body h2 { font-family: var(--font-head); font-size: clamp(1.55rem, 3vw, 2.1rem); letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin: 52px 0 16px; scroll-margin-top: 90px; }
+    .post-body h3 { font-family: var(--font-body); font-size: 1.06rem; font-weight: 700; color: var(--white); margin: 30px 0 10px; }
+    .post-body a { color: var(--teal-lt); text-decoration: underline; text-decoration-color: rgba(34,160,146,0.35); text-underline-offset: 3px; transition: color 0.2s, text-decoration-color 0.2s; }
+    .post-body a:hover { color: var(--gold); text-decoration-color: rgba(240,168,32,0.5); }
+    .post-body strong { color: var(--white); font-weight: 700; }
+    .post-body ul, .post-body ol { padding-left: 22px; margin-bottom: 1.4em; }
+    .post-body li { font-size: 1.01rem; line-height: 1.8; color: rgba(232,237,245,0.82); margin-bottom: 6px; }
+    .post-pullquote { border-left: 4px solid var(--gold); padding: 18px 26px; margin: 38px 0; background: rgba(240,168,32,0.05); border-radius: 0 12px 12px 0; }
+    .post-pullquote p { font-size: 1.1rem; font-style: italic; color: var(--cloud); margin: 0; opacity: 0.9; line-height: 1.7; }
+    .post-strategy { display: grid; gap: 14px; margin: 28px 0 40px; }
+    .post-strategy__item { display: flex; gap: 16px; align-items: flex-start; background: rgba(18,41,74,0.28); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 18px 20px; }
+    .post-strategy__num { width: 30px; height: 30px; border-radius: 50%; background: var(--teal); color: var(--white); font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .post-strategy__text h4 { font-size: 0.94rem; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+    .post-strategy__text p { font-size: 0.88rem; margin: 0; line-height: 1.65; color: rgba(232,237,245,0.72); }
+    .post-figure { margin: 40px 0; border-radius: 14px; overflow: hidden; }
+    .post-figure img { width: 100%; height: auto; display: block; }
+    .post-figure figcaption { font-size: 0.74rem; color: var(--slate); text-align: center; padding: 10px 0 0; font-style: italic; }
+    .post-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 36px 0; }
+    .post-stat { background: rgba(10,14,26,0.4); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 20px; text-align: center; }
+    .post-stat__num { font-family: var(--font-head); font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+    .post-stat__label { font-size: 0.78rem; color: var(--slate); line-height: 1.4; }
+    .post-cta-box { background: linear-gradient(135deg, rgba(18,41,74,0.65) 0%, rgba(26,123,110,0.2) 100%); border: 1px solid rgba(34,160,146,0.25); border-radius: 16px; padding: 36px 40px; text-align: center; margin: 48px 0; }
+    .post-cta-box__title { font-family: var(--font-head); font-size: 1.9rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+    .post-cta-box p { margin-bottom: 24px; color: rgba(232,237,245,0.7); }
+    .post-cta-box .btn { display: inline-flex; }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 36px 0 0; }
+    .post-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); color: var(--slate); }
+    .post-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 52px 0; }
+    .post-author-card { background: rgba(18,41,74,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 30px 34px; display: flex; gap: 22px; align-items: flex-start; margin: 48px 0 0; }
+    .post-author-card__avatar { width: 62px; height: 62px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--navy)); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; color: var(--white); flex-shrink: 0; border: 2px solid rgba(34,160,146,0.4); }
+    .post-author-card__label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 5px; }
+    .post-author-card__name { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+    .post-author-card__role { font-size: 0.8rem; color: var(--slate); margin-bottom: 12px; }
+    .post-author-card__bio { font-size: 0.88rem; line-height: 1.72; color: rgba(232,237,245,0.7); margin-bottom: 12px; }
+    .post-author-card__email { font-size: 0.82rem; color: var(--teal-lt); text-decoration: none; transition: color 0.2s; }
+    .post-author-card__email:hover { color: var(--gold); }
+    .post-related { padding: 60px 0 80px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .post-related .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .post-related__label { font-family: var(--font-head); font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 28px; }
+    .post-related__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .post-related__card { background: rgba(10,14,26,0.45); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; transition: all 0.3s ease; display: block; }
+    .post-related__card:hover { border-color: rgba(34,160,146,0.3); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+    .post-related__img { aspect-ratio: 16/9; overflow: hidden; }
+    .post-related__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .post-related__card:hover .post-related__img img { transform: scale(1.04); }
+    .post-related__body { padding: 16px 18px 20px; }
+    .post-related__cat { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-lt); margin-bottom: 8px; display: block; }
+    .post-related__title { font-size: 0.9rem; font-weight: 700; color: var(--white); line-height: 1.35; margin-bottom: 8px; }
+    .post-related__date { font-size: 0.7rem; color: rgba(34,160,146,0.65); font-weight: 500; }
+    @media (max-width: 768px) {
+      .post-hero { height: clamp(300px, 70vw, 420px); }
+      .post-hero__content { padding-bottom: 28px; }
+      .post-hero__title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+      .post-nav-bar__inner { justify-content: space-between; }
+      .post-breadcrumb { display: none; }
+      .post-nav-share__label { display: none; }
+      .post-share { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .post-body { padding: 36px 20px 60px; }
+      .post-author-card { flex-direction: column; gap: 14px; padding: 22px; }
+      .post-related__grid { grid-template-columns: 1fr; }
+      .post-stats { grid-template-columns: 1fr; }
+      .post-cta-box { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo" aria-label="Keylink Transport Home">
+          <img src="../assets/logo-keylink.png" alt="Keylink Transport Logo" width="160" height="44">
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../blog.html" aria-current="page">Blog</a></li>
+          <li><a href="../careers.html">Careers</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="https://app.keylinktransport.ca/login" target="_blank" rel="noopener" class="nav__login" aria-label="Log in to Keylink CRM"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Log in</a>          <a href="tel:+17786663626" class="nav__phone" aria-label="Call us">778-666-3626</a>
+          <a href="../contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+          <a href="../contact.html" class="btn btn--gold">Book a Load</a>
+        </div>
+        <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <button id="mobileClose" aria-label="Close menu">&#10005;</button>
+    <nav class="nav__mobile-links" aria-label="Mobile primary navigation">
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../careers.html">Careers</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <div class="nav__mobile-divider"></div>
+    <a href="../contact.html#appointment" class="nav__mobile-book nav__mobile-book--alt">Book Appointment &rarr;</a>
+    <a href="../contact.html" class="nav__mobile-book">Book a Load &rarr;</a>
+    <div class="nav__mobile-footer">
+      <div class="nav__mobile-footer-links">
+        <a href="https://app.keylinktransport.ca/login" target="_blank" rel="noopener" class="nav__mobile-footer-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Log in to CRM</a>        <a href="https://www.linkedin.com/company/keylink-transport" target="_blank" rel="noopener noreferrer" class="nav__mobile-footer-link nav__mobile-linkedin">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="tel:+17786663626" class="nav__mobile-footer-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          778-666-3626
+        </a>
+      </div>
+      <div class="nav__mobile-footer-legal">
+        <a href="../privacy.html">Privacy Policy</a>
+        <span class="nav__mobile-footer-dot">&middot;</span>
+        <a href="../terms.html">Terms &amp; Conditions</a>
+      </div>
+      <p class="nav__mobile-footer-copy">&copy; 2025 Keylink Transport Ltd.</p>
+    </div>
+  </div>
+
+  <main class="post-page">
+
+    <section class="post-hero">
+      <img
+        class="post-hero__img"
+        src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=1600&q=80"
+        alt="Close-up of a diesel fuel pump nozzle representing fuel surcharges in the Canadian trucking industry"
+        loading="eager">
+      <div class="post-hero__overlay" aria-hidden="true"></div>
+      <div class="post-hero__content">
+        <div class="container">
+          <span class="post-hero__cat">Logistics</span>
+          <h1 class="post-hero__title">How Fuel Surcharges Actually Work in Canadian Trucking: What Every Shipper Should Know</h1>
+          <div class="post-hero__meta">
+            <div class="post-hero__author">
+              <div class="post-hero__avatar" aria-hidden="true">SS</div>
+              <div class="post-hero__author-info">
+                <span class="post-hero__author-name">Shahazeen Shaheer</span>
+                <span class="post-hero__author-role">Vice President of Marketing, Keylink Transport</span>
+              </div>
+            </div>
+            <div class="post-hero__divider" aria-hidden="true"></div>
+            <span class="post-hero__date"><time datetime="2025-02-05">February 5, 2025</time></span>
+            <div class="post-hero__divider" aria-hidden="true"></div>
+            <span class="post-hero__readtime">9 min read</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="post-nav-bar">
+      <div class="container">
+        <div class="post-nav-bar__inner">
+          <a href="../blog.html" class="post-nav-bar__back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Back to Blog
+          </a>
+          <nav class="post-breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="post-breadcrumb__sep" aria-hidden="true">/</span>
+            <a href="../blog.html">Blog</a>
+            <span class="post-breadcrumb__sep" aria-hidden="true">/</span>
+            <span class="post-breadcrumb__current">Fuel Surcharges Explained</span>
+          </nav>
+          <div class="post-nav-share" aria-label="Share this article">
+            <span class="post-nav-share__label">Share</span>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.keylinktransport.ca%2Fblog%2Ffuel-surcharges-explained" target="_blank" rel="noopener noreferrer" class="post-nav-share__icon" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.keylinktransport.ca%2Fblog%2Ffuel-surcharges-explained" target="_blank" rel="noopener noreferrer" class="post-nav-share__icon" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.keylinktransport.ca%2Fblog%2Ffuel-surcharges-explained&text=How%20Fuel%20Surcharges%20Actually%20Work%20in%20Canadian%20Trucking%3A%20What%20Every%20Shipper%20Should%20Know" target="_blank" rel="noopener noreferrer" class="post-nav-share__icon" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <article class="post-body" itemscope itemtype="https://schema.org/Article">
+
+      <nav class="post-toc" aria-label="Table of contents">
+        <div class="post-toc__label">In This Article</div>
+        <ol>
+          <li><a href="#what-is-fsc">What Is a Fuel Surcharge?</a></li>
+          <li><a href="#why-fsc-exists">Why Fuel Surcharges Exist</a></li>
+          <li><a href="#benchmarks">The Benchmarks: DOE Index and NRCan</a></li>
+          <li><a href="#how-calculated">How Fuel Surcharges Are Actually Calculated</a></li>
+          <li><a href="#carbon-tax">The Carbon Tax Factor</a></li>
+          <li><a href="#example">A Simple FSC Calculation Example</a></li>
+          <li><a href="#shipper-frustrations">Why the Surcharge Lags Behind Pump Prices</a></li>
+          <li><a href="#best-practices">CTA Best Practices and What to Look For</a></li>
+          <li><a href="#keylink-approach">How Keylink Transport Handles Fuel Surcharges</a></li>
+        </ol>
+      </nav>
+
+      <p>If you ship freight in Canada, you have seen it on every invoice: the fuel surcharge, sometimes abbreviated as FSC. It sits below the base rate as a separate line item, and for many shippers it is one of the least understood charges on their freight bills. It changes from week to week or month to month, it never seems to drop as fast as diesel prices at the pump, and the calculation behind it can feel opaque.</p>
+
+      <p>The reality is that fuel surcharges are a straightforward, necessary mechanism that protects both carriers and shippers from the volatility of diesel fuel prices. When structured properly and tied to published benchmarks, the FSC is one of the most transparent components of a freight invoice. The problem is that many shippers have never had the mechanics explained clearly. This article will change that.</p>
+
+      <h2 id="what-is-fsc">What Is a Fuel Surcharge?</h2>
+
+      <p>A fuel surcharge is a variable charge added to the base freight rate (also called the line haul rate) that compensates the carrier for the cost of diesel fuel consumed during transport. It is expressed as a percentage of the line haul rate, or in some cases as a flat cents-per-mile add-on, and it adjusts periodically based on published fuel price indices.</p>
+
+      <p>The key distinction: the <strong>base rate</strong> covers the carrier's fixed and semi-variable operating costs, including driver wages, insurance, equipment payments, maintenance, and overhead. The <strong>fuel surcharge</strong> covers the variable cost of diesel fuel specifically. By separating these two components, both parties gain protection against fuel price swings without having to renegotiate the entire freight rate every time diesel moves up or down by a few cents per litre.</p>
+
+      <h3>Base Rate vs. Fuel Surcharge: Why They Are Separated</h3>
+
+      <p>Before fuel surcharges became standard industry practice in the early 2000s, carriers built their fuel cost assumptions directly into an all-inclusive per-mile or per-load rate. This created a problem for both sides. When diesel prices spiked, carriers absorbed losses they had not priced for. When diesel prices dropped, shippers paid inflated rates that reflected the carrier's need to hedge against future spikes. The separated FSC model eliminates this inefficiency by letting the fuel component float with actual market prices while the base rate remains stable over the contract term.</p>
+
+      <div class="post-stats">
+        <div class="post-stat">
+          <div class="post-stat__num">$1.55-1.70</div>
+          <div class="post-stat__label">CAD per litre, typical BC diesel price range in early 2025</div>
+        </div>
+        <div class="post-stat">
+          <div class="post-stat__num">25-35%</div>
+          <div class="post-stat__label">Fuel as a share of total carrier operating costs for a typical FTL operation</div>
+        </div>
+        <div class="post-stat">
+          <div class="post-stat__num">$0.21/L</div>
+          <div class="post-stat__label">Federal carbon tax on diesel (at $80/tonne CO2, as of April 2024)</div>
+        </div>
+      </div>
+
+      <h2 id="why-fsc-exists">Why Fuel Surcharges Exist</h2>
+
+      <p>Diesel fuel is the single largest variable cost in trucking operations. For a typical Canadian full truckload (FTL) dry van carrier, fuel represents between 25% and 35% of total operating costs, depending on the carrier's fleet efficiency, route profile, and fuel purchasing strategy. On a long-haul cross-border run from Abbotsford, BC to Chicago, IL, a single truck can consume over 1,200 litres of diesel each way. At early 2025 prices in BC, hovering between CAD $1.55 and $1.70 per litre, that is $1,860 to $2,040 in fuel cost for one leg of the trip.</p>
+
+      <p>Diesel prices are notoriously volatile. In 2022, Canadian diesel spiked above $2.30 per litre in some regions following the Russian invasion of Ukraine. By mid-2023, prices had dropped back below $1.70 in most of western Canada. In 2024, prices fluctuated between $1.50 and $1.80 per litre in BC as global crude oil markets responded to OPEC+ production decisions, Middle East tensions, and shifting demand patterns. This level of volatility, swings of $0.30 to $0.50 per litre within a single year, makes it impractical for either carriers or shippers to lock in a fixed fuel cost over a multi-month or multi-year contract.</p>
+
+      <p>The fuel surcharge solves this by creating a transparent, formula-driven adjustment mechanism. When diesel goes up, the surcharge rises. When diesel drops, the surcharge falls. Neither party has to predict future fuel prices; the mechanism handles it automatically based on published data.</p>
+
+      <div class="post-pullquote">
+        <p>"A properly structured fuel surcharge is not a hidden fee. It is the most transparent line on your freight invoice, because it is the one tied directly to a published, verifiable benchmark that both parties can look up independently."</p>
+      </div>
+
+      <h2 id="benchmarks">The Benchmarks: DOE Index and NRCan</h2>
+
+      <p>Fuel surcharges are only as trustworthy as the benchmarks they reference. In Canadian trucking, two primary fuel price indices are used: the US Department of Energy (DOE) diesel index for cross-border and US-referenced pricing, and the Natural Resources Canada (NRCan) retail fuel price survey for domestic Canadian pricing.</p>
+
+      <h3>The DOE Diesel Fuel Index</h3>
+
+      <p>The <a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank" rel="noopener noreferrer">US Energy Information Administration (EIA)</a>, a division of the Department of Energy, publishes a weekly national average retail diesel price every Monday. This is the most widely referenced fuel benchmark in North American trucking. The DOE index reports the average price of on-highway diesel fuel across the United States, broken into national and regional averages.</p>
+
+      <p>Many Canadian carriers, particularly those operating cross-border lanes between Canada and the US, reference the DOE national average as their FSC benchmark. The logic is practical: a significant portion of their fuel is purchased in the United States at US prices, and the DOE index is the most liquid, widely recognized, and frequently updated diesel benchmark on the continent. For cross-border FTL carriers operating between BC and US destinations, the DOE index often reflects actual fuel purchasing costs more accurately than a purely Canadian benchmark, since drivers fuel up on both sides of the border depending on price differentials.</p>
+
+      <h3>The NRCan Retail Fuel Price Survey</h3>
+
+      <p><a href="https://www.nrcan.gc.ca/energy/fuel-prices/4593" target="_blank" rel="noopener noreferrer">Natural Resources Canada (NRCan)</a> publishes weekly retail fuel prices for major Canadian cities, including diesel. The NRCan survey provides average retail prices by city and province, updated weekly. For carriers operating primarily within Canada, the NRCan diesel price for their home province (or a national average) serves as the FSC reference point.</p>
+
+      <p>The NRCan benchmark captures Canadian-specific pricing factors that the DOE index does not, including federal and provincial fuel taxes, the carbon tax levy, and the exchange rate impact on imported refined fuel products. For a shipper whose freight moves entirely within Canada, an NRCan-based FSC provides a more direct reflection of the carrier's actual domestic fuel costs.</p>
+
+      <h3>Which Benchmark Is Better?</h3>
+
+      <p>Neither benchmark is inherently better. The right choice depends on the carrier's operating profile and route mix. For cross-border freight, the DOE index is standard. For domestic Canadian freight, NRCan is more appropriate. What matters most is that the benchmark is clearly identified in the carrier agreement, that both parties can independently verify the published price, and that the FSC formula is transparent. A good carrier will specify exactly which benchmark they use and be willing to show you how the number on your invoice was derived.</p>
+
+      <figure class="post-figure">
+        <img
+          src="https://images.unsplash.com/photo-1605732562742-aec87c7a1f17?auto=format&fit=crop&w=900&q=80"
+          alt="Long-haul freight truck driving on a Canadian highway, representing the fuel costs that drive surcharge calculations"
+          loading="lazy">
+        <figcaption>A single FTL run across western Canada can consume over 1,000 litres of diesel. Fuel surcharges exist to keep this variable cost transparent for both carriers and shippers. Photo: Unsplash</figcaption>
+      </figure>
+
+      <h2 id="how-calculated">How Fuel Surcharges Are Actually Calculated</h2>
+
+      <p>The mechanics of an FSC calculation are simpler than most shippers assume. There are two common structures: percentage-of-line-haul and cents-per-mile. Most Canadian FTL carriers use the percentage method.</p>
+
+      <h3>The Percentage-of-Line-Haul Method</h3>
+
+      <p>This is the most common FSC structure in Canadian FTL trucking. It works as follows:</p>
+
+      <ol>
+        <li><strong>Establish a base fuel price:</strong> The carrier and shipper agree on a "base" fuel price at the time the contract is signed. This base price represents the diesel cost already built into the negotiated line haul rate. For example, if the contract is signed when diesel is at $1.50 per litre, that becomes the base.</li>
+        <li><strong>Set the surcharge scale:</strong> For every incremental change in the benchmark price above the base, the FSC increases by a defined percentage of the line haul. A common structure might be: for every $0.05 per litre (or $0.05 per gallon, for DOE-referenced contracts) increase above the base price, the FSC increases by 0.5% of the line haul rate.</li>
+        <li><strong>Apply weekly or monthly:</strong> The carrier checks the benchmark price at a defined frequency (weekly on Monday using the DOE, or weekly using NRCan data) and applies the corresponding FSC percentage to all shipments invoiced during that period.</li>
+      </ol>
+
+      <h3>The Cents-Per-Mile Method</h3>
+
+      <p>Some carriers, particularly those running consistent lane lengths, use a flat cents-per-mile surcharge instead of a percentage. In this model, the FSC is a fixed dollar amount per loaded mile that adjusts based on the benchmark fuel price. For example: at a benchmark price of $1.60 per litre, the surcharge might be $0.42 per mile; at $1.70 per litre, it rises to $0.48 per mile. The table of rates is typically published as part of the carrier agreement.</p>
+
+      <h3>Adjustment Frequency</h3>
+
+      <p>Most FSC programs adjust weekly, matching the weekly publication schedule of both the DOE and NRCan benchmarks. Some contracts, particularly for smaller shippers or less frequent shipping volumes, adjust monthly using an average of the weekly benchmark prices for the prior month. The key principle is that the adjustment frequency is defined in the contract and applied consistently. There should be no ambiguity about which week's benchmark applies to which shipments.</p>
+
+      <h2 id="carbon-tax">The Carbon Tax Factor</h2>
+
+      <p>Canadian shippers need to understand that a meaningful portion of the fuel price their carriers pay, and therefore a portion of the FSC, reflects the federal carbon tax. As of April 1, 2024, the federal carbon price stood at $80 per tonne of CO2 equivalent. For diesel fuel, which produces approximately 2.681 kg of CO2 per litre when combusted, this translates to a carbon levy of approximately <strong>$0.21 per litre</strong> of diesel.</p>
+
+      <p>The federal government's carbon pricing schedule had been set to increase by $15 per tonne annually, which would have brought the rate to $95 per tonne in April 2025 and ultimately to $170 per tonne by 2030. However, the carbon tax trajectory has become a significant political issue, with ongoing debates about its future path. Regardless of the specific trajectory, the carbon tax is already embedded in the diesel price that carriers pay at the pump, which means it flows through directly into fuel surcharges calculated from NRCan benchmarks.</p>
+
+      <p>For shippers comparing fuel costs across years, the carbon tax impact is substantial. At $80 per tonne, the $0.21 per litre levy adds approximately $250 to $300 in carbon costs to a single long-haul FTL movement consuming 1,200 to 1,400 litres of diesel. This is not a carrier markup; it is a government-imposed cost that carriers pass through via the fuel surcharge mechanism.</p>
+
+      <h3>Cross-Border Considerations</h3>
+
+      <p>One detail that cross-border shippers often overlook: the Canadian carbon tax applies only to fuel purchased in Canada. When a carrier fuels up in Washington State or Montana on a cross-border run, the US-purchased fuel does not carry the Canadian carbon levy. This means the actual carbon tax cost on a cross-border shipment depends on the fueling split between Canadian and US purchases. Carriers referencing the DOE index for cross-border FSC calculations are working from a benchmark that does not include the Canadian carbon tax, which is appropriate for the US-purchased fuel portion. Carriers using NRCan are referencing a price that includes the carbon tax inherently.</p>
+
+      <h2 id="example">A Simple FSC Calculation Example</h2>
+
+      <p>Let us walk through a concrete example to illustrate how an FSC shows up on a freight invoice.</p>
+
+      <h3>The Scenario</h3>
+
+      <p>A shipper in Abbotsford, BC contracts with an FTL dry van carrier to move a load to Calgary, AB. The contract specifies the following:</p>
+
+      <ul>
+        <li><strong>Line haul rate:</strong> $2,800 (the base rate for the lane)</li>
+        <li><strong>FSC benchmark:</strong> NRCan weekly average diesel price, BC region</li>
+        <li><strong>FSC base fuel price:</strong> $1.40 per litre (the price assumed when the line haul rate was negotiated)</li>
+        <li><strong>FSC scale:</strong> For every $0.01 per litre above the base, the FSC increases by 0.1% of line haul</li>
+      </ul>
+
+      <h3>The Calculation</h3>
+
+      <p>At the time of shipment, the NRCan weekly average diesel price for BC is $1.62 per litre. The FSC calculation proceeds as follows:</p>
+
+      <ol>
+        <li><strong>Price difference:</strong> $1.62 (current) minus $1.40 (base) = $0.22 per litre above base</li>
+        <li><strong>Surcharge percentage:</strong> $0.22 / $0.01 = 22 increments x 0.1% = 22% FSC</li>
+        <li><strong>Surcharge dollar amount:</strong> $2,800 (line haul) x 22% = $616</li>
+        <li><strong>Total invoice:</strong> $2,800 (line haul) + $616 (FSC) = $3,416</li>
+      </ol>
+
+      <p>If diesel prices drop the following week to $1.55 per litre, the same calculation yields a 15% FSC ($420), bringing the total to $3,220. The surcharge adjusts automatically, and both sides can verify the math independently using published NRCan data.</p>
+
+      <p>This is how the mechanism is supposed to work: transparent, formula-driven, and verifiable. When a shipper sees the FSC on their invoice, they should be able to reproduce the exact number using the benchmark price and the contract formula.</p>
+
+      <h2 id="shipper-frustrations">Why the Surcharge Lags Behind Pump Prices</h2>
+
+      <p>One of the most common frustrations shippers express about fuel surcharges is the lag effect: diesel prices at the pump drop on Tuesday, but the FSC on Friday's invoice still reflects last week's higher price. This is not a carrier trying to squeeze extra margin. There are legitimate structural reasons for the delay.</p>
+
+      <h3>Publication Timing</h3>
+
+      <p>The DOE publishes its weekly diesel average on Monday, reflecting prices collected during the prior week. NRCan similarly publishes weekly data with a short collection lag. A carrier applying the Monday DOE number to shipments invoiced that week is using the most current published benchmark available, but that benchmark itself reflects prices from days prior. This creates a built-in lag of roughly 5 to 10 days between a change in pump prices and its full reflection in the FSC.</p>
+
+      <h3>Averaging Effects</h3>
+
+      <p>Both the DOE and NRCan indices report average prices, not spot prices. If diesel drops sharply on a Tuesday but was high Monday through Thursday of the prior week, the weekly average will not reflect the full drop. This averaging smooths out daily volatility (which benefits shippers during sharp upward spikes) but also slows the reflection of downward moves.</p>
+
+      <h3>Carriers Purchase Fuel in Advance</h3>
+
+      <p>Many mid-size and large carriers use bulk fuel purchasing agreements, fuel cards with volume-negotiated pricing, or on-site fueling facilities where fuel was purchased at prices set days or weeks prior. A carrier's actual fuel cost on any given day may reflect a purchase price that is different from the retail benchmark. The FSC mechanism is designed to approximate the carrier's fuel cost over time, not to match it precisely on any single day. Over a multi-week period, the benchmark tracking is quite accurate; on any individual day, there will be minor discrepancies.</p>
+
+      <h3>The "Sticky on the Way Down" Perception</h3>
+
+      <p>Shippers often perceive that surcharges rise faster than they fall. In most properly structured FSC programs, the mechanism is symmetrical: the same formula applies whether fuel is going up or down. The perception of asymmetry usually results from the lag and averaging factors described above. When fuel rises, shippers are paying more and are sensitive to any increase. When fuel drops, the lag means the reduction takes a week or two to appear, which creates a perception of stickiness. A transparent carrier will walk you through the timing and show you that the formula works identically in both directions.</p>
+
+      <h2 id="best-practices">CTA Best Practices and What to Look For</h2>
+
+      <p>The <a href="https://cantruck.ca" target="_blank" rel="noopener noreferrer">Canadian Trucking Alliance (CTA)</a>, the national federation representing provincial trucking associations across Canada, has published guidance on fuel surcharge best practices. Their recommendations align with what responsible carriers already do, and they provide a useful checklist for shippers evaluating carrier FSC programs.</p>
+
+      <h3>CTA Fuel Surcharge Recommendations</h3>
+
+      <ul>
+        <li><strong>Use a published, independently verifiable benchmark:</strong> The DOE national average or NRCan provincial averages are the standard references. A carrier whose FSC is not tied to a published benchmark is using a proprietary formula that cannot be independently verified, which should raise questions.</li>
+        <li><strong>Define the base fuel price clearly in the contract:</strong> The base price, the fuel cost assumed in the line haul rate, should be explicitly stated. Without a defined base, neither party can verify whether the FSC percentage is correct.</li>
+        <li><strong>Apply adjustments symmetrically:</strong> The same formula should apply whether fuel prices are rising or falling. Any asymmetric program, one that ratchets up faster than it ratchets down, is not aligned with CTA best practices.</li>
+        <li><strong>State the adjustment frequency:</strong> Weekly or monthly adjustments should be specified in the agreement. The carrier should be able to tell you exactly which benchmark date applies to which invoices.</li>
+        <li><strong>Separate the FSC from the base rate on every invoice:</strong> The fuel surcharge should always appear as a distinct line item, not bundled into an all-inclusive rate. This transparency benefits both parties by making the fuel cost component visible and auditable.</li>
+      </ul>
+
+      <p>Shippers should ask every carrier three questions about their fuel surcharge program: What benchmark do you use? What is the base fuel price in our contract? And can you show me the formula? If a carrier cannot answer these clearly, that is a signal worth paying attention to.</p>
+
+      <h2 id="keylink-approach">How Keylink Transport Handles Fuel Surcharges</h2>
+
+      <p>At <a href="../about.html">Keylink Transport</a>, we treat our fuel surcharge as a transparency commitment, not a revenue tool. Our FSC program is built on principles that align with CTA best practices and reflect our broader philosophy of honest, straightforward billing.</p>
+
+      <div class="post-strategy">
+        <div class="post-strategy__item">
+          <div class="post-strategy__num">1</div>
+          <div class="post-strategy__text">
+            <h4>Published Benchmark, Always Verifiable</h4>
+            <p>Our FSC is tied directly to published benchmark indices. For cross-border lanes, we reference the DOE national average. For domestic Canadian movements, we reference NRCan data. Every shipper can independently verify the fuel price used in their surcharge calculation.</p>
+          </div>
+        </div>
+        <div class="post-strategy__item">
+          <div class="post-strategy__num">2</div>
+          <div class="post-strategy__text">
+            <h4>Clear Base Price in Every Agreement</h4>
+            <p>The base fuel price is stated explicitly in every Keylink rate agreement. There is no ambiguity about where the line haul rate ends and the fuel surcharge begins. Our customers know exactly what diesel price was assumed when their rate was negotiated.</p>
+          </div>
+        </div>
+        <div class="post-strategy__item">
+          <div class="post-strategy__num">3</div>
+          <div class="post-strategy__text">
+            <h4>No Hidden Surcharges</h4>
+            <p>The fuel surcharge is the fuel surcharge. We do not layer additional "energy surcharges," "environmental levies," or other vaguely named add-ons that obscure total cost. What you see on the invoice is what you pay, and every line item is explained clearly.</p>
+          </div>
+        </div>
+        <div class="post-strategy__item">
+          <div class="post-strategy__num">4</div>
+          <div class="post-strategy__text">
+            <h4>Symmetrical Adjustments, Up and Down</h4>
+            <p>Our FSC formula applies identically whether diesel is rising or falling. We do not hold surcharges high when pump prices drop, and we do not delay downward adjustments. The formula is the formula, applied consistently in both directions.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>We believe that a shipper who understands their fuel surcharge is a better long-term customer than one who feels surprised by their invoice. Transparency in fuel pricing builds the kind of trust that sustains carrier-shipper relationships through volatile markets. That is the approach we take with every customer.</p>
+
+      <div class="post-cta-box">
+        <div class="post-cta-box__title">Transparent Freight Pricing, No Surprises</div>
+        <p>Keylink Transport ties every fuel surcharge to published benchmarks with clear, verifiable formulas. Get a quote and see exactly what you are paying for.</p>
+        <a href="../contact.html" class="btn btn--glass">Request a Quote &rarr;</a>
+      </div>
+
+      <h2>The Bottom Line</h2>
+
+      <p>Fuel surcharges are not a mystery, and they are not a hidden fee. They are a transparent, industry-standard mechanism that allows carriers and shippers to share the risk of diesel price volatility fairly. When the FSC is tied to a published benchmark, calculated from a clearly defined formula, and applied symmetrically, it is one of the most honest line items on a freight invoice.</p>
+
+      <p>In early 2025, with BC diesel prices hovering in the $1.55 to $1.70 per litre range and the federal carbon tax adding approximately $0.21 per litre to every fill-up, fuel remains one of the largest variable costs in the Canadian trucking equation. Understanding how the surcharge works, which benchmark your carrier uses, and what base price sits in your contract gives you the information you need to evaluate your freight costs accurately and plan your logistics budget with confidence.</p>
+
+      <p>If your current carrier cannot walk you through their fuel surcharge calculation in five minutes or less, it is worth asking why. The good ones will welcome the question.</p>
+
+      <hr class="post-divider">
+
+      <div class="post-tags" aria-label="Article tags">
+        <span class="post-tag">Fuel Surcharge</span>
+        <span class="post-tag">Canadian Trucking</span>
+        <span class="post-tag">FSC Calculation</span>
+        <span class="post-tag">DOE Index</span>
+        <span class="post-tag">NRCan</span>
+        <span class="post-tag">Carbon Tax</span>
+        <span class="post-tag">Freight Rates</span>
+        <span class="post-tag">FTL Canada</span>
+      </div>
+
+      <div class="post-share">
+        <span class="post-share__label">Share this article</span>
+        <div class="post-share__buttons">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.keylinktransport.ca%2Fblog%2Ffuel-surcharges-explained" target="_blank" rel="noopener noreferrer" class="post-share__btn post-share__btn--linkedin">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.keylinktransport.ca%2Fblog%2Ffuel-surcharges-explained" target="_blank" rel="noopener noreferrer" class="post-share__btn post-share__btn--facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.keylinktransport.ca%2Fblog%2Ffuel-surcharges-explained&text=How%20Fuel%20Surcharges%20Actually%20Work%20in%20Canadian%20Trucking%3A%20What%20Every%20Shipper%20Should%20Know" target="_blank" rel="noopener noreferrer" class="post-share__btn post-share__btn--x">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X
+          </a>
+        </div>
+      </div>
+
+      <div class="post-author-card" itemscope itemtype="https://schema.org/Person">
+        <div class="post-author-card__avatar" aria-hidden="true">SS</div>
+        <div>
+          <div class="post-author-card__label">Written by</div>
+          <div class="post-author-card__name" itemprop="name">Shahazeen Shaheer</div>
+          <div class="post-author-card__role" itemprop="jobTitle">Vice President of Marketing, Keylink Transport</div>
+          <p class="post-author-card__bio" itemprop="description">Shahazeen Shaheer is the Vice President of Marketing at Keylink Transport, a BC-based full truckload carrier specializing in Canada-USA freight. Shahazeen leads brand strategy, content, and digital growth for Keylink, writing on freight industry trends, logistics strategy, and cross-border shipping for Canadian businesses.</p>
+          <a class="post-author-card__email" href="mailto:Shahazeen@keylinktransport.com" itemprop="email">Shahazeen@keylinktransport.com</a>
+        </div>
+      </div>
+
+    </article>
+
+    <section class="post-related">
+      <div class="container">
+        <h2 class="post-related__label">Related Articles</h2>
+        <div class="rs-wrap" id="relatedSlider"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="../assets/logo-keylink.png" alt="Keylink Transport Logo" loading="lazy" width="160" height="44">
+          <p class="footer__tagline">BC-based full truckload carrier. Reliable Canada-USA freight solutions for businesses that can't afford surprises.</p>
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/keylink-transport" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Keylink Transport on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Company</div>
+          <ul class="footer__links">
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../careers.html">Careers</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__links">
+            <li><a href="../services.html#ftl">Dry Van FTL</a></li>
+            <li><a href="../services.html#crossborder">Cross-Border</a></li>
+            <li><a href="../services.html#corridors">Freight Corridors</a></li>
+            <li><a href="../contact.html">Request a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+            <span>2790 Allwood Street<br>Abbotsford, BC V2T 3R7</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="tel:+17786663626">778-666-3626</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:info@keylinktransport.com">info@keylinktransport.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:dispatch@keylinktransport.com">dispatch@keylinktransport.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">&copy; 2025 Keylink Transport Inc. All rights reserved. USDOT 2832041 | MC# 946449</div>
+        <div class="footer__legal">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Use</a>
+          <a href="https://ai.fmcsa.dot.gov/SMS/Carrier/2832041" target="_blank" rel="noopener noreferrer">FMCSA Profile</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin:18px auto 6px;padding:14px 22px;border:1.5px solid rgba(240,168,32,0.55);border-radius:10px;background:rgba(240,168,32,0.10);font-family:'Inter',sans-serif;font-size:12.5px;line-height:1.6;color:#F0A820;max-width:640px;box-shadow:0 4px 14px rgba(240,168,32,0.08);">
+        <strong style="display:block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;color:#F0A820;">Content Concerns or Takedown Requests</strong>Please contact <a href="mailto:dispatch@keylinktransport.com" style="color:#F0A820;text-decoration:underline;font-weight:700;">dispatch@keylinktransport.com</a> or <a href="mailto:shahazeen@keylinktransport.com" style="color:#F0A820;text-decoration:underline;font-weight:700;">shahazeen@keylinktransport.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="../js/blog-registry.js?v=16"></script>
+  <script src="../js/related-slider.js"></script>
+  <script src="../js/main.js?v=5" defer></script>
+</body>
+</html>

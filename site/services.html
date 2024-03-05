@@ -202,12 +202,46 @@
       height: var(--sticky-h);
       display: flex;
       align-items: center;
-      background: rgba(10,14,26,0.97);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(135deg, rgba(18,41,74,0.82) 0%, rgba(26,123,110,0.34) 52%, rgba(8,20,42,0.88) 100%),
+        rgba(7,18,40,0.82);
+      backdrop-filter: blur(26px) saturate(210%);
+      -webkit-backdrop-filter: blur(26px) saturate(210%);
+      border-top: 1px solid rgba(65,190,205,0.28);
+      border-bottom: 1px solid rgba(34,160,146,0.26);
+      box-shadow:
+        0 18px 50px rgba(0,0,0,0.42),
+        0 0 36px rgba(34,160,146,0.16),
+        inset 0 1px 0 rgba(95,226,232,0.2),
+        inset 0 -1px 0 rgba(34,160,146,0.3);
+    }
+
+    .sticky-section__header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 16% -10%, rgba(42,191,210,0.32), transparent 30%),
+        radial-gradient(circle at 84% 115%, rgba(34,160,146,0.34), transparent 42%),
+        linear-gradient(100deg, transparent 0%, rgba(89,220,226,0.14) 44%, transparent 70%);
+      opacity: 0.9;
+    }
+
+    .sticky-section--active .sticky-section__header {
+      background:
+        linear-gradient(135deg, rgba(18,55,96,0.9) 0%, rgba(34,160,146,0.48) 50%, rgba(9,28,58,0.92) 100%),
+        rgba(7,20,44,0.9);
+      border-top-color: rgba(91,226,232,0.42);
+      border-bottom-color: rgba(34,160,146,0.4);
+      box-shadow:
+        0 20px 64px rgba(0,0,0,0.5),
+        0 0 42px rgba(34,160,146,0.24),
+        inset 0 1px 0 rgba(91,226,232,0.3),
+        inset 0 -1px 0 rgba(34,160,146,0.42);
     }
 
     /* Stacking offsets — each header rests below the ones above */
@@ -225,6 +259,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .sticky-section__left {
@@ -239,9 +275,10 @@
       font-size: 2rem;
       line-height: 1;
       color: var(--gold);
-      opacity: 0.3;
+      opacity: 0.52;
       flex-shrink: 0;
       width: 36px;
+      text-shadow: 0 0 18px rgba(34,160,146,0.35);
     }
 
     .sticky-section__badge {
@@ -251,13 +288,14 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(240,168,32,0.1);
-      border: 1px solid rgba(240,168,32,0.25);
+      color: #7ee5dc;
+      background: rgba(34,160,146,0.16);
+      border: 1px solid rgba(70,212,220,0.32);
       padding: 3px 10px;
       border-radius: 100px;
       flex-shrink: 0;
       white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
     }
 
     .sticky-section__title {
@@ -272,24 +310,30 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.42);
     }
 
     .sticky-section__cta-link {
       font-family: var(--font-body);
       font-size: 0.78rem;
       font-weight: 600;
-      color: var(--gold);
+      color: #7ee5dc;
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 6px;
       padding: 8px 16px;
-      border: 1px solid rgba(240,168,32,0.3);
+      border: 1px solid rgba(70,212,220,0.34);
       border-radius: 8px;
-      background: rgba(240,168,32,0.06);
+      background:
+        linear-gradient(135deg, rgba(22,75,118,0.42), rgba(34,160,146,0.16)),
+        rgba(9,26,52,0.64);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       transition: all 0.25s ease;
       white-space: nowrap;
       flex-shrink: 0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
     }
     .sticky-section__cta-link:hover {
       background: var(--gold);
@@ -328,6 +372,19 @@
     }
     #sticky-erp .sticky-section__body {
       background: #080f1e;
+    }
+
+    .service-detail__actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .service-detail__actions .btn {
+      margin: 0 !important;
+      align-self: stretch;
     }
 
     .erp-visual {
@@ -564,6 +621,21 @@
       }
       .erp-timeline__row time {
         grid-column: 2;
+      }
+      .service-detail__actions {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .service-detail__actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .service-detail__actions .btn {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -852,8 +924,10 @@
                 <li>Trailer Drop</li>
                 <li>Power Only</li>
               </ul>
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-          <a href="contact.html" class="btn btn--gold" style="margin-top:24px;">Request a Load</a>
+              <div class="service-detail__actions">
+                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+                <a href="contact.html" class="btn btn--gold">Request a Load</a>
+              </div>
             </div>
             <div class="service-detail__visual service-detail__visual--has-image" aria-label="Dry Van FTL loaded trailer with Canadian freight">
               <picture><source srcset="assets/Generated_Image_April_07__2026_-_10_59PM-removebg-preview.webp" type="image/webp"><img
@@ -900,8 +974,10 @@
                 <li>BC ↔ Washington, Oregon, California, Idaho</li>
                 <li>Midwest &amp; East Coast routes available on request</li>
               </ul>
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-          <a href="contact.html" class="btn btn--gold" style="margin-top:24px;">Request Cross-Border Quote</a>
+              <div class="service-detail__actions">
+                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+                <a href="contact.html" class="btn btn--gold">Request Cross-Border Quote</a>
+              </div>
             </div>
             <div class="service-detail__visual service-detail__visual--has-image" aria-label="Canada–USA border crossing sign">
               <picture><source srcset="assets/Gemini_Generated_Image_y44sphy44sphy44s-removebg-preview.webp" type="image/webp"><img
@@ -948,8 +1024,10 @@
                 <li>Lane pricing advantages for repeat shippers</li>
                 <li>Custom routing on request</li>
               </ul>
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-          <a href="contact.html" class="btn btn--gold" style="margin-top:24px;">Check Your Corridor</a>
+              <div class="service-detail__actions">
+                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+                <a href="contact.html" class="btn btn--gold">Check Your Corridor</a>
+              </div>
             </div>
             <div class="service-detail__visual service-detail__visual--has-image" aria-label="Freight corridor map showing Keylink Transport routes across Canada and USA">
               <picture><source srcset="assets/Generated_Image_April_07__2026_-_10_46PM-removebg-preview.webp" type="image/webp"><img
@@ -997,8 +1075,10 @@
                 <li>Internal dispatch accountability backed by one source of truth</li>
                 <li>Built in-house around Keylink's freight operations</li>
               </ul>
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-          <a href="contact.html" class="btn btn--gold" style="margin-top:24px;">Request ERP Visibility</a>
+              <div class="service-detail__actions">
+                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+                <a href="contact.html" class="btn btn--gold">Request ERP Visibility</a>
+              </div>
             </div>
             <div class="erp-visual" aria-label="Keylink in-house ERP shipment visibility dashboard">
               <div class="erp-panel">

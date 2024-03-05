@@ -11,6 +11,10 @@
 
   // ---- ENTRANCE ANIMATION (runs after preloader exits) ----
   function runEntranceAnimation() {
+    if (!document.body.classList.contains('js-loading')) {
+      return;
+    }
+
     if (prefersReducedMotion) {
       document.body.classList.remove('js-loading');
       return;

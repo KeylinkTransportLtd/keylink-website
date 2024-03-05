@@ -33,7 +33,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   color-scheme: light only; /* force Chrome to render pure whites, no dark-mode tinting */
-  background-color: #FFFFFF; /* Chrome paints html bg before body — lock it to pure white */
+  background-color: var(--midnight);
 }
 
 body {

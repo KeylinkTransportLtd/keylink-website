@@ -8404,11 +8404,12 @@ body.js-loading .svh__scroll-hint {
 
 /* ---- Responsive ---- */
 @media (max-width: 980px) {
-  .erp-section { min-height: 0; padding: 90px 0; }
+  .erp-section { min-height: 0; padding: 0 0 90px; }
+  .savings-callout { padding: 60px 0 24px; }
   .erp-media {
     position: relative;
     width: 100%;
-    height: 240px;
+    height: 320px;
     margin-bottom: 40px;
     inset: auto;
   }
@@ -8432,8 +8433,9 @@ body.js-loading .svh__scroll-hint {
   .erp-copy { max-width: 100%; }
 }
 @media (max-width: 640px) {
-  .erp-section { padding: 70px 0 80px; }
-  .erp-media { height: 200px; margin-bottom: 32px; }
+  .erp-section { padding: 0 0 70px; }
+  .savings-callout { padding: 48px 0 20px; }
+  .erp-media { height: 260px; margin-bottom: 32px; }
   .erp-feature { padding: 14px; }
   .erp-feature__icon { width: 34px; height: 34px; }
   .erp-cta-row { flex-direction: column; align-items: stretch; gap: 12px; }

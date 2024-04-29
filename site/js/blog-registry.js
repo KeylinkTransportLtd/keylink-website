@@ -24,8 +24,8 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-06-08',
     dateLabel: 'June 8, 2026',
-    image: 'https://images.pexels.com/photos/3846205/pexels-photo-3846205.jpeg?auto=compress&cs=tinysrgb&w=600',
-    imageAlt: 'Diesel fuel pump nozzle at a truck stop representing the June 2026 diesel price volatility driven by the Iran-Israel conflict',
+    image: '/assets/iran-israel-oil-volatility-2026.png',
+    imageAlt: 'Keylink Transport market alert graphic on the Iran-Israel oil whiplash, June 2026',
     featured: true,
   },
   {

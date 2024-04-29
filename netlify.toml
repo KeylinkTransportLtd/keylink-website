@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "site"
 
 # Redirects for stale external links
 [[redirects]]

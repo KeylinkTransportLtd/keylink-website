@@ -48,8 +48,8 @@
   function buildGrid() {
     if (!sortedPosts.length) return;
 
-    /* Posts for the grid: everything after the hero post */
-    var gridPosts = sortedPosts.slice(1);
+    /* Posts for the grid: all posts, newest first (latest leads the section) */
+    var gridPosts = sortedPosts;
 
     var html = '';
     gridPosts.forEach(function (p, i) {
@@ -103,8 +103,8 @@
     var tabsEl = document.querySelector('.blog-tabs');
     if (!tabsEl || !sortedPosts.length) return;
 
-    /* Unique categories from grid posts (index 1+) in order of appearance */
-    var gridPosts = sortedPosts.slice(1);
+    /* Unique categories from all posts in order of appearance */
+    var gridPosts = sortedPosts;
     var seen = {};
     var cats = [];
     gridPosts.forEach(function (p) {

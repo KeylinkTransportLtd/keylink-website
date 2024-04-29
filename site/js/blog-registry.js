@@ -13,7 +13,7 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-06-15',
     dateLabel: 'June 15, 2026',
-    image: 'https://images.pexels.com/photos/93398/pexels-photo-93398.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/assets/iran-peace-deal-hormuz-2026.png',
     imageAlt: 'Semi truck on an open highway at sunrise representing relief in freight markets after the US-Iran peace deal',
     featured: true,
   },

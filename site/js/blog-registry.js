@@ -13,8 +13,8 @@ window.KEYLINK_POSTS = [
     category: 'Logistics',
     date: '2026-06-22',
     dateLabel: 'June 22, 2026',
-    image: '/assets/bc-wildfire-freight-corridors-2026.png',
-    imageAlt: 'BC wildfire smoke over a mountain highway representing the 2026 fire season impact on freight corridors',
+    image: '/assets/bc-wildfire-freight-corridors-2026-card.png',
+    imageAlt: 'Keylink Transport fire season banner: how BC 2026 wildfires are squeezing freight corridors',
     featured: true,
   },
   {

@@ -785,7 +785,7 @@ body.js-loading .svh__scroll-hint {
   position: relative;
 }
 
-/* Sticky frame — two columns: text LEFT, video RIGHT */
+/* Sticky frame — FULL-BLEED video with the text overlaid on the left */
 .svh__sticky {
   position: sticky;
   top: 0;
@@ -793,53 +793,84 @@ body.js-loading .svh__scroll-hint {
   width: 100%;
   background: #ffffff !important;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "text video";
+  display: flex;
   align-items: center;
   padding-top: 80px; /* clear fixed nav */
 }
 
-/* Subtle bottom vignette */
+/* Left-to-right white scrim — keeps the truck reading on the right while the
+   text stays legible on the left, fading fluidly into the scene (no hard edge) */
+.svh__sticky::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(255,255,255,0.95) 0%,
+    rgba(255,255,255,0.88) 26%,
+    rgba(255,255,255,0.55) 44%,
+    rgba(255,255,255,0.12) 60%,
+    rgba(255,255,255,0)   72%
+  );
+}
+
+/* Subtle bottom fade into the page */
 .svh__sticky::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100px;
-  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5));
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.85));
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
 }
 
-/* ---- Right column: video ---- */
+/* ---- Full-bleed background video (truck anchored to the right) ---- */
 .svh__video {
-  grid-area: video;
-  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
-  height: auto;
-  max-height: 80vh;
-  object-fit: contain;
-  object-position: center center;
-  padding: 24px 48px 24px 16px;
-  /* Entrance animation */
-  animation: svhVideoIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-  /* Soft shadow so truck reads on white */
-  filter: drop-shadow(0 24px 48px rgba(18,41,74,0.10)) drop-shadow(0 4px 16px rgba(18,41,74,0.07));
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: 80% center;
+  padding: 0;
+  animation: svhVideoIn 1.2s ease both;
+  filter: none;
 }
 
 @keyframes svhVideoIn {
-  from { opacity: 0; transform: scale(0.95) translateX(20px); }
-  to   { opacity: 1; transform: scale(1)    translateX(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* ---- Left column: text ---- */
+/* ---- Text overlay (left), sized so it never crowds the truck ---- */
 .svh__overlay {
-  grid-area: text;
-  padding: 0 32px 0 64px;
+  position: relative;
   z-index: 3;
-  max-width: 100%;
+  max-width: clamp(340px, 44vw, 640px);
+  padding: 0 32px 0 clamp(24px, 6vw, 88px);
+}
+
+/* Narrower desktop / tablet: shrink the text column, push the truck further
+   right, and strengthen the scrim so the headline never overlaps the truck */
+@media (max-width: 1080px) and (min-width: 769px) {
+  .svh__overlay { max-width: clamp(300px, 52vw, 480px); }
+  .svh__video   { object-position: 88% center; }
+  .svh__sticky::before {
+    background: linear-gradient(
+      100deg,
+      rgba(255,255,255,0.97) 0%,
+      rgba(255,255,255,0.9)  42%,
+      rgba(255,255,255,0.4)  64%,
+      rgba(255,255,255,0)    82%
+    );
+  }
 }
 
 /* Live status pill — "Loaded & Ready" → "En Route" → "Delivered" */

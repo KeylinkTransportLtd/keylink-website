@@ -135,10 +135,10 @@
 
   // Status labels that change as truck empties
   const STATUS_STAGES = [
-    { at: 0.0,  label: 'Loaded & Ready',  dotColor: '#F0A820' },  // gold — full truck
-    { at: 0.33, label: 'En Route',        dotColor: '#22a092' },  // teal — moving
-    { at: 0.66, label: 'Delivering',      dotColor: '#22a092' },  // teal — unloading
-    { at: 0.9,  label: 'Delivered ✓',     dotColor: '#2DBD6E' },  // green — empty
+    { at: 0.0,  label: 'Loading Up',       dotColor: '#F0A820' },  // gold — doors open, freight in
+    { at: 0.33, label: 'Securing Load',    dotColor: '#22a092' },  // teal — loading
+    { at: 0.66, label: 'Sealed & Checked', dotColor: '#22a092' },  // teal — doors closing
+    { at: 0.9,  label: 'Ready to Roll ✓',  dotColor: '#2DBD6E' },  // green — ready to depart
   ];
   let lastStageIndex = -1;
 

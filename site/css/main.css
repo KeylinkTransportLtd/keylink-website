@@ -1344,8 +1344,9 @@ body.js-loading .svh__scroll-hint {
 
   /* ---- Full-screen immersive truck that SCROLL-SCRUBS on mobile too:
      a scroll runway + sticky frame; light top wash for the navy headline,
-     no glow (headline sits over the bright truck/sky) ---- */
-  .svh { height: 250vh; min-height: 0; }
+     no glow (headline sits over the bright truck/sky) ----
+     Short runway so the door-close scrub completes in ~one swipe. */
+  .svh { height: 150vh; min-height: 0; }
   .svh__sticky {
     position: sticky;
     top: 0;

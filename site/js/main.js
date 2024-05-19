@@ -6,6 +6,25 @@
 (function () {
   'use strict';
 
+  // ---- MOBILE PERF: don't decode the section background videos on phones.
+  // Strip their sources so they fall back to their static poster (first frame).
+  // Decoding these as they scroll into view is what stalls the mobile scroll. ----
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll(
+      'video.video-duo-bg, video.proc__bg-video, video.erp-media__video, video.careers-strip__video'
+    ).forEach(function (v) {
+      try {
+        v.autoplay = false;
+        v.removeAttribute('autoplay');
+        v.pause();
+        v.preload = 'none';
+        while (v.firstChild) { v.removeChild(v.firstChild); } // drop <source>s
+        v.removeAttribute('src');
+        v.load(); // reset to the poster image
+      } catch (e) {}
+    });
+  }
+
   // Respect reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

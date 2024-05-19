@@ -1321,36 +1321,39 @@ body.js-loading .svh__scroll-hint {
   }
   /* White fade behind the bottom block so the subtitle + stats stay readable
      over the truck (buttons already have solid fills) */
+  /* Dark fade behind the bottom block so the WHITE subtitle + stats read clearly */
   .svh__overlay-bottom {
     background: linear-gradient(
       to bottom,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,0.5) 26%,
-      rgba(255,255,255,0.82) 100%
+      rgba(10,14,26,0)    0%,
+      rgba(10,14,26,0.45) 30%,
+      rgba(10,14,26,0.82) 100%
     );
-    padding-top: 36px;
+    padding-top: 40px;
   }
+  .svh__sub { color: #ffffff; text-shadow: 0 1px 8px rgba(0,0,0,0.45); }
+  .svh__stat-num { color: #ffffff; }
+  .svh__stat-label { color: rgba(255,255,255,0.85); }
+  .svh__stat-divider { background: rgba(255,255,255,0.22); }
 
-  /* ---- Immersive full screen: the truck fills the whole viewport; a light
-     top wash + text shadows keep the overlaid text legible ---- */
-  .svh,
-  .svh__sticky { min-height: 100dvh; }
+  /* ---- Full-screen immersive truck that SCROLL-SCRUBS on mobile too:
+     a scroll runway + sticky frame; light top wash for the navy headline,
+     no glow (headline sits over the bright truck/sky) ---- */
+  .svh { height: 250vh; min-height: 0; }
+  .svh__sticky {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    min-height: 0;
+  }
   .svh__sticky::before {
     background: linear-gradient(
       to bottom,
-      rgba(255,255,255,0.50) 0%,
-      rgba(255,255,255,0.12) 14%,
-      rgba(255,255,255,0)    32%,
-      rgba(255,255,255,0)    64%,
-      rgba(255,255,255,0.08) 80%,
-      rgba(255,255,255,0.22) 100%
+      rgba(255,255,255,0.55) 0%,
+      rgba(255,255,255,0.12) 16%,
+      rgba(255,255,255,0)    34%,
+      rgba(255,255,255,0)    100%
     );
-  }
-  .svh__title {
-    text-shadow: 0 2px 20px rgba(255,255,255,0.8), 0 1px 3px rgba(255,255,255,0.92);
-  }
-  .svh__sub {
-    text-shadow: 0 1px 10px rgba(255,255,255,0.95);
   }
   .svh__status { box-shadow: 0 6px 22px rgba(18,41,74,0.14); }
 }

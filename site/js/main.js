@@ -143,19 +143,15 @@
   let lastStageIndex = -1;
 
   if (svhSection && heroVideo) {
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-      // Mobile: autoplay looping animation — no scroll scrubbing
-      heroVideo.loop = true;
+    // Scroll-scrub the video on ALL viewports (desktop + mobile)
+    {
       heroVideo.muted = true;
       heroVideo.setAttribute('playsinline', '');
-      heroVideo.play().catch(() => {});
-    } else {
-      // Desktop: scroll-scrub the video
-      heroVideo.muted = true;
       heroVideo.preload = 'auto';
       heroVideo.pause();
+      // Prime on iOS so currentTime seeks actually render frames (iOS needs a
+      // play() call before it will paint a seeked, non-playing video)
+      heroVideo.play().then(() => heroVideo.pause()).catch(() => {});
 
       let videoReady  = false;
       let targetTime  = 0;

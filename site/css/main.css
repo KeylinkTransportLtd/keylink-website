@@ -43,7 +43,12 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Headings balance onto even lines; body text avoids orphans */
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+p, li, figcaption, blockquote { text-wrap: pretty; }
 
 /* ---- PRELOADER ---- */
 
@@ -984,6 +989,7 @@ body.js-loading .svh__scroll-hint {
   letter-spacing: 0.04em;
   color: #000;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .svh__stat-label {
@@ -1725,6 +1731,7 @@ body.js-loading .svh__scroll-hint {
   color: var(--white);
   line-height: 1;
   margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-number span {
@@ -6167,6 +6174,7 @@ body.js-loading .svh__scroll-hint {
 
 .proc__stack-counter #procStepNum {
   color: rgba(255,255,255,0.9);
+  font-variant-numeric: tabular-nums;
 }
 
 .proc__stack-counter-sep { opacity: 0.4; }

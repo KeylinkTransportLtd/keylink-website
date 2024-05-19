@@ -1325,12 +1325,34 @@ body.js-loading .svh__scroll-hint {
     background: linear-gradient(
       to bottom,
       rgba(255,255,255,0) 0%,
-      rgba(255,255,255,0.86) 18%,
-      rgba(255,255,255,0.96) 42%,
-      rgba(255,255,255,0.98) 100%
+      rgba(255,255,255,0.5) 26%,
+      rgba(255,255,255,0.82) 100%
     );
-    padding-top: 34px;
+    padding-top: 36px;
   }
+
+  /* ---- Immersive full screen: the truck fills the whole viewport; a light
+     top wash + text shadows keep the overlaid text legible ---- */
+  .svh,
+  .svh__sticky { min-height: 100dvh; }
+  .svh__sticky::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.50) 0%,
+      rgba(255,255,255,0.12) 14%,
+      rgba(255,255,255,0)    32%,
+      rgba(255,255,255,0)    64%,
+      rgba(255,255,255,0.08) 80%,
+      rgba(255,255,255,0.22) 100%
+    );
+  }
+  .svh__title {
+    text-shadow: 0 2px 20px rgba(255,255,255,0.8), 0 1px 3px rgba(255,255,255,0.92);
+  }
+  .svh__sub {
+    text-shadow: 0 1px 10px rgba(255,255,255,0.95);
+  }
+  .svh__status { box-shadow: 0 6px 22px rgba(18,41,74,0.14); }
 }
 
 

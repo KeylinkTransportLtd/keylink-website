@@ -1364,6 +1364,14 @@ body.js-loading .svh__scroll-hint {
     );
   }
   .svh__status { box-shadow: 0 6px 22px rgba(18,41,74,0.14); }
+
+  /* Bigger headline + centre the content vertically over the truck so the
+     hero doesn't leave a big empty gap in the middle */
+  .svh__sticky { justify-content: center; gap: clamp(20px, 5vh, 52px); }
+  .svh__title {
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+    line-height: 0.95;
+  }
 }
 
 

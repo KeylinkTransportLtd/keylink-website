@@ -1344,14 +1344,13 @@ body.js-loading .svh__scroll-hint {
 
   /* ---- Full-screen immersive truck that SCROLL-SCRUBS on mobile too:
      a scroll runway + sticky frame; light top wash for the navy headline,
-     no glow (headline sits over the bright truck/sky) ----
-     Short runway so the door-close scrub completes in ~one swipe. */
-  .svh { height: 150vh; min-height: 0; }
+     no glow (headline sits over the bright truck/sky). Video AUTO-LOOPS on
+     mobile (scroll-scrubbing video is too janky on phones), so the hero is a
+     single immersive screen and the page scrolls normally. */
+  .svh { min-height: 100dvh; height: auto; }
   .svh__sticky {
-    position: sticky;
-    top: 0;
-    height: 100dvh;
-    min-height: 0;
+    position: relative;
+    min-height: 100dvh;
   }
   .svh__sticky::before {
     background: linear-gradient(

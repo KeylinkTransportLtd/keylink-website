@@ -1243,12 +1243,16 @@ body.js-loading .svh__scroll-hint {
     margin-bottom: 0;
   }
 
-  /* Subtitle — compact but visible */
+  /* Subtitle — visible and prominent on mobile: larger, medium-weight, darker,
+     centered on the white fade so it reads clearly over the truck. */
   .svh__sub {
     display: block !important;
-    font-size: 0.83rem;
-    line-height: 1.6;
-    margin-bottom: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: #2E3F54;
+    max-width: 32rem;
+    margin: 0 auto 18px;
   }
 
   /* Full-width stacked CTAs — proper mobile touch targets */
@@ -1286,6 +1290,47 @@ body.js-loading .svh__scroll-hint {
   .svh__stat-num { font-size: 1.4rem; }
   .svh__stat-label { font-size: 0.65rem; }
   .svh__stat-divider { height: 28px; }
+
+  /* ---- Mobile full-bleed: looping video as background, text over a vertical
+     white scrim (truck shows through the middle, headline top, CTAs bottom) ---- */
+  .svh__sticky { justify-content: space-between; }
+  .svh__sticky::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.96) 0%,
+      rgba(255,255,255,0.62) 19%,
+      rgba(255,255,255,0.08) 37%,
+      rgba(255,255,255,0.08) 52%,
+      rgba(255,255,255,0.72) 78%,
+      rgba(255,255,255,0.98) 100%
+    );
+    z-index: 1;
+  }
+  .svh__video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    flex: none;
+    object-fit: cover;
+    object-position: 80% center;
+    padding: 0;
+    filter: none;
+  }
+  /* White fade behind the bottom block so the subtitle + stats stay readable
+     over the truck (buttons already have solid fills) */
+  .svh__overlay-bottom {
+    background: linear-gradient(
+      to bottom,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.86) 18%,
+      rgba(255,255,255,0.96) 42%,
+      rgba(255,255,255,0.98) 100%
+    );
+    padding-top: 34px;
+  }
 }
 
 

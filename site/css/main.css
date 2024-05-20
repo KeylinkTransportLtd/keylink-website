@@ -1365,13 +1365,52 @@ body.js-loading .svh__scroll-hint {
   }
   .svh__status { box-shadow: 0 6px 22px rgba(18,41,74,0.14); }
 
-  /* Bigger headline + centre the content vertically over the truck so the
-     hero doesn't leave a big empty gap in the middle */
-  .svh__sticky { justify-content: center; gap: clamp(20px, 5vh, 52px); }
-  .svh__title {
-    font-size: clamp(2.7rem, 13vw, 4.2rem);
-    line-height: 0.95;
+  /* ===== Directed hero refinement: left-aligned editorial block, stronger
+     dark overlay, cohesive spacing, stats clear of the browser/safe-area ===== */
+  .svh__sticky {
+    justify-content: flex-end;          /* anchor the text block low, not dead-centre */
+    gap: 0;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 26px);
   }
+  /* Stronger bottom-weighted + left dark overlay = proper readable zone */
+  .svh__sticky::before {
+    background:
+      linear-gradient(to top, rgba(8,12,22,0.95) 0%, rgba(8,12,22,0.80) 24%, rgba(8,12,22,0.32) 52%, rgba(8,12,22,0.08) 100%),
+      linear-gradient(105deg, rgba(8,12,22,0.58) 0%, rgba(8,12,22,0.14) 55%, transparent 100%);
+  }
+  /* Left-align the whole content column */
+  .svh__overlay-top,
+  .svh__overlay-bottom {
+    text-align: left;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .svh__overlay-top::after { display: none; }   /* drop the centred gradient rule */
+  .svh__overlay-bottom { background: none; padding-top: 0; }
+  .svh__status { margin-bottom: 16px; }
+  .svh__title {
+    font-size: clamp(2.4rem, 12vw, 3.6rem);
+    line-height: 0.98;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  .svh__sub {
+    text-align: left;
+    color: #fff;
+    max-width: 32ch;
+    margin: 0 0 24px;
+  }
+  .svh__actions { align-items: stretch; gap: 12px; }
+  .svh__stats {
+    justify-content: flex-start;
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+  .svh__stat { text-align: left; align-items: flex-start; }
 }
 
 /* ---- Mobile scroll performance ----
@@ -1829,8 +1868,8 @@ body.js-loading .svh__scroll-hint {
 }
 .service-card--featured {
   background-image:
-    linear-gradient(158deg, rgba(10,14,26,0.93) 0%, rgba(11,22,42,0.80) 52%, rgba(15,36,66,0.66) 100%),
-    url('../assets/crossborder-sign.webp');
+    linear-gradient(158deg, rgba(10,14,26,0.92) 0%, rgba(11,22,42,0.78) 50%, rgba(15,36,66,0.60) 100%),
+    url('../assets/canada-us-tariffs-trucking.webp');
 }
 .service-card--ftl {
   background-image:

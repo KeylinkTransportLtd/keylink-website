@@ -2274,6 +2274,147 @@ body.js-loading .svh__scroll-hint {
   margin: 16px 0;
 }
 
+/* ===== Coverage: mobile-only redesign (map-led, light) ===== */
+/* Hidden on desktop; the desktop .coverage-layout is the default view. */
+.coverage-m { display: none; }
+
+@media (max-width: 768px) {
+  /* Flip the section to a clean light surface and show the mobile layout.
+     Extra specificity (.gradient-band) is needed to beat the later
+     `.coverage-section { background: transparent }` rule. */
+  .gradient-band .coverage-section { background: #ffffff; }
+  .coverage-section::before { display: none; }
+  .coverage-section .coverage-layout { display: none; }
+  .coverage-m { display: block; text-align: left; }
+
+  /* Map: rounded, soft shadow, feathers into the white section at the bottom */
+  .coverage-m__map {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px -22px rgba(15,36,66,0.45);
+    margin-bottom: 26px;
+  }
+  .coverage-m__map img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .coverage-m__map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(to bottom, transparent 72%, #ffffff 100%),
+      linear-gradient(to right, rgba(255,255,255,0.12) 0%, transparent 14%, transparent 86%, rgba(255,255,255,0.12) 100%);
+  }
+
+  /* Eyebrow pill */
+  .coverage-m__eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding: 7px 16px;
+    border: 1px solid rgba(34,160,146,0.35);
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+
+  /* Title */
+  .coverage-m__title {
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--midnight);
+    font-size: 2.05rem;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .coverage-m__dot { color: var(--gold); }
+
+  .coverage-m__rule {
+    display: block;
+    width: 64px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--gold);
+    margin: 18px 0 18px;
+  }
+
+  .coverage-m__sub {
+    color: #5a6675;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin: 0 0 22px;
+  }
+
+  /* Province chips */
+  .coverage-m__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .coverage-m__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: #ffffff;
+    border: 1px solid #e3e8ef;
+    border-radius: 100px;
+    padding: 11px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--midnight);
+    box-shadow: 0 2px 8px -4px rgba(15,36,66,0.18);
+  }
+  .coverage-m__chip svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    color: var(--teal);
+  }
+
+  /* Gold primary CTA */
+  .coverage-m__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 18px 22px;
+    border-radius: 100px;
+    background: linear-gradient(135deg, #F4B22E 0%, #EC9F1E 100%);
+    color: var(--midnight);
+    font-size: 1.08rem;
+    font-weight: 700;
+    box-shadow: 0 16px 34px -16px rgba(240,168,32,0.7);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .coverage-m__cta svg { width: 22px; height: 22px; flex: 0 0 auto; }
+  .coverage-m__cta-arrow { font-size: 1.3rem; line-height: 1; margin-left: 2px; }
+  .coverage-m__cta:active { transform: translateY(1px); }
+
+  /* Learn-more link */
+  .coverage-m__link {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--midnight);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(34,160,146,0.5);
+  }
+  .coverage-m__link span { color: var(--teal); }
+}
+
 .coverage-map {
   position: relative;
   background: rgba(26,123,110,0.05);

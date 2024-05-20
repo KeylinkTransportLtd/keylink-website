@@ -2390,7 +2390,8 @@ body.js-loading .svh__scroll-hint {
     padding: 14px 20px;
     border-radius: 8px;
     background: linear-gradient(135deg, #F4B22E 0%, #EC9F1E 100%);
-    color: var(--midnight);
+    color: #ffffff;
+    text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
     box-shadow: 0 6px 16px -10px rgba(240,168,32,0.55);

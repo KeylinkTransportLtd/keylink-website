@@ -2282,7 +2282,7 @@ body.js-loading .svh__scroll-hint {
   /* Flip the section to a clean light surface and show the mobile layout.
      Extra specificity (.gradient-band) is needed to beat the later
      `.coverage-section { background: transparent }` rule. */
-  .gradient-band .coverage-section { background: #ffffff; }
+  .gradient-band .coverage-section { background: #ffffff; padding-top: 10px; }
   .coverage-section::before { display: none; }
   .coverage-section .coverage-layout { display: none; }
   .coverage-m { display: block; text-align: left; }
@@ -2305,7 +2305,7 @@ body.js-loading .svh__scroll-hint {
     inset: 0;
     pointer-events: none;
     background:
-      linear-gradient(to bottom, transparent 46%, #ffffff 96%),
+      linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 14%, rgba(255,255,255,0) 46%, #ffffff 96%),
       linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 84%, #ffffff 100%);
   }
 

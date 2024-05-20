@@ -2287,13 +2287,12 @@ body.js-loading .svh__scroll-hint {
   .coverage-section .coverage-layout { display: none; }
   .coverage-m { display: block; text-align: left; }
 
-  /* Map: rounded, soft shadow, feathers into the white section at the bottom */
+  /* Map: no shadow/card edge - it dissolves seamlessly into the white section
+     on all sides via a feather so it reads as part of the page, not a card. */
   .coverage-m__map {
     position: relative;
-    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 18px 44px -22px rgba(15,36,66,0.45);
-    margin-bottom: 26px;
+    margin-bottom: 18px;
   }
   .coverage-m__map img {
     display: block;
@@ -2306,8 +2305,8 @@ body.js-loading .svh__scroll-hint {
     inset: 0;
     pointer-events: none;
     background:
-      linear-gradient(to bottom, transparent 72%, #ffffff 100%),
-      linear-gradient(to right, rgba(255,255,255,0.12) 0%, transparent 14%, transparent 86%, rgba(255,255,255,0.12) 100%);
+      linear-gradient(to bottom, transparent 46%, #ffffff 96%),
+      linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 84%, #ffffff 100%);
   }
 
   /* Eyebrow pill */
@@ -2380,24 +2379,25 @@ body.js-loading .svh__scroll-hint {
     color: var(--teal);
   }
 
-  /* Gold primary CTA */
+  /* Gold primary CTA - sized to match the hero's mobile buttons (smaller,
+     8px radius, light shadow) so it blends rather than dominates. */
   .coverage-m__cta {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
-    padding: 18px 22px;
-    border-radius: 100px;
+    padding: 14px 20px;
+    border-radius: 8px;
     background: linear-gradient(135deg, #F4B22E 0%, #EC9F1E 100%);
     color: var(--midnight);
-    font-size: 1.08rem;
-    font-weight: 700;
-    box-shadow: 0 16px 34px -16px rgba(240,168,32,0.7);
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 6px 16px -10px rgba(240,168,32,0.55);
     transition: transform var(--transition), box-shadow var(--transition);
   }
-  .coverage-m__cta svg { width: 22px; height: 22px; flex: 0 0 auto; }
-  .coverage-m__cta-arrow { font-size: 1.3rem; line-height: 1; margin-left: 2px; }
+  .coverage-m__cta svg { width: 18px; height: 18px; flex: 0 0 auto; }
+  .coverage-m__cta-arrow { font-size: 1.05rem; line-height: 1; margin-left: 1px; }
   .coverage-m__cta:active { transform: translateY(1px); }
 
   /* Learn-more link */

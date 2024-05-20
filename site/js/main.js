@@ -360,9 +360,17 @@
   if (officeBanner && officeBannerClose && officeBannerTab) {
     officeBanner.style.display = 'none';
 
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
     function revealBanner() {
       officeBanner.style.display = '';
-      officeBanner.classList.remove('collapsed');
+      // On mobile, reveal as the collapsed tab so it doesn't pop open over the
+      // page; the user taps the tab to expand. Desktop still opens fully.
+      if (isMobile()) {
+        officeBanner.classList.add('collapsed');
+      } else {
+        officeBanner.classList.remove('collapsed');
+      }
     }
 
     if (svhSection) {

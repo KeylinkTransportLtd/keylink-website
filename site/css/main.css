@@ -1819,6 +1819,47 @@ body.js-loading .svh__scroll-hint {
   .service-card--featured .service-card__link { max-width: 300px; }
 }
 
+/* ===== Real imagery in every card (overlay over photo) + unified CTAs ===== */
+.service-card--featured,
+.service-card--ftl,
+.service-card--corridors {
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+}
+.service-card--featured {
+  background-image:
+    linear-gradient(158deg, rgba(10,14,26,0.93) 0%, rgba(11,22,42,0.80) 52%, rgba(15,36,66,0.66) 100%),
+    url('../assets/crossborder-sign.webp');
+}
+.service-card--ftl {
+  background-image:
+    linear-gradient(158deg, rgba(10,14,26,0.92) 0%, rgba(11,22,42,0.82) 55%, rgba(15,36,66,0.70) 100%),
+    url('../assets/ftl-truck.webp');
+}
+.service-card--corridors {
+  background-image:
+    linear-gradient(158deg, rgba(10,14,26,0.90) 0%, rgba(11,22,42,0.78) 50%, rgba(15,36,66,0.62) 100%),
+    url('../assets/corridor-map.webp');
+}
+.service-card__map { display: none; } /* superseded by the card background image */
+
+/* Unified CTA on every service card: teal gradient fill, white text */
+.service-card__link,
+.service-card__link--featured {
+  background: linear-gradient(135deg, var(--teal) 0%, rgba(26,123,110,0.95) 100%);
+  border: 1px solid rgba(120,225,205,0.40);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(26,123,110,0.30);
+}
+.service-card__link:hover,
+.service-card__link--featured:hover {
+  background: linear-gradient(135deg, #2bb6a4 0%, var(--teal) 100%);
+  border-color: rgba(150,240,222,0.55);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(26,123,110,0.42);
+}
+
 /* ---- STATS ---- */
 .stats-section {
   background: var(--midnight);
@@ -3950,7 +3991,9 @@ body.js-loading .svh__scroll-hint {
 @media (max-width: 768px) {
   .floating-cta { right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); gap: 10px; }
   .floating-icon { width: 38px; height: 38px; }
-  .floating-icons { gap: 8px; margin-bottom: 0; }
+  /* Collapse to a single compact FAB on mobile so it's secondary and never
+     blocks card content; email/call/LinkedIn live in the footer */
+  .floating-icons { display: none; }
   .floating-book {
     width: 42px;
     height: 42px;

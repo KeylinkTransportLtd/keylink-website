@@ -2051,14 +2051,10 @@ body.js-loading .svh__scroll-hint {
   .svc-card__cta { grid-area: cta; }
 }
 
-/* Corridors: full-width map (not split) on tablet + mobile so the whole route shows */
+/* Corridors map: on tablet/mobile it splits like the other cards (map feathers in
+   from the right). Show the eastern route + Great Lakes glow in the narrow column. */
 @media (max-width: 1024px) {
-  .svc-card--corridors { grid-template-columns: 1fr; grid-template-areas: "head" "media" "cta"; }
-  .svc-card--corridors .svc-card__media {
-    grid-area: media; margin: 4px 0 2px; height: auto; aspect-ratio: 16 / 9; min-height: 0;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
-  }
+  .svc-card--corridors .svc-card__media--map { background-position: 72% center; aspect-ratio: auto; }
 }
 
 /* ---- STATS ---- */

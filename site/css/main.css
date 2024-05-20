@@ -1980,7 +1980,7 @@ body.js-loading .svh__scroll-hint {
           mask-image: linear-gradient(to bottom, transparent 0%, #000 17%, #000 66%, transparent 100%);
 }
 .svc-card__media--cb  { background-image: url('../assets/crossborder-truck.webp'); background-position: 60% center; }
-.svc-card__media--ftl { background-image: url('../assets/ftl-truck.webp'); background-position: center; }
+.svc-card__media--ftl { background-image: url('../assets/ftl-truck.webp?v=2'); background-position: center 38%; }
 .svc-card__media--map {
   background-image: url('../assets/corridors-map.webp'); background-position: center;
   height: auto; aspect-ratio: 16 / 9;

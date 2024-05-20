@@ -70,8 +70,8 @@
     .svh__video{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;padding:24px 48px 24px 16px}
     .svh__overlay{padding:0 32px 0 64px;z-index:3}
   </style>
-  <link rel="stylesheet" href="css/main.css?v=41">
-  <noscript><link rel="stylesheet" href="css/main.css?v=41"></noscript>
+  <link rel="stylesheet" href="css/main.css?v=43">
+  <noscript><link rel="stylesheet" href="css/main.css?v=43"></noscript>
   <style>
     /* ================================================================
        HOME PAGE PROGRESS RAIL
@@ -762,17 +762,20 @@
     <!-- SERVICES -->
     <section class="section" id="home-services" aria-labelledby="services-heading" style="position:relative;z-index:2;">
     <div class="container" style="position:relative;z-index:2;">
-      <div style="text-align:center;max-width:600px;margin:0 auto;">
-        <div class="tag">Our Specializations</div>
-        <h2 class="section-title" id="services-heading" style="color:var(--white);">
-          Freight solutions built around reliability.
-        </h2>
-        <p class="section-sub" style="margin:0 auto;text-align:center;">
-          We specialize in one thing and do it exceptionally well: dry van FTL freight
-          across Canada and the United States.
-        </p>
-        <div class="services-cta-wrap" style="margin-top:36px;">
-          <a href="contact.html" class="btn btn--services-cta">
+
+      <div class="svc-header">
+        <div class="svc-header__text">
+          <div class="tag">Our Specializations</div>
+          <h2 class="section-title" id="services-heading" style="color:var(--white);margin:0;">
+            Freight solutions built around reliability<span style="color:var(--teal);">.</span>
+          </h2>
+          <p class="section-sub">
+            From full truckload to cross-border and dedicated lanes, we deliver every shipment
+            with accountability, transparency, and zero surprises.
+          </p>
+        </div>
+        <div class="svc-header__media">
+          <a href="contact.html" class="btn btn--services-cta svc-header__cta">
             <span class="btn-services-cta__shine"></span>
             Get a Free Quote
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:16px;height:16px;margin-left:8px;">
@@ -782,80 +785,87 @@
         </div>
       </div>
 
-      <div class="services-grid">
+      <div class="svc-grid">
 
-        <article class="service-card service-card--ftl">
-          <div class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-              <rect x="1" y="8" width="22" height="12" rx="2"/>
-              <path d="M1 12h22"/>
-              <circle cx="7" cy="20" r="1.5"/>
-              <circle cx="17" cy="20" r="1.5"/>
-            </svg>
+        <!-- FTL -->
+        <article class="svc-card svc-card--ftl">
+          <div class="svc-card__head">
+            <div class="svc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="8" width="22" height="12" rx="2"/><path d="M1 12h22"/><circle cx="7" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>
+            </div>
+            <h3 class="svc-card__title">Full Truckload or LTL</h3>
+            <p class="svc-card__desc">Dry or Reefer. 53-foot trailers for general cargo. Full accountability from pickup to delivery: no co-loading, no hand-offs, no excuses.</p>
           </div>
-          <h3 class="service-card__title">Full Truckload or LTL</h3>
-          <p class="service-card__desc">
-            Dry or Reefer. 53-foot trailers for general cargo. Full accountability from pickup to delivery:
-            no co-loading, no hand-offs, no excuses.
-          </p>
-          <ul class="service-card__tags svc-chips" aria-label="Service options">
-            <li class="svc-chip">Dry or Reefer</li>
-            <li class="svc-chip">Single or Multiple Drops</li>
-            <li class="svc-chip">Live Loading &amp; Unloading</li>
-            <li class="svc-chip">Trailer Drop</li>
+          <span class="svc-card__media svc-card__media--ftl" aria-hidden="true"></span>
+          <ul class="svc-card__chips" aria-label="Service options">
+            <li>Dry or Reefer</li>
+            <li>Single or Multiple Drops</li>
+            <li>Live Loading &amp; Unloading</li>
+            <li>Trailer Drop</li>
           </ul>
-          <a href="services.html#ftl" class="service-card__link" aria-label="Learn more about Dry Van FTL service">
+          <a href="services.html#ftl" class="svc-card__cta" aria-label="Learn more about Dry Van FTL service">
             Explore Dry Van FTL
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
 
-        <article class="service-card service-card--featured">
-          <span class="service-card__badge">Most Requested</span>
-          <div class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-              <path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/>
-              <path d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.33 4-3.5 8-3.5 9s1.17 5 3.5 9M12 3c2.33 4 3.5 8 3.5 9s-1.17 5-3.5 9"/>
-            </svg>
+        <!-- Cross-Border (featured) -->
+        <article class="svc-card svc-card--cb is-featured">
+          <span class="svc-card__badge">Most Requested</span>
+          <div class="svc-card__head">
+            <div class="svc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.33 4-3.5 8-3.5 9s1.17 5 3.5 9M12 3c2.33 4 3.5 8 3.5 9s-1.17 5-3.5 9"/></svg>
+            </div>
+            <h3 class="svc-card__title">Cross-Border <span class="t-accent">Canada-USA</span></h3>
+            <p class="svc-card__desc">Licensed, insured, and USDOT certified for seamless border crossings. We handle the paperwork so your freight doesn't stop at the line.</p>
           </div>
-          <h3 class="service-card__title">Cross-Border Canada–USA</h3>
-          <p class="service-card__desc">
-            Licensed, insured, and USDOT certified for seamless border crossings.
-            We handle the paperwork so your freight doesn't stop at the line.
-          </p>
-          <ul class="svc-feature-row" aria-label="Cross-border capabilities">
-            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Licensed &amp; Insured</li>
-            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>USDOT Certified</li>
-            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Full Documentation Support</li>
-            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>No Delays. No Surprises.</li>
+          <span class="svc-card__media svc-card__media--cb" aria-hidden="true"></span>
+          <ul class="svc-card__features" aria-label="Cross-border capabilities">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Licensed &amp; Insured</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>USDOT Certified</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Full Documentation Support</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>No Delays. No Surprises.</li>
           </ul>
-          <a href="services.html#crossborder" class="service-card__link service-card__link--featured" aria-label="Learn more about cross-border freight service">
+          <a href="services.html#crossborder" class="svc-card__cta" aria-label="Learn more about cross-border freight service">
             Explore Cross-Border
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
 
-        <article class="service-card service-card--corridors">
-          <span class="service-card__map" aria-hidden="true"></span>
-          <div class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-              <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6 3m6 7l-5.447 2.724A1 1 0 0115 19.382V8.618a1 1 0 00-1.447-.894L9 10m6-3V17"/>
-            </svg>
+        <!-- Corridors -->
+        <article class="svc-card svc-card--corridors">
+          <div class="svc-card__head">
+            <div class="svc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6 3m6 7l-5.447 2.724A1 1 0 0115 19.382V8.618a1 1 0 00-1.447-.894L9 10m6-3V17"/></svg>
+            </div>
+            <h3 class="svc-card__title">Dedicated Freight Corridors</h3>
+            <p class="svc-card__desc">BC to California. Alberta to Ontario. Regular lanes, reliable schedules. Known routes mean fewer surprises and better pricing for your business.</p>
           </div>
-          <h3 class="service-card__title">Dedicated Freight Corridors</h3>
-          <p class="service-card__desc">
-            BC to California. Alberta to Ontario. Regular lanes, reliable schedules.
-            Known routes mean fewer surprises and better pricing for your business.
-          </p>
-          <a href="services.html#corridors" class="service-card__link" aria-label="Learn more about freight corridors">
-            Explore Freight Corridors
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+          <span class="svc-card__media svc-card__media--map" aria-hidden="true">
+            <svg class="svc-map" viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="rgba(95,211,193,0.10)" stroke-width="1">
+                <path d="M40 0V200M110 0V200M180 0V200M250 0V200M320 0V200"/>
+                <path d="M0 50H360M0 100H360M0 150H360"/>
+              </g>
+              <path d="M62 72 L132 80 Q205 86 268 94 L292 150" stroke="rgba(67,201,182,0.28)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M62 72 L132 80 Q205 86 268 94 L292 150" stroke="#43c9b6" stroke-width="2.4" stroke-linecap="round"/>
+              <g>
+                <circle cx="62" cy="72" r="9" fill="rgba(67,201,182,0.16)"/><circle cx="62" cy="72" r="4" fill="#5fd3c1" stroke="#0a1120" stroke-width="1.4"/>
+                <circle cx="132" cy="80" r="9" fill="rgba(67,201,182,0.16)"/><circle cx="132" cy="80" r="4" fill="#5fd3c1" stroke="#0a1120" stroke-width="1.4"/>
+                <circle cx="268" cy="94" r="9" fill="rgba(67,201,182,0.16)"/><circle cx="268" cy="94" r="4" fill="#5fd3c1" stroke="#0a1120" stroke-width="1.4"/>
+                <circle cx="292" cy="150" r="9" fill="rgba(67,201,182,0.16)"/><circle cx="292" cy="150" r="4" fill="#5fd3c1" stroke="#0a1120" stroke-width="1.4"/>
+              </g>
+              <g fill="#cfeee8" font-size="12" font-weight="700" font-family="system-ui,sans-serif" text-anchor="middle">
+                <text x="62" y="58">BC</text>
+                <text x="132" y="66">AB</text>
+                <text x="268" y="80">ON</text>
+                <text x="306" y="154">CA</text>
+              </g>
             </svg>
+          </span>
+          <a href="services.html#corridors" class="svc-card__cta" aria-label="Learn more about freight corridors">
+            Explore Freight Corridors
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
 

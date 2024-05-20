@@ -1899,6 +1899,166 @@ body.js-loading .svh__scroll-hint {
   box-shadow: 0 10px 26px rgba(26,123,110,0.42);
 }
 
+/* ============================================================
+   SERVICES v2 — split image-fade cards + header banner
+   (svc-* classes; supersedes the .service-card layout above)
+   ============================================================ */
+.svc-header {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.svc-header__text .tag { margin-bottom: 16px; }
+.svc-header__text .section-title { text-align: left; }
+.svc-header__text .section-sub { text-align: left; max-width: 34rem; margin: 18px 0 0; }
+.svc-header__media {
+  position: relative;
+  min-height: 270px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(120,200,190,0.14);
+  background-image:
+    linear-gradient(90deg, #0a1120 0%, rgba(10,17,32,0.55) 26%, rgba(10,17,32,0.05) 58%, rgba(10,17,32,0) 100%),
+    url('../assets/services-header-truck.webp');
+  background-size: cover, cover;
+  background-position: center, center right;
+}
+.svc-header__media .svc-header__cta { position: absolute; top: 18px; right: 18px; left: auto; bottom: auto; }
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+.svc-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 18px;
+  padding: 26px;
+  border-radius: 22px;
+  background: linear-gradient(165deg, #0e1727 0%, #0a1120 56%, #0b1c34 100%);
+  border: 1px solid rgba(120,200,190,0.16);
+  overflow: hidden;
+  isolation: isolate;
+}
+.svc-card.is-featured {
+  border-color: rgba(120,225,205,0.34);
+  box-shadow: 0 26px 60px -30px rgba(0,0,0,0.85), inset 0 0 0 1px rgba(120,225,205,0.06);
+}
+.svc-card__badge {
+  position: absolute; top: 18px; right: 18px; z-index: 3;
+  font-size: 11px; line-height: 1; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); padding: 7px 13px; border-radius: 999px;
+  border: 1px solid rgba(240,168,32,0.5); background: rgba(240,168,32,0.10);
+}
+.svc-card__head { display: flex; flex-direction: column; gap: 14px; }
+.svc-card__icon {
+  width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+  background: linear-gradient(135deg, rgba(34,160,146,0.92), rgba(20,110,98,0.92));
+  color: #fff; box-shadow: 0 8px 20px -8px rgba(26,123,110,0.7);
+}
+.svc-card__icon svg { width: 26px; height: 26px; }
+.svc-card__title {
+  margin: 0; color: #fff; font-weight: 800; letter-spacing: -0.01em;
+  font-size: 1.5rem; line-height: 1.08;
+}
+.svc-card__title .t-accent { display: block; color: var(--teal-lt, #43c9b6); }
+.svc-card__desc { margin: 0; color: rgba(228,238,250,0.74); font-size: 0.97rem; line-height: 1.55; }
+
+.svc-card__media {
+  position: relative; display: block; width: 100%; height: 172px; border-radius: 14px;
+  background-size: cover; background-position: center; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+}
+.svc-card__media--cb  { background-image: url('../assets/crossborder-truck.webp'); background-position: 64% center; }
+.svc-card__media--ftl { background-image: url('../assets/ftl-truck.webp'); background-position: center; }
+.svc-card__media--map {
+  -webkit-mask-image: none; mask-image: none;
+  background: radial-gradient(120% 140% at 70% 30%, rgba(20,60,80,0.55) 0%, rgba(10,17,32,0) 60%);
+  border: 1px solid rgba(95,211,193,0.14);
+}
+.svc-map { width: 100%; height: 100%; display: block; }
+
+.svc-card__chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; align-self: start; }
+.svc-card__chips li {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--teal-lt, #5fd3c1); padding: 7px 12px; border-radius: 999px;
+  border: 1px solid rgba(95,211,193,0.3); background: rgba(95,211,193,0.07);
+}
+.svc-card__features { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; align-self: start; }
+.svc-card__features li { display: flex; gap: 9px; align-items: flex-start; font-size: 0.85rem; font-weight: 600; line-height: 1.3; color: rgba(228,238,250,0.9); }
+.svc-card__features svg { width: 18px; height: 18px; flex: none; color: var(--teal-lt, #43c9b6); margin-top: 1px; }
+
+.svc-card__cta {
+  display: flex; align-items: center; justify-content: center; gap: 9px; align-self: end;
+  padding: 15px 20px; border-radius: 12px; text-decoration: none;
+  font-size: 0.97rem; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, var(--teal) 0%, rgba(20,110,98,0.96) 100%);
+  border: 1px solid rgba(120,225,205,0.4);
+  box-shadow: 0 8px 22px -8px rgba(26,123,110,0.6);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.svc-card__cta svg { width: 16px; height: 16px; }
+.svc-card__cta:hover {
+  background: linear-gradient(135deg, #2bb6a4 0%, var(--teal) 100%);
+  box-shadow: 0 12px 28px -8px rgba(26,123,110,0.72);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+  .svc-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* tablet: keep cards readable as a single column with image beside the head */
+  .svc-card { grid-template-columns: 1.3fr 0.9fr; grid-template-areas: "head media" "meta meta" "cta cta"; grid-template-rows: auto auto auto; }
+  .svc-card__head { grid-area: head; }
+  .svc-card__media { grid-area: media; height: auto; align-self: stretch; min-height: 190px; margin: -26px -26px 0 0; border-radius: 0 22px 0 0;
+    -webkit-mask-image: linear-gradient(to left, #000 50%, transparent 100%); mask-image: linear-gradient(to left, #000 50%, transparent 100%); }
+  .svc-card__media--map { margin: 0; border-radius: 14px; }
+  .svc-card__chips, .svc-card__features { grid-area: meta; }
+  .svc-card__cta { grid-area: cta; }
+}
+@media (max-width: 768px) {
+  .svc-header { grid-template-columns: 1fr; gap: 20px; }
+  .svc-header__text { text-align: center; }
+  .svc-header__text .section-title, .svc-header__text .section-sub { text-align: center; margin-left: auto; margin-right: auto; }
+  .svc-header__media { background: none; border: none; min-height: 0; text-align: center; }
+  .svc-header__media .svc-header__cta { position: static; display: inline-flex; }
+
+  .svc-card {
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-areas: "head media" "meta meta" "cta cta";
+    grid-template-rows: auto auto auto;
+    padding: 20px; gap: 16px;
+  }
+  .svc-card__head { grid-area: head; }
+  .svc-card__title { font-size: 1.32rem; }
+  .svc-card__media {
+    grid-area: media; height: auto; align-self: stretch; min-height: 184px;
+    margin: -20px -20px 0 0; border-radius: 0 22px 0 0;
+    -webkit-mask-image: linear-gradient(to left, #000 44%, transparent 100%);
+            mask-image: linear-gradient(to left, #000 44%, transparent 100%);
+  }
+  .svc-card__media--map { margin: 0; border-radius: 14px; min-height: 150px; -webkit-mask-image: none; mask-image: none; }
+  .svc-card__chips, .svc-card__features { grid-area: meta; }
+  .svc-card__features { grid-template-columns: 1fr 1fr; }
+  .svc-card__cta { grid-area: cta; }
+}
+
+/* Corridors: full-width map band (not split) on tablet + mobile so pins/labels show */
+@media (max-width: 1024px) {
+  .svc-card--corridors { grid-template-columns: 1fr; grid-template-areas: "head" "media" "cta"; }
+  .svc-card--corridors .svc-card__media {
+    grid-area: media; margin: 0; border-radius: 14px; height: 170px; min-height: 0;
+    -webkit-mask-image: none; mask-image: none;
+  }
+}
+
 /* ---- STATS ---- */
 .stats-section {
   background: var(--midnight);
@@ -7853,6 +8013,7 @@ body.js-loading .svh__scroll-hint {
 .video-duo-wrapper {
   position: relative;
   overflow: hidden;
+  background: #0a1120;
 }
 
 .video-duo-bg {
@@ -7869,7 +8030,7 @@ body.js-loading .svh__scroll-hint {
 .video-duo-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: linear-gradient(180deg, rgba(8,12,22,0.95) 0%, rgba(9,15,28,0.93) 50%, rgba(8,12,22,0.96) 100%);
   z-index: 1;
   pointer-events: none;
 }

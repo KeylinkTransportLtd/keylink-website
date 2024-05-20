@@ -428,7 +428,20 @@
       }
     };
 
-    window.addEventListener('scroll', () => { toggleFloating(); checkTooltip(); }, { passive: true });
+    // Auto-hide while actively scrolling on mobile so the buttons never sit
+    // over a service-card CTA; slide back in shortly after scrolling stops.
+    let scrollHideTimer = null;
+    const onFloatScroll = () => {
+      if (window.innerWidth <= 768 && floatingVisible) {
+        floatingCTA.classList.add('is-scrolling');
+        clearTimeout(scrollHideTimer);
+        scrollHideTimer = setTimeout(function () {
+          floatingCTA.classList.remove('is-scrolling');
+        }, 220);
+      }
+    };
+
+    window.addEventListener('scroll', () => { toggleFloating(); checkTooltip(); onFloatScroll(); }, { passive: true });
     toggleFloating();
   }
 

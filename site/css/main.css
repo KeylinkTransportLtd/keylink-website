@@ -3752,10 +3752,15 @@ body.js-loading .svh__scroll-hint {
   align-items: flex-end;
   gap: 12px;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
 }
 
 .floating-cta.visible { display: flex; }
+
+/* Auto-hide while actively scrolling (mobile) so it never sits over card CTAs;
+   slides back in smoothly when scrolling stops */
+.floating-cta.is-scrolling { transform: translateX(135%); pointer-events: none; }
 
 .floating-icons {
   display: flex;
@@ -3835,7 +3840,7 @@ body.js-loading .svh__scroll-hint {
 }
 
 @media (max-width: 768px) {
-  .floating-cta { right: 14px; bottom: 24px; gap: 10px; }
+  .floating-cta { right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); gap: 10px; }
   .floating-icon { width: 38px; height: 38px; }
   .floating-icons { gap: 8px; margin-bottom: 0; }
   .floating-book {

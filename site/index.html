@@ -70,8 +70,8 @@
     .svh__video{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;padding:24px 48px 24px 16px}
     .svh__overlay{padding:0 32px 0 64px;z-index:3}
   </style>
-  <link rel="stylesheet" href="css/main.css?v=38">
-  <noscript><link rel="stylesheet" href="css/main.css?v=38"></noscript>
+  <link rel="stylesheet" href="css/main.css?v=39">
+  <noscript><link rel="stylesheet" href="css/main.css?v=39"></noscript>
   <style>
     /* ================================================================
        HOME PAGE PROGRESS RAIL
@@ -763,9 +763,9 @@
     <section class="section" id="home-services" aria-labelledby="services-heading" style="position:relative;z-index:2;">
     <div class="container" style="position:relative;z-index:2;">
       <div style="text-align:center;max-width:600px;margin:0 auto;">
-        <div class="tag">What We Do</div>
+        <div class="tag">Our Specializations</div>
         <h2 class="section-title" id="services-heading" style="color:var(--white);">
-          Full Truckload. No Surprises.
+          Freight solutions built around reliability.
         </h2>
         <p class="section-sub" style="margin:0 auto;text-align:center;">
           We specialize in one thing and do it exceptionally well: dry van FTL freight
@@ -798,11 +798,11 @@
             Dry or Reefer. 53-foot trailers for general cargo. Full accountability from pickup to delivery:
             no co-loading, no hand-offs, no excuses.
           </p>
-          <ul class="service-card__tags" aria-label="Service options" style="list-style:none;padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:6px;">
-            <li style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(26,123,110,0.08);border:1px solid rgba(26,123,110,0.18);border-radius:4px;padding:4px 10px;">Dry or Reefer</li>
-            <li style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(26,123,110,0.08);border:1px solid rgba(26,123,110,0.18);border-radius:4px;padding:4px 10px;">Single or Multiple Drops</li>
-            <li style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(26,123,110,0.08);border:1px solid rgba(26,123,110,0.18);border-radius:4px;padding:4px 10px;">Live Loading & Unloading</li>
-            <li style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(26,123,110,0.08);border:1px solid rgba(26,123,110,0.18);border-radius:4px;padding:4px 10px;">Trailer Drop</li>
+          <ul class="service-card__tags svc-chips" aria-label="Service options">
+            <li class="svc-chip">Dry or Reefer</li>
+            <li class="svc-chip">Single or Multiple Drops</li>
+            <li class="svc-chip">Live Loading &amp; Unloading</li>
+            <li class="svc-chip">Trailer Drop</li>
           </ul>
           <a href="services.html#ftl" class="service-card__link" aria-label="Learn more about Dry Van FTL service">
             Explore Dry Van FTL
@@ -812,7 +812,8 @@
           </a>
         </article>
 
-        <article class="service-card">
+        <article class="service-card service-card--featured">
+          <span class="service-card__badge">Most Requested</span>
           <div class="service-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
               <path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/>
@@ -824,7 +825,13 @@
             Licensed, insured, and USDOT certified for seamless border crossings.
             We handle the paperwork so your freight doesn't stop at the line.
           </p>
-          <a href="services.html#crossborder" class="service-card__link" aria-label="Learn more about cross-border freight service">
+          <ul class="svc-feature-row" aria-label="Cross-border capabilities">
+            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Licensed &amp; Insured</li>
+            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>USDOT Certified</li>
+            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Full Documentation Support</li>
+            <li class="svc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>No Delays. No Surprises.</li>
+          </ul>
+          <a href="services.html#crossborder" class="service-card__link service-card__link--featured" aria-label="Learn more about cross-border freight service">
             Explore Cross-Border
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;">
               <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -832,7 +839,8 @@
           </a>
         </article>
 
-        <article class="service-card">
+        <article class="service-card service-card--corridors">
+          <span class="service-card__map" aria-hidden="true"></span>
           <div class="service-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
               <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6 3m6 7l-5.447 2.724A1 1 0 0115 19.382V8.618a1 1 0 00-1.447-.894L9 10m6-3V17"/>

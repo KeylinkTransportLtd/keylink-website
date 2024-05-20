@@ -1711,6 +1711,114 @@ body.js-loading .svh__scroll-hint {
   gap: 6px;
 }
 
+/* ===== Premium services upgrade (P2/P3): bento grid, featured Cross-Border,
+   corridor route-map, capability chips ===== */
+.services-grid { grid-template-columns: repeat(2, 1fr); }
+.service-card--featured { grid-column: 1 / -1; order: -1; }
+
+/* FTL/LTL pill chips */
+.svc-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--teal-lt);
+  background: rgba(34,160,146,0.10);
+  border: 1px solid rgba(34,160,146,0.28);
+  border-radius: 999px;
+  padding: 5px 12px;
+  line-height: 1;
+}
+
+/* Featured Cross-Border card */
+.service-card--featured {
+  background:
+    radial-gradient(130% 130% at 100% 0%, rgba(34,160,146,0.20) 0%, transparent 55%),
+    linear-gradient(160deg, rgba(18,41,74,0.92) 0%, rgba(10,14,26,0.97) 100%);
+  border-color: rgba(34,160,146,0.45);
+  padding: 30px 28px 26px;
+  box-shadow: 0 12px 44px rgba(0,0,0,0.42), 0 0 0 1px rgba(34,160,146,0.12);
+}
+.service-card--featured .service-card__title { font-size: 1.45rem; }
+
+.service-card__badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(240,168,32,0.12);
+  border: 1px solid rgba(240,168,32,0.35);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+/* Capability row (Licensed / USDOT / Docs / No Surprises) */
+.svc-feature-row {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 2px 0 20px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+}
+.svc-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cloud);
+}
+.svc-feature svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--teal-lt);
+  background: rgba(34,160,146,0.16);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+/* Gold secondary accent on the featured CTA */
+.service-card__link--featured {
+  background: rgba(240,168,32,0.12);
+  border-color: rgba(240,168,32,0.4);
+  color: var(--gold);
+}
+.service-card__link--featured:hover {
+  background: rgba(240,168,32,0.2);
+  border-color: rgba(240,168,32,0.6);
+  color: #fff;
+}
+
+/* Dedicated Corridors route-map (reuses existing corridor-map asset) */
+.service-card--corridors { overflow: hidden; }
+.service-card--corridors > *:not(.service-card__map) { position: relative; z-index: 1; }
+.service-card__map {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 60%;
+  background: url('../assets/corridor-map.webp') no-repeat right center / cover;
+  opacity: 0.16;
+  -webkit-mask-image: linear-gradient(to left, #000 25%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 25%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Desktop: featured spans full width; capability row goes 4-across */
+@media (min-width: 781px) {
+  .svc-feature-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .service-card--featured .service-card__link { max-width: 300px; }
+}
+
 /* ---- STATS ---- */
 .stats-section {
   background: var(--midnight);

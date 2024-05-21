@@ -6202,128 +6202,102 @@ body.js-loading .svh__scroll-hint {
 }
 
 .route-card {
-  background: linear-gradient(160deg, rgba(18,41,74,0.85) 0%, rgba(10,14,26,0.95) 100%);
-  border: 1px solid rgba(26,123,110,0.18);
-  border-top: 3px solid var(--teal);
-  border-radius: 16px;
-  padding: 28px 24px 24px;
+  background: linear-gradient(160deg, rgba(18,41,74,0.55) 0%, rgba(10,14,26,0.92) 100%);
+  border: 1px solid rgba(34,160,146,0.20);
+  border-radius: 14px;
+  padding: 10px 10px 18px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.28);
   transition: transform var(--transition),
               box-shadow var(--transition),
               border-color var(--transition);
 }
 
-.route-card::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(180deg, rgba(26,123,110,0.1) 0%, transparent 100%);
-  pointer-events: none;
-  border-radius: 16px 16px 0 0;
-}
-
+.route-card::before,
 .route-card::after { display: none; }
 
 .route-card:hover {
-  border-color: rgba(26,123,110,0.4);
-  border-top-color: var(--teal-lt);
+  border-color: rgba(34,160,146,0.45);
   transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.35), 0 0 40px rgba(26,123,110,0.1);
+  box-shadow: 0 22px 48px rgba(0,0,0,0.4), 0 0 40px rgba(34,160,146,0.10);
 }
 
-/* Large watermark number */
-.route-card__num {
-  position: absolute;
-  bottom: 14px;
-  right: 18px;
-  font-family: var(--font-head);
-  font-size: 5.5rem;
-  line-height: 1;
-  color: rgba(255,255,255,0.08);
-  pointer-events: none;
-  user-select: none;
-  letter-spacing: -0.02em;
+/* Corridor photo */
+.route-card__media {
+  position: relative;
+  border-radius: 9px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: rgba(10,14,26,0.6);
 }
 
-/* Badge row */
-.route-card__top {
-  margin-bottom: 22px;
+.route-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
+.route-card:hover .route-card__media img {
+  transform: scale(1.04);
+}
+
+/* Country badge overlaid on the photo */
 .route-card__badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
   display: inline-block;
-  font-size: 0.6rem;
+  font-family: var(--font-head);
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  padding: 3px 8px;
-  border-radius: 4px;
-}
-
-.route-card__badge--us {
-  background: rgba(255,255,255,0.1);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
+  padding: 4px 11px;
+  border-radius: 6px;
+  background: rgba(8,16,28,0.6);
+  border: 1px solid rgba(34,160,146,0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
-.route-card__badge--ca {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* City names */
-.route-card__from {
-  font-family: var(--font-head);
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.7);
-  line-height: 1;
-}
-
-.route-card__arrow {
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.6);
-  margin: 6px 0 4px;
-  display: block;
-  line-height: 1;
+/* Text body under the photo */
+.route-card__body {
+  padding: 16px 8px 0;
 }
 
 .route-card__to {
   font-family: var(--font-head);
-  font-size: 2.2rem;
-  letter-spacing: 0.02em;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: #fff;
   line-height: 1.05;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.15);
 }
 
-/* Divider */
 .route-card__divider {
-  width: 28px;
+  display: block;
+  width: 40px;
   height: 2px;
   background: linear-gradient(90deg, var(--teal), transparent);
   border-radius: 2px;
-  margin: 14px 0 12px;
+  margin: 12px 0;
 }
 
-/* Distance + description */
 .route-card__km {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.02em;
+  color: var(--teal-lt, var(--teal));
+  letter-spacing: 0.01em;
 }
 
 .route-card__desc {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.7);
-  margin-top: 3px;
-  letter-spacing: 0.015em;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.66);
+  margin-top: 4px;
+  letter-spacing: 0.01em;
 }
 
 /* ---- Footer CTA ---- */
@@ -6345,19 +6319,20 @@ body.js-loading .svh__scroll-hint {
 
 @media (max-width: 480px) {
   .routes-section { padding: 64px 0 72px; }
-  .routes-header { margin-bottom: 40px; }
+  .routes-header { margin-bottom: 34px; }
 
-  /* 4 compact cards in a single row */
-  .routes-cards { grid-template-columns: repeat(4, 1fr); gap: 6px; }
-  .route-card { padding: 12px 6px 10px; border-radius: 10px; border-top-width: 2px; }
-  .route-card__num { display: none; }
-  .route-card__top { margin-bottom: 8px; }
-  .route-card__from { display: none; }
-  .route-card__arrow { display: none; }
-  .route-card__to { font-size: 0.82rem; letter-spacing: 0; line-height: 1.1; }
-  .route-card__divider { width: 14px; margin: 6px 0; }
-  .route-card__km { font-size: 0.58rem; }
-  .route-card__desc { font-size: 0.52rem; margin-top: 2px; }
+  /* Two image cards per row, matching the reference mockup */
+  .routes-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .route-card { padding: 8px 8px 14px; border-radius: 12px; }
+  .route-card__body { padding: 12px 4px 0; }
+  .route-card__to { font-size: 1.15rem; }
+  .route-card__divider { width: 32px; margin: 9px 0; }
+  .route-card__km { font-size: 0.82rem; }
+  .route-card__desc { font-size: 0.72rem; }
+  .route-card__badge { font-size: 0.55rem; padding: 3px 9px; left: 9px; bottom: 9px; }
+
+  .routes-footer { margin-top: 32px; }
+  .routes-cta { width: 100%; justify-content: center; }
 }
 
 /* ==========================================================

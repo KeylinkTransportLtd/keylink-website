@@ -31,630 +31,283 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="css/main.css?v=34">
-  <noscript><link rel="stylesheet" href="css/main.css?v=34"></noscript>
+<link rel="stylesheet" href="css/main.css?v=53">
+  <noscript><link rel="stylesheet" href="css/main.css?v=53"></noscript>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <style>
     /* ================================================================
-       STICKY SECTION TABS — Keylink Transport Services
+       SERVICES — COMMAND DECK
        ================================================================ */
 
     :root {
-      --nav-h: 84px;      /* updated dynamically via JS */
-      --sticky-h: 76px;   /* each section's sticky header height */
+      --nav-h: 84px;       /* main nav height, kept in sync via JS */
+      --svcnav-h: 60px;    /* sticky service nav height */
     }
 
-    /* ---- PROGRESS RAIL (fixed, right side) ---- */
-    .sp-rail {
-      position: fixed;
-      right: 28px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 900;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
-    }
-    .sp-rail.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Background pill */
-    .sp-rail-inner {
-      background: rgba(10,14,26,0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 100px;
-      padding: 20px 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
-
-    .sp-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      position: relative;
-      padding: 4px 0;
-      transition: all 0.3s ease;
-    }
-
-    /* Label (shown on hover + active) */
-    .sp-label {
-      position: absolute;
-      right: calc(100% + 16px);
-      white-space: nowrap;
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(232,237,245,0.5);
-      opacity: 0;
-      transform: translateX(6px);
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-
-    .sp-item:hover .sp-label,
-    .sp-item--active .sp-label {
-      opacity: 1;
-      transform: translateX(0);
-      color: var(--gold);
-    }
-    .sp-item--passed .sp-label {
-      opacity: 0;
-    }
-
-    /* The dot */
-    .sp-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.18);
-      border: 1.5px solid rgba(255,255,255,0.12);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .sp-item--active .sp-dot {
-      width: 14px;
-      height: 14px;
-      background: var(--gold);
-      border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(240,168,32,0.2), 0 0 16px rgba(240,168,32,0.5);
-    }
-
-    .sp-item--passed .sp-dot {
-      background: var(--teal-lt);
-      border-color: var(--teal-lt);
-      width: 7px;
-      height: 7px;
-      opacity: 0.7;
-    }
-
-    /* Connector line between dots */
-    .sp-connector {
-      width: 1.5px;
-      height: 20px;
-      background: rgba(255,255,255,0.1);
-      transition: background 0.4s ease;
-      margin: 0 auto;
-    }
-    .sp-connector--passed {
-      background: linear-gradient(to bottom, var(--teal-lt), rgba(34,160,146,0.25));
-    }
-
-    /* Remaining badge below dots */
-    .sp-remaining {
-      margin-top: 14px;
-      font-family: var(--font-body);
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(232,237,245,0.3);
-      text-align: center;
-      line-height: 1.4;
-      min-height: 1.4em;
-      transition: color 0.3s;
-    }
-    .sp-remaining.last {
-      color: var(--gold);
-      opacity: 0.8;
-    }
-
-    /* Section number badges inside rail */
-    .sp-num {
-      position: absolute;
-      right: calc(100% + 8px);
-      font-family: var(--font-head);
-      font-size: 0.65rem;
-      color: rgba(240,168,32,0.35);
-      pointer-events: none;
-      line-height: 1;
-    }
-
-    /* ---- STICKY SERVICES WRAPPER ---- */
-    .sticky-services {
-      background: var(--midnight);
-    }
-
-    /* ---- STICKY SECTION ---- */
-    .sticky-section {
-      position: relative;
-      overflow: clip;
-    }
-
-    .sticky-section__header {
+    /* ---- STICKY HORIZONTAL SERVICE NAV (under main nav) ---- */
+    .svc-nav {
       position: sticky;
-      z-index: 50;
-      height: var(--sticky-h);
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      isolation: isolate;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.055) 48%, rgba(4,13,28,0.2)),
-        linear-gradient(90deg, rgba(240,168,32,0.08), rgba(126,229,220,0.055) 42%, rgba(9,20,39,0.16)),
-        rgba(8,17,34,0.34);
-      backdrop-filter: blur(24px) saturate(155%);
-      -webkit-backdrop-filter: blur(24px) saturate(155%);
-      border-top: 1px solid rgba(255,255,255,0.22);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      box-shadow:
-        0 12px 34px rgba(0,0,0,0.24),
-        inset 0 1px 0 rgba(255,255,255,0.24),
-        inset 0 -1px 0 rgba(255,255,255,0.08);
-    }
-
-    .sticky-section__header::before,
-    .sticky-section__header::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .sticky-section__header::before {
-      background:
-        linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.16) 18%, rgba(255,255,255,0.045) 33%, transparent 52%),
-        linear-gradient(180deg, rgba(255,255,255,0.13), transparent 46%);
-      opacity: 0.46;
-      mix-blend-mode: screen;
-    }
-
-    .sticky-section__header::after {
-      background:
-        radial-gradient(circle at 8% 0%, rgba(240,168,32,0.12), transparent 28%),
-        radial-gradient(circle at 88% 120%, rgba(126,229,220,0.1), transparent 42%),
-        linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.055) 48%, transparent 76%);
-      opacity: 0.64;
-    }
-
-    .sticky-section--active .sticky-section__header {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.17), rgba(255,255,255,0.065) 48%, rgba(4,13,28,0.22)),
-        linear-gradient(90deg, rgba(240,168,32,0.12), rgba(126,229,220,0.07) 42%, rgba(9,20,39,0.18)),
-        rgba(8,17,34,0.38);
-      border-top-color: rgba(255,255,255,0.28);
-      border-bottom-color: rgba(255,255,255,0.16);
-      box-shadow:
-        0 14px 42px rgba(0,0,0,0.28),
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        inset 0 -1px 0 rgba(255,255,255,0.1);
-    }
-
-    /* Stacking offsets — each header rests below the ones above */
-    #sticky-ftl        .sticky-section__header { top: var(--nav-h); }
-    #sticky-crossborder .sticky-section__header { top: var(--nav-h); }
-    #sticky-corridors  .sticky-section__header { top: var(--nav-h); }
-    #sticky-erp        .sticky-section__header { top: var(--nav-h); }
-
-    .sticky-section__header-inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .sticky-section__left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      min-width: 0;
-    }
-
-    .sticky-section__num {
-      font-family: var(--font-head);
-      font-size: 2rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.58;
-      flex-shrink: 0;
-      width: 36px;
-      text-shadow: 0 1px 14px rgba(0,0,0,0.34);
-    }
-
-    .sticky-section__badge {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(232,237,245,0.84);
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.16);
-      padding: 3px 10px;
-      border-radius: 100px;
-      flex-shrink: 0;
-      white-space: nowrap;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
-    }
-
-    .sticky-section__title {
-      font-family: var(--font-head);
-      font-size: clamp(1.725rem, 3.3vw, 2.475rem);
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--white);
-      line-height: 1;
-      margin: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-shadow: 0 2px 14px rgba(0,0,0,0.46);
-    }
-
-    .sticky-section__cta-link {
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: rgba(232,237,245,0.86);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 8px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)),
-        rgba(9,26,52,0.34);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      transition: all 0.25s ease;
-      white-space: nowrap;
-      flex-shrink: 0;
-      box-shadow:
-        0 8px 22px rgba(0,0,0,0.16),
-        inset 0 1px 0 rgba(255,255,255,0.16);
-    }
-    .sticky-section__cta-link:hover {
-      background: var(--gold);
-      color: var(--midnight);
-      border-color: var(--gold);
-      transform: translateY(-1px);
-    }
-    .sticky-section__cta-link svg {
-      width: 13px; height: 13px;
-    }
-
-    /* Active header highlight — left accent bar */
-    .sticky-section--active .sticky-section__header-inner::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      width: 3px;
-      height: 34px;
-      background: var(--gold);
-      border-radius: 999px;
-      transform: translateY(-50%);
-      box-shadow: 0 0 14px rgba(240,168,32,0.3);
-    }
-
-    /* Section content */
-    .sticky-section__body {
-      padding: 72px 0 88px;
-      background: #0e1320;
-    }
-
-    /* Alternating section backgrounds */
-    #sticky-crossborder .sticky-section__body {
-      background: #0a0e1a;
-    }
-    #sticky-corridors .sticky-section__body {
-      background: #0d1219;
-    }
-    #sticky-erp .sticky-section__body {
-      background: #080f1e;
-    }
-
-    .service-detail__actions {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .service-detail__actions .btn {
-      margin: 0 !important;
-      align-self: stretch;
-    }
-
-    .erp-visual {
-      position: relative;
-      min-height: 430px;
-      padding: 22px;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 20% 18%, rgba(34,160,146,0.24), transparent 34%),
-        linear-gradient(145deg, rgba(8,15,30,0.98), rgba(15,31,54,0.92));
-      border: 1px solid rgba(34,160,146,0.24);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.08);
-      overflow: hidden;
-    }
-
-    .erp-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(140deg, rgba(0,0,0,0.55), transparent 75%);
-      pointer-events: none;
-    }
-
-    .erp-panel {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      min-height: 386px;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 18px;
-      padding: 20px;
-      border-radius: 12px;
-      background: rgba(8,13,26,0.76);
-      border: 1px solid rgba(255,255,255,0.09);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-    .erp-panel__top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding-bottom: 16px;
+      top: var(--nav-h);
+      z-index: 900;
+      background: rgba(8,14,28,0.82);
+      backdrop-filter: blur(22px) saturate(160%);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-
-    .erp-panel__title {
-      margin: 0;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(232,237,245,0.7);
+    .svc-nav__inner {
+      display: flex;
+      align-items: stretch;
+      gap: 4px;
+      height: var(--svcnav-h);
     }
-
-    .erp-panel__status {
+    .svc-tab {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      flex-shrink: 0;
-      color: var(--gold);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .erp-panel__status::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 16px rgba(240,168,32,0.8);
-    }
-
-    .erp-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .erp-metric {
-      padding: 14px 12px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .erp-metric strong {
-      display: block;
-      font-family: var(--font-head);
-      font-size: 1.95rem;
-      line-height: 1;
-      color: var(--white);
-      letter-spacing: 0.03em;
-    }
-
-    .erp-metric span {
-      display: block;
-      margin-top: 7px;
-      font-size: 0.66rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(232,237,245,0.54);
-    }
-
-    .erp-timeline {
-      display: grid;
-      gap: 11px;
-      align-content: center;
-      padding: 8px 0;
-    }
-
-    .erp-timeline__row {
-      display: grid;
-      grid-template-columns: 18px 1fr auto;
-      align-items: center;
-      gap: 12px;
-      color: rgba(232,237,245,0.74);
-      font-size: 0.8rem;
-    }
-
-    .erp-timeline__dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--teal-lt);
-      box-shadow: 0 0 0 5px rgba(34,160,146,0.12);
-    }
-
-    .erp-timeline__row strong {
-      color: var(--white);
-      font-size: 0.83rem;
-    }
-
-    .erp-timeline__row time {
-      color: rgba(240,168,32,0.82);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      gap: 9px;
+      padding: 0 18px;
+      text-decoration: none;
       white-space: nowrap;
+      color: rgba(232,237,245,0.6);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: color 0.25s ease;
     }
+    .svc-tab__num {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      line-height: 1;
+      color: rgba(240,168,32,0.45);
+      transition: color 0.25s ease;
+    }
+    .svc-tab::after {
+      content: '';
+      position: absolute;
+      left: 14px; right: 14px; bottom: 0;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      background: linear-gradient(90deg, var(--gold), var(--teal));
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.3s ease;
+    }
+    .svc-tab:hover { color: rgba(232,237,245,0.92); }
+    .svc-tab.is-active { color: var(--white); }
+    .svc-tab.is-active .svc-tab__num { color: var(--gold); }
+    .svc-tab.is-active::after { transform: scaleX(1); }
 
-    .erp-panel__footer {
+    /* ---- SERVICE BLOCKS ---- */
+    .svc-deck { background: var(--midnight); }
+    .svc-block {
+      padding: 84px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      scroll-margin-top: calc(var(--nav-h) + var(--svcnav-h));
+    }
+    .svc-block:nth-of-type(even) { background: #0c1220; }
+    .svc-block:last-of-type { border-bottom: none; }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.04fr;
+      grid-template-areas: "head visual" "body visual";
+      column-gap: 60px;
+      row-gap: 18px;
+      align-items: start;
+    }
+    .svc-head   { grid-area: head; }
+    .svc-body   { grid-area: body; }
+    .svc-visual { grid-area: visual; align-self: center; }
+
+    .svc-head__top {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: rgba(232,237,245,0.58);
-      font-size: 0.72rem;
-      font-weight: 600;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .svc-block__num {
+      font-family: var(--font-head);
+      font-size: 2.1rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.85;
+    }
+    .svc-pill {
+      font-family: var(--font-body);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal-lt);
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: rgba(34,160,146,0.1);
+      border: 1px solid rgba(34,160,146,0.28);
+    }
+    .svc-block__title {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+      line-height: 1.04;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin: 0;
+    }
+    .svc-block__lead {
+      font-size: 1.04rem;
+      line-height: 1.7;
+      color: var(--cloud);
+      opacity: 0.78;
+      margin: 0 0 24px;
+      max-width: 38rem;
+    }
+    .svc-benefits {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px 28px;
+      margin: 0 0 30px;
+      padding: 0;
+    }
+    .svc-benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--cloud);
+      opacity: 0.82;
+    }
+    .svc-benefits li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='9' fill='rgba(26,123,110,0.2)'/%3E%3Cpath d='M5 9l3 3 5-5' stroke='%2322a092' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .svc-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .svc-actions .btn {
+      padding: 14px 28px;
+      margin: 0;
     }
 
-    .erp-panel__footer span:last-child {
-      color: var(--teal-lt);
+    /* ---- PREMIUM IMAGE CARD ---- */
+    .svc-shot {
+      position: relative;
+      margin: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(34,160,146,0.22);
+      background: #0a1322;
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.45),
+        0 4px 16px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform 0.5s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.5s ease, border-color 0.5s ease;
     }
+    .svc-shot:hover {
+      transform: translateY(-5px);
+      border-color: rgba(34,160,146,0.42);
+      box-shadow:
+        0 42px 92px rgba(0,0,0,0.55),
+        0 8px 24px rgba(0,0,0,0.35),
+        0 0 44px rgba(34,160,146,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .svc-shot__img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .svc-shot__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 16px 16px;
+      background: linear-gradient(180deg, rgba(8,15,28,0.55), rgba(8,15,28,0.92));
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .svc-chip {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.09);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(232,237,245,0.72);
+    }
+    .svc-chip strong {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: 0.96rem;
+      letter-spacing: 0.03em;
+      color: var(--gold);
+    }
+    .svc-chip--teal strong { color: var(--teal-lt); }
 
     /* ---- RESPONSIVE ---- */
-    @media (max-width: 1100px) {
-      .sp-rail { right: 14px; }
-    }
-    @media (max-width: 768px) {
-      .sp-rail { display: none; }
-      :root { --sticky-h: 60px; }
-      .sticky-section__num { font-size: 1.5rem; width: 28px; }
-      .sticky-section__badge { display: none; }
-      .sticky-section__title { font-size: 1.65rem; white-space: normal; }
-      .sticky-section__cta-link { display: none; }
-      .sticky-section__body { padding: 36px 0 40px; }
-      .service-detail {
-        display: flex;
-        flex-direction: column;
+    @media (max-width: 920px) {
+      .svc-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "head" "visual" "body";
+        row-gap: 22px;
       }
-      .service-detail > div:first-child {
-        order: 2;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
+      .svc-visual { align-self: stretch; }
+      .svc-block { padding: 54px 0; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --svcnav-h: 54px; }
+      .svc-nav__inner {
+        height: auto;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-top: 9px;
+        padding-bottom: 9px;
         align-items: center;
       }
-      .service-detail__features { text-align: left; }
-      .service-detail__visual,
-      .service-detail__visual--has-image {
-        order: 1;
-        display: block;
-        width: 100%;
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 24px;
-        background: none;
-        border: none;
+      .svc-nav__inner::-webkit-scrollbar { display: none; }
+      .svc-tab {
+        flex: 0 0 auto;
+        padding: 9px 15px;
+        border-radius: 100px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+        font-size: 0.8rem;
       }
-      .corridor-map-img {
-        width: 80% !important;
-        max-width: 280px !important;
-        height: auto !important;
-        margin: 0 auto !important;
-        display: block !important;
-        -webkit-mask-image: none !important;
-        mask-image: none !important;
-        transform: none !important;
-        animation: none !important;
-        filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4)) !important;
-      }
-      .erp-visual {
-        min-height: 360px;
-        padding: 14px;
-      }
-      .erp-panel {
-        min-height: 328px;
-        padding: 16px;
-      }
-      .erp-metrics {
-        grid-template-columns: 1fr;
-      }
-      .erp-panel__top,
-      .erp-panel__footer {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-      .erp-timeline__row {
-        grid-template-columns: 14px 1fr;
-      }
-      .erp-timeline__row time {
-        grid-column: 2;
-      }
-      .service-detail__actions {
-        justify-content: center;
+      .svc-tab::after { display: none; }
+      .svc-tab.is-active {
+        border-color: rgba(240,168,32,0.5);
+        background: rgba(240,168,32,0.1);
       }
     }
 
-    @media (max-width: 560px) {
-      .service-detail__actions {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .service-detail__actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
+    @media (max-width: 640px) {
+      .svc-benefits { grid-template-columns: 1fr; }
+      .svc-block__title { font-size: 1.72rem; }
+      .svc-actions { flex-direction: column; align-items: stretch; }
+      .svc-actions .btn { width: 100%; justify-content: center; }
+      .svc-block { padding: 42px 0; }
+      .svc-block__num { font-size: 1.8rem; }
     }
 
+    /* Section content (legacy hooks below removed) */
     /* ================================================================
        LOGO MARQUEE BAR
        ================================================================ */
@@ -861,98 +514,62 @@
     </div>
   </div>
 
-  <!-- PROGRESS RAIL (fixed right-side dots) -->
-  <div class="sp-rail" id="spRail" aria-label="Service sections progress" role="navigation">
-    <div class="sp-rail-inner">
-
-      <!-- Dot 1: FTL -->
-      <div class="sp-item sp-item--active" data-idx="0" title="Dry Van FTL">
-        <span class="sp-label">Dry Van FTL</span>
-        <span class="sp-dot"></span>
-      </div>
-
-      <div class="sp-connector" data-connector="0"></div>
-
-      <!-- Dot 2: Cross-Border -->
-      <div class="sp-item" data-idx="1" title="Cross-Border">
-        <span class="sp-label">Cross-Border</span>
-        <span class="sp-dot"></span>
-      </div>
-
-      <div class="sp-connector" data-connector="1"></div>
-
-      <!-- Dot 3: Corridors -->
-      <div class="sp-item" data-idx="2" title="Corridors">
-        <span class="sp-label">Corridors</span>
-        <span class="sp-dot"></span>
-      </div>
-
-      <div class="sp-connector" data-connector="2"></div>
-
-      <!-- Dot 4: ERP -->
-      <div class="sp-item" data-idx="3" title="ERP Visibility">
-        <span class="sp-label">ERP Visibility</span>
-        <span class="sp-dot"></span>
-      </div>
-
+  <!-- STICKY HORIZONTAL SERVICE NAV -->
+  <nav class="svc-nav" id="svcNav" aria-label="Service sections">
+    <div class="svc-nav__inner container">
+      <a class="svc-tab is-active" href="#ftl" data-idx="0"><span class="svc-tab__num" aria-hidden="true">01</span>Dry Van / LTL</a>
+      <a class="svc-tab" href="#crossborder" data-idx="1"><span class="svc-tab__num" aria-hidden="true">02</span>Cross-Border</a>
+      <a class="svc-tab" href="#corridors" data-idx="2"><span class="svc-tab__num" aria-hidden="true">03</span>Corridors</a>
+      <a class="svc-tab" href="#erp" data-idx="3"><span class="svc-tab__num" aria-hidden="true">04</span>ERP Visibility</a>
     </div>
-    <!-- Remaining count -->
-    <div class="sp-remaining" id="spRemaining">3 more below</div>
-  </div>
+  </nav>
 
-  <!-- STICKY SECTION TABS -->
-  <div class="sticky-services" id="stickyServicesWrapper">
+  <!-- SERVICE COMMAND DECK -->
+  <div class="svc-deck" id="svcDeck">
 
     <!-- ── SECTION 1: FTL ── -->
-    <section class="sticky-section sticky-section--active" id="sticky-ftl" aria-label="Dry Van Full Truckload service">
-      <div class="sticky-section__header">
-        <div class="sticky-section__header-inner">
-          <div class="sticky-section__left">
-            <span class="sticky-section__num" aria-hidden="true">01</span>
-            <span class="sticky-section__badge">Core Service</span>
-            <h2 class="sticky-section__title">Dry Full Truckload or LTL</h2>
-          </div>
-          <a href="contact.html" class="sticky-section__cta-link" aria-label="Request a load for Dry Van FTL">
-            Request a Load
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="sticky-section__body">
-        <div class="container">
-          <div class="service-detail" id="ftl">
-            <div>
-              <p class="section-sub" style="color:var(--cloud);opacity:0.75;margin-bottom:28px;">
-                53-foot dry vans for general cargo. Your load, your trailer, your timeline.
-                No co-loading, no hand-offs, full accountability from dock to delivery.
-              </p>
-              <ul class="service-detail__features" aria-label="FTL service features">
-                <li>Dedicated 53-foot dry van trailers</li>
-                <li>No co-loading. Your freight only</li>
-                <li>Full chain-of-custody documentation</li>
-                <li>Real-time shipment tracking</li>
-                <li>General cargo, packaged goods, industrial equipment</li>
-                <li>Large enterprise and SME pricing</li>
-                <li>Dry or Reefer</li>
-                <li>Full Truckload (FTL) or Less-than-Truckload (LTL)</li>
-                <li>Single or Multiple Drops</li>
-                <li>Live Loading and Unloading</li>
-                <li>Trailer Drop</li>
-                <li>Power Only</li>
-              </ul>
-              <div class="service-detail__actions">
-                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-                <a href="contact.html" class="btn btn--gold">Request a Load</a>
-              </div>
+    <section class="svc-block" id="ftl" data-idx="0" aria-labelledby="svc-ftl-title">
+      <div class="container">
+        <div class="svc-grid">
+          <div class="svc-head">
+            <div class="svc-head__top">
+              <span class="svc-block__num" aria-hidden="true">01</span>
+              <span class="svc-pill">Core Service</span>
             </div>
-            <div class="service-detail__visual service-detail__visual--has-image" aria-label="Dry Van FTL loaded trailer with Canadian freight">
-              <picture><source srcset="assets/Generated_Image_April_07__2026_-_10_59PM-removebg-preview.webp" type="image/webp"><img
-                src="assets/Generated_Image_April_07__2026_-_10_59PM-removebg-preview.png"
-                alt="Full truckload dry van freight truck for Canadian and USA routes"
-                class="corridor-map-img"
-                loading="lazy"
-                width="1200"
-                height="896"></picture>
+            <h2 class="svc-block__title" id="svc-ftl-title">Dry Full Truckload or LTL</h2>
+          </div>
+          <div class="svc-visual">
+            <figure class="svc-shot">
+              <img class="svc-shot__img" src="assets/svc-ftl.webp" alt="Loaded 53-foot dry van trailer with palletized Canadian freight" loading="lazy" width="1000" height="750">
+              <figcaption class="svc-shot__chips">
+                <span class="svc-chip"><strong>53'</strong> Dry Van</span>
+                <span class="svc-chip"><strong>FTL</strong> or LTL</span>
+                <span class="svc-chip"><strong>Live</strong> Tracking</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="svc-body">
+            <p class="svc-block__lead">
+              53-foot dry vans for general cargo. Your load, your trailer, your timeline.
+              No co-loading, no hand-offs, full accountability from dock to delivery.
+            </p>
+            <ul class="svc-benefits" aria-label="FTL service features">
+              <li>Dedicated 53-foot dry van trailers</li>
+              <li>No co-loading. Your freight only</li>
+              <li>Full chain-of-custody documentation</li>
+              <li>Real-time shipment tracking</li>
+              <li>General cargo, packaged goods, equipment</li>
+              <li>Enterprise and SME pricing</li>
+              <li>Dry or Reefer</li>
+              <li>Full Truckload or Less-than-Truckload</li>
+              <li>Single or multiple drops</li>
+              <li>Live loading and unloading</li>
+              <li>Trailer drop</li>
+              <li>Power only</li>
+            </ul>
+            <div class="svc-actions">
+              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+              <a href="contact.html" class="btn btn--gold">Request a Load</a>
             </div>
           </div>
         </div>
@@ -960,49 +577,42 @@
     </section>
 
     <!-- ── SECTION 2: CROSS-BORDER ── -->
-    <section class="sticky-section" id="sticky-crossborder" aria-label="Canada–USA Cross-Border Freight service">
-      <div class="sticky-section__header">
-        <div class="sticky-section__header-inner">
-          <div class="sticky-section__left">
-            <span class="sticky-section__num" aria-hidden="true">02</span>
-            <span class="sticky-section__badge">Cross-Border</span>
-            <h2 class="sticky-section__title">Canada–USA Cross-Border</h2>
-          </div>
-          <a href="contact.html" class="sticky-section__cta-link" aria-label="Request cross-border freight quote">
-            Get a Quote
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="sticky-section__body">
-        <div class="container">
-          <div class="service-detail" id="crossborder">
-            <div>
-              <p class="section-sub" style="color:var(--cloud);opacity:0.75;margin-bottom:28px;">
-                Licensed, insured, and USDOT certified for seamless border crossings.
-                We handle the compliance paperwork so your freight doesn't stop at the line.
-              </p>
-              <ul class="service-detail__features" aria-label="Cross-border service features">
-                <li>USDOT 2832041 | MC# 946449 certified</li>
-                <li>$750,000 BIPD ICBC insurance</li>
-                <li>Full customs documentation support</li>
-                <li>FAST &amp; border-ready drivers</li>
-                <li>BC ↔ Washington, Oregon, California, Idaho</li>
-                <li>Midwest &amp; East Coast routes available on request</li>
-              </ul>
-              <div class="service-detail__actions">
-                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-                <a href="contact.html" class="btn btn--gold">Request Cross-Border Quote</a>
-              </div>
+    <section class="svc-block" id="crossborder" data-idx="1" aria-labelledby="svc-cb-title">
+      <div class="container">
+        <div class="svc-grid">
+          <div class="svc-head">
+            <div class="svc-head__top">
+              <span class="svc-block__num" aria-hidden="true">02</span>
+              <span class="svc-pill">Cross-Border</span>
             </div>
-            <div class="service-detail__visual service-detail__visual--has-image" aria-label="Canada–USA border crossing sign">
-              <picture><source srcset="assets/Gemini_Generated_Image_y44sphy44sphy44s-removebg-preview.webp" type="image/webp"><img
-                src="assets/Gemini_Generated_Image_y44sphy44sphy44s-removebg-preview.png"
-                alt="Canada–USA cross-border freight truck crossing the border"
-                class="corridor-map-img"
-                loading="lazy"
-                width="560"
-                height="420"></picture>
+            <h2 class="svc-block__title" id="svc-cb-title">Canada to USA Cross-Border</h2>
+          </div>
+          <div class="svc-visual">
+            <figure class="svc-shot">
+              <img class="svc-shot__img" src="assets/svc-crossborder.webp" alt="Keylink Transport tractor-trailer at a Canada to USA border crossing at dusk" loading="lazy" width="1000" height="750">
+              <figcaption class="svc-shot__chips">
+                <span class="svc-chip"><strong>USDOT</strong> 2832041</span>
+                <span class="svc-chip"><strong>FAST</strong> Ready</span>
+                <span class="svc-chip"><strong>$750K</strong> Insured</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="svc-body">
+            <p class="svc-block__lead">
+              Licensed, insured, and USDOT certified for seamless border crossings.
+              We handle the compliance paperwork so your freight does not stop at the line.
+            </p>
+            <ul class="svc-benefits" aria-label="Cross-border service features">
+              <li>USDOT 2832041 | MC# 946449 certified</li>
+              <li>$750,000 BIPD ICBC insurance</li>
+              <li>Full customs documentation support</li>
+              <li>FAST and border-ready drivers</li>
+              <li>BC to Washington, Oregon, California, Idaho</li>
+              <li>Midwest and East Coast on request</li>
+            </ul>
+            <div class="svc-actions">
+              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+              <a href="contact.html" class="btn btn--gold">Request Cross-Border Quote</a>
             </div>
           </div>
         </div>
@@ -1010,49 +620,42 @@
     </section>
 
     <!-- ── SECTION 3: CORRIDORS ── -->
-    <section class="sticky-section" id="sticky-corridors" aria-label="Dedicated Freight Corridors service">
-      <div class="sticky-section__header">
-        <div class="sticky-section__header-inner">
-          <div class="sticky-section__left">
-            <span class="sticky-section__num" aria-hidden="true">03</span>
-            <span class="sticky-section__badge">Dedicated Routes</span>
-            <h2 class="sticky-section__title">Dedicated Freight Corridors</h2>
-          </div>
-          <a href="contact.html" class="sticky-section__cta-link" aria-label="Check your freight corridor">
-            Check Your Corridor
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="sticky-section__body">
-        <div class="container">
-          <div class="service-detail" id="corridors">
-            <div>
-              <p class="section-sub" style="color:var(--cloud);opacity:0.75;margin-bottom:28px;">
-                Regular lanes mean consistent pricing, familiar routes, and fewer surprises.
-                Our core corridors run BC–California and Alberta–Ontario on a reliable schedule.
-              </p>
-              <ul class="service-detail__features" aria-label="Freight corridors features">
-                <li>BC → Alberta → Saskatchewan → Ontario</li>
-                <li>BC → Washington → Oregon → California</li>
-                <li>Alberta → Manitoba → Ontario</li>
-                <li>Regular schedules for predictable ETAs</li>
-                <li>Lane pricing advantages for repeat shippers</li>
-                <li>Custom routing on request</li>
-              </ul>
-              <div class="service-detail__actions">
-                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-                <a href="contact.html" class="btn btn--gold">Check Your Corridor</a>
-              </div>
+    <section class="svc-block" id="corridors" data-idx="2" aria-labelledby="svc-cor-title">
+      <div class="container">
+        <div class="svc-grid">
+          <div class="svc-head">
+            <div class="svc-head__top">
+              <span class="svc-block__num" aria-hidden="true">03</span>
+              <span class="svc-pill">Dedicated Routes</span>
             </div>
-            <div class="service-detail__visual service-detail__visual--has-image" aria-label="Freight corridor map showing Keylink Transport routes across Canada and USA">
-              <picture><source srcset="assets/Generated_Image_April_07__2026_-_10_46PM-removebg-preview.webp" type="image/webp"><img
-                src="assets/Generated_Image_April_07__2026_-_10_46PM-removebg-preview.png"
-                alt="Dedicated freight corridor routes across Canada and USA"
-                class="corridor-map-img"
-                loading="lazy"
-                width="1200"
-                height="896"></picture>
+            <h2 class="svc-block__title" id="svc-cor-title">Dedicated Freight Corridors</h2>
+          </div>
+          <div class="svc-visual">
+            <figure class="svc-shot">
+              <img class="svc-shot__img" src="assets/svc-corridors.webp" alt="Illuminated map of Keylink Transport freight corridors across western Canada and the USA" loading="lazy" width="1000" height="750">
+              <figcaption class="svc-shot__chips">
+                <span class="svc-chip"><strong>BC &#8596; CA</strong> Lane</span>
+                <span class="svc-chip"><strong>AB &#8596; ON</strong> Lane</span>
+                <span class="svc-chip"><strong>Set</strong> Schedules</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="svc-body">
+            <p class="svc-block__lead">
+              Regular lanes mean consistent pricing, familiar routes, and fewer surprises.
+              Our core corridors run BC to California and Alberta to Ontario on a reliable schedule.
+            </p>
+            <ul class="svc-benefits" aria-label="Freight corridors features">
+              <li>BC &#8594; Alberta &#8594; Saskatchewan &#8594; Ontario</li>
+              <li>BC &#8594; Washington &#8594; Oregon &#8594; California</li>
+              <li>Alberta &#8594; Manitoba &#8594; Ontario</li>
+              <li>Regular schedules for predictable ETAs</li>
+              <li>Lane pricing for repeat shippers</li>
+              <li>Custom routing on request</li>
+            </ul>
+            <div class="svc-actions">
+              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+              <a href="contact.html" class="btn btn--gold">Check Your Corridor</a>
             </div>
           </div>
         </div>
@@ -1060,71 +663,50 @@
     </section>
 
     <!-- ── SECTION 4: ERP VISIBILITY ── -->
-    <section class="sticky-section" id="sticky-erp" aria-label="In-house ERP shipment visibility service">
-      <div class="sticky-section__header">
-        <div class="sticky-section__header-inner">
-          <div class="sticky-section__left">
-            <span class="sticky-section__num" aria-hidden="true">04</span>
-            <span class="sticky-section__badge">Live Visibility</span>
-            <h2 class="sticky-section__title">In-House ERP Transparency</h2>
-          </div>
-          <a href="contact.html" class="sticky-section__cta-link" aria-label="Ask about Keylink ERP visibility">
-            Ask About Visibility
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="sticky-section__body">
-        <div class="container">
-          <div class="service-detail" id="erp">
-            <div>
-              <p class="section-sub" style="color:var(--cloud);opacity:0.75;margin-bottom:28px;">
-                Customers get uninterrupted transparency through Keylink's in-house ERP. Dispatch,
-                documents, updates, and load milestones stay connected so your team always knows
-                what is moving, where it is, and what happens next.
-              </p>
-              <ul class="service-detail__features" aria-label="ERP transparency features">
-                <li>Live shipment status from dispatch to delivery</li>
-                <li>Centralized load records, documents, and updates</li>
-                <li>Customer visibility without waiting on scattered emails</li>
-                <li>Cleaner exception tracking for delays, border events, and appointments</li>
-                <li>Internal dispatch accountability backed by one source of truth</li>
-                <li>Built in-house around Keylink's freight operations</li>
-              </ul>
-              <div class="service-detail__actions">
-                <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-                <a href="contact.html" class="btn btn--gold">Request ERP Visibility</a>
-              </div>
+    <section class="svc-block" id="erp" data-idx="3" aria-labelledby="svc-erp-title">
+      <div class="container">
+        <div class="svc-grid">
+          <div class="svc-head">
+            <div class="svc-head__top">
+              <span class="svc-block__num" aria-hidden="true">04</span>
+              <span class="svc-pill">Live Visibility</span>
             </div>
-            <div class="erp-visual" aria-label="Keylink in-house ERP shipment visibility dashboard">
-              <div class="erp-panel">
-                <div class="erp-panel__top">
-                  <p class="erp-panel__title">Keylink ERP Load View</p>
-                  <span class="erp-panel__status">Live</span>
-                </div>
-                <div class="erp-metrics" aria-label="ERP load metrics">
-                  <div class="erp-metric"><strong>24/7</strong><span>Status Access</span></div>
-                  <div class="erp-metric"><strong>1</strong><span>Source of Truth</span></div>
-                  <div class="erp-metric"><strong>0</strong><span>Blind Spots</span></div>
-                </div>
-                <div class="erp-timeline" aria-label="Shipment milestone timeline">
-                  <div class="erp-timeline__row"><span class="erp-timeline__dot"></span><strong>Load assigned</strong><time>08:20</time></div>
-                  <div class="erp-timeline__row"><span class="erp-timeline__dot"></span><strong>Driver checked in</strong><time>09:05</time></div>
-                  <div class="erp-timeline__row"><span class="erp-timeline__dot"></span><strong>Border docs verified</strong><time>11:40</time></div>
-                  <div class="erp-timeline__row"><span class="erp-timeline__dot"></span><strong>ETA updated for receiver</strong><time>Live</time></div>
-                </div>
-                <div class="erp-panel__footer">
-                  <span>Dispatch • Customer • Documents</span>
-                  <span>Synced in-house</span>
-                </div>
-              </div>
+            <h2 class="svc-block__title" id="svc-erp-title">In-House ERP Transparency</h2>
+          </div>
+          <div class="svc-visual">
+            <figure class="svc-shot">
+              <img class="svc-shot__img" src="assets/svc-erp.webp" alt="Keylink in-house ERP load view dashboard showing live shipment milestones and route" loading="lazy" width="1000" height="750">
+              <figcaption class="svc-shot__chips">
+                <span class="svc-chip svc-chip--teal"><strong>24/7</strong> Status</span>
+                <span class="svc-chip svc-chip--teal"><strong>1</strong> Source of Truth</span>
+                <span class="svc-chip svc-chip--teal"><strong>0</strong> Blind Spots</span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="svc-body">
+            <p class="svc-block__lead">
+              Customers get uninterrupted transparency through Keylink's in-house ERP. Dispatch,
+              documents, updates, and load milestones stay connected so your team always knows
+              what is moving, where it is, and what happens next.
+            </p>
+            <ul class="svc-benefits" aria-label="ERP transparency features">
+              <li>Live shipment status from dispatch to delivery</li>
+              <li>Centralized load records, documents, updates</li>
+              <li>Customer visibility without scattered emails</li>
+              <li>Cleaner exception tracking for delays and border events</li>
+              <li>Dispatch accountability backed by one source of truth</li>
+              <li>Built in-house around Keylink operations</li>
+            </ul>
+            <div class="svc-actions">
+              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
+              <a href="contact.html" class="btn btn--gold">Request ERP Visibility</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-  </div><!-- /sticky-services -->
+  </div><!-- /svc-deck -->
 
   <!-- TRUST BAR -->
   <div class="trust-bar" role="complementary" aria-label="Credentials">
@@ -1263,123 +845,62 @@
   <script src="js/main.js?v=6" defer></script>
 
   <!-- ================================================================
-       STICKY SECTION TABS — Progress Rail Logic
+       SERVICE NAV — scroll-spy + smooth scroll
        ================================================================ -->
   <script>
   (function () {
     'use strict';
 
-    const mainNav     = document.getElementById('mainNav');
-    const rail        = document.getElementById('spRail');
-    const wrapper     = document.getElementById('stickyServicesWrapper');
-    const remainingEl = document.getElementById('spRemaining');
+    const mainNav = document.getElementById('mainNav');
+    const svcNav  = document.getElementById('svcNav');
+    if (!mainNav || !svcNav) return;
 
-    if (!rail || !wrapper || !mainNav) return;
+    const inner = svcNav.querySelector('.svc-nav__inner');
+    const tabs  = Array.prototype.slice.call(svcNav.querySelectorAll('.svc-tab'));
+    const ids   = ['ftl', 'crossborder', 'corridors', 'erp'];
+    const sections = ids.map(id => document.getElementById(id));
 
-    const spItems      = Array.from(rail.querySelectorAll('.sp-item'));
-    const spConnectors = Array.from(rail.querySelectorAll('.sp-connector'));
-
-    const sectionIds = ['sticky-ftl', 'sticky-crossborder', 'sticky-corridors', 'sticky-erp'];
-    const sections   = sectionIds.map(id => document.getElementById(id));
-    const TOTAL      = sections.length;
-
-    /* ── 1. Keep --nav-h in sync with actual nav height ── */
+    /* Keep --nav-h in sync with the real (fixed) nav height */
     function syncNavHeight() {
-      const h = mainNav.getBoundingClientRect().height;
-      document.documentElement.style.setProperty('--nav-h', h + 'px');
+      document.documentElement.style.setProperty('--nav-h', Math.round(mainNav.getBoundingClientRect().height) + 'px');
     }
     syncNavHeight();
     window.addEventListener('resize', syncNavHeight, { passive: true });
 
-    /* ── 2. Show / hide rail when wrapper is in view ── */
-    const wrapObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        rail.classList.toggle('visible', e.isIntersecting);
-      });
-    }, { threshold: 0.02 });
-    wrapObserver.observe(wrapper);
-
-    /* ── 3. Update dot states ── */
-    let currentIdx = 0;
-
-    function setActive(idx) {
-      if (idx === currentIdx && spItems[idx].classList.contains('sp-item--active')) return;
-      currentIdx = idx;
-
-      spItems.forEach((item, i) => {
-        item.classList.toggle('sp-item--active', i === idx);
-        item.classList.toggle('sp-item--passed',  i < idx);
-        /* remove conflicting class */
-        if (i === idx)  item.classList.remove('sp-item--passed');
-        if (i < idx)    item.classList.remove('sp-item--active');
-        if (i > idx)    item.classList.remove('sp-item--active', 'sp-item--passed');
-      });
-
-      spConnectors.forEach((conn, i) => {
-        conn.classList.toggle('sp-connector--passed', i < idx);
-      });
-
-      /* update active-section class on sections */
-      sections.forEach((sec, i) => {
-        if (sec) sec.classList.toggle('sticky-section--active', i === idx);
-      });
-
-      /* remaining count badge */
-      const remaining = TOTAL - idx - 1;
-      if (remainingEl) {
-        if (remaining > 0) {
-          remainingEl.textContent = remaining + ' more below';
-          remainingEl.classList.remove('last');
-        } else {
-          remainingEl.textContent = 'Last section';
-          remainingEl.classList.add('last');
-        }
+    let current = -1;
+    function setActive(i) {
+      if (i === current) return;
+      current = i;
+      tabs.forEach((t, idx) => t.classList.toggle('is-active', idx === i));
+      /* keep the active pill in view when the nav scrolls horizontally (mobile) */
+      const at = tabs[i];
+      if (at && inner.scrollWidth > inner.clientWidth + 4) {
+        const want = at.offsetLeft - (inner.clientWidth - at.offsetWidth) / 2;
+        inner.scrollTo({ left: Math.max(0, want), behavior: 'smooth' });
       }
     }
 
-    /* ── 4. Determine active section on scroll ── */
     function onScroll() {
-      const navH = mainNav.getBoundingClientRect().height;
-      /* find the lowest section whose top edge is at or above midpoint of viewport */
+      const offset = mainNav.getBoundingClientRect().height + svcNav.getBoundingClientRect().height + 24;
       let best = 0;
       sections.forEach((sec, i) => {
-        if (!sec) return;
-        const rect = sec.getBoundingClientRect();
-        /* section's top has entered the viewport (past nav) */
-        if (rect.top <= navH + 80) {
-          best = i;
-        }
+        if (sec && sec.getBoundingClientRect().top <= offset) best = i;
       });
       setActive(best);
     }
-
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); /* run once on load */
+    onScroll();
 
-    /* ── 5. Click dot → smooth-scroll to section ── */
-    spItems.forEach((item, i) => {
-      item.addEventListener('click', () => {
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', e => {
         const target = sections[i];
         if (!target) return;
-        const navH   = mainNav.getBoundingClientRect().height;
-        const rawTop = target.getBoundingClientRect().top + window.scrollY - navH;
-        window.scrollTo({ top: rawTop, behavior: 'smooth' });
+        e.preventDefault();
+        const off = mainNav.getBoundingClientRect().height + svcNav.getBoundingClientRect().height;
+        const top = target.getBoundingClientRect().top + window.scrollY - off + 2;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       });
     });
-
-    /* ── 6. Keyboard accessibility for dot navigation ── */
-    spItems.forEach((item, i) => {
-      item.setAttribute('role', 'button');
-      item.setAttribute('tabindex', '0');
-      item.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          item.click();
-        }
-      });
-    });
-
-    setActive(0);
   })();
   </script>
   <script>

@@ -199,65 +199,111 @@
       margin: 0;
     }
 
-    /* ---- PREMIUM IMAGE CARD ---- */
+    /* ---- BLENDED IMAGE + METRIC BAR ---- */
     .svc-shot {
       position: relative;
       margin: 0;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(34,160,146,0.22);
-      background: #0a1322;
-      box-shadow:
-        0 30px 70px rgba(0,0,0,0.45),
-        0 4px 16px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.06);
-      transition: transform 0.5s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.5s ease, border-color 0.5s ease;
     }
-    .svc-shot:hover {
-      transform: translateY(-5px);
-      border-color: rgba(34,160,146,0.42);
-      box-shadow:
-        0 42px 92px rgba(0,0,0,0.55),
-        0 8px 24px rgba(0,0,0,0.35),
-        0 0 44px rgba(34,160,146,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.08);
+    /* soft teal ambient glow behind the image */
+    .svc-shot::before {
+      content: '';
+      position: absolute;
+      inset: 2% 0 14%;
+      background: radial-gradient(ellipse at 55% 48%, rgba(34,160,146,0.20), transparent 70%);
+      filter: blur(48px);
+      z-index: 0;
+      pointer-events: none;
     }
     .svc-shot__img {
+      position: relative;
+      z-index: 1;
       display: block;
       width: 100%;
       height: auto;
       aspect-ratio: 4 / 3;
       object-fit: cover;
+      /* feather the edges so the image dissolves into the section background */
+      -webkit-mask-image: radial-gradient(ellipse 95% 92% at 50% 46%, #000 55%, rgba(0,0,0,0.5) 79%, transparent 100%);
+      mask-image: radial-gradient(ellipse 95% 92% at 50% 46%, #000 55%, rgba(0,0,0,0.5) 79%, transparent 100%);
+      filter: drop-shadow(0 26px 52px rgba(0,0,0,0.55)) drop-shadow(0 0 64px rgba(34,160,146,0.10));
+      transition: transform 0.6s cubic-bezier(0.34,1.2,0.64,1), filter 0.6s ease;
     }
-    .svc-shot__chips {
+    .svc-shot:hover .svc-shot__img {
+      transform: translateY(-6px);
+      filter: drop-shadow(0 38px 70px rgba(0,0,0,0.6)) drop-shadow(0 0 84px rgba(34,160,146,0.16));
+    }
+
+    /* ERP dashboard reads as a screen: keep a subtle frame, no feather */
+    .svc-shot--framed::before { inset: 4% 4% 10%; }
+    .svc-shot--framed .svc-shot__img {
+      -webkit-mask-image: none;
+      mask-image: none;
+      border-radius: 16px;
+      border: 1px solid rgba(34,160,146,0.22);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      filter: none;
+    }
+    .svc-shot--framed:hover .svc-shot__img {
+      transform: translateY(-5px);
+      filter: none;
+      box-shadow: 0 40px 88px rgba(0,0,0,0.58), 0 0 44px rgba(34,160,146,0.12), inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+
+    /* frosted metric bar below the image */
+    .svc-chips {
+      position: relative;
+      z-index: 2;
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 14px 16px 16px;
-      background: linear-gradient(180deg, rgba(8,15,28,0.55), rgba(8,15,28,0.92));
-      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: -4px;
+      border-radius: 14px;
+      background: rgba(10,18,32,0.72);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
+      overflow: hidden;
     }
     .svc-chip {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 6px;
-      padding: 7px 12px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.09);
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: rgba(232,237,245,0.72);
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 13px 15px;
+      min-width: 0;
     }
-    .svc-chip strong {
+    .svc-chip + .svc-chip { border-left: 1px solid rgba(255,255,255,0.07); }
+    .svc-chip__icon {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      color: var(--teal-lt);
+      background: rgba(34,160,146,0.12);
+      border: 1px solid rgba(34,160,146,0.26);
+    }
+    .svc-chip__icon svg { width: 17px; height: 17px; }
+    .svc-chip__txt { display: flex; flex-direction: column; min-width: 0; line-height: 1.22; }
+    .svc-chip__txt strong {
       font-family: var(--font-head);
       font-weight: 400;
-      font-size: 0.96rem;
-      letter-spacing: 0.03em;
-      color: var(--gold);
+      font-size: 0.94rem;
+      letter-spacing: 0.02em;
+      color: var(--white);
     }
-    .svc-chip--teal strong { color: var(--teal-lt); }
+    .svc-chip__txt span {
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: rgba(232,237,245,0.55);
+    }
+    .svc-chip--gold .svc-chip__icon {
+      color: var(--gold);
+      background: rgba(240,168,32,0.12);
+      border-color: rgba(240,168,32,0.28);
+    }
 
     /* ---- RESPONSIVE ---- */
     @media (max-width: 920px) {
@@ -305,6 +351,8 @@
       .svc-actions .btn { width: 100%; justify-content: center; }
       .svc-block { padding: 42px 0; }
       .svc-block__num { font-size: 1.8rem; }
+      .svc-chips { flex-direction: column; }
+      .svc-chip + .svc-chip { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); }
     }
 
     /* Section content (legacy hooks below removed) */
@@ -541,12 +589,21 @@
           <div class="svc-visual">
             <figure class="svc-shot">
               <img class="svc-shot__img" src="assets/svc-ftl.webp" alt="Loaded 53-foot dry van trailer with palletized Canadian freight" loading="lazy" width="1000" height="750">
-              <figcaption class="svc-shot__chips">
-                <span class="svc-chip"><strong>53'</strong> Dry Van</span>
-                <span class="svc-chip"><strong>FTL</strong> or LTL</span>
-                <span class="svc-chip"><strong>Live</strong> Tracking</span>
-              </figcaption>
             </figure>
+            <div class="svc-chips">
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+                <span class="svc-chip__txt"><strong>53'</strong><span>Dry Van</span></span>
+              </div>
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+                <span class="svc-chip__txt"><strong>FTL / LTL</strong><span>Flexible Capacity</span></span>
+              </div>
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+                <span class="svc-chip__txt"><strong>Secure</strong><span>End to End</span></span>
+              </div>
+            </div>
           </div>
           <div class="svc-body">
             <p class="svc-block__lead">
@@ -590,12 +647,21 @@
           <div class="svc-visual">
             <figure class="svc-shot">
               <img class="svc-shot__img" src="assets/svc-crossborder.webp" alt="Keylink Transport tractor-trailer at a Canada to USA border crossing at dusk" loading="lazy" width="1000" height="750">
-              <figcaption class="svc-shot__chips">
-                <span class="svc-chip"><strong>USDOT</strong> 2832041</span>
-                <span class="svc-chip"><strong>FAST</strong> Ready</span>
-                <span class="svc-chip"><strong>$750K</strong> Insured</span>
-              </figcaption>
             </figure>
+            <div class="svc-chips">
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg></span>
+                <span class="svc-chip__txt"><strong>Certified</strong><span>USDOT &amp; MC</span></span>
+              </div>
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <span class="svc-chip__txt"><strong>Insured</strong><span>$750,000 BIPD</span></span>
+              </div>
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 4 14 12 14 11 22 20 10 12 10 13 2"/></svg></span>
+                <span class="svc-chip__txt"><strong>Fast Clearance</strong><span>Border-Ready</span></span>
+              </div>
+            </div>
           </div>
           <div class="svc-body">
             <p class="svc-block__lead">
@@ -633,12 +699,21 @@
           <div class="svc-visual">
             <figure class="svc-shot">
               <img class="svc-shot__img" src="assets/svc-corridors.webp" alt="Illuminated map of Keylink Transport freight corridors across western Canada and the USA" loading="lazy" width="1000" height="750">
-              <figcaption class="svc-shot__chips">
-                <span class="svc-chip"><strong>BC &#8596; CA</strong> Lane</span>
-                <span class="svc-chip"><strong>AB &#8596; ON</strong> Lane</span>
-                <span class="svc-chip"><strong>Set</strong> Schedules</span>
-              </figcaption>
             </figure>
+            <div class="svc-chips">
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 8 3 16 6 23 3 23 18 16 21 8 18 1 21 1 6"/><line x1="8" y1="3" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="21"/></svg></span>
+                <span class="svc-chip__txt"><strong>Core Corridors</strong><span>BC &#183; AB &#183; ON &#183; CA</span></span>
+              </div>
+              <div class="svc-chip">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+                <span class="svc-chip__txt"><strong>Scheduled Lanes</strong><span>Predictable ETAs</span></span>
+              </div>
+              <div class="svc-chip svc-chip--gold">
+                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+                <span class="svc-chip__txt"><strong>Repeat Pricing</strong><span>Best Lane Value</span></span>
+              </div>
+            </div>
           </div>
           <div class="svc-body">
             <p class="svc-block__lead">
@@ -674,13 +749,8 @@
             <h2 class="svc-block__title" id="svc-erp-title">In-House ERP Transparency</h2>
           </div>
           <div class="svc-visual">
-            <figure class="svc-shot">
+            <figure class="svc-shot svc-shot--framed">
               <img class="svc-shot__img" src="assets/svc-erp.webp" alt="Keylink in-house ERP load view dashboard showing live shipment milestones and route" loading="lazy" width="1000" height="750">
-              <figcaption class="svc-shot__chips">
-                <span class="svc-chip svc-chip--teal"><strong>24/7</strong> Status</span>
-                <span class="svc-chip svc-chip--teal"><strong>1</strong> Source of Truth</span>
-                <span class="svc-chip svc-chip--teal"><strong>0</strong> Blind Spots</span>
-              </figcaption>
             </figure>
           </div>
           <div class="svc-body">

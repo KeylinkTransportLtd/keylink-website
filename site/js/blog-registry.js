@@ -13,8 +13,8 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-06-29',
     dateLabel: 'June 29, 2026',
-    image: '/assets/cusma-usmca-2026-review-banner.png',
-    imageAlt: 'Keylink Transport truck at a Canada-US border crossing with Canadian and American flags, representing the 2026 CUSMA review',
+    image: '/assets/cusma-usmca-2026-review-card.png',
+    imageAlt: 'Keylink Transport CUSMA trade alert banner: what the July 1 USMCA review means for Canadian cross-border trucking',
     featured: true,
   },
   {

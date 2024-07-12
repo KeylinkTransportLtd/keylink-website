@@ -31,8 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="css/main.css?v=34">
-  <noscript><link rel="stylesheet" href="css/main.css?v=34"></noscript>
+<link rel="stylesheet" href="css/main.css?v=35">
+  <noscript><link rel="stylesheet" href="css/main.css?v=35"></noscript>
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <script type="application/ld+json">
   {
@@ -135,7 +135,7 @@
 
   <!-- PAGE HEADER -->
   <header class="blog-header" role="banner">
-    <div class="blog-header__overlay" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
     <div class="blog-header__content container">
       <span class="blog-header__eyebrow gsap-reveal">Our Story</span>
       <h1 class="blog-header__title gsap-reveal">
@@ -282,60 +282,386 @@
   </section>
 
   <!-- VALUES -->
-  <section class="section about-values-section" aria-labelledby="values-page-heading">
-    <div class="container" style="position:relative;z-index:2;">
-      <div style="text-align:center;max-width:560px;margin:0 auto;">
-        <div class="tag">Core Values</div>
-        <h2 class="section-title" id="values-page-heading" style="color:var(--white);">The Five Things We Never Compromise On.</h2>
+  <style>
+  /* ==========================================================
+     CORE VALUES — icon cards + stats bar
+     ========================================================== */
+  .cv-section {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0 120px;
+  }
+  /* Faded truck fleet, weighted to the right like the rest of the page art */
+  .cv-section__photo {
+    position: absolute;
+    inset: 0;
+    background: url('assets/values-bg.webp') right center/cover no-repeat;
+    opacity: 0.22;
+    pointer-events: none;
+  }
+  .cv-section__veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, #060b16 0%, rgba(6,11,22,0.94) 34%, rgba(6,11,22,0.72) 62%, rgba(6,11,22,0.55) 100%),
+      linear-gradient(180deg, #060b16 0%, rgba(6,11,22,0) 22%, rgba(6,11,22,0) 78%, #060b16 100%);
+    pointer-events: none;
+  }
+  /* Dotted arc on the left edge */
+  .cv-section__dots {
+    position: absolute;
+    left: -140px;
+    top: 12%;
+    width: 420px;
+    height: 520px;
+    background-image: radial-gradient(rgba(34,160,146,0.55) 1.1px, transparent 1.2px);
+    background-size: 15px 15px;
+    -webkit-mask-image: radial-gradient(circle at 0% 50%, #000 58%, transparent 66%);
+    mask-image: radial-gradient(circle at 0% 50%, #000 58%, transparent 66%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .cv-inner { position: relative; z-index: 2; }
+
+  .cv-head { text-align: center; max-width: 760px; margin: 0 auto; }
+  .cv-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal-lt);
+    margin-bottom: 18px;
+  }
+  .cv-eyebrow::before {
+    content: '';
+    width: 26px;
+    height: 2px;
+    background: var(--teal-lt);
+  }
+  .cv-title {
+    font-family: var(--font-head);
+    font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0 0 20px;
+  }
+  .cv-sub {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.68);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cv-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 58px;
+  }
+  .cv-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 22px 30px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  }
+  .cv-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(34,160,146,0.35);
+  }
+  .cv-card__icon {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 26px;
+    color: var(--teal-lt);
+  }
+  .cv-card__icon svg { width: 42px; height: 42px; }
+  .cv-card__title {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .cv-card__rule {
+    width: 30px;
+    height: 2px;
+    background: var(--teal-lt);
+    margin-bottom: 18px;
+  }
+  .cv-card__desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.62);
+    margin-bottom: 26px;
+  }
+  .cv-card__mark {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    opacity: 0.55;
+  }
+  .cv-card__mark span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--teal-lt);
+  }
+  .cv-card__mark i {
+    display: block;
+    width: 34px;
+    height: 1px;
+    background: var(--teal-lt);
+  }
+
+  .cv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 26px;
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .cv-stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 4px 16px;
+    border-right: 1px solid rgba(255,255,255,0.09);
+  }
+  .cv-stat:last-child { border-right: none; }
+  .cv-stat__icon { color: var(--teal-lt); flex-shrink: 0; }
+  .cv-stat__icon svg { width: 36px; height: 36px; }
+  .cv-stat__value {
+    font-family: var(--font-head);
+    font-size: 2.1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .cv-stat__label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .cv-stat__top {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2px;
+  }
+  .cv-stat__place {
+    font-size: 1.32rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 1100px) {
+    .cv-grid { grid-template-columns: repeat(3, 1fr); }
+    .cv-stats { grid-template-columns: repeat(2, 1fr); row-gap: 26px; }
+    .cv-stat:nth-child(2) { border-right: none; }
+  }
+  @media (max-width: 768px) {
+    .cv-section { padding: 80px 0 90px; }
+    .cv-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .cv-card { padding: 32px 18px 24px; }
+    .cv-card__icon { width: 84px; height: 84px; margin-bottom: 20px; }
+    .cv-card__icon svg { width: 34px; height: 34px; }
+    .cv-section__dots { display: none; }
+  }
+  @media (max-width: 560px) {
+    .cv-grid { grid-template-columns: 1fr; }
+    .cv-stats { grid-template-columns: 1fr; padding: 24px 18px; }
+    .cv-stat { border-right: none; justify-content: flex-start; }
+  }
+  </style>
+
+  <section class="section cv-section" aria-labelledby="values-page-heading">
+    <div class="cv-section__photo" aria-hidden="true"></div>
+    <div class="cv-section__veil" aria-hidden="true"></div>
+    <div class="cv-section__dots" aria-hidden="true"></div>
+
+    <div class="container cv-inner">
+      <div class="cv-head gsap-reveal">
+        <div class="cv-eyebrow">Our Core Values</div>
+        <h2 class="cv-title" id="values-page-heading">The Five Things We Never Compromise On.</h2>
+        <p class="cv-sub">
+          Everything we do is built on these values. They guide our decisions,
+          shape our culture, and earn your trust, every mile.
+        </p>
       </div>
 
-      <div class="about-values" style="margin-top:56px;">
+      <div class="cv-grid">
 
-        <div class="about-value-item">
-          <div class="about-value-item__title">Reliability</div>
-          <div class="about-value-item__desc">
+        <div class="cv-card gsap-scale">
+          <div class="cv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5v-6z"/>
+              <path d="M9 11.8l2.2 2.2L15 10.2"/>
+            </svg>
+          </div>
+          <div class="cv-card__title">Reliability</div>
+          <div class="cv-card__rule"></div>
+          <p class="cv-card__desc">
             We deliver when we say we will. No excuses, no rescheduling, no surprises.
             Your timeline is our commitment.
-          </div>
+          </p>
+          <div class="cv-card__mark" aria-hidden="true"><span></span><i></i><span></span></div>
         </div>
 
-        <div class="about-value-item">
-          <div class="about-value-item__title">Safety</div>
-          <div class="about-value-item__desc">
+        <div class="cv-card gsap-scale">
+          <div class="cv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5v-6z"/>
+              <path d="M12 8.2l1.25 2.55 2.75.4-2 1.95.47 2.75L12 14.57l-2.47 1.28.47-2.75-2-1.95 2.75-.4z"/>
+            </svg>
+          </div>
+          <div class="cv-card__title">Safety</div>
+          <div class="cv-card__rule"></div>
+          <p class="cv-card__desc">
             Modern equipment, trained drivers, and strict safety protocols on every run.
             We don't cut corners on the road. Ever.
-          </div>
+          </p>
+          <div class="cv-card__mark" aria-hidden="true"><span></span><i></i><span></span></div>
         </div>
 
-        <div class="about-value-item">
-          <div class="about-value-item__title">Communication</div>
-          <div class="about-value-item__desc">
+        <div class="cv-card gsap-scale">
+          <div class="cv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 5h16a1.5 1.5 0 011.5 1.5v9A1.5 1.5 0 0120 17h-8.5L7 21v-4H4a1.5 1.5 0 01-1.5-1.5v-9A1.5 1.5 0 014 5z"/>
+              <path d="M7 9.5h10M7 12.8h6"/>
+            </svg>
+          </div>
+          <div class="cv-card__title">Communication</div>
+          <div class="cv-card__rule"></div>
+          <p class="cv-card__desc">
             Transparency in all dealings. Real-time updates, full documentation,
             and one direct contact for every shipment.
-          </div>
+          </p>
+          <div class="cv-card__mark" aria-hidden="true"><span></span><i></i><span></span></div>
         </div>
 
-        <div class="about-value-item">
-          <div class="about-value-item__title">Efficiency</div>
-          <div class="about-value-item__desc">
-            Simplified freight management that saves you time and up to 90%
-            vs carrier direct pricing. No complexity, no runaround.
+        <div class="cv-card gsap-scale">
+          <div class="cv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.5"/>
+              <path d="M12 12l3.9-3.4"/>
+              <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>
+              <path d="M12 4.6v1.5M19.4 12h-1.5M4.6 12h1.5"/>
+            </svg>
           </div>
+          <div class="cv-card__title">Efficiency</div>
+          <div class="cv-card__rule"></div>
+          <p class="cv-card__desc">
+            Simplified freight management that saves you time and up to 90% vs
+            carrier direct pricing. No complexity, no runaround.
+          </p>
+          <div class="cv-card__mark" aria-hidden="true"><span></span><i></i><span></span></div>
         </div>
 
-        <div class="about-value-item">
-          <div class="about-value-item__title">Family Culture</div>
-          <div class="about-value-item__desc">
+        <div class="cv-card gsap-scale">
+          <div class="cv-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="8" r="3.2"/>
+              <path d="M2.8 19.5a6.2 6.2 0 0112.4 0"/>
+              <path d="M16.4 5.2a3.2 3.2 0 010 5.9"/>
+              <path d="M17.6 13.6a6.2 6.2 0 013.6 5.9"/>
+            </svg>
+          </div>
+          <div class="cv-card__title">Family Culture</div>
+          <div class="cv-card__rule"></div>
+          <p class="cv-card__desc">
             Respectful and accountable with every driver, every client, every load.
             We're a small team that acts like partners, not vendors.
+          </p>
+          <div class="cv-card__mark" aria-hidden="true"><span></span><i></i><span></span></div>
+        </div>
+
+      </div>
+
+      <div class="cv-stats gsap-reveal">
+
+        <div class="cv-stat">
+          <div class="cv-stat__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 6.5h11v9h-11z"/>
+              <path d="M13.5 10h3.6l2.9 3v2.5h-6.5z"/>
+              <circle cx="7" cy="17.6" r="1.9"/>
+              <circle cx="16.6" cy="17.6" r="1.9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cv-stat__value">100%</div>
+            <div class="cv-stat__label">On-Time Commitment</div>
           </div>
         </div>
 
-        <div class="about-value-item">
-          <div class="about-value-item__title">Integrity</div>
-          <div class="about-value-item__desc">
-            We say what we'll do, and we do what we say. No hidden fees,
-            no shifting timelines, no blame-shifting.
+        <div class="cv-stat">
+          <div class="cv-stat__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5v-6z"/>
+              <path d="M9 11.8l2.2 2.2L15 10.2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cv-stat__value">98%</div>
+            <div class="cv-stat__label">Safety Score</div>
+          </div>
+        </div>
+
+        <div class="cv-stat">
+          <div class="cv-stat__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="8" r="3.2"/>
+              <path d="M2.8 19.5a6.2 6.2 0 0112.4 0"/>
+              <path d="M16.4 5.2a3.2 3.2 0 010 5.9"/>
+              <path d="M17.6 13.6a6.2 6.2 0 013.6 5.9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cv-stat__value">500+</div>
+            <div class="cv-stat__label">Happy Clients</div>
+          </div>
+        </div>
+
+        <div class="cv-stat">
+          <div class="cv-stat__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21.5s7-6.1 7-11a7 7 0 10-14 0c0 4.9 7 11 7 11z"/>
+              <circle cx="12" cy="10.3" r="2.6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cv-stat__top">Across</div>
+            <div class="cv-stat__place">Canada &amp; USA</div>
+            <div class="cv-stat__label">Proudly Serving</div>
           </div>
         </div>
 
@@ -532,7 +858,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="js/main.js?v=6" defer></script>
+  <script src="js/main.js?v=7" defer></script>
 
   <!-- Mission / Vision Showcase -->
   <script>

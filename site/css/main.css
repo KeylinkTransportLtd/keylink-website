@@ -6936,6 +6936,49 @@ body.js-loading .svh__scroll-hint {
 /* overlay div no longer needed — kept for markup compatibility */
 .blog-header__overlay { display: none; }
 
+/* ============================================================
+   Interactive hero grid glow (Higgsfield-style cursor light)
+   Shared by .blog-header and .faq-hero. A dim base grid lives
+   on each hero's ::after; this layer adds a brighter grid that
+   is revealed only around the cursor, plus a soft light blob
+   that tracks it. Position driven by --mx / --my (set in JS).
+   ============================================================ */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;                 /* above base grid (0), below content (2) */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  /* soft teal light blob that follows the cursor */
+  background: radial-gradient(
+    circle 340px at var(--mx, 50%) var(--my, 0%),
+    rgba(61,189,189,0.16) 0%,
+    rgba(34,160,146,0.06) 38%,
+    transparent 72%
+  );
+}
+.hero-grid.is-live { opacity: 1; }
+
+/* brighter grid lines, masked to a circle around the cursor.
+   60px size + top-left origin keep it aligned with the base grid. */
+.hero-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(61,189,189,0.40) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,189,189,0.40) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask: radial-gradient(circle 240px at var(--mx, 50%) var(--my, 0%),
+    #000 0%, rgba(0,0,0,0.45) 42%, transparent 68%);
+          mask: radial-gradient(circle 240px at var(--mx, 50%) var(--my, 0%),
+    #000 0%, rgba(0,0,0,0.45) 42%, transparent 68%);
+}
+
+@media (prefers-reduced-motion: reduce) { .hero-grid { display: none; } }
+@media (hover: none)                    { .hero-grid { display: none; } }
+
 /* Content sits above overlays */
 .blog-header__content {
   position: relative;

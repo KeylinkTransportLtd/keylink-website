@@ -1158,3 +1158,45 @@
   })();
 
 })();
+
+/* =========================================================
+   Interactive hero grid glow (Higgsfield-style cursor light)
+   Each .hero-grid layer tracks the pointer over its parent
+   hero, lighting a brighter grid + soft blob around the cursor
+   via the --mx / --my CSS variables.
+   ========================================================= */
+(function () {
+  'use strict';
+
+  var mq = window.matchMedia;
+  if (mq && mq('(prefers-reduced-motion: reduce)').matches) return;
+  if (mq && mq('(hover: none)').matches) return;
+
+  var layers = document.querySelectorAll('.hero-grid');
+  if (!layers.length) return;
+
+  layers.forEach(function (layer) {
+    var host = layer.parentElement;
+    if (!host) return;
+    var raf = null, px = 0, py = 0;
+
+    function apply() {
+      raf = null;
+      layer.style.setProperty('--mx', px + 'px');
+      layer.style.setProperty('--my', py + 'px');
+    }
+
+    host.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      var r = host.getBoundingClientRect();
+      px = e.clientX - r.left;
+      py = e.clientY - r.top;
+      if (!layer.classList.contains('is-live')) layer.classList.add('is-live');
+      if (!raf) raf = requestAnimationFrame(apply);
+    });
+
+    host.addEventListener('pointerleave', function () {
+      layer.classList.remove('is-live');
+    });
+  });
+})();

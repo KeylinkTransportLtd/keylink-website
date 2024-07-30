@@ -13,8 +13,8 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-08-03',
     dateLabel: 'August 3, 2026',
-    image: '/assets/warehouse-squeeze-2026-banner.png',
-    imageAlt: 'Keylink Transport banner: a Keylink dry van waits in a line of trailers at a full distribution centre dock at sunset',
+    image: '/assets/trailer-not-warehouse-banner.png',
+    imageAlt: 'Keylink Transport market watch banner: The Trailer Is Not a Warehouse, with Q2 2026 figures for industrial availability, driver detention, and industrial space under construction',
     featured: true,
   },
   {

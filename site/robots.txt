@@ -5,3 +5,5 @@ Disallow: /privacy.html
 Disallow: /terms.html
 
 Sitemap: https://www.keylinktransport.ca/sitemap.xml
+
+Sitemap: https://www.keylinktransport.ca/rss.xml

@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2024
 
+- 2024-08-08 | [Bangladesh in Crisis: How a Political Collapse in Dhaka Hits Canadian Garment Imports](2024-08-08-bangladesh-crisis-canadian-textile-imports-august-2024.md) | Industry
 - 2024-07-30 | [The Red Sea Crisis: How Houthi Attacks Are Reshaping Global Freight and What Canadian Shippers Should Know](2024-07-30-red-sea-houthi-freight-crisis.md) | Industry
 - 2024-07-24 | [The CrowdStrike Outage and Freight: How One Software Update Grounded Trucking for Three Days](2024-07-24-crowdstrike-outage-trucking-2024.md) | Industry
 - 2024-07-16 | [Baltimore Key Bridge Collapse: What the Francis Scott Key Disaster Means for Cross-Border Trucking](2024-07-16-baltimore-key-bridge-collapse-2024.md) | Industry

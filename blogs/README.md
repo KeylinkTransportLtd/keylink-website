@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2024
 
+- 2024-08-22 | [Driver Inc. Exposed: Canada's Trucking Misclassification Crisis and What It Means for the Industry](2024-08-22-driver-inc-misclassification-crisis.md) | Industry
 - 2024-08-15 | [The Great Freight Recession: Why Canadian Carriers Are Going Under and How to Survive It](2024-08-15-freight-recession-canadian-carriers.md) | Industry
 - 2024-08-08 | [Bangladesh in Crisis: How a Political Collapse in Dhaka Hits Canadian Garment Imports](2024-08-08-bangladesh-crisis-canadian-textile-imports-august-2024.md) | Industry
 - 2024-07-30 | [The Red Sea Crisis: How Houthi Attacks Are Reshaping Global Freight and What Canadian Shippers Should Know](2024-07-30-red-sea-houthi-freight-crisis.md) | Industry

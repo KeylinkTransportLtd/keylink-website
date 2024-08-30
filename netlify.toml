@@ -1,3 +1,4 @@
+# Netlify configuration: publish directory, redirects and cache headers.
 [build]
   publish = "site"
 

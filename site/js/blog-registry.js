@@ -13,8 +13,8 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-08-31',
     dateLabel: 'August 31, 2026',
-    image: '/assets/freight-rate-reset-2026-banner.png',
-    imageAlt: 'Keylink Transport market watch banner: The Cheap Freight Is Gone, with the Canadian truck-to-load ratio, spot rate growth, and the two-week diesel increase',
+    image: '/assets/freight-rate-reset-yard-banner.png',
+    imageAlt: 'Keylink Transport market watch banner: The Cheap Freight Is Gone, showing an empty truck yard at dawn with the Canadian truck-to-load ratio, spot rate growth, and the two-week diesel increase',
     featured: true,
   },
   {

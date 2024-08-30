@@ -13,8 +13,8 @@ window.KEYLINK_POSTS = [
     category: 'Industry',
     date: '2026-08-24',
     dateLabel: 'August 24, 2026',
-    image: '/assets/canada-us-tariff-sept-2026-banner.png',
-    imageAlt: 'Keylink Transport trade alert banner: Two Bills One Morning, with the 50 percent US tariff, US$20 billion of Canadian exports hit, and the September 8 fuel excise tax return',
+    image: '/assets/canada-us-tariff-standoff-banner.png',
+    imageAlt: 'Keylink Transport trade alert banner: Two Bills One Morning, showing two empty lecterns with the Canadian and US flags, and the 50 percent tariff, US$20 billion of exports hit, and September 8 fuel tax figures',
     featured: true,
   },
   {

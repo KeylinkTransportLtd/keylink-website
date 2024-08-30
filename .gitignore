@@ -7,3 +7,31 @@ site/assets/originals/
 
 # Claude Code local settings (not part of the site)
 .claude/settings.local.json
+
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# build output
+/build
+/out/
+
+# misc
+*.pem
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+.env*.local
+
+# scratch and tooling output
+tmp/
+.playwright-mcp/

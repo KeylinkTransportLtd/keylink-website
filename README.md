@@ -143,7 +143,7 @@ Replace `fetch('#')` with your API endpoint. The form data is a standard `FormDa
 
 ---
 
-## Cost Breakdown (for client invoice)
+## Cost Breakdown (for client invoice) Sanjeev 
 
 | Deliverable | Value |
 |-------------|-------|
@@ -160,8 +160,3 @@ Replace `fetch('#')` with your API endpoint. The form data is a standard `FormDa
 | Niche Analysis Report (lead magnet) | $500 |
 | **Total** | **$10,200** |
 
-*Nano Banana 3D asset generation billed separately.*
-
----
-
-*Built with Claude Code · April 2026*

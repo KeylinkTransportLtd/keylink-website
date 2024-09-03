@@ -65,3 +65,8 @@
 /blog/canada-us-tariff-impact           /blog/canada-us-tariff-impact.html      200
 /blog/hormuz-strait-shipping-crisis     /blog/hormuz-strait-shipping-crisis.html 200
 /blog/canada-driver-shortage-2026       /blog/canada-driver-shortage-2026.html  200
+
+# Renamed share-card asset (old generated filename)
+/assets/Gemini_Generated_Image_gb5plkgb5plkgb5p.jpg   /assets/keylink-share-card.jpg   301
+/assets/Gemini_Generated_Image_gb5plkgb5plkgb5p.png   /assets/keylink-share-card.png   301
+/assets/Gemini_Generated_Image_gb5plkgb5plkgb5p.webp  /assets/keylink-share-card.webp  301

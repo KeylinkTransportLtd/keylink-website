@@ -65,8 +65,9 @@ function buildSitemap(posts, latestDate) {
   const entries = [];
 
   for (const page of STATIC_PAGES) {
-    // Home and blog index change whenever a post ships.
-    const lastmod = page.url === '/' || page.url === '/blog' ? latestDate : latestDate;
+    // Every static page takes the newest post date: home and the blog index
+    // list recent posts, and the rest share the same nav and footer.
+    const lastmod = latestDate;
     entries.push(
       `  <url>\n` +
       `    <loc>${SITE}${page.url}</loc>\n` +

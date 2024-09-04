@@ -70,8 +70,8 @@
     .svh__video{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;padding:24px 48px 24px 16px}
     .svh__overlay{padding:0 32px 0 64px;z-index:3}
   </style>
-  <link rel="stylesheet" href="css/main.css?v=52">
-  <noscript><link rel="stylesheet" href="css/main.css?v=52"></noscript>
+  <link rel="stylesheet" href="css/main.css?v=56">
+  <noscript><link rel="stylesheet" href="css/main.css?v=56"></noscript>
   <style>
     /* ================================================================
        HOME PAGE PROGRESS RAIL
@@ -326,6 +326,144 @@
       .faq-strip__inner { gap: 24px; }
       .faq-strip__links { display: none; }
     }
+
+    /* ================================================================
+       PARTNER NETWORK (home strip, mirrors .careers-strip; .pn- prefix)
+       ================================================================ */
+    .pn-home {
+      padding: 88px 0 96px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .pn-home .pn-home__inner { gap: 64px; }
+    .pn-home .pn-home__content { min-width: 0; }
+    .pn-home .pn-home__title {
+      font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+    }
+    .pn-home .pn-home__sub { max-width: 520px; margin-top: 16px; line-height: 1.7; }
+    .pn-home .careers-open-roles { margin-top: 20px; }
+    .pn-home .pn-home__cta { margin-top: 28px; }
+    .pn-home .pn-home__media {
+      position: relative;
+      flex: 0 0 560px;
+      max-width: 560px;
+      overflow: visible;
+      border-radius: 0;
+      box-shadow: none;
+      margin-bottom: 30px;
+    }
+    .pn-home__mosaic {
+      display: grid;
+      grid-template-columns: 1.9fr 1fr;
+      gap: 12px;
+      height: 360px;
+    }
+    .pn-home__shot {
+      position: relative;
+      margin: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.07);
+    }
+    .pn-home__shot picture,
+    .pn-home__shot img { display: block; width: 100%; height: 100%; }
+    .pn-home__shot img { object-fit: cover; }
+    .pn-home__shot--main img { object-position: 50% 62%; }
+    .pn-home__shot--side img { object-position: 72% 50%; }
+    .pn-home__shot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,14,26,0) 55%, rgba(10,14,26,0.45) 100%);
+      pointer-events: none;
+    }
+    .pn-home__badge {
+      position: absolute;
+      left: 24px;
+      bottom: -30px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      background: rgba(10,14,26,0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+    }
+    .pn-home__badge picture { display: block; }
+    .pn-home__logo { display: block; width: 148px; height: auto; }
+    .pn-home__badge-txt {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-left: 16px;
+      border-left: 1px solid rgba(255,255,255,0.12);
+      white-space: nowrap;
+    }
+    .pn-home__badge-txt strong {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-lt);
+    }
+    .pn-home__badge-txt span { font-size: 0.85rem; color: var(--cloud); }
+    .pn-home__proof { grid-template-columns: repeat(3, 1fr); margin: 56px 0 0; }
+    .pn-home__proof > li { display: flex; }
+    .pn-home__proof .erp-feature { flex: 1; }
+    .pn-home__proof .erp-feature__desc a {
+      color: var(--teal-lt);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .pn-home__legal {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: rgba(232,237,245,0.7);
+    }
+    .pn-home__legal strong { color: var(--white); font-weight: 600; white-space: nowrap; }
+    .pn-home__legal a {
+      color: var(--teal-lt);
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .pn-home__legal a:hover { text-decoration: underline; }
+
+    @media (max-width: 1100px) {
+      .pn-home .pn-home__inner { gap: 44px; }
+      .pn-home .pn-home__media { flex-basis: 460px; max-width: 460px; }
+      .pn-home__mosaic { height: 320px; }
+    }
+    @media (max-width: 980px) {
+      .pn-home .pn-home__inner { flex-direction: column; align-items: stretch; gap: 48px; }
+      .pn-home .pn-home__media { order: -1; flex: 0 0 auto; width: 100%; max-width: none; }
+      .pn-home__mosaic { height: 340px; grid-template-columns: 1.5fr 1fr; }
+      .pn-home__shot--main img { object-position: 78% 62%; }
+    }
+    @media (max-width: 768px) {
+      .pn-home { padding: 64px 0 72px; }
+      .pn-home .pn-home__inner { align-items: stretch; text-align: left; gap: 44px; }
+      .pn-home .pn-home__media { width: 100%; max-width: none; margin: 0 0 26px; border-radius: 0; }
+      .pn-home .pn-home__content { align-items: flex-start; text-align: left; }
+      .pn-home .pn-home__title { font-size: 2.3rem; text-align: left; }
+      .pn-home .pn-home__sub { font-size: 0.95rem; text-align: left; }
+      .pn-home .careers-open-roles { justify-content: flex-start; }
+      .pn-home .pn-home__cta { width: 100%; }
+      .pn-home .pn-home__cta .btn { width: 100%; justify-content: center; }
+      .pn-home__mosaic { height: 240px; gap: 8px; grid-template-columns: 1.6fr 1fr; }
+      .pn-home__shot { border-radius: 12px; }
+      .pn-home__badge { left: 12px; bottom: -26px; padding: 10px 14px; gap: 12px; }
+      .pn-home__logo { width: 112px; }
+      .pn-home__badge-txt { padding-left: 12px; }
+      .pn-home__proof { grid-template-columns: 1fr; margin-top: 36px; gap: 12px; }
+      .pn-home__legal { font-size: 0.82rem; }
+    }
   </style>
 
   <!-- Favicon -->
@@ -500,6 +638,7 @@
         <ul class="nav__links" role="list">
           <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="partners.html">Partners</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="careers.html">Careers</a></li>
@@ -532,6 +671,7 @@
     <nav class="nav__mobile-links" aria-label="Mobile primary navigation">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
       <a href="about.html">About</a>
       <a href="blog.html">Blog</a>
       <a href="careers.html">Careers</a>
@@ -1262,6 +1402,118 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ======= PARTNER NETWORK ======= -->
+  <section class="careers-strip pn-home" id="home-partners" aria-labelledby="pn-home-heading">
+    <div class="container">
+      <div class="careers-strip__inner pn-home__inner">
+        <div class="careers-strip__content pn-home__content gsap-reveal-left">
+          <div class="tag">Keylink Partner Network</div>
+          <h2 class="careers-strip__title pn-home__title" id="pn-home-heading">
+            More Trucks.<br>
+            <span style="color:var(--teal-lt);">Same Keylink Standard.</span>
+          </h2>
+          <p class="careers-strip__sub pn-home__sub">
+            Cangaroo Cartage Inc. is Keylink's main partner carrier: an asset-based
+            Abbotsford, BC fleet of 5 and 10 ton trucks with railgates and tailgates,
+            running local deliveries and long haul. Every Cangaroo-hauled load is booked,
+            billed and tracked through Keylink, from quote to proof of delivery.
+          </p>
+          <div class="careers-open-roles">
+            <span class="role-badge">5 &amp; 10 Ton Trucks</span>
+            <span class="role-badge">Railgates &amp; Tailgates</span>
+            <span class="role-badge">Dry &amp; Temp-Controlled</span>
+          </div>
+          <div class="careers-strip__cta pn-home__cta">
+            <a href="partners.html" class="btn btn--teal">
+              Meet Our Partner Fleet
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="careers-strip__video-wrap pn-home__media gsap-reveal-right">
+          <div class="pn-home__mosaic">
+            <figure class="pn-home__shot pn-home__shot--main">
+              <picture>
+                <source srcset="assets/partners/cangaroo-fleet-docks.webp" type="image/webp">
+                <img src="assets/partners/cangaroo-fleet-docks.jpg" width="1448" height="905" alt="Cangaroo Cartage reefer straight trucks backed into warehouse loading docks" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="pn-home__shot pn-home__shot--side">
+              <picture>
+                <source srcset="assets/partners/cangaroo-fleet-row.webp" type="image/webp">
+                <img src="assets/partners/cangaroo-fleet-row.jpg" width="1121" height="1403" alt="Row of Cangaroo Cartage reefer straight trucks, lead truck showing the Cangaroo Cartage door logo" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+          </div>
+          <div class="pn-home__badge">
+            <picture>
+              <source srcset="assets/partners/cangaroo-logo-light.webp" type="image/webp">
+              <img class="pn-home__logo" src="assets/partners/cangaroo-logo-light.png" width="1200" height="369" alt="Cangaroo Cartage logo" loading="lazy" decoding="async">
+            </picture>
+            <span class="pn-home__badge-txt">
+              <strong>Main Partner Carrier</strong>
+              <span>Abbotsford, BC</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <ul class="erp-features pn-home__proof" role="list" aria-label="What partner loads get">
+        <li class="gsap-reveal">
+          <div class="erp-feature">
+            <span class="erp-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <path d="M14 2v6h6M9 13h6M9 17h6"/>
+              </svg>
+            </span>
+            <div>
+              <div class="erp-feature__title">Billed through Keylink</div>
+              <div class="erp-feature__desc">Your quote and invoice come from Keylink, the same as any Keylink load.</div>
+            </div>
+          </div>
+        </li>
+        <li class="gsap-reveal" style="transition-delay:0.1s">
+          <div class="erp-feature">
+            <span class="erp-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M10 13a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1 1"/>
+                <path d="M14 11a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1-1"/>
+              </svg>
+            </span>
+            <div>
+              <div class="erp-feature__title">Same live tracking link</div>
+              <div class="erp-feature__desc">Live GPS and ETA on <a href="#live-visibility">Keylink ERP</a>, through the secure link in your booking confirmation.</div>
+            </div>
+          </div>
+        </li>
+        <li class="gsap-reveal" style="transition-delay:0.2s">
+          <div class="erp-feature">
+            <span class="erp-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </span>
+            <div>
+              <div class="erp-feature__title">Keylink standards</div>
+              <div class="erp-feature__desc">Keylink services and in-house systems behind every partner load, start to finish.</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <p class="pn-home__legal gsap-reveal">
+        Loads booked through Keylink, including US moves, are dispatched and billed under
+        Keylink Transport's <strong>USDOT 2832041</strong> / <strong>MC# 946449</strong>.
+        <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&amp;query_type=queryCarrierSnapshot&amp;query_param=USDOT&amp;query_string=2832041" target="_blank" rel="noopener noreferrer">View FMCSA Profile &rarr;</a>
+      </p>
     </div>
   </section>
 
@@ -2039,6 +2291,7 @@
           <ul class="footer__links">
             <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="partners.html">Partners</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="faq.html">FAQ</a></li>

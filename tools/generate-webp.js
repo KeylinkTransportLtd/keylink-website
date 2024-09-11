@@ -19,13 +19,15 @@ const { execSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..', 'site');
 const ASSETS = path.join(ROOT, 'assets');
+// Assets below this size only get a twin when a post uses them as its image.
 const MIN_BYTES = 150 * 1024;
+// sharp webp quality, 0 to 100.
 const QUALITY = 82;
 
 function loadSharp() {
   try {
     return require('sharp');
-  } catch (err) {
+  } catch {
     const found = execSync(
       "find ~/.npm/_npx -type d -path '*node_modules/sharp' | head -1",
       { shell: '/bin/bash' }

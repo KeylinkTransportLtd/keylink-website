@@ -21,14 +21,6 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..', 'site');
 const TARGET_CLASSES = ['post-hero__img', 'post-chart__img'];
 
-function htmlFiles(dir) {
-  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) return ['blog', 'assets', 'css', 'js'].includes(entry.name) && entry.name !== 'blog' ? [] : htmlFiles(full);
-    return entry.name.endsWith('.html') ? [full] : [];
-  });
-}
-
 // Resolves an img src as written in a page ('../assets/x.png') to a real path.
 function webpTwin(file, src) {
   if (!/\.(png|jpe?g)$/i.test(src)) return null;

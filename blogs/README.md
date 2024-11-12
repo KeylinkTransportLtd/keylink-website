@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2024
 
+- 2024-11-12 | [Trump Won. Now What? The Tariff Math Canadian Shippers Should Be Doing](2024-11-12-trump-won-canadian-shipper-tariff-math-november-2024.md) | Industry
 - 2024-10-15 | [Aftermath: How the ILA Strike, Helene, and Milton Reshaped Q4 2024 Freight](2024-10-15-ila-helene-milton-q4-2024-freight-aftermath.md) | Industry
 - 2024-10-08 | [Canada's Carbon Tax and Trucking: The Real Cost Per Mile and How Carriers Are Adapting](2024-10-08-carbon-tax-trucking-impact-2024.md) | Industry
 - 2024-09-25 | [ILA Strike Looming: How an East Coast Port Shutdown Would Hit Canadian Freight](2024-09-25-ila-strike-threat-canadian-carriers-september-2024.md) | Industry

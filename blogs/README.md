@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2024
 
+- 2024-11-27 | [Trump's 25% Tariff Threat on Canada: What the Pre-Inauguration Freight Surge Means for Shippers](2024-11-27-trump-tariff-threat-canada-2024.md) | Industry
 - 2024-11-19 | [Canada Post Strike: How a Postal Shutdown Is Forcing Volume Onto Trucking](2024-11-19-canada-post-strike-trucking-volume-november-2024.md) | Industry
 - 2024-11-12 | [Trump Won. Now What? The Tariff Math Canadian Shippers Should Be Doing](2024-11-12-trump-won-canadian-shipper-tariff-math-november-2024.md) | Industry
 - 2024-10-15 | [Aftermath: How the ILA Strike, Helene, and Milton Reshaped Q4 2024 Freight](2024-10-15-ila-helene-milton-q4-2024-freight-aftermath.md) | Industry

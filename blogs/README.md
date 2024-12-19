@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2024
 
+- 2024-12-18 | [Assad Falls, Syria Reopens: What a Post-War Mediterranean Means for Global Freight](2024-12-18-assad-falls-syria-mediterranean-shipping-december-2024.md) | Industry
 - 2024-12-11 | [A Day in the Life of a Keylink Driver](2024-12-11-day-in-the-life-keylink.md) | Company
 - 2024-12-04 | [South Korea's Martial Law Shock: What It Means for Asia-Pacific Supply Chains](2024-12-04-south-korea-martial-law-asia-pacific-supply-chain-december-2024.md) | Industry
 - 2024-11-27 | [Trump's 25% Tariff Threat on Canada: What the Pre-Inauguration Freight Surge Means for Shippers](2024-11-27-trump-tariff-threat-canada-2024.md) | Industry

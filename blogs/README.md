@@ -3,6 +3,10 @@
 Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.ca/blog), one file per post, committed on the day it was published.
 
 
+## 2025
+
+- 2025-01-08 | [Dry Van vs Flatbed vs Reefer: Choosing the Right Trailer Type for Your Canadian Freight](2025-01-08-trailer-types-guide.md) | Tips & Guides
+
 ## 2024
 
 - 2024-12-30 | [2024 in the Rear-View: The Year Trucking Refused to Quit](2024-12-30-2024-canadian-trucking-year-in-review.md) | Industry

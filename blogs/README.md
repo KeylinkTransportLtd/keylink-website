@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-01-22 | [Trudeau's Exit, Trump's Inauguration: What Canadian Carriers Need to Prepare For](2025-01-22-trudeau-exit-trump-inauguration-2025.md) | Industry
 - 2025-01-15 | [Driver Retention: Why Culture Matters More Than Pay Alone](2025-01-15-driver-retention-culture.md) | Company
 - 2025-01-08 | [Dry Van vs Flatbed vs Reefer: Choosing the Right Trailer Type for Your Canadian Freight](2025-01-08-trailer-types-guide.md) | Tips & Guides
 

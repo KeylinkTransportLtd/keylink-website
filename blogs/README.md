@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-02-12 | [The 30-Day Tariff Pause: How Canadian Freight Got a Breather](2025-02-12-tariff-pause-canadian-freight-feb-2025.md) | Industry
 - 2025-02-05 | [How Fuel Surcharges Actually Work in Canadian Trucking: What Every Shipper Should Know](2025-02-05-fuel-surcharges-explained.md) | Logistics
 - 2025-01-22 | [Trudeau's Exit, Trump's Inauguration: What Canadian Carriers Need to Prepare For](2025-01-22-trudeau-exit-trump-inauguration-2025.md) | Industry
 - 2025-01-15 | [Driver Retention: Why Culture Matters More Than Pay Alone](2025-01-15-driver-retention-culture.md) | Company

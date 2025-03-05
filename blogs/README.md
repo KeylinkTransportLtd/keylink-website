@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-03-05 | [Day One of Tariffs: How the Canada-US Border Looked the Morning After March 4](2025-03-05-day-one-tariffs-canadian-border-march-2025.md) | Industry
 - 2025-02-19 | [Why Real-Time Freight Tracking Is Now a Baseline Expectation](2025-02-19-real-time-tracking-ftl.md) | Industry
 - 2025-02-12 | [The 30-Day Tariff Pause: How Canadian Freight Got a Breather](2025-02-12-tariff-pause-canadian-freight-feb-2025.md) | Industry
 - 2025-02-05 | [How Fuel Surcharges Actually Work in Canadian Trucking: What Every Shipper Should Know](2025-02-05-fuel-surcharges-explained.md) | Logistics

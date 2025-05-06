@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-05-06 | [Carney's Minority Win: What His Election Means for Canadian Trucking](2025-05-06-carney-election-canadian-trucking-may-2025.md) | Industry
 - 2025-04-30 | [First-Time FTL Shipping: What to Expect and How to Prepare](2025-04-30-first-time-ftl-shipping.md) | Tips & Guides
 - 2025-04-09 | [Liberation Day Tariffs: How Trump's April 2 Reciprocal Tariffs Are Reshaping Canadian Freight](2025-04-09-liberation-day-tariffs-canadian-freight.md) | Industry
 - 2025-03-26 | [How Keylink Transport Grew from One Truck to a Full Corridor Carrier](2025-03-26-keylink-growth-story.md) | Company

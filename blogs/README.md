@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-06-04 | [How to Get the Best Freight Quote: A Shipper's Checklist](2025-06-04-best-freight-quote.md) | Tips & Guides
 - 2025-05-20 | [Port of Vancouver Congestion and the Ripple Effect on BC Inland Freight](2025-05-20-port-vancouver-congestion-2025.md) | Industry
 - 2025-05-06 | [Carney's Minority Win: What His Election Means for Canadian Trucking](2025-05-06-carney-election-canadian-trucking-may-2025.md) | Industry
 - 2025-04-30 | [First-Time FTL Shipping: What to Expect and How to Prepare](2025-04-30-first-time-ftl-shipping.md) | Tips & Guides

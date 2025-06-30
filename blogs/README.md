@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-06-30 | [G7 in Kananaskis: What an Alberta Summit Means for Canadian Trade](2025-06-30-g7-kananaskis-canadian-trade-summit-june-2025.md) | Industry
 - 2025-06-24 | [Canadian Freight Rate Recovery: Why Q2 2025 Signals the End of the Great Freight Recession](2025-06-24-freight-rate-recovery-q2-2025.md) | Industry
 - 2025-06-04 | [How to Get the Best Freight Quote: A Shipper's Checklist](2025-06-04-best-freight-quote.md) | Tips & Guides
 - 2025-05-20 | [Port of Vancouver Congestion and the Ripple Effect on BC Inland Freight](2025-05-20-port-vancouver-congestion-2025.md) | Industry

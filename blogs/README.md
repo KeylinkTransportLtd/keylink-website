@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-08-13 | [Building a Safety-First Culture in Commercial Trucking](2025-08-13-safety-first-culture.md) | Safety
 - 2025-07-22 | [The 12-Day Iran-Israel War and Canadian Diesel: How a Mideast Crisis Hit the Pumps](2025-07-22-iran-israel-war-canadian-diesel-july-2025.md) | Industry
 - 2025-07-09 | [ELD Compliance 2026: What's Changed and What Carriers Must Do](2025-07-09-eld-compliance-2026.md) | Industry
 - 2025-06-30 | [G7 in Kananaskis: What an Alberta Summit Means for Canadian Trade](2025-06-30-g7-kananaskis-canadian-trade-summit-june-2025.md) | Industry

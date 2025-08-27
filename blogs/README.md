@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-08-27 | [BC Wildfires 2025: How a Second-Worst Fire Season Is Disrupting Western Canadian Freight Corridors](2025-08-27-bc-wildfires-2025-freight-disruption.md) | Logistics
 - 2025-08-13 | [Building a Safety-First Culture in Commercial Trucking](2025-08-13-safety-first-culture.md) | Safety
 - 2025-07-22 | [The 12-Day Iran-Israel War and Canadian Diesel: How a Mideast Crisis Hit the Pumps](2025-07-22-iran-israel-war-canadian-diesel-july-2025.md) | Industry
 - 2025-07-09 | [ELD Compliance 2026: What's Changed and What Carriers Must Do](2025-07-09-eld-compliance-2026.md) | Industry

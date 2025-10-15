@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-10-15 | [US Government Shutdown and Cross-Border Freight: What's Slowing at the Border](2025-10-15-us-government-shutdown-cross-border-freight-october-2025.md) | Industry
 - 2025-09-30 | [Q3 2025 Canadian Freight Market: Carriers Surviving the Tariff Year](2025-09-30-q3-2025-canadian-freight-market-update.md) | Industry
 - 2025-09-17 | [Winter Driving Protocols Every Freight Carrier Should Follow](2025-09-17-winter-driving-protocols.md) | Safety
 - 2025-08-27 | [BC Wildfires 2025: How a Second-Worst Fire Season Is Disrupting Western Canadian Freight Corridors](2025-08-27-bc-wildfires-2025-freight-disruption.md) | Logistics

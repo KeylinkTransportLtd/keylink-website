@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2025
 
+- 2025-11-26 | [Cross-Border Freight in 2026: What Every Shipper Needs to Know](2025-11-26-cross-border-freight-2026.md) | Industry
 - 2025-11-04 | [Peak Season 2025: How Tariffs and Capacity Shifts Are Reshaping Canadian Holiday Freight](2025-11-04-peak-season-2025-tariffs-capacity.md) | Industry
 - 2025-10-22 | [5 Ways to Optimize Your Freight Routes for Maximum Efficiency](2025-10-22-optimize-freight-routes.md) | Logistics
 - 2025-10-15 | [US Government Shutdown and Cross-Border Freight: What's Slowing at the Border](2025-10-15-us-government-shutdown-cross-border-freight-october-2025.md) | Industry

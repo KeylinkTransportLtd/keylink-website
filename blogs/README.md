@@ -3,6 +3,10 @@
 Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.ca/blog), one file per post, committed on the day it was published.
 
 
+## 2026
+
+- 2026-01-07 | [Navigating Supply Chain Disruptions: Strategies for Canadian Shippers](2026-01-07-supply-chain-disruptions.md) | Logistics
+
 ## 2025
 
 - 2025-12-09 | [2025 in Review: The Year Canadian Trucking Was Reshaped by Tariffs](2025-12-09-2025-canadian-trucking-year-in-review.md) | Industry

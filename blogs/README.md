@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-02-11 | [Canada's Trucking Workforce Crisis: Why the Driver Shortage Is Accelerating and What It Means for Freight Rates](2026-02-11-canada-driver-shortage-2026.md) | Industry
 - 2026-01-07 | [Navigating Supply Chain Disruptions: Strategies for Canadian Shippers](2026-01-07-supply-chain-disruptions.md) | Logistics
 
 ## 2025

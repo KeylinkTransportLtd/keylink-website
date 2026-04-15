@@ -7,6 +7,38 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/canada-us-tariff-impact.html',
+    title: 'The Canada-US Tariff War: What It Actually Costs Canadian Trucking in 2026',
+    summary: 'Border wait times up. Cross-border volumes down. Rates climbing. One year into Trump\'s 25% tariffs on Canadian goods, here is the full cost breakdown for carriers and shippers.',
+    category: 'Industry',
+    date: '2026-03-18',
+    dateLabel: 'March 18, 2026',
+    image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=600&q=70',
+    imageAlt: 'Stacked shipping containers representing Canada-US tariff trade disruption',
+    featured: true,
+  },
+  {
+    slug: 'blog/hormuz-strait-shipping-crisis.html',
+    title: 'The Strait of Hormuz Crisis: What Trump\'s Iran Standoff Means for Global Shipping and Canadian Freight',
+    summary: '21 million barrels of oil transit the Strait of Hormuz every single day. Trump\'s maximum pressure campaign against Iran has placed this shipping lane at genuine risk. Here is what it means for Canadian fuel prices and freight costs.',
+    category: 'Industry',
+    date: '2026-04-15',
+    dateLabel: 'April 15, 2026',
+    image: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=600&q=70',
+    imageAlt: 'Industrial energy infrastructure representing Strait of Hormuz global shipping risk',
+    featured: true,
+  },
+  {
+    slug: 'blog/canada-driver-shortage-2026.html',
+    title: "Canada's Trucking Workforce Crisis: Why the Driver Shortage Is Accelerating and What It Means for Freight Rates",
+    summary: 'Canada needs 40,000 more truck drivers by 2030. The demographics are locked in, the retirement wave has started, and the recruitment pipeline is failing. Here is the full picture and what shippers need to do.',
+    category: 'Industry',
+    date: '2026-02-11',
+    dateLabel: 'February 11, 2026',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=70',
+    imageAlt: 'Professional truck driver pre-trip inspection representing Canada driver shortage',
+  },
+  {
     slug: 'blog/supply-chain-disruptions.html',
     title: 'Navigating Supply Chain Disruptions: Strategies for Canadian Shippers',
     summary: 'Global disruptions have exposed real vulnerabilities in freight networks. These are the proven strategies Canadian shippers use to stay ahead when lanes get unpredictable.',
@@ -15,7 +47,6 @@ window.KEYLINK_POSTS = [
     dateLabel: 'January 7, 2026',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=70',
     imageAlt: 'Container ship at port, supply chain disruptions',
-    featured: true,
   },
   {
     slug: 'blog/cross-border-freight-2026.html',

@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-04-19 | [Iran-US Peace Talks in Pakistan: Why the Hormuz Blockade Must End for Canadian Trucking](2026-04-19-iran-us-pakistan-peace-talks.md) | Industry
 - 2026-04-15 | [The Strait of Hormuz Crisis: What Trump's Iran Standoff Means for Global Shipping and Canadian Freight](2026-04-15-hormuz-strait-shipping-crisis.md) | Industry
 - 2026-03-18 | [The Canada-US Tariff War: What It Actually Costs Canadian Trucking in 2026](2026-03-18-canada-us-tariff-impact.md) | Industry
 - 2026-02-11 | [Canada's Trucking Workforce Crisis: Why the Driver Shortage Is Accelerating and What It Means for Freight Rates](2026-02-11-canada-driver-shortage-2026.md) | Industry

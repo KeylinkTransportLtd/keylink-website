@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-05-04 | [Missiles Over the UAE: How Today's Dubai-Area Oil Strike Is Driving Canadian Diesel Past $2.20](2026-05-04-oil-shock-canadian-trucking-may-2026.md) | Industry
 - 2026-04-27 | [Carney, Trump and Calgary Trucking: How Keylink Is Helping Carriers Curve Canada's 2026 Trade Storm](2026-04-27-carney-trade-calgary-trucking-2026.md) | Industry
 - 2026-04-19 | [Iran-US Peace Talks in Pakistan: Why the Hormuz Blockade Must End for Canadian Trucking](2026-04-19-iran-us-pakistan-peace-talks.md) | Industry
 - 2026-04-15 | [The Strait of Hormuz Crisis: What Trump's Iran Standoff Means for Global Shipping and Canadian Freight](2026-04-15-hormuz-strait-shipping-crisis.md) | Industry

@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-05-25 | [Memorial Day 2026 Cargo Theft Surge: Why the Long Weekend Is the Riskiest Freight Window of Spring](2026-05-25-cargo-theft-memorial-day-2026.md) | Industry
 - 2026-05-13 | [Ontario's Truck Driver Training Audit: Why the Auditor General's Findings Should Change How Carriers Hire](2026-05-13-ontario-truck-driver-training-audit-2026.md) | Safety
 - 2026-05-04 | [Missiles Over the UAE: How Today's Dubai-Area Oil Strike Is Driving Canadian Diesel Past $2.20](2026-05-04-oil-shock-canadian-trucking-may-2026.md) | Industry
 - 2026-04-27 | [Carney, Trump and Calgary Trucking: How Keylink Is Helping Carriers Curve Canada's 2026 Trade Storm](2026-04-27-carney-trade-calgary-trucking-2026.md) | Industry

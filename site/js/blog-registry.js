@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/cargo-theft-memorial-day-2026.html',
+    title: 'Memorial Day 2026 Cargo Theft Surge: Why the Long Weekend Is the Riskiest Freight Window of Spring',
+    summary: 'Cargo theft is hitting records in 2026 and Memorial Day weekend is historically the worst long weekend of the spring. Here is what is driving the surge, the Canadian cross-border exposure, and how Keylink locks down high-risk loads.',
+    category: 'Industry',
+    date: '2026-05-25',
+    dateLabel: 'May 25, 2026',
+    image: '/assets/cargo-theft-memorial-day-2026.jpg',
+    imageAlt: 'Keylink Transport Memorial Day 2026 Cargo Theft Surge banner with a Keylink trailer being raided at night and Toronto skyline behind',
+    featured: true,
+  },
+  {
     slug: 'blog/ontario-truck-driver-training-audit-2026.html',
     title: "Ontario's Truck Driver Training Audit: Why the Auditor General's Findings Should Change How Carriers Hire",
     summary: "Ontario's auditor general found private colleges falsifying records and licensing drivers who never learned left turns or emergency stops. Here is what carriers, shippers, and the industry should be doing in response.",

@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/iran-israel-oil-volatility-small-carriers-june-2026.html',
+    title: 'Iran and Israel Flare Up Again: How June 2026 Oil Whiplash Is Squeezing Small Carriers',
+    summary: "Iran fired missiles at Israel again on June 8, sending Brent and Canadian diesel on another wild swing. Here is how the oil whiplash hits small carriers, how prices compare to last year, and what Keylink does to keep customer freight priced fairly.",
+    category: 'Industry',
+    date: '2026-06-08',
+    dateLabel: 'June 8, 2026',
+    image: 'https://images.pexels.com/photos/3846205/pexels-photo-3846205.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imageAlt: 'Diesel fuel pump nozzle at a truck stop representing the June 2026 diesel price volatility driven by the Iran-Israel conflict',
+    featured: true,
+  },
+  {
     slug: 'blog/cargo-theft-memorial-day-2026.html',
     title: 'Memorial Day 2026 Cargo Theft Surge: Why the Long Weekend Is the Riskiest Freight Window of Spring',
     summary: 'Cargo theft is hitting records in 2026 and Memorial Day weekend is historically the worst long weekend of the spring. Here is what is driving the surge, the Canadian cross-border exposure, and how Keylink locks down high-risk loads.',

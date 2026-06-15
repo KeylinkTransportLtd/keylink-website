@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-06-15 | [Peace at Last? What the US-Iran Deal and a Reopened Strait of Hormuz Mean for Trucking](2026-06-15-iran-peace-deal-hormuz-reopens-trucking-june-2026.md) | Industry
 - 2026-06-08 | [Iran and Israel Flare Up Again: How June 2026 Oil Whiplash Is Squeezing Small Carriers](2026-06-08-iran-israel-oil-volatility-small-carriers-june-2026.md) | Industry
 - 2026-05-25 | [Memorial Day 2026 Cargo Theft Surge: Why the Long Weekend Is the Riskiest Freight Window of Spring](2026-05-25-cargo-theft-memorial-day-2026.md) | Industry
 - 2026-05-13 | [Ontario's Truck Driver Training Audit: Why the Auditor General's Findings Should Change How Carriers Hire](2026-05-13-ontario-truck-driver-training-audit-2026.md) | Safety

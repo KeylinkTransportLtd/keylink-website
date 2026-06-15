@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/iran-peace-deal-hormuz-reopens-trucking-june-2026.html',
+    title: 'Peace at Last? What the US-Iran Deal and a Reopened Strait of Hormuz Mean for Trucking',
+    summary: "The US and Iran have reached a deal to reopen the Strait of Hormuz and end the conflict, and oil is already down 20% from its 2026 peak. Here is what the peace deal could mean for diesel, freight capacity, and trucking rates, and how shippers should play the turn.",
+    category: 'Industry',
+    date: '2026-06-15',
+    dateLabel: 'June 15, 2026',
+    image: 'https://images.pexels.com/photos/93398/pexels-photo-93398.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imageAlt: 'Semi truck on an open highway at sunrise representing relief in freight markets after the US-Iran peace deal',
+    featured: true,
+  },
+  {
     slug: 'blog/iran-israel-oil-volatility-small-carriers-june-2026.html',
     title: 'Iran and Israel Flare Up Again: How June 2026 Oil Whiplash Is Squeezing Small Carriers',
     summary: "Iran fired missiles at Israel again on June 8, sending Brent and Canadian diesel on another wild swing. Here is how the oil whiplash hits small carriers, how prices compare to last year, and what Keylink does to keep customer freight priced fairly.",

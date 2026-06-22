@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/bc-wildfire-season-freight-corridors-2026.html',
+    title: "Fire Season Hits the Highways: How BC's 2026 Wildfires Are Squeezing Freight Corridors",
+    summary: "A wildfire near Lytton has already shut roughly 116 km of Highway 1, and BC Wildfire Service says 2026 is starting on worse drought than 2021. Here is what fire season does to BC freight corridors, what a closure costs a truck, and how carriers and shippers should plan around it.",
+    category: 'Logistics',
+    date: '2026-06-22',
+    dateLabel: 'June 22, 2026',
+    image: '/assets/bc-wildfire-freight-corridors-2026.png',
+    imageAlt: 'BC wildfire smoke over a mountain highway representing the 2026 fire season impact on freight corridors',
+    featured: true,
+  },
+  {
     slug: 'blog/iran-peace-deal-hormuz-reopens-trucking-june-2026.html',
     title: 'Peace at Last? What the US-Iran Deal and a Reopened Strait of Hormuz Mean for Trucking',
     summary: "The US and Iran have reached a deal to reopen the Strait of Hormuz and end the conflict, and oil is already down 20% from its 2026 peak. Here is what the peace deal could mean for diesel, freight capacity, and trucking rates, and how shippers should play the turn.",

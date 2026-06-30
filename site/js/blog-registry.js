@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/cusma-usmca-2026-joint-review-cross-border-trucking.html',
+    title: "The CUSMA Clock Hits Zero: What the July 1 USMCA Review Means for Canadian Cross-Border Trucking",
+    summary: "On July 1, 2026 the mandatory six-year review of CUSMA (USMCA) begins. Here is what the joint review actually decides, why it lands hardest on cross-border trucking, and how Canadian shippers and carriers should prepare.",
+    category: 'Industry',
+    date: '2026-06-29',
+    dateLabel: 'June 29, 2026',
+    image: '/assets/cusma-usmca-2026-review-banner.png',
+    imageAlt: 'Keylink Transport truck at a Canada-US border crossing with Canadian and American flags, representing the 2026 CUSMA review',
+    featured: true,
+  },
+  {
     slug: 'blog/bc-wildfire-season-freight-corridors-2026.html',
     title: "Fire Season Hits the Highways: How BC's 2026 Wildfires Are Squeezing Freight Corridors",
     summary: "A wildfire near Lytton has already shut roughly 116 km of Highway 1, and BC Wildfire Service says 2026 is starting on worse drought than 2021. Here is what fire season does to BC freight corridors, what a closure costs a truck, and how carriers and shippers should plan around it.",

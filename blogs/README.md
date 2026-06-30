@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-06-29 | [The CUSMA Clock Hits Zero: What the July 1 USMCA Review Means for Canadian Cross-Border Trucking](2026-06-29-cusma-usmca-2026-joint-review-cross-border-trucking.md) | Industry
 - 2026-06-22 | [Fire Season Hits the Highways: How BC's 2026 Wildfires Are Squeezing Freight Corridors](2026-06-22-bc-wildfire-season-freight-corridors-2026.md) | Logistics
 - 2026-06-15 | [Peace at Last? What the US-Iran Deal and a Reopened Strait of Hormuz Mean for Trucking](2026-06-15-iran-peace-deal-hormuz-reopens-trucking-june-2026.md) | Industry
 - 2026-06-08 | [Iran and Israel Flare Up Again: How June 2026 Oil Whiplash Is Squeezing Small Carriers](2026-06-08-iran-israel-oil-volatility-small-carriers-june-2026.md) | Industry

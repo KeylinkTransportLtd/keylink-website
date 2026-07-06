@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/half-load-premium-partial-ltl-vs-truckload-2026.html',
+    title: "The Half-Load Paradox: Why Partial and LTL Freight Is Out-Earning Full Truckloads in 2026",
+    summary: "Partial and LTL half loads are out-earning full truckloads in 2026. Here is the data behind the inversion, why it is a market distortion rather than real efficiency, and what it means for Canadian shippers.",
+    category: 'Industry',
+    date: '2026-07-06',
+    dateLabel: 'July 6, 2026',
+    image: '/assets/half-load-premium-banner.png',
+    imageAlt: 'Keylink Transport market watch banner: the half-load paradox, why partial and LTL freight is out-earning full truckloads in 2026',
+    featured: true,
+  },
+  {
     slug: 'blog/cusma-usmca-2026-joint-review-cross-border-trucking.html',
     title: "The CUSMA Clock Hits Zero: What the July 1 USMCA Review Means for Canadian Cross-Border Trucking",
     summary: "On July 1, 2026 the mandatory six-year review of CUSMA (USMCA) begins. Here is what the joint review actually decides, why it lands hardest on cross-border trucking, and how Canadian shippers and carriers should prepare.",

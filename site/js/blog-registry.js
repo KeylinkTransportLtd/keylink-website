@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/quebec-ontario-truck-licence-crackdown-2026.html',
+    title: "One Country, Two Licences: Quebec Stops Trusting Ontario's New Truck Drivers, and the Crackdown Is Just Starting",
+    summary: "As of July 9, 2026, Quebec road-tests new Ontario truck drivers before recognizing their licence. The scathing Ontario training audit behind it, the CRA's Driver Inc crackdown, and what Canada's trucking compliance summer means for shippers.",
+    category: 'Industry',
+    date: '2026-07-10',
+    dateLabel: 'July 10, 2026',
+    image: '/assets/quebec-licence-crackdown-banner.png',
+    imageAlt: 'Keylink Transport industry alert banner: one country, two licences, Quebec road-tests new Ontario truck drivers before trusting their licence',
+    featured: true,
+  },
+  {
     slug: 'blog/half-load-premium-partial-ltl-vs-truckload-2026.html',
     title: "The Half-Load Paradox: Why Partial and LTL Freight Is Out-Earning Full Truckloads in 2026",
     summary: "Partial and LTL half loads are out-earning full truckloads in 2026. Here is the data behind the inversion, why it is a market distortion rather than real efficiency, and what it means for Canadian shippers.",

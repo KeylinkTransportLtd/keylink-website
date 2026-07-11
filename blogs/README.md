@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-07-11 | [Speak English, or Park It: What the US Roadside Language Crackdown Means for Canadian Cross-Border Truckers](2026-07-11-us-english-proficiency-enforcement-canadian-truckers-2026.md) | Industry
 - 2026-07-10 | [One Country, Two Licences: Quebec Stops Trusting Ontario's New Truck Drivers, and the Crackdown Is Just Starting](2026-07-10-quebec-ontario-truck-licence-crackdown-2026.md) | Industry
 - 2026-07-06 | [The Half-Load Paradox: Why Partial and LTL Freight Is Out-Earning Full Truckloads in 2026](2026-07-06-half-load-premium-partial-ltl-vs-truckload-2026.md) | Industry
 - 2026-06-29 | [The CUSMA Clock Hits Zero: What the July 1 USMCA Review Means for Canadian Cross-Border Trucking](2026-06-29-cusma-usmca-2026-joint-review-cross-border-trucking.md) | Industry

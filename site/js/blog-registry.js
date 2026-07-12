@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/us-english-proficiency-enforcement-canadian-truckers-2026.html',
+    title: "Speak English, or Park It: What the US Roadside Language Crackdown Means for Canadian Cross-Border Truckers",
+    summary: "Since June 2025 the US puts commercial drivers out of service for failing a roadside English check, and Canadian cross-border drivers get no border-zone exemption like the US-Mexico line has. What the FMCSA ELP rule means, what it costs, and whether Canada should follow.",
+    category: 'Industry',
+    date: '2026-07-11',
+    dateLabel: 'July 11, 2026',
+    image: '/assets/english-proficiency-border-banner.png',
+    imageAlt: 'Keylink Transport border alert banner: speak English or park it, the US roadside language crackdown and Canadian cross-border truckers',
+    featured: true,
+  },
+  {
     slug: 'blog/quebec-ontario-truck-licence-crackdown-2026.html',
     title: "One Country, Two Licences: Quebec Stops Trusting Ontario's New Truck Drivers, and the Crackdown Is Just Starting",
     summary: "As of July 9, 2026, Quebec road-tests new Ontario truck drivers before recognizing their licence. The scathing Ontario training audit behind it, the CRA's Driver Inc crackdown, and what Canada's trucking compliance summer means for shippers.",

@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-08-03 | [The Trailer Is Not a Warehouse: Canada's 2026 Industrial Space Squeeze and the Freight Bill Nobody Quotes](2026-08-03-canada-warehouse-squeeze-freight-detention-2026.md) | Industry
 - 2026-07-31 | [The Long Weekend Squeeze: How BC Day Bottlenecks Canadian Freight, and How Keylink Plans Around It](2026-07-31-bc-day-long-weekend-freight-2026.md) | Logistics
 - 2026-07-11 | [Speak English, or Park It: What the US Roadside Language Crackdown Means for Canadian Cross-Border Truckers](2026-07-11-us-english-proficiency-enforcement-canadian-truckers-2026.md) | Industry
 - 2026-07-10 | [One Country, Two Licences: Quebec Stops Trusting Ontario's New Truck Drivers, and the Crackdown Is Just Starting](2026-07-10-quebec-ontario-truck-licence-crackdown-2026.md) | Industry

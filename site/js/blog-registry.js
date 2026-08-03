@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/canada-warehouse-squeeze-freight-detention-2026.html',
+    title: "The Trailer Is Not a Warehouse: Canada's 2026 Industrial Space Squeeze and the Freight Bill Nobody Quotes",
+    summary: "Canada's industrial availability rate sat at 6.2% in Q2 2026, and Toronto, Calgary, and Vancouver are tighter still. When warehouse space runs short, trailers become storage and shippers pay for it in detention, dwell, and lost capacity. The numbers, and what to do about them.",
+    category: 'Industry',
+    date: '2026-08-03',
+    dateLabel: 'August 3, 2026',
+    image: '/assets/warehouse-squeeze-2026-banner.png',
+    imageAlt: 'Keylink Transport banner: a Keylink dry van waits in a line of trailers at a full distribution centre dock at sunset',
+    featured: true,
+  },
+  {
     slug: 'blog/bc-day-long-weekend-freight-2026.html',
     title: "The Long Weekend Squeeze: How BC Day Bottlenecks Canadian Freight, and How Keylink Plans Around It",
     summary: "BC Day on Monday, August 3, 2026 closes docks, thins the border, and lands on the deadliest driving stretch of summer. Here is how Canada's August long weekend compresses the freight week and how Keylink mitigates the risk.",

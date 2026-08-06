@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/canada-freight-fraud-carrier-impersonation-2026.html',
+    title: "The Heist Is Now an Email: How Freight Fraud Replaced the Cargo Heist in Canada",
+    summary: "Cargo thefts across the US and Canada fell 26% in Q2 2026 while losses more than doubled to $304.6 million. Organized crime traded the crowbar for carrier impersonation, double brokering, and fictitious pickups. What the data shows, and how shippers verify who is actually holding their freight.",
+    category: 'Industry',
+    date: '2026-08-06',
+    dateLabel: 'August 6, 2026',
+    image: '/assets/freight-fraud-2026-banner.png',
+    imageAlt: 'Keylink Transport security alert banner: The Heist Is Now an Email, with Q2 2026 figures for cargo thefts, losses, and Canadian recovery rates',
+    featured: true,
+  },
+  {
     slug: 'blog/canada-warehouse-squeeze-freight-detention-2026.html',
     title: "The Trailer Is Not a Warehouse: Canada's 2026 Industrial Space Squeeze and the Freight Bill Nobody Quotes",
     summary: "Canada's industrial availability rate sat at 6.2% in Q2 2026, and Toronto, Calgary, and Vancouver are tighter still. When warehouse space runs short, trailers become storage and shippers pay for it in detention, dwell, and lost capacity. The numbers, and what to do about them.",

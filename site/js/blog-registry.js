@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/bc-wildfire-highway-closures-freight-rerouting-2026.html',
+    title: "One Highway Left: How BC's August Wildfires Are Rerouting Freight, and What the Detours Cost",
+    summary: "BC has been under a provincial state of emergency since August 8 with more than 100 fires burning and 20,000 people evacuated. Highway 1, Highway 3, and Highway 97 all closed this summer, leaving the Coquihalla carrying the load. What the closures cost industry, and how carriers reroute around them.",
+    category: 'Logistics',
+    date: '2026-08-17',
+    dateLabel: 'August 17, 2026',
+    image: '/assets/bc-wildfire-corridors-2026-banner.png',
+    imageAlt: 'Keylink Transport wildfire alert banner: One Highway Left and a Clock on It, with August 2026 figures for the Bald Range fire, Okanagan evacuations, and the Highway 97 daily window',
+    featured: true,
+  },
+  {
     slug: 'blog/canada-freight-fraud-carrier-impersonation-2026.html',
     title: "The Heist Is Now an Email: How Freight Fraud Replaced the Cargo Heist in Canada",
     summary: "Cargo thefts across the US and Canada fell 26% in Q2 2026 while losses more than doubled to $304.6 million. Organized crime traded the crowbar for carrier impersonation, double brokering, and fictitious pickups. What the data shows, and how shippers verify who is actually holding their freight.",

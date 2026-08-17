@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Thu, 06 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>One Highway Left: How BC&apos;s August Wildfires Are Rerouting Freight, and What the Detours Cost</title>
+      <link>https://www.keylinktransport.ca/blog/bc-wildfire-highway-closures-freight-rerouting-2026</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/bc-wildfire-highway-closures-freight-rerouting-2026</guid>
+      <pubDate>Mon, 17 Aug 2026 12:00:00 GMT</pubDate>
+      <category>Logistics</category>
+      <description>BC has been under a provincial state of emergency since August 8 with more than 100 fires burning and 20,000 people evacuated. Highway 1, Highway 3, and Highway 97 all closed this summer, leaving the Coquihalla carrying the load. What the closures cost industry, and how carriers reroute around them.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/bc-wildfire-corridors-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>The Heist Is Now an Email: How Freight Fraud Replaced the Cargo Heist in Canada</title>
       <link>https://www.keylinktransport.ca/blog/canada-freight-fraud-carrier-impersonation-2026</link>
@@ -267,15 +276,6 @@
       <category>Industry</category>
       <description>Israel struck Iran on June 13. The US joined on June 22. A ceasefire held by June 24. Behind the headlines, Canadian carriers absorbed a 20%+ diesel spike. Here is the freight market reckoning.</description>
       <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
-    </item>
-    <item>
-      <title>ELD Compliance 2026: What&apos;s Changed and What Carriers Must Do</title>
-      <link>https://www.keylinktransport.ca/blog/eld-compliance-2026</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/eld-compliance-2026</guid>
-      <pubDate>Wed, 09 Jul 2025 12:00:00 GMT</pubDate>
-      <category>Industry</category>
-      <description>ELD rules tightened again in 2026 and the grace period is over. Here is exactly what changed, what violations cost, and what your operation needs to do right now.</description>
-      <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
     </item>
   </channel>
 </rss>

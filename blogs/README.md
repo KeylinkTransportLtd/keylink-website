@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-08-17 | [One Highway Left: How BC's August Wildfires Are Rerouting Freight, and What the Detours Cost](2026-08-17-bc-wildfire-highway-closures-freight-rerouting-2026.md) | Logistics
 - 2026-08-06 | [The Heist Is Now an Email: How Freight Fraud Replaced the Cargo Heist in Canada](2026-08-06-canada-freight-fraud-carrier-impersonation-2026.md) | Industry
 - 2026-08-03 | [The Trailer Is Not a Warehouse: Canada's 2026 Industrial Space Squeeze and the Freight Bill Nobody Quotes](2026-08-03-canada-warehouse-squeeze-freight-detention-2026.md) | Industry
 - 2026-07-31 | [The Long Weekend Squeeze: How BC Day Bottlenecks Canadian Freight, and How Keylink Plans Around It](2026-07-31-bc-day-long-weekend-freight-2026.md) | Logistics

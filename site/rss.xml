@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Mon, 17 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Two Bills, One Morning: What the Carney-Trump Tariff War Does to Goods and Fuel Prices</title>
+      <link>https://www.keylinktransport.ca/blog/carney-trump-tariffs-goods-fuel-prices-2026</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/carney-trump-tariffs-goods-fuel-prices-2026</guid>
+      <pubDate>Mon, 24 Aug 2026 12:00:00 GMT</pubDate>
+      <category>Industry</category>
+      <description>US 50% tariffs on about US$20 billion of Canadian goods took effect August 22, and Canada retaliates September 8, the same day the federal fuel tax holiday ends. What the stacking does to goods prices, diesel, and cross-border freight, plus what shippers should do before the deadline.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/canada-us-tariff-sept-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>One Highway Left: How BC&apos;s August Wildfires Are Rerouting Freight, and What the Detours Cost</title>
       <link>https://www.keylinktransport.ca/blog/bc-wildfire-highway-closures-freight-rerouting-2026</link>
@@ -267,15 +276,6 @@
       <category>Safety</category>
       <description>Safety records don&apos;t improve through policy alone. Discover how the best carriers build a culture where every driver owns the standard, not just management.</description>
       <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
-    </item>
-    <item>
-      <title>The 12-Day Iran-Israel War and Canadian Diesel: How a Mideast Crisis Hit the Pumps</title>
-      <link>https://www.keylinktransport.ca/blog/iran-israel-war-canadian-diesel-july-2025</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/iran-israel-war-canadian-diesel-july-2025</guid>
-      <pubDate>Tue, 22 Jul 2025 12:00:00 GMT</pubDate>
-      <category>Industry</category>
-      <description>Israel struck Iran on June 13. The US joined on June 22. A ceasefire held by June 24. Behind the headlines, Canadian carriers absorbed a 20%+ diesel spike. Here is the freight market reckoning.</description>
-      <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
     </item>
   </channel>
 </rss>

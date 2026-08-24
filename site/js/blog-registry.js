@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/carney-trump-tariffs-goods-fuel-prices-2026.html',
+    title: "Two Bills, One Morning: What the Carney-Trump Tariff War Does to Goods and Fuel Prices",
+    summary: "US 50% tariffs on about US$20 billion of Canadian goods took effect August 22, and Canada retaliates September 8, the same day the federal fuel tax holiday ends. What the stacking does to goods prices, diesel, and cross-border freight, plus what shippers should do before the deadline.",
+    category: 'Industry',
+    date: '2026-08-24',
+    dateLabel: 'August 24, 2026',
+    image: '/assets/canada-us-tariff-sept-2026-banner.png',
+    imageAlt: 'Keylink Transport trade alert banner: Two Bills One Morning, with the 50 percent US tariff, US$20 billion of Canadian exports hit, and the September 8 fuel excise tax return',
+    featured: true,
+  },
+  {
     slug: 'blog/bc-wildfire-highway-closures-freight-rerouting-2026.html',
     title: "One Highway Left: How BC's August Wildfires Are Rerouting Freight, and What the Detours Cost",
     summary: "BC has been under a provincial state of emergency since August 8 with more than 100 fires burning and 20,000 people evacuated. Highway 1, Highway 3, and Highway 97 all closed this summer, leaving the Coquihalla carrying the load. What the closures cost industry, and how carriers reroute around them.",

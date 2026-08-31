@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-08-31 | [The Cheap Freight Is Gone: Diesel Spikes, Capacity Tightens, and the Rate Reset Is Already Here](2026-08-31-canada-freight-rate-reset-diesel-capacity-2026.md) | Industry
 - 2026-08-24 | [Two Bills, One Morning: What the Carney-Trump Tariff War Does to Goods and Fuel Prices](2026-08-24-carney-trump-tariffs-goods-fuel-prices-2026.md) | Industry
 - 2026-08-17 | [One Highway Left: How BC's August Wildfires Are Rerouting Freight, and What the Detours Cost](2026-08-17-bc-wildfire-highway-closures-freight-rerouting-2026.md) | Logistics
 - 2026-08-06 | [The Heist Is Now an Email: How Freight Fraud Replaced the Cargo Heist in Canada](2026-08-06-canada-freight-fraud-carrier-impersonation-2026.md) | Industry

@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Mon, 24 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Cheap Freight Is Gone: Diesel Spikes, Capacity Tightens, and the Rate Reset Is Already Here</title>
+      <link>https://www.keylinktransport.ca/blog/canada-freight-rate-reset-diesel-capacity-2026</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/canada-freight-rate-reset-diesel-capacity-2026</guid>
+      <pubDate>Mon, 31 Aug 2026 12:00:00 GMT</pubDate>
+      <category>Industry</category>
+      <description>Canadian truck-to-load ratios hit 2.71 in July, the tightest in a year, diesel jumped 39.5 cents in two weeks, and truckload spot rates are running 43% above last year. What the 2026 cost reset means for 2027 contracts, and what shippers should do before renewal season.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/freight-rate-reset-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>Two Bills, One Morning: What the Carney-Trump Tariff War Does to Goods and Fuel Prices</title>
       <link>https://www.keylinktransport.ca/blog/carney-trump-tariffs-goods-fuel-prices-2026</link>
@@ -267,15 +276,6 @@
       <category>Logistics</category>
       <description>BC&apos;s 2025 wildfire season has scorched over 700,000 hectares, closed Highway 97, and strained BC-Alberta freight corridors. Here is how carriers and shippers are adjusting.</description>
       <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
-    </item>
-    <item>
-      <title>Building a Safety-First Culture in Commercial Trucking</title>
-      <link>https://www.keylinktransport.ca/blog/safety-first-culture</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/safety-first-culture</guid>
-      <pubDate>Wed, 13 Aug 2025 12:00:00 GMT</pubDate>
-      <category>Safety</category>
-      <description>Safety records don&apos;t improve through policy alone. Discover how the best carriers build a culture where every driver owns the standard, not just management.</description>
-      <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
     </item>
   </channel>
 </rss>

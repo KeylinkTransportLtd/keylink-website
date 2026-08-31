@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/canada-freight-rate-reset-diesel-capacity-2026.html',
+    title: "The Cheap Freight Is Gone: Diesel Spikes, Capacity Tightens, and the Rate Reset Is Already Here",
+    summary: "Canadian truck-to-load ratios hit 2.71 in July, the tightest in a year, diesel jumped 39.5 cents in two weeks, and truckload spot rates are running 43% above last year. What the 2026 cost reset means for 2027 contracts, and what shippers should do before renewal season.",
+    category: 'Industry',
+    date: '2026-08-31',
+    dateLabel: 'August 31, 2026',
+    image: '/assets/freight-rate-reset-2026-banner.png',
+    imageAlt: 'Keylink Transport market watch banner: The Cheap Freight Is Gone, with the Canadian truck-to-load ratio, spot rate growth, and the two-week diesel increase',
+    featured: true,
+  },
+  {
     slug: 'blog/carney-trump-tariffs-goods-fuel-prices-2026.html',
     title: "Two Bills, One Morning: What the Carney-Trump Tariff War Does to Goods and Fuel Prices",
     summary: "US 50% tariffs on about US$20 billion of Canadian goods took effect August 22, and Canada retaliates September 8, the same day the federal fuel tax holiday ends. What the stacking does to goods prices, diesel, and cross-border freight, plus what shippers should do before the deadline.",

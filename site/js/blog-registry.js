@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/ai-automation-inflation-jobs-freight-2026.html',
+    title: "The Office Automates Before the Truck Does: GPT-6 Astra, a 162,000-Job Month, and What AI Really Changes in Freight",
+    summary: "OpenAI shipped GPT-6 Astra on September 3, US payrolls beat forecasts by 109,000 in August, and inflation is still above 3% on both sides of the border. Where AI is genuinely working in freight today, where autonomy actually stands, and what it means for costs.",
+    category: 'Industry',
+    date: '2026-09-04',
+    dateLabel: 'September 4, 2026',
+    image: '/assets/ai-freight-automation-2026-banner.png',
+    imageAlt: 'Keylink Transport tech watch banner: The Office Automates Before the Truck Does, with August jobs, carrier AI adoption, and inflation figures',
+    featured: true,
+  },
+  {
     slug: 'blog/canada-freight-rate-reset-diesel-capacity-2026.html',
     title: "The Cheap Freight Is Gone: Diesel Spikes, Capacity Tightens, and the Rate Reset Is Already Here",
     summary: "Canadian truck-to-load ratios hit 2.71 in July, the tightest in a year, diesel jumped 39.5 cents in two weeks, and truckload spot rates are running 43% above last year. What the 2026 cost reset means for 2027 contracts, and what shippers should do before renewal season.",

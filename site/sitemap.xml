@@ -2,45 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.keylinktransport.ca/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/services</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/about</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/contact</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/blog</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/careers</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/faq</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/ai-automation-inflation-jobs-freight-2026</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/blog/canada-freight-rate-reset-diesel-capacity-2026</loc>
@@ -58,7 +64,7 @@
     <loc>https://www.keylinktransport.ca/blog/bc-wildfire-highway-closures-freight-rerouting-2026</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/blog/canada-freight-fraud-carrier-impersonation-2026</loc>

@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Mon, 31 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Office Automates Before the Truck Does: GPT-6 Astra, a 162,000-Job Month, and What AI Really Changes in Freight</title>
+      <link>https://www.keylinktransport.ca/blog/ai-automation-inflation-jobs-freight-2026</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/ai-automation-inflation-jobs-freight-2026</guid>
+      <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
+      <category>Industry</category>
+      <description>OpenAI shipped GPT-6 Astra on September 3, US payrolls beat forecasts by 109,000 in August, and inflation is still above 3% on both sides of the border. Where AI is genuinely working in freight today, where autonomy actually stands, and what it means for costs.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/ai-freight-automation-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>The Cheap Freight Is Gone: Diesel Spikes, Capacity Tightens, and the Rate Reset Is Already Here</title>
       <link>https://www.keylinktransport.ca/blog/canada-freight-rate-reset-diesel-capacity-2026</link>
@@ -267,15 +276,6 @@
       <category>Safety</category>
       <description>Canadian winters demand more than good tires. This is how professional carriers build safety into every pre-trip inspection, dispatch decision, and delivery window.</description>
       <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
-    </item>
-    <item>
-      <title>BC Wildfires 2025: How a Second-Worst Fire Season Is Disrupting Western Canadian Freight Corridors</title>
-      <link>https://www.keylinktransport.ca/blog/bc-wildfires-2025-freight-disruption</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/bc-wildfires-2025-freight-disruption</guid>
-      <pubDate>Wed, 27 Aug 2025 12:00:00 GMT</pubDate>
-      <category>Logistics</category>
-      <description>BC&apos;s 2025 wildfire season has scorched over 700,000 hectares, closed Highway 97, and strained BC-Alberta freight corridors. Here is how carriers and shippers are adjusting.</description>
-      <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
     </item>
   </channel>
 </rss>

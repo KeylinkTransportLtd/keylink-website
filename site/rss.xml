@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Fri, 04 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The Bill Arrives at 12:01 a.m.: Canada&apos;s Counter-Tariffs Are Live and the Fuel Tax Is Back</title>
+      <link>https://www.keylinktransport.ca/blog/canada-counter-tariffs-september-8-2026-shipper-guide</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/canada-counter-tariffs-september-8-2026-shipper-guide</guid>
+      <pubDate>Tue, 08 Sep 2026 12:00:00 GMT</pubDate>
+      <category>Industry</category>
+      <description>Canada&apos;s counter-tariffs hit C$27.6 billion of US imports at 12:01 a.m. today, covering more than 600 product lines at 15, 25 and 50 percent, and the federal fuel excise tax returned the same morning. What changed, what is exempt, and a 48-hour checklist for shippers.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/counter-tariffs-sept-8-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>The Office Automates Before the Truck Does: GPT-6 Astra, a 162,000-Job Month, and What AI Really Changes in Freight</title>
       <link>https://www.keylinktransport.ca/blog/ai-automation-inflation-jobs-freight-2026</link>
@@ -267,15 +276,6 @@
       <category>Industry</category>
       <description>Three quarters into the tariff regime, Canadian freight has settled into a new normal. Spot rates have firmed, capacity has tightened, and carriers who restructured early are outperforming the field.</description>
       <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1593113616828-6f22bca04804?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
-    </item>
-    <item>
-      <title>Winter Driving Protocols Every Freight Carrier Should Follow</title>
-      <link>https://www.keylinktransport.ca/blog/winter-driving-protocols</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/winter-driving-protocols</guid>
-      <pubDate>Wed, 17 Sep 2025 12:00:00 GMT</pubDate>
-      <category>Safety</category>
-      <description>Canadian winters demand more than good tires. This is how professional carriers build safety into every pre-trip inspection, dispatch decision, and delivery window.</description>
-      <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
     </item>
   </channel>
 </rss>

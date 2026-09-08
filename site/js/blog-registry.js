@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/canada-counter-tariffs-september-8-2026-shipper-guide.html',
+    title: "The Bill Arrives at 12:01 a.m.: Canada's Counter-Tariffs Are Live and the Fuel Tax Is Back",
+    summary: "Canada's counter-tariffs hit C$27.6 billion of US imports at 12:01 a.m. today, covering more than 600 product lines at 15, 25 and 50 percent, and the federal fuel excise tax returned the same morning. What changed, what is exempt, and a 48-hour checklist for shippers.",
+    category: 'Industry',
+    date: '2026-09-08',
+    dateLabel: 'September 8, 2026',
+    image: '/assets/counter-tariffs-sept-8-2026-banner.png',
+    imageAlt: 'Keylink Transport trade alert banner: The Bill Arrives at 12:01 a.m., with the value of imports covered, product lines affected, and the diesel tax returning',
+    featured: true,
+  },
+  {
     slug: 'blog/ai-automation-inflation-jobs-freight-2026.html',
     title: "The Office Automates Before the Truck Does: GPT-6 Astra, a 162,000-Job Month, and What AI Really Changes in Freight",
     summary: "OpenAI shipped GPT-6 Astra on September 3, US payrolls beat forecasts by 109,000 in August, and inflation is still above 3% on both sides of the border. Where AI is genuinely working in freight today, where autonomy actually stands, and what it means for costs.",

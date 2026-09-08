@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-09-08 | [The Bill Arrives at 12:01 a.m.: Canada's Counter-Tariffs Are Live and the Fuel Tax Is Back](2026-09-08-canada-counter-tariffs-september-8-2026-shipper-guide.md) | Industry
 - 2026-09-04 | [The Office Automates Before the Truck Does: GPT-6 Astra, a 162,000-Job Month, and What AI Really Changes in Freight](2026-09-04-ai-automation-inflation-jobs-freight-2026.md) | Industry
 - 2026-08-31 | [The Cheap Freight Is Gone: Diesel Spikes, Capacity Tightens, and the Rate Reset Is Already Here](2026-08-31-canada-freight-rate-reset-diesel-capacity-2026.md) | Industry
 - 2026-08-24 | [Two Bills, One Morning: What the Carney-Trump Tariff War Does to Goods and Fuel Prices](2026-08-24-carney-trump-tariffs-goods-fuel-prices-2026.md) | Industry

@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/diesel-record-fuel-surcharge-canada-2026.html',
+    title: "Diesel Crossed Six Dollars: Why Your Fuel Surcharge Will Not Catch It",
+    summary: "US retail diesel hit an all-time high above $6 a gallon on September 11, up roughly $2.30 from a year ago, with distillate inventories forecast below the five-year low into 2027. Why the surcharge in most freight agreements structurally underpays during a spike, and the four things to check in yours.",
+    category: 'Industry',
+    date: '2026-09-11',
+    dateLabel: 'September 11, 2026',
+    image: '/assets/diesel-six-dollars-2026-banner.png',
+    imageAlt: 'Keylink Transport fuel watch banner: Diesel Crossed Six Dollars, with the US average price, the year over year increase, and the distillate inventory line',
+    featured: true,
+  },
+  {
     slug: 'blog/canada-counter-tariffs-september-8-2026-shipper-guide.html',
     title: "The Bill Arrives at 12:01 a.m.: Canada's Counter-Tariffs Are Live and the Fuel Tax Is Back",
     summary: "Canada's counter-tariffs hit C$27.6 billion of US imports at 12:01 a.m. today, covering more than 600 product lines at 15, 25 and 50 percent, and the federal fuel excise tax returned the same morning. What changed, what is exempt, and a 48-hour checklist for shippers.",

@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Tue, 08 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Diesel Crossed Six Dollars: Why Your Fuel Surcharge Will Not Catch It</title>
+      <link>https://www.keylinktransport.ca/blog/diesel-record-fuel-surcharge-canada-2026</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/diesel-record-fuel-surcharge-canada-2026</guid>
+      <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+      <category>Industry</category>
+      <description>US retail diesel hit an all-time high above $6 a gallon on September 11, up roughly $2.30 from a year ago, with distillate inventories forecast below the five-year low into 2027. Why the surcharge in most freight agreements structurally underpays during a spike, and the four things to check in yours.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/diesel-six-dollars-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>The Bill Arrives at 12:01 a.m.: Canada&apos;s Counter-Tariffs Are Live and the Fuel Tax Is Back</title>
       <link>https://www.keylinktransport.ca/blog/canada-counter-tariffs-september-8-2026-shipper-guide</link>
@@ -267,15 +276,6 @@
       <category>Industry</category>
       <description>The US federal government shut down at midnight October 1. Two weeks in, CBP staffing reductions, USDA inspection delays and SBA financing freezes are rippling into Canadian cross-border freight.</description>
       <enclosure url="https://www.keylinktransport.ca/assets/us-government-shutdown-cross-border-freight-october-2025-banner.png" type="image/png"/>
-    </item>
-    <item>
-      <title>Q3 2025 Canadian Freight Market: Carriers Surviving the Tariff Year</title>
-      <link>https://www.keylinktransport.ca/blog/q3-2025-canadian-freight-market-update</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/q3-2025-canadian-freight-market-update</guid>
-      <pubDate>Tue, 30 Sep 2025 12:00:00 GMT</pubDate>
-      <category>Industry</category>
-      <description>Three quarters into the tariff regime, Canadian freight has settled into a new normal. Spot rates have firmed, capacity has tightened, and carriers who restructured early are outperforming the field.</description>
-      <enclosure url="https://www.keylinktransport.cahttps://images.unsplash.com/photo-1593113616828-6f22bca04804?auto=format&amp;fit=crop&amp;w=600&amp;q=70" type="image/png"/>
     </item>
   </channel>
 </rss>

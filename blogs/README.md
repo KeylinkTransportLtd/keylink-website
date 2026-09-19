@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-09-18 | [The October 1 Chain Law Clock: Coquihalla, Rogers Pass, and Why Shippers Pay for Winter in September](2026-09-18-bc-mountain-pass-chain-up-regulations-october-2026.md) | Logistics
 - 2026-09-11 | [Diesel Crossed Six Dollars: Why Your Fuel Surcharge Will Not Catch It](2026-09-11-diesel-record-fuel-surcharge-canada-2026.md) | Industry
 - 2026-09-08 | [The Bill Arrives at 12:01 a.m.: Canada's Counter-Tariffs Are Live and the Fuel Tax Is Back](2026-09-08-canada-counter-tariffs-september-8-2026-shipper-guide.md) | Industry
 - 2026-09-04 | [The Office Automates Before the Truck Does: GPT-6 Astra, a 162,000-Job Month, and What AI Really Changes in Freight](2026-09-04-ai-automation-inflation-jobs-freight-2026.md) | Industry

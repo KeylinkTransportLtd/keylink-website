@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/winter-freight-prep-canadian-shippers-2026.html',
+    title: "Winter Does Not Wait for December: The October Playbook for Cold-Season Freight",
+    summary: "BC's commercial chain-up season began October 1 and runs to April 30 on the mountain passes. What winter actually does to a freight lane, which products need protect-from-freeze service, how much transit buffer to build, and what the season does to rates in a record diesel year.",
+    category: 'Logistics',
+    date: '2026-10-01',
+    dateLabel: 'October 1, 2026',
+    image: '/assets/winter-freight-prep-2026-banner.png',
+    imageAlt: 'Keylink Transport winter ops banner: Winter Does Not Wait for December, with the chain-up season start date, the mountain pass end date, and the winter transit buffer',
+    featured: true,
+  },
+  {
     slug: 'blog/diesel-record-fuel-surcharge-canada-2026.html',
     title: "Diesel Crossed Six Dollars: Why Your Fuel Surcharge Will Not Catch It",
     summary: "US retail diesel hit an all-time high above $6 a gallon on September 11, up roughly $2.30 from a year ago, with distillate inventories forecast below the five-year low into 2027. Why the surcharge in most freight agreements structurally underpays during a spike, and the four things to check in yours.",

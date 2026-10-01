@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Fri, 11 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Winter Does Not Wait for December: The October Playbook for Cold-Season Freight</title>
+      <link>https://www.keylinktransport.ca/blog/winter-freight-prep-canadian-shippers-2026</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/winter-freight-prep-canadian-shippers-2026</guid>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 GMT</pubDate>
+      <category>Logistics</category>
+      <description>BC&apos;s commercial chain-up season began October 1 and runs to April 30 on the mountain passes. What winter actually does to a freight lane, which products need protect-from-freeze service, how much transit buffer to build, and what the season does to rates in a record diesel year.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/winter-freight-prep-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>Diesel Crossed Six Dollars: Why Your Fuel Surcharge Will Not Catch It</title>
       <link>https://www.keylinktransport.ca/blog/diesel-record-fuel-surcharge-canada-2026</link>
@@ -267,15 +276,6 @@
       <category>Logistics</category>
       <description>Small routing decisions compound into major cost savings over time. These five tactics reduce empty miles, cut dwell time, and improve on-time delivery rates.</description>
       <enclosure url="https://www.keylinktransport.ca/assets/optimize-freight-routes-banner.png" type="image/png"/>
-    </item>
-    <item>
-      <title>US Government Shutdown and Cross-Border Freight: What&apos;s Slowing at the Border</title>
-      <link>https://www.keylinktransport.ca/blog/us-government-shutdown-cross-border-freight-october-2025</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/us-government-shutdown-cross-border-freight-october-2025</guid>
-      <pubDate>Wed, 15 Oct 2025 12:00:00 GMT</pubDate>
-      <category>Industry</category>
-      <description>The US federal government shut down at midnight October 1. Two weeks in, CBP staffing reductions, USDA inspection delays and SBA financing freezes are rippling into Canadian cross-border freight.</description>
-      <enclosure url="https://www.keylinktransport.ca/assets/us-government-shutdown-cross-border-freight-october-2025-banner.png" type="image/png"/>
     </item>
   </channel>
 </rss>

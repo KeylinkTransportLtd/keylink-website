@@ -9114,3 +9114,11 @@ body.js-loading .svh__scroll-hint {
   .erp-cta-row { flex-direction: column; align-items: stretch; gap: 12px; }
   .erp-cta-row .btn { justify-content: center; }
 }
+
+/* ---- NAV: fit seven desktop links (Partners added) ---- */
+.nav__inner { gap: 14px; }
+.nav__links { gap: 0; }
+.nav__links a { padding: 8px 10px; }
+.nav__actions { gap: 6px; }
+/* ---- Mobile drawer: scroll when taller than the screen ---- */
+.nav__mobile { overflow-y: auto; overscroll-behavior: contain; }

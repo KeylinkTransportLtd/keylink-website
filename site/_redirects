@@ -2,6 +2,7 @@
 /index.html          /               301
 /about.html          /about          301
 /services.html       /services       301
+/partners.html       /partners       301
 /contact.html        /contact        301
 /careers.html        /careers        301
 /faq.html            /faq            301
@@ -16,6 +17,7 @@
 # Clean URLs (serve .html files at extensionless paths)
 /about               /about.html     200
 /services            /services.html  200
+/partners            /partners.html  200
 /contact             /contact.html   200
 /careers             /careers.html   200
 /privacy             /privacy.html   200

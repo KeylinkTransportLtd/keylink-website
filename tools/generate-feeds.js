@@ -26,6 +26,7 @@ const RSS_LIMIT = 30;
 const STATIC_PAGES = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
   { url: '/services', priority: '0.9', changefreq: 'monthly' },
+  { url: '/partners', priority: '0.8', changefreq: 'monthly' },
   { url: '/about', priority: '0.8', changefreq: 'monthly' },
   { url: '/contact', priority: '0.8', changefreq: 'monthly' },
   { url: '/blog', priority: '0.8', changefreq: 'weekly' },

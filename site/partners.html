@@ -61,11 +61,6 @@
     }
     .pn-skip:focus { top: 12px; }
 
-    .pn-sr {
-      position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
-    }
-
     .partners-page a:focus-visible,
     .partners-page button:focus-visible,
     .partners-page summary:focus-visible {
@@ -76,8 +71,8 @@
 
     .pn-section { padding: 96px 0; position: relative; }
     /* Section rhythm, matching the services page: hairline dividers and alternating #0c1220 bands */
-    .pn-fleet, .pn-fit-section, .pn-faq-section { border-top: 1px solid rgba(255,255,255,0.06); }
-    .pn-umbrella, .pn-fit-section, .pn-faq-section { background: #0c1220; }
+    .pn-fleet, .pn-faq-section { border-top: 1px solid rgba(255,255,255,0.06); }
+    .pn-umbrella, .pn-faq-section { background: #0c1220; }
     .pn-head { max-width: 640px; margin: 0 0 48px; }
     .pn-head--center { margin-left: auto; margin-right: auto; text-align: center; }
     .pn-head .section-title { color: var(--white); margin-bottom: 16px; }
@@ -382,89 +377,12 @@
     }
 
     /* ================================================================
-       UNDER THE KEYLINK UMBRELLA: route diagram (page showpiece)
+       WHAT KEYLINK ADDS: billing, tracking and systems
        ================================================================ */
     .pn-umbrella { border-top: 1px solid rgba(255,255,255,0.06); }
-    .pn-route { margin: 0; position: relative; }
-    .pn-route__stage {
-      position: relative;
-      padding: 44px 40px 34px;
-      border-radius: 20px;
-      background:
-        radial-gradient(ellipse 50% 70% at 32% 46%, rgba(240,168,32,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 70% at 70% 50%, rgba(34,160,146,0.08) 0%, transparent 70%),
-        rgba(8,14,28,0.55);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 40px 90px rgba(0,0,0,0.35);
-    }
-    .pn-route__stage::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background-image:
-        linear-gradient(rgba(34,160,146,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,160,146,0.035) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
-    .pn-route svg { display: block; width: 100%; height: auto; position: relative; z-index: 1; overflow: visible; }
-    .pn-route .pn-route__v { display: none; max-width: 400px; margin: 0 auto; }
-
-    .dg-box     { fill: #0e1729; stroke: rgba(255,255,255,0.14); stroke-width: 1.2; }
-    .dg-box--hub { fill: #1a1915; stroke: var(--gold); stroke-width: 1.6; }
-    .dg-box--fleet { fill: #0d1a28; stroke: rgba(34,160,146,0.45); }
-    .dg-label   { font-family: var(--font-head); font-size: 27px; letter-spacing: 0.05em; fill: #fff; }
-    .dg-label--sm { font-size: 22px; }
-    .dg-sub     { font-family: var(--font-body); font-size: 14px; font-weight: 500; fill: rgba(232,237,245,0.68); }
-    .dg-sub--sm { font-size: 12.5px; }
-    .dg-item    { font-family: var(--font-body); font-size: 14.5px; font-weight: 600; fill: var(--cloud); }
-    .dg-gold    { fill: var(--gold); }
-    .dg-rule    { stroke: rgba(240,168,32,0.28); stroke-width: 1; }
-    .dg-line    { fill: none; stroke: var(--teal-lt); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
-    .dg-drop    { fill: none; stroke: rgba(34,160,146,0.42); stroke-width: 1.2; stroke-dasharray: 3 6; }
-    .dg-rail    { fill: none; stroke: var(--teal-lt); stroke-width: 2; stroke-linecap: round; opacity: 0.8; }
-    .dg-stop    { fill: var(--midnight); stroke: var(--teal-lt); stroke-width: 2; }
-    .dg-stop-lbl { font-family: var(--font-body); font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; fill: rgba(232,237,245,0.62); }
-    .dg-rail-lbl { font-family: var(--font-body); font-size: 13px; font-weight: 600; fill: var(--teal-lt); }
-    .dg-dot     { fill: #6fe0d2; }
-    .dg-dot-halo { fill: rgba(34,160,146,0.28); }
-    .dg-pulse   { fill: none; stroke-width: 2; filter: drop-shadow(0 0 10px rgba(34,160,146,0.55)); }
-    .dg-pulse--gold { stroke: var(--gold); filter: drop-shadow(0 0 12px rgba(240,168,32,0.6)); }
-    .dg-pulse--teal { stroke: var(--teal-lt); }
 
     /* One orchestrated moment: lines draw, nodes settle, then a load runs the route.
        Default state is fully drawn; JS arms it only when motion is allowed. */
-    .pn-route.is-armed .dg-line { stroke-dashoffset: 1; }
-    .pn-route.is-armed .dg-node,
-    .pn-route.is-armed .dg-fade { opacity: 0; }
-    .pn-route .dg-node,
-    .pn-route .dg-fade { transition: opacity 0.6s ease; }
-    .pn-route .dg-line { transition: stroke-dashoffset 0.7s cubic-bezier(0.4,0,0.2,1); }
-    .pn-route.is-on .dg-line,
-    .pn-route.is-on .dg-node,
-    .pn-route.is-on .dg-fade { stroke-dashoffset: 0; opacity: 1; }
-    .pn-route.is-on .dg-d1 { transition-delay: 0s; }
-    .pn-route.is-on .dg-d2 { transition-delay: 0.25s; }
-    .pn-route.is-on .dg-d3 { transition-delay: 0.55s; }
-    .pn-route.is-on .dg-d4 { transition-delay: 0.85s; }
-    .pn-route.is-on .dg-d5 { transition-delay: 1.15s; }
-    .pn-route.is-on .dg-d6 { transition-delay: 1.4s; }
-
-    .pn-route__legend {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 28px;
-      margin-top: 18px;
-      font-size: 0.85rem;
-      color: var(--cloud);
-      opacity: 0.75;
-    }
-    .pn-route__legend span { display: inline-flex; align-items: center; gap: 9px; }
-    .pn-swatch { width: 22px; height: 3px; border-radius: 3px; display: inline-block; }
-    .pn-swatch--gold { background: var(--gold); }
-    .pn-swatch--teal { background: var(--teal-lt); }
 
     /* What a partner load gets: hairline ledger, not a card grid */
     .pn-perks {
@@ -524,142 +442,6 @@
     .pn-tile--lineup { grid-column: 2; grid-row: 1; }
     /* x at 100% and every crop 5/4 or narrower keeps the neighbouring trailer out of frame */
     .pn-tile--lineup img { object-position: 100% 70%; }
-
-    /* ================================================================
-       CAPABILITY FIT
-       ================================================================ */
-    .pn-fit {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto repeat(5, auto) auto;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(10,16,30,0.6);
-      overflow: hidden;
-    }
-    .pn-fit__col {
-      grid-row: 1 / span 6;
-      display: grid;
-      grid-template-rows: subgrid;
-    }
-    .pn-fit__col + .pn-fit__col { border-left: 1px solid rgba(255,255,255,0.08); }
-    .pn-fit__head {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 30px 32px 24px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-    }
-    .pn-fit__head img { display: block; height: 40px; width: auto; }
-    .pn-fit__head h3 {
-      font-family: var(--font-head);
-      font-weight: 400;
-      font-size: 1.7rem;
-      letter-spacing: 0.03em;
-      line-height: 1.05;
-      color: var(--white);
-      margin: 0;
-    }
-    .pn-fit__row { margin: 0; padding: 18px 32px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .pn-fit__row dt {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--teal-lt);
-      margin-bottom: 5px;
-    }
-    .pn-fit__row dd { margin: 0; font-size: 0.98rem; line-height: 1.55; color: var(--cloud); opacity: 0.86; text-wrap: pretty; }
-    .pn-nw { white-space: nowrap; }
-    .pn-fit__row--pick dd { font-weight: 600; color: var(--white); opacity: 1; }
-    .pn-fit__shared {
-      grid-column: 1 / -1;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px 14px;
-      padding: 20px 32px;
-      text-align: center;
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--white);
-      background: linear-gradient(90deg, rgba(240,168,32,0.10), rgba(240,168,32,0.16), rgba(240,168,32,0.10));
-      border-top: 1px solid rgba(240,168,32,0.35);
-    }
-    .pn-fit__shared svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; }
-    .pn-fit__note { margin: 22px 0 0; font-size: 0.95rem; color: var(--cloud); opacity: 0.72; }
-    .pn-fit__note a { color: var(--teal-lt); font-weight: 600; text-decoration: none; }
-    .pn-fit__note a:hover { text-decoration: underline; }
-
-    /* ================================================================
-       OPERATING AUTHORITY
-       ================================================================ */
-    .pn-authority {
-      padding: 90px 0;
-      background:
-        radial-gradient(ellipse 50% 80% at 85% 50%, rgba(34,160,146,0.10) 0%, transparent 70%),
-        linear-gradient(135deg, #12294A 0%, #0e2140 55%, #0b1a33 100%);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .pn-authority__inner {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .pn-authority .section-title { color: var(--white); font-size: clamp(2.2rem, 4vw, 3.3rem); margin-bottom: 18px; }
-    .pn-authority__lead { font-size: 1.06rem; line-height: 1.7; color: var(--cloud); opacity: 0.85; margin: 0 0 14px; max-width: 34rem; }
-    .pn-authority__lead strong { color: var(--white); font-weight: 700; }
-    .pn-authority__small { font-size: 0.88rem; line-height: 1.6; color: var(--cloud); opacity: 0.6; margin: 0; max-width: 34rem; }
-    .pn-plate {
-      border-radius: 16px;
-      background: rgba(6,12,24,0.55);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
-      overflow: hidden;
-    }
-    .pn-plate__issuer {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 26px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--cloud);
-    }
-    .pn-plate__issuer img { height: 30px; width: auto; }
-    .pn-plate__issuer span { opacity: 0.7; flex: 1; min-width: 0; text-wrap: balance; }
-    .pn-plate__row {
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      align-items: baseline;
-      gap: 4px 18px;
-      padding: 20px 26px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .pn-plate__label {
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--teal-lt);
-    }
-    .pn-plate__num {
-      font-family: var(--font-head);
-      font-size: clamp(2.2rem, 4vw, 2.9rem);
-      line-height: 1;
-      letter-spacing: 0.06em;
-      color: var(--white);
-    }
-    .pn-plate__desc { grid-column: 2; font-size: 0.8rem; color: var(--cloud); opacity: 0.55; }
-    .pn-plate__foot { padding: 18px 26px; }
-    .pn-plate__foot .btn { font-size: 0.9rem; }
 
     /* ================================================================
        BECOME A PARTNER CARRIER
@@ -777,12 +559,6 @@
       }
     }
 
-    @media (max-width: 1024px) {
-      .pn-route .pn-route__h { display: none; }
-      .pn-route .pn-route__v { display: block; }
-      .pn-route__stage { padding: 32px 20px 26px; }
-    }
-
     @media (max-width: 920px) {
       .svc-grid,
       .pn-feature .svc-grid {
@@ -792,7 +568,6 @@
       }
       .svc-visual { align-self: stretch; }
       .pn-feature .svc-shot__img { aspect-ratio: 16 / 10; object-position: 62% 70%; }
-      .pn-authority__inner,
       .pn-join__inner,
       .pn-faq-wrap { grid-template-columns: 1fr; gap: 40px; }
       .pn-faq-wrap .pn-head { position: static; }
@@ -804,7 +579,7 @@
     @media (max-width: 768px) {
       .pn-section { padding: 72px 0; }
       .pn-feature.svc-block { padding: 72px 0; }
-      .pn-authority { padding: 64px 0; }
+
       .pn-head { margin-bottom: 34px; }
 
       .pn-hero {
@@ -830,12 +605,6 @@
       .pn-hero__title { font-size: clamp(3rem, 15vw, 4.2rem); }
       .pn-hero__sub { font-size: 1rem; }
 
-      .pn-fit { grid-template-columns: 1fr; grid-template-rows: none; }
-      .pn-fit__col { grid-row: auto; display: block; }
-      .pn-fit__col + .pn-fit__col { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); }
-      .pn-fit__head { padding: 24px 22px 20px; }
-      .pn-fit__row { padding: 15px 22px; }
-      .pn-fit__shared { padding: 18px 22px; text-align: left; justify-content: flex-start; flex-wrap: nowrap; }
     }
 
     @media (max-width: 640px) {
@@ -855,20 +624,13 @@
       .pn-perks { grid-template-columns: 1fr; margin-top: 40px; }
       .pn-perk,
       .pn-perk + .pn-perk { padding: 24px 0 22px; border-left: none; margin-top: 0; }
-      .pn-route__legend { flex-direction: column; align-items: flex-start; gap: 10px; padding: 0 4px; }
-      .pn-route__legend span { align-items: flex-start; }
-      .pn-swatch { margin-top: 9px; flex-shrink: 0; }
+
       .pn-perk + .pn-perk { border-top: 1px solid rgba(255,255,255,0.07); }
       .pn-perk:nth-child(n+3) { margin-top: 0; }
 
       .pn-gallery { grid-template-columns: 1fr; gap: 16px; }
       .pn-tile--front { aspect-ratio: 16 / 9; }
       .pn-tile--lineup { aspect-ratio: 5 / 4; }
-
-      .pn-plate__row { grid-template-columns: 1fr; padding: 18px 20px; }
-      .pn-plate__desc { grid-column: 1; }
-      .pn-plate__issuer, .pn-plate__foot { padding-left: 20px; padding-right: 20px; }
-      .pn-plate__foot .btn { width: 100%; justify-content: center; }
 
       .pn-roster__item { flex-direction: column; align-items: flex-start; gap: 14px; }
       .pn-join .btn { width: 100%; justify-content: center; }
@@ -880,7 +642,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .pn-roster__item, .pn-faq__toggle, .pn-faq__q { transition: none; }
-      .dg-load, .dg-pulse { display: none; }
+
     }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.keylinktransport.ca/partners#webpage","name":"Keylink Partner Network","url":"https://www.keylinktransport.ca/partners","description":"Meet the Keylink Partner Network. Cangaroo Cartage straight trucks for dry and temp-controlled freight, billed through Keylink and tracked live in Keylink ERP.","inLanguage":"en-CA","isPartOf":{"@type":"WebSite","name":"Keylink Transport","url":"https://www.keylinktransport.ca"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.keylinktransport.ca/assets/partners/cangaroo-fleet-docks.jpg","width":1448,"height":905},"breadcrumb":{"@id":"https://www.keylinktransport.ca/partners#breadcrumb"},"publisher":{"@type":"TruckingCompany","name":"Keylink Transport Inc.","url":"https://www.keylinktransport.ca","telephone":"+17786663626","address":{"@type":"PostalAddress","streetAddress":"Office 217 - 2790 Allwood Street","addressLocality":"Abbotsford","addressRegion":"BC","postalCode":"V2T 3R7","addressCountry":"CA"}},"about":{"@type":"Organization","name":"Cangaroo Cartage Inc.","slogan":"Service. Safety. Satisfaction.","logo":"https://www.keylinktransport.ca/assets/partners/cangaroo-logo.png","address":{"@type":"PostalAddress","addressLocality":"Abbotsford","addressRegion":"BC","addressCountry":"CA"}}},{"@type":"BreadcrumbList","@id":"https://www.keylinktransport.ca/partners#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.keylinktransport.ca/"},{"@type":"ListItem","position":2,"name":"Partners","item":"https://www.keylinktransport.ca/partners"}]},{"@type":"FAQPage","@id":"https://www.keylinktransport.ca/partners#faq","mainEntity":[{"@type":"Question","name":"Who bills me when Cangaroo Cartage hauls my load?","acceptedAnswer":{"@type":"Answer","text":"Keylink Transport does. You book with Keylink and Keylink invoices the load, the same way it bills every Keylink shipment. You do not get a separate bill from Cangaroo Cartage."}},{"@type":"Question","name":"How do I track a load hauled by Cangaroo Cartage?","acceptedAnswer":{"@type":"Answer","text":"With the same secure Keylink tracking link that comes with your booking confirmation. It shows live GPS, ETA and every milestone from pickup to proof of delivery. No accounts, no passwords, no portal logins."}},{"@type":"Question","name":"Who do I talk to if something changes on my load?","acceptedAnswer":{"@type":"Answer","text":"Keylink. Keylink handles your billing and tracking, so call 778-666-3626 or reach us through the contact page and we will take it up with Cangaroo Cartage."}},{"@type":"Question","name":"What equipment does Cangaroo Cartage run?","acceptedAnswer":{"@type":"Answer","text":"5 and 10 ton straight trucks equipped with railgates and tailgates, for dry and temperature-controlled freight. They handle produce, nursery stock, general freight and bulk dry goods, on local deliveries and long haul."}},{"@type":"Question","name":"Do Cangaroo Cartage trucks run under Keylink?","acceptedAnswer":{"@type":"Answer","text":"No. Cangaroo Cartage owns and operates its own trucks under its own carrier registration. Keylink handles the billing and provides the live ERP tracking link for those loads."}}]}]}</script>

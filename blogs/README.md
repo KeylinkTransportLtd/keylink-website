@@ -5,6 +5,7 @@ Every post published on [keylinktransport.ca/blog](https://www.keylinktransport.
 
 ## 2026
 
+- 2026-10-26 | [22 Off, 100 On: The October 30 Tariff Swap and the Loads That Should Wait for Friday](2026-10-26-us-section-338-tariff-list-change-october-30-2026.md) | Industry
 - 2026-10-01 | [Winter Does Not Wait for December: The October Playbook for Cold-Season Freight](2026-10-01-winter-freight-prep-canadian-shippers-2026.md) | Logistics
 - 2026-09-23 | [Nowhere Legal to Stop: What Canada's Truck Parking Shortage Costs Every Load](2026-09-23-truck-parking-shortage-canada-2026.md) | Logistics
 - 2026-09-18 | [The October 1 Chain Law Clock: Coquihalla, Rogers Pass, and Why Shippers Pay for Winter in September](2026-09-18-bc-mountain-pass-chain-up-regulations-october-2026.md) | Logistics

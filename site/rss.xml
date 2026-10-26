@@ -5,8 +5,17 @@
     <link>https://www.keylinktransport.ca/blog</link>
     <description>Freight industry analysis, cross-border trucking, and logistics strategy from Keylink Transport, a BC-based full truckload carrier.</description>
     <language>en-ca</language>
-    <lastBuildDate>Thu, 01 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.keylinktransport.ca/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>22 Off, 100 On: The October 30 Tariff Swap and the Loads That Should Wait for Friday</title>
+      <link>https://www.keylinktransport.ca/blog/us-section-338-tariff-list-change-october-30-2026</link>
+      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/us-section-338-tariff-list-change-october-30-2026</guid>
+      <pubDate>Mon, 26 Oct 2026 12:00:00 GMT</pubDate>
+      <category>Industry</category>
+      <description>Washington&apos;s October 23 proclamation takes 22 Canadian products off the US 50 percent Section 338 list and adds 100, from carpets and paint to wooden crates and labels, effective 12:01 a.m. Eastern October 30, which is 9:01 p.m. Pacific on Thursday. What comes off, what goes on, and which loads should hurry or wait.</description>
+      <enclosure url="https://www.keylinktransport.ca/assets/section-338-list-swap-2026-banner.png" type="image/png"/>
+    </item>
     <item>
       <title>Winter Does Not Wait for December: The October Playbook for Cold-Season Freight</title>
       <link>https://www.keylinktransport.ca/blog/winter-freight-prep-canadian-shippers-2026</link>
@@ -267,15 +276,6 @@
       <category>Industry</category>
       <description>Eleven months into the most consequential year in cross-border freight in two decades. The tariffs, the diesel spikes, the carrier exits, and the carriers who came through stronger.</description>
       <enclosure url="https://www.keylinktransport.ca/assets/2025-canadian-trucking-year-in-review-banner.png" type="image/png"/>
-    </item>
-    <item>
-      <title>Cross-Border Freight in 2026: What Every Shipper Needs to Know</title>
-      <link>https://www.keylinktransport.ca/blog/cross-border-freight-2026</link>
-      <guid isPermaLink="true">https://www.keylinktransport.ca/blog/cross-border-freight-2026</guid>
-      <pubDate>Wed, 26 Nov 2025 12:00:00 GMT</pubDate>
-      <category>Industry</category>
-      <description>New regulations, updated CUSMA enforcement, and tighter border protocols are reshaping cross-border freight. Know exactly what changed before your next shipment crosses.</description>
-      <enclosure url="https://www.keylinktransport.ca/assets/cross-border-freight-2026-banner.png" type="image/png"/>
     </item>
   </channel>
 </rss>

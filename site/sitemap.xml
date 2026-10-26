@@ -2,51 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.keylinktransport.ca/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/services</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/partners</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/about</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/contact</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/blog</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/careers</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/faq</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.keylinktransport.ca/blog/us-section-338-tariff-list-change-october-30-2026</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/blog/winter-freight-prep-canadian-shippers-2026</loc>
@@ -64,7 +70,7 @@
     <loc>https://www.keylinktransport.ca/blog/bc-mountain-pass-chain-up-regulations-october-2026</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.keylinktransport.ca/blog/diesel-record-fuel-surcharge-canada-2026</loc>

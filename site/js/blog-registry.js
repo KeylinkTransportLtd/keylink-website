@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/us-section-338-tariff-list-change-october-30-2026.html',
+    title: "22 Off, 100 On: The October 30 Tariff Swap and the Loads That Should Wait for Friday",
+    summary: "Washington's October 23 proclamation takes 22 Canadian products off the US 50 percent Section 338 list and adds 100, from carpets and paint to wooden crates and labels, effective 12:01 a.m. Eastern October 30, which is 9:01 p.m. Pacific on Thursday. What comes off, what goes on, and which loads should hurry or wait.",
+    category: 'Industry',
+    date: '2026-10-26',
+    dateLabel: 'October 26, 2026',
+    image: '/assets/section-338-list-swap-2026-banner.png',
+    imageAlt: 'Keylink Transport trade alert banner: 22 Off, 100 On, with a Keylink trailer being loaded with corrugated boxes and rolled carpet at a dock, the October 30 start date, and the value of goods coming off and going on the US tariff list',
+    featured: true,
+  },
+  {
     slug: 'blog/winter-freight-prep-canadian-shippers-2026.html',
     title: "Winter Does Not Wait for December: The October Playbook for Cold-Season Freight",
     summary: "BC's commercial chain-up season began October 1 and runs to April 30 on the mountain passes. What winter actually does to a freight lane, which products need protect-from-freeze service, how much transit buffer to build, and what the season does to rates in a record diesel year.",

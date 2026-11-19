@@ -361,6 +361,19 @@
     officeBanner.style.display = 'none';
 
     const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    // Layout pass 2026-11: one bottom layer at a time. The office notice waits
+    // for the cookie choice, then tells the floating CTA to re-evaluate.
+    const cookiePending = () => { try { return !localStorage.getItem('cookieConsent'); } catch (e) { return false; } };
+    const layersChanged = () => window.dispatchEvent(new Event('kl:layers'));
+    let heroDone = false, revealed = false;
+
+    function maybeReveal() {
+      if (!heroDone || revealed || cookiePending()) return;
+      revealed = true;
+      revealBanner();
+      layersChanged();
+    }
+    window.addEventListener('kl:cookie-done', maybeReveal);
 
     function revealBanner() {
       officeBanner.style.display = '';
@@ -376,23 +389,26 @@
     if (svhSection) {
       function onHeroScroll() {
         if (window.scrollY >= svhSection.offsetHeight - window.innerHeight) {
-          revealBanner();
+          heroDone = true;
+          maybeReveal();
           window.removeEventListener('scroll', onHeroScroll);
         }
       }
       window.addEventListener('scroll', onHeroScroll, { passive: true });
       onHeroScroll();
     } else {
-      officeBanner.style.display = '';
-      officeBanner.classList.add('collapsed');
+      heroDone = true;
+      maybeReveal();
     }
 
     officeBannerClose.addEventListener('click', () => {
       officeBanner.classList.add('collapsed');
+      layersChanged();
     });
 
     officeBannerTab.addEventListener('click', () => {
       officeBanner.classList.remove('collapsed');
+      layersChanged();
     });
   }
 
@@ -401,14 +417,26 @@
   if (floatingCTA) {
     const siteFooter = document.querySelector('.footer');
     let floatingVisible = false;
+    const heroEl = document.getElementById('svh');
+    const ob = document.getElementById('officeBanner');
+    const cb = () => document.getElementById('cookieBanner');
+    // Any notice open (cookie banner, or the expanded office notice)?
+    const noticeOpen = () => {
+      const c = cb();
+      if (c && !c.classList.contains('cb-hiding')) return true;
+      return !!ob && ob.style.display !== 'none' && !ob.classList.contains('collapsed');
+    };
     const toggleFloating = () => {
-      const pastHero = window.scrollY > window.innerHeight * 0.6;
+      // Hidden while the home hero is still mostly on screen
+      const pastHero = heroEl
+        ? heroEl.getBoundingClientRect().bottom < window.innerHeight * 0.5
+        : window.scrollY > window.innerHeight * 0.6;
       let inFooter = false;
       if (siteFooter) {
         const footerTop = siteFooter.getBoundingClientRect().top;
         inFooter = footerTop < window.innerHeight;
       }
-      const show = pastHero && !inFooter;
+      const show = pastHero && !inFooter && !noticeOpen();
       if (show === floatingVisible) return;
       floatingVisible = show;
       if (show) {
@@ -450,6 +478,7 @@
     };
 
     window.addEventListener('scroll', () => { toggleFloating(); checkTooltip(); onFloatScroll(); }, { passive: true });
+    window.addEventListener('kl:layers', toggleFloating);
     toggleFloating();
   }
 
@@ -1144,6 +1173,7 @@
     var showTimer = setTimeout(function () {
       banner.classList.add('cb-visible');
     }, 1200);
+    window.dispatchEvent(new Event('kl:layers'));
 
     function dismiss(choice) {
       localStorage.setItem('cookieConsent', choice);
@@ -1151,6 +1181,8 @@
       banner.classList.remove('cb-visible');
       banner.classList.add('cb-hiding');
       setTimeout(function () { banner.remove(); }, 600);
+      window.dispatchEvent(new Event('kl:layers'));
+      window.dispatchEvent(new Event('kl:cookie-done'));
     }
 
     document.getElementById('cbAccept').addEventListener('click', function () { dismiss('accepted'); });

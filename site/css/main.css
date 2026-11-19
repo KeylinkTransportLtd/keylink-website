@@ -9122,3 +9122,131 @@ body.js-loading .svh__scroll-hint {
 .nav__actions { gap: 6px; }
 /* ---- Mobile drawer: scroll when taller than the screen ---- */
 .nav__mobile { overflow-y: auto; overscroll-behavior: contain; }
+
+/* ==== Layout pass 2026-11-19 ====
+   Layout, layering and spacing only. No colour, font, imagery, copy or card
+   changes. Sections below:
+   1. spacing tokens  2. hero actions  3. floating layers  4. section rhythm */
+
+/* ---- 1. Spacing tokens ---- */
+:root {
+  --kl-sec-y:  clamp(56px, 7vw, 100px);   /* vertical padding of a full section */
+  --kl-strip-y: clamp(36px, 4.5vw, 56px); /* vertical padding of a slim strip */
+  --kl-gutter: clamp(20px, 3vw, 24px);    /* side gutter, matches hero + sections */
+  --kl-gap:    clamp(20px, 3vw, 40px);    /* breathing room around light bands */
+}
+.container {
+  padding-left: var(--kl-gutter);
+  padding-right: var(--kl-gutter);
+}
+
+/* ---- 2. Hero actions: two primary buttons on one row, quiet text link ---- */
+.svh__actions { flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.svh__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(18,41,74,0.3);
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+.svh__link:hover { color: var(--teal); text-decoration-color: currentColor; }
+@media (max-width: 768px) {
+  .svh__actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 8px; width: 100%; }
+  .svh__actions .btn {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px 8px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+  .svh__actions .btn svg { width: 15px; height: 15px; flex: none; }
+  .svh__link { flex: 0 0 100%; justify-content: flex-start; padding: 0; color: #fff; text-decoration-color: rgba(255,255,255,0.45); }
+  .svh__link:hover { color: var(--teal-lt); }
+  .svh__sticky { padding-left: var(--kl-gutter); padding-right: var(--kl-gutter); }
+}
+
+/* ---- 3. Floating layers: one bottom layer at a time ----
+   Order: cookie banner -> office notice (after the cookie choice) ->
+   floating Book-a-Load + contact icons (hidden while hero or a notice is up;
+   see main.js "kl:layers"). */
+#cookieBanner {
+  left: 24px;
+  bottom: 24px;
+  transform: translateY(140px);
+  width: min(760px, calc(100vw - 48px));
+  padding: 10px 12px 10px 16px;
+  gap: 14px;
+  border-radius: 16px;
+}
+#cookieBanner.cb-visible { transform: none; }
+#cookieBanner.cb-hiding { transform: translateY(140px); }
+#cookieBanner .cb-icon { font-size: 1.3rem; }
+/* heading runs in with the text so the banner is a slim bar, not a card */
+#cookieBanner .cb-body h4, #cookieBanner .cb-body p { display: inline; }
+#cookieBanner .cb-body h4 { margin: 0 8px 0 0; }
+#cookieBanner .cb-body p { line-height: 1.4; }
+#cookieBanner .cb-body { line-height: 1.4; }
+#cookieBanner .cb-decline, #cookieBanner .cb-accept { min-height: 40px; padding-top: 0; padding-bottom: 0; }
+@media (max-width: 600px) {
+  #cookieBanner {
+    left: 12px; right: 12px; width: auto;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    padding: 10px 14px;
+    gap: 8px;
+  }
+  #cookieBanner .cb-body p { font-size: 0.7rem; }
+  #cookieBanner .cb-decline, #cookieBanner .cb-accept { min-height: 44px; }
+}
+/* Keep the hero stats clear of the compact banner (phone: stats sit just below it) */
+@media (max-width: 768px) {
+  .svh__sticky { padding-top: 72px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 160px); }
+  .svh__status { margin-bottom: 12px; }
+  .svh__title { margin-bottom: 12px; }
+  .svh__sub { margin-bottom: 18px; }
+  .svh__stats { margin-top: 20px; padding-top: 14px; }
+}
+/* (desktop) */
+@media (min-width: 769px) {
+  .svh__sticky { padding-bottom: 72px; }
+  /* nudge the scroll hint right so it clears the 4th hero stat label */
+  .svh__scroll-hint { left: 58%; }
+}
+/* Scroll dots: never sit over content on narrow or short windows */
+@media (max-width: 1100px), (max-height: 760px) { .hp-rail { display: none; } }
+@media (max-width: 1500px) {
+  .hp-item--active:not(:hover) .hp-label { opacity: 0; }
+}
+@media (max-width: 768px) {
+  .floating-book { width: 44px; height: 44px; }
+}
+
+/* ---- 4. Section rhythm (home page): one vertical spacing scale ---- */
+#home-services, #specializations, #home-partners, #home-coverage, #routes,
+#home-testimonials, #homeBlog, #bookALoad {
+  padding-top: var(--kl-sec-y);
+  padding-bottom: var(--kl-sec-y);
+}
+.savings-callout { padding-top: var(--kl-strip-y); padding-bottom: var(--kl-strip-y); }
+body .faq-strip, .careers-strip:not(.pn-home) { padding-top: var(--kl-strip-y); padding-bottom: var(--kl-strip-y); }
+@media (min-width: 769px) {
+  #live-visibility { padding-top: var(--kl-sec-y); padding-bottom: var(--kl-sec-y); }
+}
+/* Light full-bleed bands get breathing room so they never butt into dark sections */
+.savings-callout, .faq-strip, .gradient-band .coverage-section {
+  margin-top: var(--kl-gap);
+  margin-bottom: var(--kl-gap);
+}
+/* Phone: backdrop blur is disabled above, so give the expanded office notice a
+   solid-enough backing (same hue) to stay readable over page content. */
+@media (max-width: 768px) {
+  .office-banner__inner { background: rgba(4, 10, 22, 0.96); }
+}

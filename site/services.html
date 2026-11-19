@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-  <style id="early-paint">html,body{background:#0A0E1A;color:#E8EDF5;}</style>
+  <style id="early-paint">html,body{background:#fff;color:#14181f;}</style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-00K6DC8WPQ"></script>
   <script>
@@ -32,406 +32,10 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="css/main.css?v=57">
+  <link rel="stylesheet" href="css/services-page.css?v=1">
   <noscript><link rel="stylesheet" href="css/main.css?v=57"></noscript>
   <link rel="alternate" type="application/rss+xml" title="Keylink Transport Blog" href="rss.xml">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <style>
-    /* ================================================================
-       SERVICES — COMMAND DECK
-       ================================================================ */
-
-    :root {
-      --nav-h: 84px;       /* main nav height, kept in sync via JS */
-      --svcnav-h: 60px;    /* sticky service nav height */
-    }
-
-    /* ---- STICKY HORIZONTAL SERVICE NAV (under main nav) ---- */
-    .svc-nav {
-      position: sticky;
-      top: var(--nav-h);
-      z-index: 900;
-      background: rgba(8,14,28,0.82);
-      backdrop-filter: blur(22px) saturate(160%);
-      -webkit-backdrop-filter: blur(22px) saturate(160%);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .svc-nav__inner {
-      display: flex;
-      align-items: stretch;
-      gap: 4px;
-      height: var(--svcnav-h);
-    }
-    .svc-tab {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 0 18px;
-      text-decoration: none;
-      white-space: nowrap;
-      color: rgba(232,237,245,0.6);
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      transition: color 0.25s ease;
-    }
-    .svc-tab__num {
-      font-family: var(--font-head);
-      font-size: 1.05rem;
-      line-height: 1;
-      color: rgba(240,168,32,0.45);
-      transition: color 0.25s ease;
-    }
-    .svc-tab::after {
-      content: '';
-      position: absolute;
-      left: 14px; right: 14px; bottom: 0;
-      height: 3px;
-      border-radius: 3px 3px 0 0;
-      background: linear-gradient(90deg, var(--gold), var(--teal));
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform 0.3s ease;
-    }
-    .svc-tab:hover { color: rgba(232,237,245,0.92); }
-    .svc-tab.is-active { color: var(--white); }
-    .svc-tab.is-active .svc-tab__num { color: var(--gold); }
-    .svc-tab.is-active::after { transform: scaleX(1); }
-
-    /* ---- SERVICE BLOCKS ---- */
-    .svc-deck { background: var(--midnight); }
-    .svc-block {
-      padding: 84px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      scroll-margin-top: calc(var(--nav-h) + var(--svcnav-h));
-      overflow-x: clip;
-    }
-    .svc-block:nth-of-type(even) { background: #0c1220; }
-    .svc-block:last-of-type { border-bottom: none; }
-
-    .svc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.04fr;
-      grid-template-areas: "head visual" "body visual";
-      column-gap: 60px;
-      row-gap: 18px;
-      align-items: start;
-    }
-    .svc-head   { grid-area: head; }
-    .svc-body   { grid-area: body; }
-    .svc-visual { grid-area: visual; align-self: center; }
-
-    .svc-head__top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .svc-block__num {
-      font-family: var(--font-head);
-      font-size: 2.1rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.85;
-    }
-    .svc-pill {
-      font-family: var(--font-body);
-      font-size: 0.66rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--teal-lt);
-      padding: 5px 12px;
-      border-radius: 100px;
-      background: rgba(34,160,146,0.1);
-      border: 1px solid rgba(34,160,146,0.28);
-    }
-    .svc-block__title {
-      font-family: var(--font-head);
-      font-weight: 400;
-      font-size: clamp(1.9rem, 3.4vw, 2.85rem);
-      line-height: 1.04;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin: 0;
-    }
-    .svc-block__lead {
-      font-size: 1.04rem;
-      line-height: 1.7;
-      color: var(--cloud);
-      opacity: 0.78;
-      margin: 0 0 24px;
-      max-width: 38rem;
-    }
-    .svc-benefits {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 11px 28px;
-      margin: 0 0 30px;
-      padding: 0;
-    }
-    .svc-benefits li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.92rem;
-      line-height: 1.45;
-      color: var(--cloud);
-      opacity: 0.82;
-    }
-    .svc-benefits li::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      margin-top: 1px;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='9' fill='rgba(26,123,110,0.2)'/%3E%3Cpath d='M5 9l3 3 5-5' stroke='%2322a092' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
-    }
-    .svc-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-    .svc-actions .btn {
-      padding: 14px 28px;
-      margin: 0;
-    }
-
-    /* ---- BLENDED IMAGE + METRIC BAR ---- */
-    .svc-shot {
-      position: relative;
-      margin: 0;
-    }
-    /* blue-teal halo so the feathered image melts into a glow, not a hard rectangle */
-    .svc-shot::before {
-      content: '';
-      position: absolute;
-      inset: -8% 0 -2%;
-      background: radial-gradient(ellipse at 50% 46%, rgba(28,86,134,0.30), rgba(34,160,146,0.12) 46%, transparent 72%);
-      filter: blur(58px);
-      z-index: 0;
-      pointer-events: none;
-    }
-    .svc-shot__img {
-      position: relative;
-      z-index: 1;
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      /* feather ALL FOUR edges: intersect a horizontal + vertical fade so every side
-         dissolves into the background (not just the corners) */
-      -webkit-mask-image:
-        linear-gradient(to right,  transparent 0, #000 11%, #000 89%, transparent 100%),
-        linear-gradient(to bottom, transparent 0, #000 9%,  #000 90%, transparent 100%);
-      -webkit-mask-composite: source-in;
-      mask-image:
-        linear-gradient(to right,  transparent 0, #000 11%, #000 89%, transparent 100%),
-        linear-gradient(to bottom, transparent 0, #000 9%,  #000 90%, transparent 100%);
-      mask-composite: intersect;
-      filter: drop-shadow(0 26px 52px rgba(0,0,0,0.55)) drop-shadow(0 0 64px rgba(34,160,146,0.10));
-      transition: transform 0.6s cubic-bezier(0.34,1.2,0.64,1), filter 0.6s ease;
-    }
-    .svc-shot:hover .svc-shot__img {
-      transform: translateY(-6px);
-      filter: drop-shadow(0 38px 70px rgba(0,0,0,0.6)) drop-shadow(0 0 84px rgba(34,160,146,0.16));
-    }
-
-    /* ERP dashboard reads as a screen: keep a subtle frame, no feather */
-    .svc-shot--framed::before { inset: 4% 4% 10%; }
-    .svc-shot--framed .svc-shot__img {
-      -webkit-mask-image: none;
-      mask-image: none;
-      border-radius: 16px;
-      border: 1px solid rgba(34,160,146,0.22);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
-      filter: none;
-    }
-    .svc-shot--framed:hover .svc-shot__img {
-      transform: translateY(-5px);
-      filter: none;
-      box-shadow: 0 40px 88px rgba(0,0,0,0.58), 0 0 44px rgba(34,160,146,0.12), inset 0 1px 0 rgba(255,255,255,0.07);
-    }
-
-    /* frosted metric bar below the image */
-    .svc-chips {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      margin-top: -4px;
-      border-radius: 14px;
-      background: rgba(10,18,32,0.72);
-      backdrop-filter: blur(16px) saturate(150%);
-      -webkit-backdrop-filter: blur(16px) saturate(150%);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
-      overflow: hidden;
-    }
-    .svc-chip {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      padding: 13px 15px;
-      min-width: 0;
-    }
-    .svc-chip + .svc-chip { border-left: 1px solid rgba(255,255,255,0.07); }
-    .svc-chip__icon {
-      flex-shrink: 0;
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      display: grid;
-      place-items: center;
-      color: var(--teal-lt);
-      background: rgba(34,160,146,0.12);
-      border: 1px solid rgba(34,160,146,0.26);
-    }
-    .svc-chip__icon svg { width: 17px; height: 17px; }
-    .svc-chip__txt { display: flex; flex-direction: column; min-width: 0; line-height: 1.22; }
-    .svc-chip__txt strong {
-      font-family: var(--font-head);
-      font-weight: 400;
-      font-size: 0.94rem;
-      letter-spacing: 0.02em;
-      color: var(--white);
-    }
-    .svc-chip__txt span {
-      font-size: 0.64rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: rgba(232,237,245,0.55);
-    }
-    .svc-chip--gold .svc-chip__icon {
-      color: var(--gold);
-      background: rgba(240,168,32,0.12);
-      border-color: rgba(240,168,32,0.28);
-    }
-
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 920px) {
-      .svc-grid {
-        grid-template-columns: 1fr;
-        grid-template-areas: "head" "visual" "body";
-        row-gap: 22px;
-      }
-      .svc-visual { align-self: stretch; }
-      .svc-block { padding: 54px 0; }
-    }
-
-    @media (max-width: 768px) {
-      :root { --svcnav-h: 54px; }
-      .svc-nav__inner {
-        height: auto;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 8px;
-        padding-top: 9px;
-        padding-bottom: 9px;
-        align-items: center;
-      }
-      .svc-nav__inner::-webkit-scrollbar { display: none; }
-      .svc-tab {
-        flex: 0 0 auto;
-        padding: 9px 15px;
-        border-radius: 100px;
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.04);
-        font-size: 0.8rem;
-      }
-      .svc-tab::after { display: none; }
-      .svc-tab.is-active {
-        border-color: rgba(240,168,32,0.5);
-        background: rgba(240,168,32,0.1);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .svc-benefits { grid-template-columns: 1fr; }
-      .svc-block__title { font-size: 1.72rem; }
-      .svc-actions { flex-direction: column; align-items: stretch; }
-      .svc-actions .btn { width: 100%; justify-content: center; }
-      .svc-block { padding: 42px 0; }
-      .svc-block__num { font-size: 1.8rem; }
-      .svc-chips { flex-direction: column; }
-      .svc-chip + .svc-chip { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); }
-    }
-
-    /* Section content (legacy hooks below removed) */
-    /* ================================================================
-       LOGO MARQUEE BAR
-       ================================================================ */
-    .logo-marquee-wrap {
-      background: #000;
-      overflow: hidden;
-      padding: 14px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      position: relative;
-    }
-
-    /* Fade edges */
-    .logo-marquee-wrap::before,
-    .logo-marquee-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 120px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .logo-marquee-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, #000 0%, transparent 100%);
-    }
-    .logo-marquee-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, #000 0%, transparent 100%);
-    }
-
-    .logo-marquee-track {
-      display: flex;
-      align-items: center;
-      width: max-content;
-      animation: marqueeScroll 22s linear infinite;
-      will-change: transform;
-    }
-
-    .logo-marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    .logo-marquee-item {
-      padding: 0 36px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .lm-logo {
-      height: 24px;
-      width: auto;
-      color: #555;
-      fill: currentColor;
-      transition: color 0.3s ease;
-    }
-
-    .logo-marquee-item:hover .lm-logo {
-      color: #888;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .logo-marquee-track { animation: none; }
-    }
-  </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Full Truckload (FTL) Dry Van Freight","serviceType":"Freight Transportation","description":"Dedicated 53-foot dry van trailers for full truckload shipments across Canada and the United States. Single or multi-drop, live load/unload, trailer drop, and power-only options.","provider":{"@type":"TruckingCompany","name":"Keylink Transport Inc.","url":"https://www.keylinktransport.ca","telephone":"+17786663626"},"areaServed":[{"@type":"AdministrativeArea","name":"British Columbia, Canada"},{"@type":"AdministrativeArea","name":"Alberta, Canada"},{"@type":"AdministrativeArea","name":"Saskatchewan, Canada"},{"@type":"AdministrativeArea","name":"Manitoba, Canada"},{"@type":"AdministrativeArea","name":"Ontario, Canada"},{"@type":"AdministrativeArea","name":"Washington, United States"},{"@type":"AdministrativeArea","name":"Oregon, United States"},{"@type":"AdministrativeArea","name":"California, United States"},{"@type":"AdministrativeArea","name":"Idaho, United States"}]},{"@type":"Service","name":"Cross-Border Canada-USA Freight","serviceType":"International Freight Transportation","description":"Licensed, insured, and USDOT-certified cross-border trucking between Canada and the United States. We handle CBSA and CBP paperwork so your freight does not stop at the line.","provider":{"@type":"TruckingCompany","name":"Keylink Transport Inc.","url":"https://www.keylinktransport.ca","telephone":"+17786663626"},"areaServed":[{"@type":"AdministrativeArea","name":"British Columbia, Canada"},{"@type":"AdministrativeArea","name":"Alberta, Canada"},{"@type":"AdministrativeArea","name":"Saskatchewan, Canada"},{"@type":"AdministrativeArea","name":"Manitoba, Canada"},{"@type":"AdministrativeArea","name":"Ontario, Canada"},{"@type":"AdministrativeArea","name":"Washington, United States"},{"@type":"AdministrativeArea","name":"Oregon, United States"},{"@type":"AdministrativeArea","name":"California, United States"},{"@type":"AdministrativeArea","name":"Idaho, United States"}]},{"@type":"Service","name":"Refrigerated (Reefer) Freight","serviceType":"Temperature-Controlled Freight Transportation","description":"Temperature-controlled reefer trailers for perishables, fresh produce, frozen food, seafood, and pharmaceuticals. Continuous temperature monitoring throughout transit.","provider":{"@type":"TruckingCompany","name":"Keylink Transport Inc.","url":"https://www.keylinktransport.ca","telephone":"+17786663626"},"areaServed":[{"@type":"AdministrativeArea","name":"British Columbia, Canada"},{"@type":"AdministrativeArea","name":"Alberta, Canada"},{"@type":"AdministrativeArea","name":"Saskatchewan, Canada"},{"@type":"AdministrativeArea","name":"Manitoba, Canada"},{"@type":"AdministrativeArea","name":"Ontario, Canada"},{"@type":"AdministrativeArea","name":"Washington, United States"},{"@type":"AdministrativeArea","name":"Oregon, United States"},{"@type":"AdministrativeArea","name":"California, United States"},{"@type":"AdministrativeArea","name":"Idaho, United States"}]},{"@type":"Service","name":"Less Than Truckload (LTL) Freight","serviceType":"Freight Transportation","description":"Cost-effective LTL freight for smaller shipments that do not require a full trailer. Consolidated runs along proven corridors with reliable transit times.","provider":{"@type":"TruckingCompany","name":"Keylink Transport Inc.","url":"https://www.keylinktransport.ca","telephone":"+17786663626"},"areaServed":[{"@type":"AdministrativeArea","name":"British Columbia, Canada"},{"@type":"AdministrativeArea","name":"Alberta, Canada"},{"@type":"AdministrativeArea","name":"Saskatchewan, Canada"},{"@type":"AdministrativeArea","name":"Manitoba, Canada"},{"@type":"AdministrativeArea","name":"Ontario, Canada"},{"@type":"AdministrativeArea","name":"Washington, United States"},{"@type":"AdministrativeArea","name":"Oregon, United States"},{"@type":"AdministrativeArea","name":"California, United States"},{"@type":"AdministrativeArea","name":"Idaho, United States"}]},{"@type":"Service","name":"Dedicated Freight Corridor Service","serviceType":"Dedicated Freight Transportation","description":"Regular dedicated lanes between major Canadian markets and key US destinations. Known routes mean fewer surprises and better pricing for high-volume shippers.","provider":{"@type":"TruckingCompany","name":"Keylink Transport Inc.","url":"https://www.keylinktransport.ca","telephone":"+17786663626"},"areaServed":[{"@type":"AdministrativeArea","name":"British Columbia, Canada"},{"@type":"AdministrativeArea","name":"Alberta, Canada"},{"@type":"AdministrativeArea","name":"Saskatchewan, Canada"},{"@type":"AdministrativeArea","name":"Manitoba, Canada"},{"@type":"AdministrativeArea","name":"Ontario, Canada"},{"@type":"AdministrativeArea","name":"Washington, United States"},{"@type":"AdministrativeArea","name":"Oregon, United States"},{"@type":"AdministrativeArea","name":"California, United States"},{"@type":"AdministrativeArea","name":"Idaho, United States"}]}]}
   </script>
@@ -515,333 +119,384 @@
       <p class="nav__mobile-footer-copy">&copy; 2025 Keylink Transport Ltd.</p>
     </div>
   </div>
-    <a href="contact.html#appointment" class="nav__mobile-book nav__mobile-book--alt">Book Appointment &rarr;</a>
-    <a href="contact.html" class="nav__mobile-book">Book a Load &rarr;</a>
-  </div>
 
-  <!-- PAGE HEADER -->
-  <header class="blog-header" role="banner">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="blog-header__content container">
-      <span class="blog-header__eyebrow gsap-reveal">What We Offer</span>
-      <h1 class="blog-header__title gsap-reveal">
-        <span style="color:#fff;">Our</span>
-        <span style="background:linear-gradient(180deg,#b2ece8 0%,#3dbdbd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Services</span>
-      </h1>
-      <p class="blog-header__sub gsap-reveal">
-        Full truckload expertise. Cross-border confidence. Dedicated corridors and in-house ERP
-        visibility that keep your supply chain moving. No excuses.
-      </p>
-    </div>
-  </header>
+  <!-- ======= SERVICES CONTENT ======= -->
+  <main class="sv" id="main">
 
-  <!-- LOGO MARQUEE BAR -->
-  <div class="logo-marquee-wrap" aria-label="Trusted by leading retailers">
-    <div class="logo-marquee-track">
-      <!-- Set 1 -->
-      <div class="logo-marquee-item">
-        <!-- Home Depot -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" class="lm-logo" aria-label="The Home Depot">
-          <rect x="0" y="10" width="40" height="40" fill="currentColor"/>
-          <polygon points="20,2 40,14 40,10 20,0 0,10 0,14" fill="currentColor"/>
-          <text x="50" y="40" font-family="Arial Black, Arial" font-weight="900" font-size="22" fill="currentColor" letter-spacing="-0.5">HOME DEPOT</text>
-        </svg>
-      </div>
-      <div class="logo-marquee-item">
-        <!-- Walmart wordmark -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" class="lm-logo" aria-label="Walmart">
-          <!-- spark icon (simplified) -->
-          <g transform="translate(0,0)">
-            <line x1="24" y1="0"  x2="24" y2="14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <line x1="24" y1="34" x2="24" y2="48" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <line x1="0"  y1="24" x2="14" y2="24" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <line x1="34" y1="24" x2="48" y2="24" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <line x1="7"  y1="7"  x2="17" y2="17" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <line x1="31" y1="31" x2="41" y2="41" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <line x1="41" y1="7"  x2="31" y2="17" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-            <line x1="17" y1="31" x2="7"  y2="41" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-          </g>
-          <text x="58" y="34" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="currentColor">Walmart</text>
-        </svg>
-      </div>
-      <div class="logo-marquee-item">
-        <!-- Costco wordmark -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" class="lm-logo" aria-label="Costco Wholesale">
-          <text x="0" y="36" font-family="Arial Black, Arial" font-weight="900" font-size="30" fill="currentColor" letter-spacing="1">COSTCO</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- STICKY HORIZONTAL SERVICE NAV -->
-  <nav class="svc-nav" id="svcNav" aria-label="Service sections">
-    <div class="svc-nav__inner container">
-      <a class="svc-tab is-active" href="#ftl" data-idx="0"><span class="svc-tab__num" aria-hidden="true">01</span>Dry Van / LTL</a>
-      <a class="svc-tab" href="#crossborder" data-idx="1"><span class="svc-tab__num" aria-hidden="true">02</span>Cross-Border</a>
-      <a class="svc-tab" href="#corridors" data-idx="2"><span class="svc-tab__num" aria-hidden="true">03</span>Corridors</a>
-      <a class="svc-tab" href="#erp" data-idx="3"><span class="svc-tab__num" aria-hidden="true">04</span>ERP Visibility</a>
-    </div>
-  </nav>
-
-  <!-- SERVICE COMMAND DECK -->
-  <div class="svc-deck" id="svcDeck">
-
-    <!-- ── SECTION 1: FTL ── -->
-    <section class="svc-block" id="ftl" data-idx="0" aria-labelledby="svc-ftl-title">
-      <div class="container">
-        <div class="svc-grid">
-          <div class="svc-head">
-            <div class="svc-head__top">
-              <span class="svc-block__num" aria-hidden="true">01</span>
-              <span class="svc-pill">Core Service</span>
-            </div>
-            <h2 class="svc-block__title" id="svc-ftl-title">Dry Full Truckload or LTL</h2>
-          </div>
-          <div class="svc-visual">
-            <figure class="svc-shot">
-              <img class="svc-shot__img" src="assets/svc-ftl-dock.webp" alt="Loaded 53-foot dry van trailer with palletized Canadian freight" loading="lazy" width="1000" height="750">
-            </figure>
-            <div class="svc-chips">
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
-                <span class="svc-chip__txt"><strong>53'</strong><span>Dry Van</span></span>
-              </div>
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
-                <span class="svc-chip__txt"><strong>FTL / LTL</strong><span>Flexible Capacity</span></span>
-              </div>
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
-                <span class="svc-chip__txt"><strong>Secure</strong><span>End to End</span></span>
-              </div>
-            </div>
-          </div>
-          <div class="svc-body">
-            <p class="svc-block__lead">
-              53-foot dry vans for general cargo. Your load, your trailer, your timeline.
-              No co-loading, no hand-offs, full accountability from dock to delivery.
-            </p>
-            <ul class="svc-benefits" aria-label="FTL service features">
-              <li>Dedicated 53-foot dry van trailers</li>
-              <li>No co-loading. Your freight only</li>
-              <li>Full chain-of-custody documentation</li>
-              <li>Real-time shipment tracking</li>
-              <li>General cargo, packaged goods, equipment</li>
-              <li>Enterprise and SME pricing</li>
-              <li>Dry or Reefer</li>
-              <li>Full Truckload or Less-than-Truckload</li>
-              <li>Single or multiple drops</li>
-              <li>Live loading and unloading</li>
-              <li>Trailer drop</li>
-              <li>Power only</li>
-            </ul>
-            <div class="svc-actions">
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-              <a href="contact.html" class="btn btn--gold">Request a Load</a>
-            </div>
+    <!-- HERO -->
+    <header class="sv-hero">
+      <div class="container sv-hero__grid">
+        <div class="sv-hero__text">
+          <p class="sv-eyebrow">What We Offer</p>
+          <h1 class="sv-hero__title">Our <span>Services</span></h1>
+          <p class="sv-hero__lead">Full truckload expertise. Cross-border confidence. Dedicated corridors, a partner straight-truck fleet and in-house ERP visibility that keep your supply chain moving. No excuses.</p>
+          <div class="sv-hero__actions">
+            <a href="contact.html" class="btn btn--gold">Book a Load &rarr;</a>
+            <a href="contact.html#appointment" class="sv-btn-outline">Book Appointment</a>
+            <a href="tel:+17786663626" class="sv-hero__phone">or call <strong>778-666-3626</strong></a>
           </div>
         </div>
+        <figure class="sv-hero__media">
+          <picture><source srcset="assets/svc-ftl-dock.webp" type="image/webp"><img src="assets/svc-ftl-dock.webp" alt="Keylink 53-foot dry van backed into a loading dock at dusk with pallets inside" width="1200" height="900" fetchpriority="high"></picture>
+          <figcaption class="sv-hero__badge"><strong>Quote within one business day</strong><span>All-inclusive rates. No hidden fees.</span></figcaption>
+        </figure>
       </div>
-    </section>
-
-    <!-- ── SECTION 2: CROSS-BORDER ── -->
-    <section class="svc-block" id="crossborder" data-idx="1" aria-labelledby="svc-cb-title">
       <div class="container">
-        <div class="svc-grid">
-          <div class="svc-head">
-            <div class="svc-head__top">
-              <span class="svc-block__num" aria-hidden="true">02</span>
-              <span class="svc-pill">Cross-Border</span>
-            </div>
-            <h2 class="svc-block__title" id="svc-cb-title">Canada to USA Cross-Border</h2>
-          </div>
-          <div class="svc-visual">
-            <figure class="svc-shot">
-              <img class="svc-shot__img" src="assets/svc-crossborder-dusk.webp" alt="Keylink Transport tractor-trailer at a Canada to USA border crossing at dusk" loading="lazy" width="1000" height="750">
-            </figure>
-            <div class="svc-chips">
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg></span>
-                <span class="svc-chip__txt"><strong>Certified</strong><span>USDOT &amp; MC</span></span>
-              </div>
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-                <span class="svc-chip__txt"><strong>Insured</strong><span>$750,000 BIPD</span></span>
-              </div>
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 4 14 12 14 11 22 20 10 12 10 13 2"/></svg></span>
-                <span class="svc-chip__txt"><strong>Fast Clearance</strong><span>Border-Ready</span></span>
-              </div>
-            </div>
-          </div>
-          <div class="svc-body">
-            <p class="svc-block__lead">
-              Licensed, insured, and USDOT certified for seamless border crossings.
-              We handle the compliance paperwork so your freight does not stop at the line.
-            </p>
-            <ul class="svc-benefits" aria-label="Cross-border service features">
-              <li>USDOT 2832041 | MC# 946449 certified</li>
-              <li>$750,000 BIPD ICBC insurance</li>
-              <li>Full customs documentation support</li>
-              <li>FAST and border-ready drivers</li>
-              <li>BC to Washington, Oregon, California, Idaho</li>
-              <li>Midwest and East Coast on request</li>
-            </ul>
-            <div class="svc-actions">
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-              <a href="contact.html" class="btn btn--gold">Request Cross-Border Quote</a>
-            </div>
-          </div>
-        </div>
+        <ul class="sv-trust" aria-label="Credentials">
+          <li><span class="sv-trust__k">USDOT</span><span class="sv-trust__v">2832041</span></li>
+          <li><span class="sv-trust__k">MC#</span><span class="sv-trust__v">946449</span></li>
+          <li><span class="sv-trust__k">ICBC Insured</span><span class="sv-trust__v">$750K BIPD</span></li>
+          <li><span class="sv-trust__k">Accumulated experience</span><span class="sv-trust__v">15 years</span></li>
+          <li><span class="sv-trust__k">Rated</span><span class="sv-trust__v">5-Star</span></li>
+        </ul>
       </div>
-    </section>
+    </header>
 
-    <!-- ── SECTION 3: CORRIDORS ── -->
-    <section class="svc-block" id="corridors" data-idx="2" aria-labelledby="svc-cor-title">
+    <!-- STICKY SERVICE NAV -->
+    <nav class="sv-nav" id="svNav" aria-label="Services on this page">
+      <div class="container sv-nav__inner">
+        <a href="#ftl" class="sv-nav__tab">Dry Van FTL / LTL</a>
+        <a href="#reefer" class="sv-nav__tab">Reefer</a>
+        <a href="#crossborder" class="sv-nav__tab">Cross-Border</a>
+        <a href="#corridors" class="sv-nav__tab">Corridors</a>
+        <a href="#partner" class="sv-nav__tab">Partner Straight Trucks</a>
+        <a href="#erp" class="sv-nav__tab">ERP Tracking</a>
+      </div>
+    </nav>
+
+    <!-- AT A GLANCE -->
+    <section class="sv-sec sv-glance" aria-labelledby="svGlance">
       <div class="container">
-        <div class="svc-grid">
-          <div class="svc-head">
-            <div class="svc-head__top">
-              <span class="svc-block__num" aria-hidden="true">03</span>
-              <span class="svc-pill">Dedicated Routes</span>
-            </div>
-            <h2 class="svc-block__title" id="svc-cor-title">Dedicated Freight Corridors</h2>
-          </div>
-          <div class="svc-visual">
-            <figure class="svc-shot">
-              <img class="svc-shot__img" src="assets/svc-corridors.webp" alt="Illuminated map of Keylink Transport freight corridors across western Canada and the USA" loading="lazy" width="1000" height="750">
-            </figure>
-            <div class="svc-chips">
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 8 3 16 6 23 3 23 18 16 21 8 18 1 21 1 6"/><line x1="8" y1="3" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="21"/></svg></span>
-                <span class="svc-chip__txt"><strong>Core Corridors</strong><span>BC &#183; AB &#183; ON &#183; CA</span></span>
-              </div>
-              <div class="svc-chip">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-                <span class="svc-chip__txt"><strong>Scheduled Lanes</strong><span>Predictable ETAs</span></span>
-              </div>
-              <div class="svc-chip svc-chip--gold">
-                <span class="svc-chip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
-                <span class="svc-chip__txt"><strong>Repeat Pricing</strong><span>Best Lane Value</span></span>
-              </div>
-            </div>
-          </div>
-          <div class="svc-body">
-            <p class="svc-block__lead">
-              Regular lanes mean consistent pricing, familiar routes, and fewer surprises.
-              Our core corridors run BC to California and Alberta to Ontario on a reliable schedule.
-            </p>
-            <ul class="svc-benefits" aria-label="Freight corridors features">
-              <li>BC &#8594; Alberta &#8594; Saskatchewan &#8594; Ontario</li>
-              <li>BC &#8594; Washington &#8594; Oregon &#8594; California</li>
-              <li>Alberta &#8594; Manitoba &#8594; Ontario</li>
-              <li>Regular schedules for predictable ETAs</li>
-              <li>Lane pricing for repeat shippers</li>
-              <li>Custom routing on request</li>
-            </ul>
-            <div class="svc-actions">
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-              <a href="contact.html" class="btn btn--gold">Check Your Corridor</a>
-            </div>
-          </div>
+        <div class="sv-head">
+          <p class="sv-eyebrow">At a Glance</p>
+          <h2 id="svGlance" class="sv-h2">Six ways we move your freight</h2>
+          <p class="sv-sub">One booking, one Keylink invoice and one live tracking link, whichever service carries the load.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ── SECTION 4: ERP VISIBILITY ── -->
-    <section class="svc-block" id="erp" data-idx="3" aria-labelledby="svc-erp-title">
-      <div class="container">
-        <div class="svc-grid">
-          <div class="svc-head">
-            <div class="svc-head__top">
-              <span class="svc-block__num" aria-hidden="true">04</span>
-              <span class="svc-pill">Live Visibility</span>
-            </div>
-            <h2 class="svc-block__title" id="svc-erp-title">In-House ERP Transparency</h2>
-          </div>
-          <div class="svc-visual">
-            <figure class="svc-shot svc-shot--framed">
-              <img class="svc-shot__img" src="assets/svc-erp.webp" alt="Keylink in-house ERP load view dashboard showing live shipment milestones and route" loading="lazy" width="1000" height="750">
-            </figure>
-          </div>
-          <div class="svc-body">
-            <p class="svc-block__lead">
-              Customers get uninterrupted transparency through Keylink's in-house ERP. Dispatch,
-              documents, updates, and load milestones stay connected so your team always knows
-              what is moving, where it is, and what happens next.
-            </p>
-            <ul class="svc-benefits" aria-label="ERP transparency features">
-              <li>Live shipment status from dispatch to delivery</li>
-              <li>Centralized load records, documents, updates</li>
-              <li>Customer visibility without scattered emails</li>
-              <li>Cleaner exception tracking for delays and border events</li>
-              <li>Dispatch accountability backed by one source of truth</li>
-              <li>Built in-house around Keylink operations</li>
-            </ul>
-            <div class="svc-actions">
-              <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-              <a href="contact.html" class="btn btn--gold">Request ERP Visibility</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /svc-deck -->
-
-  <!-- TRUST BAR -->
-  <div class="trust-bar" role="complementary" aria-label="Credentials">
-    <div class="container">
-      <div class="trust-bar__inner">
-        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><span class="trust-item__label">USDOT</span> 2832041</span></div>
-        <div class="trust-bar__divider" aria-hidden="true"></div>
-        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span><span class="trust-item__label">MC#</span> 946449</span></div>
-        <div class="trust-bar__divider" aria-hidden="true"></div>
-        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span><span class="trust-item__label">$750K</span> ICBC Insured</span></div>
-        <div class="trust-bar__divider" aria-hidden="true"></div>
-        <div class="trust-item"><svg class="trust-item__icon" viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span><span class="trust-item__label">5-Star</span> Rated</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <section class="cta-section" aria-labelledby="services-cta-heading">
-    <div class="container" style="position:relative;z-index:2;text-align:center;">
-      <h2 class="section-title gsap-reveal" id="services-cta-heading" style="color:var(--white);">Ready to Ship?</h2>
-      <p class="section-sub gsap-reveal" style="margin:0 auto 36px;text-align:center;">Get a quote within one business day. No hidden fees.</p>
-      <div class="gsap-reveal cta-btns">
-        <a href="contact.html#appointment" class="btn btn--teal nav__cta-appointment" data-cta="appointment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a>
-          <a href="contact.html" class="btn btn--gold" style="font-size:1rem;padding:16px 36px;">Book a Load →</a>
-        <span class="cta-or">or</span>
-        <a href="tel:+17786663626" class="btn btn--ghost" style="font-size:1rem;">778-666-3626</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGE SHARE -->
-  <div style="background:var(--midnight);padding:12px 0 16px;">
-    <div class="container">
-      <div class="post-share" style="margin:0;">
-        <span class="post-share__label">Share this page</span>
-        <div class="post-share__buttons">
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.keylinktransport.ca%2Fservices" target="_blank" rel="noopener noreferrer" class="post-share__btn post-share__btn--linkedin">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
+        <div class="sv-cards">
+          <a class="sv-card" href="#ftl">
+            <span class="sv-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="1" y="6" width="14" height="10" rx="1.5"/><path d="M15 9h4l3 3v4h-7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+            <h3>Dry Van FTL / LTL</h3>
+            <p>53-foot dry vans for general cargo. Your freight only, dock to delivery.</p>
+            <ul><li>20–26 pallets</li><li>No co-loading</li><li>Single or multiple drops</li></ul>
+            <span class="sv-card__more">Details &rarr;</span>
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.keylinktransport.ca%2Fservices" target="_blank" rel="noopener noreferrer" class="post-share__btn post-share__btn--facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-            Facebook
+          <a class="sv-card" href="#reefer">
+            <span class="sv-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 6.5l14.2 11M19.1 6.5L4.9 17.5"/><path d="M9 3.5l3 2 3-2M9 20.5l3-2 3 2"/></svg></span>
+            <h3>Reefer &amp; Temperature-Controlled</h3>
+            <p>Produce, seafood, nursery stock and frozen goods at the right temperature.</p>
+            <ul><li>−25°C to +15°C</li><li>Pre-cooled units</li><li>FSMA-trained drivers</li></ul>
+            <span class="sv-card__more">Details &rarr;</span>
           </a>
-          <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.keylinktransport.ca%2Fservices&text=Keylink%20Transport%20Services%20%7C%20FTL%20Freight%20Solutions" target="_blank" rel="noopener noreferrer" class="post-share__btn post-share__btn--x">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            X
+          <a class="sv-card" href="#crossborder">
+            <span class="sv-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
+            <h3>Cross-Border Canada–USA</h3>
+            <p>Licensed and insured for the border, with the paperwork handled.</p>
+            <ul><li>USDOT &amp; MC certified</li><li>Customs documents</li><li>FAST-ready drivers</li></ul>
+            <span class="sv-card__more">Details &rarr;</span>
+          </a>
+          <a class="sv-card" href="#corridors">
+            <span class="sv-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h6a3 3 0 000-6h-2a3 3 0 010-6h6"/></svg></span>
+            <h3>Dedicated Freight Corridors</h3>
+            <p>Scheduled lanes for predictable ETAs and repeat pricing.</p>
+            <ul><li>BC · AB · ON · CA</li><li>Lane pricing</li><li>Custom routing</li></ul>
+            <span class="sv-card__more">Details &rarr;</span>
+          </a>
+          <a class="sv-card" href="#partner">
+            <span class="sv-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="11" height="11" rx="1.5"/><path d="M13 9h5l3 3.5V16h-8"/><circle cx="6.5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+            <h3>Partner Straight Trucks</h3>
+            <p>Cangaroo Cartage’s 5 and 10 ton trucks, billed and tracked by Keylink.</p>
+            <ul><li>Railgates &amp; tailgates</li><li>Dry and reefer</li><li>Local and long haul</li></ul>
+            <span class="sv-card__more">Details &rarr;</span>
+          </a>
+          <a class="sv-card" href="#erp">
+            <span class="sv-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <h3>Live ERP Tracking</h3>
+            <p>A private link with live GPS, ETA and every document. No logins.</p>
+            <ul><li>Live GPS &amp; ETA</li><li>BOL &amp; POD in one place</li><li>Built in-house</li></ul>
+            <span class="sv-card__more">Details &rarr;</span>
           </a>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- FOOTER -->
+    <!-- 01 DRY VAN -->
+    <section class="sv-sec sv-detail" id="ftl" aria-labelledby="svFtl">
+      <div class="container sv-detail__grid">
+        <div class="sv-detail__text">
+          <p class="sv-num">01 <span>Core Service</span></p>
+          <h2 id="svFtl" class="sv-h2">Dry full truckload or LTL</h2>
+          <p class="sv-sub">53-foot dry vans for general cargo. Your load, your trailer, your timeline. No co-loading, no hand-offs, full accountability from dock to delivery.</p>
+          <dl class="sv-facts">
+            <div><dt>Trailer</dt><dd>53' dry van</dd></div>
+            <div><dt>Typical load</dt><dd>20–26 pallets</dd></div>
+            <div><dt>Mode</dt><dd>FTL or LTL</dd></div>
+          </dl>
+          <h3 class="sv-h3">What’s included</h3>
+          <ul class="sv-checks">
+            <li>Dedicated 53-foot dry van trailers</li>
+            <li>No co-loading. Your freight only</li>
+            <li>Full chain-of-custody documentation</li>
+            <li>Real-time shipment tracking</li>
+            <li>General cargo, packaged goods, equipment</li>
+            <li>Single or multiple drops</li>
+            <li>Live loading and unloading</li>
+            <li>Trailer drop and power only</li>
+            <li>Enterprise and SME pricing</li>
+          </ul>
+          <div class="sv-actions"><a href="contact.html" class="btn btn--gold">Request a Load</a><a href="contact.html#appointment" class="sv-link">Book Appointment &rarr;</a></div>
+        </div>
+        <figure class="sv-detail__media"><img src="assets/ftl-truck.webp" alt="Keylink 53-foot dry van at a dock with pallets loaded" loading="lazy" width="900" height="1100"></figure>
+      </div>
+    </section>
+
+    <!-- 02 REEFER -->
+    <section class="sv-sec sv-detail sv-detail--flip sv-tint" id="reefer" aria-labelledby="svReefer">
+      <div class="container sv-detail__grid">
+        <div class="sv-detail__text">
+          <p class="sv-num">02 <span>Temperature-Controlled</span></p>
+          <h2 id="svReefer" class="sv-h2">Reefer freight, kept in range</h2>
+          <p class="sv-sub">Insulated reefer units hold your load from frozen to chilled. Units are pre-cooled before loading, temperature is monitored digitally the whole trip, and any drift from the set range triggers an alert so dispatch can step in before product is at risk.</p>
+          <dl class="sv-facts">
+            <div><dt>Range</dt><dd>−25°C to +15°C</dd></div>
+            <div><dt>Monitoring</dt><dd>Continuous, digital</dd></div>
+            <div><dt>Drivers</dt><dd>FSMA-trained</dd></div>
+          </dl>
+          <h3 class="sv-h3">What’s included</h3>
+          <ul class="sv-checks">
+            <li>Pre-cooled trailers before loading</li>
+            <li>Continuous digital temperature monitoring</li>
+            <li>Live temperature readings during transit</li>
+            <li>Temperature and sanitization records per trip</li>
+            <li>FSMA-trained drivers</li>
+            <li>Expedited local seafood deliveries across BC</li>
+            <li>Produce, nursery stock, bakery and frozen food</li>
+          </ul>
+          <div class="sv-actions"><a href="contact.html" class="btn btn--gold">Request a Reefer Quote</a><a href="faq.html" class="sv-link">Reefer FAQ &rarr;</a></div>
+        </div>
+        <figure class="sv-temp" aria-label="Reefer temperature ranges">
+          <p class="sv-temp__title">Set points we hold</p>
+          <ul>
+            <li style="--a:0;--b:.175"><span>Frozen goods</span><strong>−18°C or colder</strong></li>
+            <li style="--a:.625;--b:.675"><span>Fresh seafood</span><strong>0–2°C</strong></li>
+            <li style="--a:.675;--b:.725"><span>Fresh produce</span><strong>2–4°C</strong></li>
+            <li style="--a:0;--b:1"><span>Full unit range</span><strong>−25°C to +15°C</strong></li>
+          </ul>
+          <p class="sv-temp__scale"><span>−25°C</span><span>0°C</span><span>+15°C</span></p>
+          <p class="sv-temp__note">Pre-cooled before loading · monitored continuously · alert on any drift</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 CROSS-BORDER -->
+    <section class="sv-sec sv-detail" id="crossborder" aria-labelledby="svCb">
+      <div class="container sv-detail__grid">
+        <div class="sv-detail__text">
+          <p class="sv-num">03 <span>Cross-Border</span></p>
+          <h2 id="svCb" class="sv-h2">Canada to USA cross-border</h2>
+          <p class="sv-sub">Licensed, insured and USDOT certified for border crossings. We handle the compliance paperwork so your freight does not stop at the line.</p>
+          <dl class="sv-facts">
+            <div><dt>USDOT</dt><dd>2832041</dd></div>
+            <div><dt>MC#</dt><dd>946449</dd></div>
+            <div><dt>Insurance</dt><dd>$750K BIPD ICBC</dd></div>
+          </dl>
+          <h3 class="sv-h3">What’s included</h3>
+          <ul class="sv-checks">
+            <li>Full customs documentation support</li>
+            <li>FAST and border-ready drivers</li>
+            <li>BC to Washington, Oregon, California, Idaho</li>
+            <li>Midwest and East Coast on request</li>
+            <li>Border events tracked in Keylink ERP</li>
+            <li>Dry or reefer equipment</li>
+          </ul>
+          <div class="sv-actions"><a href="contact.html" class="btn btn--gold">Request Cross-Border Quote</a><a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&amp;query_type=queryCarrierSnapshot&amp;query_param=USDOT&amp;query_string=2832041" class="sv-link" target="_blank" rel="noopener noreferrer">FMCSA profile &rarr;</a></div>
+        </div>
+        <figure class="sv-detail__media"><img src="assets/svc-crossborder-dusk.webp" alt="Truck approaching the Canada–USA border crossing at dusk" loading="lazy" width="1200" height="900"></figure>
+      </div>
+    </section>
+
+    <!-- 04 CORRIDORS -->
+    <section class="sv-sec sv-detail sv-detail--flip sv-tint" id="corridors" aria-labelledby="svCor">
+      <div class="container sv-detail__grid">
+        <div class="sv-detail__text">
+          <p class="sv-num">04 <span>Dedicated Routes</span></p>
+          <h2 id="svCor" class="sv-h2">Dedicated freight corridors</h2>
+          <p class="sv-sub">Regular lanes mean consistent pricing, familiar routes and fewer surprises. Our core corridors run BC to California and Alberta to Ontario on a reliable schedule.</p>
+          <ol class="sv-lanes">
+            <li><span>BC</span><span>Alberta</span><span>Saskatchewan</span><span>Ontario</span></li>
+            <li><span>BC</span><span>Washington</span><span>Oregon</span><span>California</span></li>
+            <li><span>Alberta</span><span>Manitoba</span><span>Ontario</span></li>
+          </ol>
+          <ul class="sv-checks">
+            <li>Regular schedules for predictable ETAs</li>
+            <li>Lane pricing for repeat shippers</li>
+            <li>Custom routing on request</li>
+          </ul>
+          <div class="sv-actions"><a href="contact.html" class="btn btn--gold">Check Your Corridor</a><a href="contact.html#appointment" class="sv-link">Book Appointment &rarr;</a></div>
+        </div>
+        <figure class="sv-detail__media sv-detail__media--map"><img src="assets/svc-corridors.webp" alt="Map of Keylink freight corridors across western Canada and the US west coast" loading="lazy" width="1200" height="900"></figure>
+      </div>
+    </section>
+
+    <!-- 05 PARTNER CARRIER -->
+    <section class="sv-sec sv-detail" id="partner" aria-labelledby="svPartner">
+      <div class="container sv-detail__grid">
+        <div class="sv-detail__text">
+          <p class="sv-num">05 <span>Keylink Partner Network</span></p>
+          <h2 id="svPartner" class="sv-h2">Straight trucks with our partner, Cangaroo Cartage</h2>
+          <p class="sv-sub">For loads that need a smaller truck, a railgate or a tight city delivery, our main partner carrier Cangaroo Cartage runs its own dry and reefer straight trucks out of Abbotsford, BC. Cangaroo runs the truck; Keylink handles the invoice and the tracking link.</p>
+          <dl class="sv-facts">
+            <div><dt>Trucks</dt><dd>5 &amp; 10 ton</dd></div>
+            <div><dt>Loading</dt><dd>Railgates &amp; tailgates</dd></div>
+            <div><dt>Freight</dt><dd>Dry &amp; reefer</dd></div>
+          </dl>
+          <h3 class="sv-h3">What’s included</h3>
+          <ul class="sv-checks">
+            <li>Produce and nursery stock</li>
+            <li>General freight and bulk dry goods</li>
+            <li>Local delivery and long haul</li>
+            <li>Billed by Keylink. No second carrier bill</li>
+            <li>Same live Keylink ERP tracking link</li>
+            <li>BOLs, PODs and invoices on one timeline</li>
+          </ul>
+          <div class="sv-actions"><a href="contact.html" class="btn btn--gold">Get a Quote</a><a href="partners.html" class="sv-link">About our partner network &rarr;</a></div>
+        </div>
+        <figure class="sv-detail__media">
+          <img src="assets/partners/cangaroo-fleet-row.webp" alt="Cangaroo Cartage reefer straight trucks lined up at a loading yard" loading="lazy" width="900" height="1100">
+          <figcaption class="sv-partner-tag"><img src="assets/partners/cangaroo-logo.webp" alt="" height="32" loading="lazy"><span><strong>Cangaroo Cartage Inc.</strong>Main partner carrier · Abbotsford, BC</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 06 ERP -->
+    <section class="sv-sec sv-detail sv-detail--flip sv-tint" id="erp" aria-labelledby="svErp">
+      <div class="container sv-detail__grid">
+        <div class="sv-detail__text">
+          <p class="sv-num">06 <span>Live Visibility</span></p>
+          <h2 id="svErp" class="sv-h2">In-house ERP tracking on every load</h2>
+          <p class="sv-sub">Dispatch, drivers and accounting run on one system, and you follow every shipment from pickup to proof of delivery with a secure link from your booking confirmation. No accounts, no passwords, no portal logins.</p>
+          <ul class="sv-checks">
+            <li>Live shipment status from dispatch to delivery</li>
+            <li>Live GPS and ETA at every milestone</li>
+            <li>BOLs, POD signatures and invoices in one place</li>
+            <li>Cleaner exception tracking for delays and border events</li>
+            <li>Partner loads on the same timeline</li>
+            <li>Built in-house around Keylink operations</li>
+          </ul>
+          <div class="sv-actions"><a href="contact.html" class="btn btn--gold">See It On Your Next Shipment</a></div>
+        </div>
+        <figure class="sv-detail__media sv-detail__media--map"><img src="assets/svc-erp.webp" alt="Keylink ERP load view with live milestones and route map" loading="lazy" width="1200" height="900"></figure>
+      </div>
+    </section>
+
+    <!-- ADD-ON SERVICES -->
+    <section class="sv-sec" aria-labelledby="svAddons">
+      <div class="container">
+        <div class="sv-head">
+          <p class="sv-eyebrow">On Every Booking</p>
+          <h2 id="svAddons" class="sv-h2">Options you can add to a load</h2>
+        </div>
+        <ul class="sv-addons">
+          <li><strong>Single or multiple drops</strong><span>One delivery or a planned multi-stop run.</span></li>
+          <li><strong>Live loading and unloading</strong><span>Driver stays while your team loads or unloads.</span></li>
+          <li><strong>Trailer drop</strong><span>Leave a trailer at your dock to load on your schedule.</span></li>
+          <li><strong>Power only</strong><span>Our tractor and driver for your trailer.</span></li>
+          <li><strong>Customs documentation</strong><span>Border paperwork prepared and checked.</span></li>
+          <li><strong>Temperature records</strong><span>Trip records for compliance and quality checks.</span></li>
+          <li><strong>Lane pricing</strong><span>Steady rates for repeat shippers on regular lanes.</span></li>
+          <li><strong>Commercial accounts</strong><span>Net 30 terms for qualified businesses, EFT or card.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EQUIPMENT TABLE -->
+    <section class="sv-sec sv-tint" aria-labelledby="svEquip">
+      <div class="container">
+        <div class="sv-head">
+          <p class="sv-eyebrow">Equipment</p>
+          <h2 id="svEquip" class="sv-h2">Pick the right truck for the load</h2>
+        </div>
+        <div class="sv-table-wrap" role="region" aria-labelledby="svEquip" tabindex="0">
+          <table class="sv-table">
+            <thead><tr><th scope="col"></th><th scope="col">53' Dry Van</th><th scope="col">53' Reefer</th><th scope="col">5 &amp; 10 Ton Straight Truck</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Best for</th><td>General cargo, packaged goods, equipment</td><td>Produce, seafood, frozen and nursery stock</td><td>Smaller loads, city and railgate deliveries</td></tr>
+              <tr><th scope="row">Capacity</th><td>20–26 pallets</td><td>53' reefer trailer</td><td>5 or 10 ton</td></tr>
+              <tr><th scope="row">Temperature</th><td>Dry</td><td>−25°C to +15°C</td><td>Dry or reefer</td></tr>
+              <tr><th scope="row">Cross-border</th><td>Yes</td><td>Yes</td><td>Ask dispatch</td></tr>
+              <tr><th scope="row">Run by</th><td>Keylink</td><td>Keylink</td><td>Cangaroo Cartage (partner)</td></tr>
+              <tr><th scope="row">Billing &amp; tracking</th><td colspan="3">One Keylink invoice and one live Keylink ERP tracking link</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREIGHT WE MOVE -->
+    <section class="sv-sec" aria-labelledby="svFreight">
+      <div class="container sv-freight">
+        <div>
+          <p class="sv-eyebrow">15 Years of Accumulated Experience</p>
+          <h2 id="svFreight" class="sv-h2">Freight we move</h2>
+          <p class="sv-sub">We’ve moved produce from BC to California and Arizona, delivered fresh fish to downtown markets, and hauled nursery products to Home Depot, Walmart and Costco across Canada and the USA. Whatever the load, we’ve run the route.</p>
+        </div>
+        <ul class="sv-chips">
+          <li>Nursery Products</li><li>Fresh Produce</li><li>Fresh Berries</li><li>Fresh Fish &amp; Seafood</li><li>Fresh Frozen Food</li><li>Bakery Goods</li><li>Trees &amp; Cedar</li><li>Lumber</li><li>Packaged Goods</li><li>Equipment</li><li>Bulk Dry Goods</li><li>Freight All Kinds</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="sv-sec sv-tint" aria-labelledby="svHow">
+      <div class="container">
+        <div class="sv-head">
+          <p class="sv-eyebrow">How It Works</p>
+          <h2 id="svHow" class="sv-h2">From quote to delivery in 5 steps</h2>
+        </div>
+        <ol class="sv-steps">
+          <li><span class="sv-steps__n">1</span><strong>Request a quote</strong><p>Origin, destination and cargo details. No long forms.</p></li>
+          <li><span class="sv-steps__n">2</span><strong>Same-day reply</strong><p>A clear, all-inclusive rate within 24 hours.</p></li>
+          <li><span class="sv-steps__n">3</span><strong>Dispatch plans it</strong><p>Route, qualified driver and pickup time locked in.</p></li>
+          <li><span class="sv-steps__n">4</span><strong>Loaded and tracked</strong><p>Picked up on schedule, live tracking from the doors closing.</p></li>
+          <li><span class="sv-steps__n">5</span><strong>Delivered</strong><p>POD documented and invoice sent. Done.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sv-sec" aria-labelledby="svFaq">
+      <div class="container sv-faq">
+        <div class="sv-head">
+          <p class="sv-eyebrow">FAQ</p>
+          <h2 id="svFaq" class="sv-h2">Service questions, answered</h2>
+          <p class="sv-sub">More in our <a href="faq.html">full FAQ</a>, or call dispatch at <a href="tel:+17786663626">778-666-3626</a>.</p>
+        </div>
+        <div class="sv-faq__list">
+          <details><summary>What types of freight can you haul?</summary><p>General dry freight, perishable goods, refrigerated cargo, fresh and frozen seafood, produce and temperature-sensitive shipments, including time-sensitive deliveries and cargo that needs precise handling.</p></details>
+          <details><summary>What is included in the quoted price?</summary><p>Quotes are all-inclusive: carrier fees, fuel surcharges and standard handling. Anything extra, like after-hours delivery or special handling, is itemized upfront before you commit.</p></details>
+          <details><summary>How long is a quote valid?</summary><p>7 days from the date issued. After that we refresh it quickly, and regular shippers can set up rate agreements for more stability.</p></details>
+          <details><summary>Who bills me when Cangaroo Cartage hauls my load?</summary><p>Keylink Transport does. You book with Keylink and Keylink invoices the load, the same as every Keylink shipment. There is no separate bill from Cangaroo Cartage.</p></details>
+          <details><summary>What does tracking show?</summary><p>Live location, estimated delivery window and milestones, plus live temperature readings for refrigerated cargo. Dispatch tells you early if anything changes.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sv-cta" aria-labelledby="svCta">
+      <div class="container sv-cta__inner">
+        <div>
+          <h2 id="svCta" class="sv-cta__title">Ready to ship?</h2>
+          <p>Get a quote within one business day. No hidden fees.</p>
+        </div>
+        <div class="sv-cta__actions">
+          <a href="contact.html" class="btn btn--gold">Book a Load &rarr;</a>
+          <a href="contact.html#appointment" class="sv-btn-outline sv-btn-outline--dark">Book Appointment</a>
+          <a href="tel:+17786663626" class="sv-cta__phone">778-666-3626</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__grid">
@@ -926,79 +581,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js?v=13" defer></script>
 
-  <!-- ================================================================
-       SERVICE NAV — scroll-spy + smooth scroll
-       ================================================================ -->
-  <script>
-  (function () {
-    'use strict';
-
-    const mainNav = document.getElementById('mainNav');
-    const svcNav  = document.getElementById('svcNav');
-    if (!mainNav || !svcNav) return;
-
-    const inner = svcNav.querySelector('.svc-nav__inner');
-    const tabs  = Array.prototype.slice.call(svcNav.querySelectorAll('.svc-tab'));
-    const ids   = ['ftl', 'crossborder', 'corridors', 'erp'];
-    const sections = ids.map(id => document.getElementById(id));
-
-    /* Keep --nav-h in sync with the real (fixed) nav height */
-    function syncNavHeight() {
-      document.documentElement.style.setProperty('--nav-h', Math.round(mainNav.getBoundingClientRect().height) + 'px');
-    }
-    syncNavHeight();
-    window.addEventListener('resize', syncNavHeight, { passive: true });
-
-    let current = -1;
-    function setActive(i) {
-      if (i === current) return;
-      current = i;
-      tabs.forEach((t, idx) => t.classList.toggle('is-active', idx === i));
-      /* keep the active pill in view when the nav scrolls horizontally (mobile) */
-      const at = tabs[i];
-      if (at && inner.scrollWidth > inner.clientWidth + 4) {
-        const want = at.offsetLeft - (inner.clientWidth - at.offsetWidth) / 2;
-        inner.scrollTo({ left: Math.max(0, want), behavior: 'smooth' });
-      }
-    }
-
-    function onScroll() {
-      const offset = mainNav.getBoundingClientRect().height + svcNav.getBoundingClientRect().height + 24;
-      let best = 0;
-      sections.forEach((sec, i) => {
-        if (sec && sec.getBoundingClientRect().top <= offset) best = i;
-      });
-      setActive(best);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    tabs.forEach((tab, i) => {
-      tab.addEventListener('click', e => {
-        const target = sections[i];
-        if (!target) return;
-        e.preventDefault();
-        const off = mainNav.getBoundingClientRect().height + svcNav.getBoundingClientRect().height;
-        const top = target.getBoundingClientRect().top + window.scrollY - off + 2;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-      });
-    });
-  })();
-  </script>
-  <script>
-    (function () {
-      var track = document.querySelector('.logo-marquee-track');
-      if (!track) return;
-      var original = Array.from(track.children);
-      var setWidth = track.scrollWidth;
-      while (track.scrollWidth < window.innerWidth * 3) {
-        original.forEach(function (item) { track.appendChild(item.cloneNode(true)); });
-      }
-      var s = document.createElement('style');
-      s.textContent = '@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-' + setWidth + 'px)}}';
-      document.head.appendChild(s);
-    })();
-  </script>
+  <script src="js/services-page.js?v=1" defer></script>
 
   <!-- Floating CTA -->
   <div class="floating-cta" id="floatingCTA">

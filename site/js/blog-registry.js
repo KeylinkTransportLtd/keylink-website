@@ -7,6 +7,17 @@
 
 window.KEYLINK_POSTS = [
   {
+    slug: 'blog/canada-budget-2026-trucking-diesel-tax-dates.html',
+    title: "Three Dates on the Diesel Bill: What Budget 2026 Changes for Canadian Trucking, and How Keylink Is Planning Around It",
+    summary: "Budget 2026 confirmed a permanent 100 percent write-off for new equipment, Canada's diesel excise holiday to January 31, new border technology money and a harder line on Driver Inc. Washington's diesel tax deferral ends December 31. What it does to Canadian trucking in 2027, and what shippers should do before January.",
+    category: 'Industry',
+    date: '2026-11-19',
+    dateLabel: 'November 19, 2026',
+    image: '/assets/budget-2026-diesel-dates-banner.png',
+    imageAlt: 'Keylink Transport budget watch banner: Three Dates on the Diesel Bill, with a rain-soaked diesel pump nozzle at a British Columbia fuel island at dusk and the December 31, January 31 and April 1 diesel tax dates',
+    featured: true,
+  },
+  {
     slug: 'blog/us-section-338-tariff-list-change-october-30-2026.html',
     title: "22 Off, 100 On: The October 30 Tariff Swap and the Loads That Should Wait for Friday",
     summary: "Washington's October 23 proclamation takes 22 Canadian products off the US 50 percent Section 338 list and adds 100, from carpets and paint to wooden crates and labels, effective 12:01 a.m. Eastern October 30, which is 9:01 p.m. Pacific on Thursday. What comes off, what goes on, and which loads should hurry or wait.",

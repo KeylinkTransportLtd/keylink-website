@@ -32,6 +32,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=UnifrakturCook:wght@700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="css/main.css?v=57">
+  <link rel="stylesheet" href="css/blog-index.css?v=1">
   <noscript><link rel="stylesheet" href="css/main.css?v=57"></noscript>
   <link rel="alternate" type="application/rss+xml" title="Keylink Transport Blog" href="rss.xml">
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -110,91 +111,56 @@
   </div>
 
   <!-- ======= BLOG CONTENT ======= -->
-  <main class="blog-page">
+  <main class="blog-page bp bp--light">
 
-    <!-- Header -->
-    <header class="blog-header" style="background:transparent;">
-
-      <div class="blog-header__overlay" aria-hidden="true"></div>
-
-      <!-- Two-column magazine hero (carousel of latest 3 posts) -->
-      <div class="blog-hero container" id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="Latest blog posts">
-
-        <!-- Left: branding + active post headline (fades together with image) -->
-        <div class="blog-hero__left">
-          <div class="blog-hero__eyebrow blog-hero__eyebrow--masthead">
-            <span>Blog</span>
-          </div>
-          <div class="blog-hero__left-content" id="heroLeftContent">
-            <h1 class="blog-hero__headline" id="heroHeadline">
-              <span style="color:#fff;">Freight Insights &amp;</span><br>
-              <span style="background:linear-gradient(180deg,#b2ece8 0%,#3dbdbd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Industry News</span>
+    <!-- Masthead: title + search on one row, categories under it -->
+    <header class="bp-head">
+      <div class="container">
+        <div class="bp-head__row">
+          <div class="bp-head__text">
+            <div class="blog-hero__eyebrow blog-hero__eyebrow--masthead"><span>Blog</span></div>
+            <h1 class="blog-hero__headline bp-head__title">
+              <span class="bp-t1">Freight Insights &amp;</span>
+              <span class="bp-t2">Industry News</span>
             </h1>
-            <p class="blog-hero__sub" id="heroSub">Freight insights, logistics tips, and news from the road.</p>
+            <p class="bp-head__sub">Freight insights, logistics tips, and news from the road.</p>
+          </div>
+          <div class="blog-header__search bp-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="search" id="blogSearch" placeholder="Search articles..." aria-label="Search blog articles">
           </div>
         </div>
-
-        <!-- Right: active post image + info card -->
-        <div class="blog-hero__right">
-          <a class="blog-hero__feature" id="heroFeature" href="#">
-            <div class="blog-hero__img-wrap">
-              <img class="blog-hero__img" id="heroImg" src="" alt="" loading="eager">
-            </div>
-            <div class="blog-hero__info">
-              <span class="blog-hero__cat" id="heroCat"></span>
-              <span class="blog-hero__fdate" id="heroFDate"></span>
-            </div>
-          </a>
-
-          <!-- Carousel controls: chevrons + dots -->
-          <div class="blog-hero__controls" id="heroControls" aria-hidden="false">
-            <button type="button" class="blog-hero__chev blog-hero__chev--prev" id="heroPrev" aria-label="Previous featured post">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <div class="blog-hero__dots" id="heroDots" role="tablist" aria-label="Featured post slides"></div>
-            <button type="button" class="blog-hero__chev blog-hero__chev--next" id="heroNext" aria-label="Next featured post">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-          </div>
-        </div>
-
+        <div class="blog-tabs bp-tabs" role="tablist" aria-label="Filter by category"></div>
       </div>
-
     </header>
 
-    <!-- Search + Tabs -->
-    <div class="blog-header__controls">
+    <!-- Latest: one lead story + two side stories (no carousel, no repeats) -->
+    <section class="bp-latest" aria-labelledby="bpLatestTitle">
       <div class="container">
-        <div class="blog-header__search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-          <input type="text" id="blogSearch" placeholder="Search articles..." aria-label="Search blog articles">
-        </div>
-        <div class="blog-tabs" role="tablist">
-          <button class="blog-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
-        </div>
+        <h2 class="visually-hidden" id="bpLatestTitle">Latest articles</h2>
+        <div class="bp-latest__grid" id="bpLatest"></div>
       </div>
-    </div>
+    </section>
 
-    <!-- Blog Grid -->
-    <section class="blog-grid-section">
+    <!-- All articles -->
+    <section class="blog-grid-section bp-all">
       <div class="container">
-
         <div class="blog-grid-section__header">
-          <h2 class="blog-section__label">Latest Blogs</h2>
-          <span class="blog-section__count" aria-label="Total articles"><strong>33</strong> Articles</span>
+          <h2 class="blog-section__label" id="bpAllTitle">All Articles</h2>
+          <span class="blog-section__count" aria-live="polite"></span>
         </div>
 
-        <div class="blog-grid" id="blogGrid">
-          <!-- Cards rendered dynamically from js/blog-registry.js -->
+        <div class="bp-grid" id="blogGrid"></div>
+
+        <div class="bp-more">
+          <button type="button" class="btn btn--ghost bp-more__btn" id="bpMore">Show more articles</button>
         </div>
 
-        <!-- No results -->
-        <div class="blog-empty" id="blogEmpty" style="display:none;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <div class="blog-empty" id="blogEmpty" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
           <p>No articles match your search.</p>
           <button class="btn btn--ghost" id="blogClearSearch">Clear filters</button>
         </div>
-
       </div>
     </section>
 
@@ -321,6 +287,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js?v=13" defer></script>
   <script src="js/blog-registry.js?v=40"></script>
-  <script src="js/blog.js?v=12" defer></script>
+  <script src="js/blog.js?v=13" defer></script>
 </body>
 </html>

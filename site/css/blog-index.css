@@ -1,0 +1,161 @@
+/* Blog index page (blog.html): white page, compact masthead + search, category chips with counts,
+   latest 3 posts, then all articles in pages of 12. Approved by the owner 2026-11-19. Loaded only on blog.html. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Masthead: compact, title left, search right */
+.bp-head { padding: 132px 0 8px; position: relative; z-index: 2; }
+.bp-head__row { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+.bp-head__text { max-width: 640px; }
+.bp-head .blog-hero__eyebrow--masthead { font-size: clamp(2.8rem, 5vw, 4.2rem); margin-bottom: 14px; }
+.bp-head__title { margin-bottom: 10px; }
+.bp-head__title span { display: inline; }
+.bp-head__sub { color: var(--cloud); opacity: .6; font-size: 1rem; margin: 0; }
+.bp-search { margin: 0 0 6px; width: min(380px, 100%); flex: none; }
+.bp-search input { -webkit-appearance: none; appearance: none; }
+
+/* Category chips with counts, left aligned under the title */
+.bp-tabs { justify-content: flex-start; padding: 28px 0 0; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.07); }
+.bp-tabs .blog-tab { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; }
+.bp-tabs .blog-tab .n { font-size: .74rem; opacity: .6; font-variant-numeric: tabular-nums; }
+
+/* Latest: one lead story + two side stories */
+.bp-latest { padding: 36px 0 8px; position: relative; z-index: 2; }
+.bp-latest__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+.bp-latest__grid .blog-post { grid-column: 9 / 13; grid-row: auto; }
+.bp-latest__grid .blog-post--featured { grid-column: 1 / 9; grid-row: 1 / 3; }
+.bp-latest__grid .blog-post:nth-child(2) { grid-row: 1; }
+.bp-latest__grid .blog-post:nth-child(3) { grid-row: 2; }
+
+/* All articles: even 3-column grid, titles clamped so rows line up */
+.bp-all { padding-top: 48px; }
+.bp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.bp-grid .blog-post { grid-column: auto !important; grid-row: auto !important; }
+.bp-grid .blog-post__title, .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__title {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden;
+}
+.bp-more { display: flex; justify-content: center; margin-top: 36px; }
+.bp-more__btn { min-width: 240px; }
+.bp-more[hidden] { display: none; }
+.blog-empty[hidden] { display: none; }
+
+@media (max-width: 1024px) {
+  .bp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .blog-page.bp { padding-top: 0; }
+  .bp-head { padding: 96px 0 0; }
+  .bp-head__row { flex-direction: column; align-items: stretch; gap: 18px; }
+  .bp-head .blog-hero__eyebrow--masthead { font-size: clamp(2.6rem, 11vw, 3.4rem); margin-bottom: 10px; }
+  .bp-head__title { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  .bp-search { width: 100%; margin: 0; }
+  /* chips scroll sideways in one row, edges fade out */
+  .bp-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 18px -16px 0; padding: 16px 16px 2px;
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+  .bp-tabs::-webkit-scrollbar { display: none; }
+  .bp-tabs .blog-tab { flex: none; padding: 8px 16px; }
+
+  .bp-latest { padding-top: 20px; }
+  .bp-latest__grid { grid-template-columns: 1fr; gap: 12px; }
+  .bp-latest__grid .blog-post, .bp-latest__grid .blog-post--featured,
+  .bp-latest__grid .blog-post:nth-child(2), .bp-latest__grid .blog-post:nth-child(3) { grid-column: 1; grid-row: auto; }
+  .bp-latest__grid .blog-post--featured .blog-post__excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+
+  .bp-all { padding-top: 28px; }
+  .bp-grid { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Phone: side stories + all articles become compact rows (thumbnail left, title right) */
+  .bp-grid .blog-post .blog-post__link,
+  .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__link {
+    display: grid; grid-template-columns: 132px 1fr; align-items: center; gap: 0;
+  }
+  .bp-grid .blog-post .blog-post__img,
+  .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__img { aspect-ratio: auto; width: 132px; height: 100%; min-height: 92px; }
+  .bp-grid .blog-post .blog-post__img img,
+  .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__img img { object-position: left center; } /* banner headline sits on the left */
+  .bp-grid .blog-post .blog-post__img picture,
+  .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__img picture { display: block; height: 100%; }
+  .bp-grid .blog-post .blog-post__body,
+  .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__body { padding: 10px 14px; }
+  .bp-grid .blog-post .blog-post__cat,
+  .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__cat { margin-bottom: 5px; font-size: .58rem; }
+  .bp-grid .blog-post .blog-post__title,
+  .bp-latest__grid .blog-post:not(.blog-post--featured) .blog-post__title { font-size: .86rem; margin-bottom: 4px; }
+  .bp-grid .blog-post, .bp-latest__grid .blog-post { border-radius: 16px; }
+  .bp-more__btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bp .blog-post, .bp .blog-post__img img { transition: none; }
+}
+
+/* ===== White page variant (owner 2026-11-19: "make the page white, less dependent on the blue") =====
+   Nav and footer stay as they are site-wide. Gold stays the one CTA colour, teal the link/accent. */
+body:has(.bp--light) { background: #fff; }
+.bp--light {
+  --ink: #14181f; --ink-2: #4b5563; --ink-3: #5f6672; --line: rgba(0,0,0,0.08);
+  background: #fff; color: var(--ink);
+}
+.bp--light .bp-head .blog-hero__eyebrow--masthead { color: var(--ink); }
+.bp--light .bp-head .blog-hero__eyebrow--masthead > span::after { background: rgba(0,0,0,0.75); }
+.bp--light .bp-t1 { color: var(--ink); }
+.bp--light .bp-t2 { color: #1a7b6e; }
+.bp--light .bp-head__sub { color: var(--ink-2); opacity: 1; }
+
+.bp--light .blog-header__search input {
+  background: #f3f4f6; border: 1px solid var(--line); color: var(--ink);
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.bp--light .blog-header__search input::placeholder { color: var(--ink-3); }
+.bp--light .blog-header__search input:focus { background: #fff; border-color: rgba(240,168,32,0.7); box-shadow: 0 0 0 3px rgba(240,168,32,0.18); }
+.bp--light .blog-header__search svg { color: var(--ink-3); }
+
+.bp--light .bp-tabs { border-top-color: var(--line); }
+.bp--light .blog-tab { background: #f3f4f6; border-color: transparent; color: #374151; backdrop-filter: none; -webkit-backdrop-filter: none; }
+@media (hover: hover) { .bp--light .blog-tab:hover { background: #e5e7eb; color: var(--ink); border-color: transparent; } }
+.bp--light .blog-tab.active { background: var(--ink); border-color: var(--ink); color: #fff; box-shadow: none; }
+
+/* Cards: white, hairline border, soft shadow, no glass */
+.bp--light .blog-post {
+  background: #fff; border: 1px solid var(--line);
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 8px 24px rgba(16,24,40,0.06);
+}
+.bp--light .blog-post::before { display: none; }
+@media (hover: hover) {
+  .bp--light .blog-post:hover { border-color: rgba(0,0,0,0.14); box-shadow: 0 2px 4px rgba(16,24,40,0.05), 0 16px 40px rgba(16,24,40,0.10); }
+}
+.bp--light .blog-post__title { color: var(--ink); }
+.bp--light .blog-post:hover .blog-post__title { color: #1a7b6e; }
+.bp--light .blog-post__excerpt { color: var(--ink-2); opacity: 1; }
+.bp--light .blog-post__date { color: #1a7b6e; }
+/* Badges: same hues, darker text so they pass contrast on white */
+.bp--light .blog-post__cat--industry  { background: #fef3dc; color: #8a5a00; border-color: rgba(240,168,32,0.35); }
+.bp--light .blog-post__cat--logistics { background: #e3f4f1; color: #146157; border-color: rgba(26,123,110,0.25); }
+.bp--light .blog-post__cat--safety    { background: #fdecec; color: #b42318; border-color: rgba(180,35,24,0.2); }
+.bp--light .blog-post__cat--company   { background: #eef0ff; color: #4338ca; border-color: rgba(67,56,202,0.2); }
+.bp--light .blog-post__cat--tips      { background: #e7f7ee; color: #157f3d; border-color: rgba(21,127,61,0.2); }
+
+.bp--light .blog-grid-section__header { border-bottom-color: var(--line); }
+.bp--light .blog-section__label { color: var(--ink); }
+.bp--light .blog-section__count { color: #8a5a00; background: #fef3dc; border-color: rgba(240,168,32,0.45); box-shadow: none; }
+
+.bp--light .bp-more__btn { background: #fff; color: var(--ink); border: 1px solid rgba(0,0,0,0.15); box-shadow: 0 1px 2px rgba(16,24,40,0.05); }
+@media (hover: hover) { .bp--light .bp-more__btn:hover { background: #f9fafb; color: var(--ink); border-color: rgba(0,0,0,0.25); box-shadow: 0 4px 12px rgba(16,24,40,0.08); } }
+.bp--light .blog-empty, .bp--light .blog-empty p { color: var(--ink-2); }
+
+/* Newsletter: warm off-white card, gold edge, gold button unchanged */
+.bp--light .blog-newsletter__inner {
+  background: #fbf8f1; border: 1px solid rgba(240,168,32,0.35);
+  backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none;
+}
+.bp--light .blog-newsletter__inner::before, .bp--light .blog-newsletter__inner::after { display: none; }
+.bp--light .blog-newsletter__title { color: var(--ink); }
+.bp--light .blog-newsletter__text p { color: var(--ink-2); opacity: 1; }
+.bp--light .blog-newsletter__form input { background: #fff; border: 1px solid rgba(0,0,0,0.12); color: var(--ink); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.bp--light .blog-newsletter__form input::placeholder { color: var(--ink-3); }
+.bp--light .blog-section__count strong { color: #8a5a00; }
+/* Gold button on white: the site's see-through gold washes out on white, so make it solid with dark text (contrast) */
+.bp--light .btn--gold { background: linear-gradient(135deg, #ffb928 0%, #f0940a 100%); color: var(--ink); text-shadow: none; border-color: rgba(200,120,0,0.35); box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 6px 18px rgba(240,148,10,0.25); }
+/* Nav glass turns grey over white; keep it the same near-black it shows on the dark pages */
+body:has(.bp--light) .nav { background: rgba(8, 12, 22, 0.96); }

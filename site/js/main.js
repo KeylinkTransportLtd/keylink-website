@@ -394,6 +394,14 @@
       }
     }
 
+    // Phone: the collapsed tab would sit over the hero stats, so it steps aside
+    // while the hero is on screen (CSS: html.kl-in-hero).
+    if (svhSection && 'IntersectionObserver' in window) {
+      new IntersectionObserver(e => {
+        document.documentElement.classList.toggle('kl-in-hero', e[0].intersectionRatio >= 0.15);
+      }, { threshold: [0, 0.15] }).observe(svhSection);
+    }
+
     if (svhSection) {
       function onHeroScroll() {
         if (window.scrollY >= svhSection.offsetHeight - window.innerHeight) {

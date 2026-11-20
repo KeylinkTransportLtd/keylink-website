@@ -9326,3 +9326,46 @@ body .faq-strip, .careers-strip:not(.pn-home) { padding-top: var(--kl-strip-y); 
   .nav__mobile.open .nav__mobile-links a, .nav__mobile.open .nav__mobile-book, .nav__mobile.open .nav__mobile-footer { animation: none; }
   #mobileClose, .nav__mobile.open #mobileClose { opacity: 1; filter: none; transform: none; transition: none; }
 }
+
+/* ===== PHONE HOME HERO (owner pick 2026-11-19, Option B "photo card"):
+   solid dark background, headline first, the truck video in a rounded card,
+   then copy, gold quote button + outline appointment button, stats in one row. ===== */
+@media (max-width: 768px) {
+  .svh__stat-label { white-space: normal; }
+  .svh__stat-num { font-variant-numeric: tabular-nums; }
+  /* One floating layer: the "New office" tab steps aside while the hero is on screen */
+  .office-banner { transition: opacity .2s cubic-bezier(0.23,1,0.32,1), transform .2s cubic-bezier(0.23,1,0.32,1); }
+  html.kl-in-hero .office-banner.collapsed { opacity: 0; transform: translateX(-16px); pointer-events: none; }
+}
+@media (max-width: 768px) {
+  .svh__sticky { background: #080d18 !important; justify-content: flex-start; padding-top: 96px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 28px); }
+  .svh__sticky::before { display: none; }
+  .svh__overlay-top { order: 1; }
+  .svh__status { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; padding: 7px 14px 7px 11px; margin-bottom: 14px; }
+  .svh__status-dot { width: 8px; height: 8px; }
+  .svh__status-text { color: #fff; font-size: 0.72rem; letter-spacing: 0.14em; }
+  .svh__title { color: #fff; font-size: clamp(2.6rem, 13vw, 3.4rem); line-height: 0.95; margin-bottom: 0; }
+  .svh__title em { color: #7fe0d4; }
+  .svh__video {
+    order: 2; position: relative; inset: auto; z-index: 1; flex: none;
+    width: 100%; height: auto; max-height: none; aspect-ratio: 16 / 10;
+    object-fit: cover; object-position: 70% 60%;
+    margin: 18px 0 20px; border-radius: 22px; outline: 1px solid rgba(255,255,255,0.08); outline-offset: -1px;
+    animation: hbCard 0.9s cubic-bezier(0.32,0.72,0,1) 0.25s backwards;
+  }
+  .svh__overlay-bottom { order: 3; }
+  .svh__sub { color: rgba(255,255,255,0.78); font-size: 0.98rem; font-weight: 400; line-height: 1.55; text-shadow: none; margin-bottom: 18px; }
+  .svh__actions { gap: 10px; }
+  .svh__actions .btn { min-height: 50px; border-radius: 999px; font-size: 0.86rem; transition: transform .16s cubic-bezier(0.23,1,0.32,1); }
+  .svh__actions .btn:active { transform: scale(0.97); }
+  .svh__actions .btn--gold { order: -1; background: linear-gradient(135deg, #ffb928 0%, #f0940a 100%); color: #14181f; border-color: transparent; text-shadow: none; box-shadow: 0 8px 24px rgba(240,148,10,0.25); }
+  .svh__actions .btn--teal { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.26); box-shadow: none; }
+  .svh__link { display: none; }
+  .svh__stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 22px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .svh__stat-divider { display: none; }
+  .svh__stat, .svh__stat:first-child { padding: 0 6px 0 0; gap: 4px; }
+  .svh__stat-num { font-size: 1.3rem; }
+  .svh__stat-label { font-size: 0.62rem; line-height: 1.3; color: rgba(255,255,255,0.62); }
+}
+@keyframes hbCard { from { opacity: 0; transform: scale(0.97); clip-path: inset(6% 4% round 22px); } to { opacity: 1; transform: none; clip-path: inset(0 round 22px); } }
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) { .svh__video { animation: none; } }

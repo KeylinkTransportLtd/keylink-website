@@ -204,3 +204,19 @@ body:has(.sv) .nav { background: rgba(8, 12, 22, 0.96); }
   .sv-js .sv-reveal { opacity: 1; transform: none; transition: none; }
   .sv *, .sv *::after { transition: none !important; }
 }
+
+/* Phone hero (owner pick 2026-11-19, Option A): the truck photo becomes the hero background behind the title, dark fade for contrast */
+@media (max-width: 768px) {
+  .sv-hero { padding-top: 0; }
+  .sv-hero__grid { position: relative; isolation: isolate; padding: calc(var(--nav-h, 76px) + 40px) var(--kl-gutter, 16px) 36px; min-height: 88svh; align-content: end; gap: 0; }
+  .sv-hero__media { position: absolute; inset: 0; z-index: -1; border-radius: 0 0 24px 24px; aspect-ratio: auto; box-shadow: none; }
+  .sv-hero__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(in oklch to bottom, rgba(8,12,22,0.35) 0%, rgba(8,12,22,0.25) 30%, rgba(8,12,22,0.82) 70%, rgba(8,12,22,0.92) 100%); }
+  .sv-hero__badge { display: none; }
+  .sv-hero .sv-eyebrow { color: #7fe0d4; }
+  .sv-hero__title { color: #fff; }
+  .sv-hero__title span { color: #7fe0d4; }
+  .sv-hero__lead { color: rgba(255,255,255,0.86); font-size: 1.02rem; }
+  .sv-hero__actions .sv-btn-outline { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.4); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .sv-hero__phone { color: rgba(255,255,255,0.75) !important; }
+  .sv-hero__phone strong { color: #fff; }
+}

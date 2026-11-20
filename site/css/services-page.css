@@ -48,7 +48,7 @@ body:has(.sv) .nav { background: rgba(8, 12, 22, 0.96); }
 .sv-hero__badge { position: absolute; left: 16px; bottom: 16px; background: rgba(255,255,255,0.94); border-radius: 12px; padding: 12px 16px; display: grid; gap: 2px; box-shadow: 0 8px 24px rgba(16,24,40,0.16); }
 .sv-hero__badge strong { font-size: .9rem; color: var(--ink); }
 .sv-hero__badge span { font-size: .8rem; color: var(--ink-2); }
-.sv-trust { list-style: none; margin: 56px 0 0; padding: 22px 0; display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sv-trust { list-style: none; margin: 56px 0 0; padding: 22px 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .sv-trust li { display: grid; gap: 4px; align-content: space-between; padding: 0 20px; border-left: 1px solid var(--line); }
 .sv-trust li:first-child { border-left: 0; padding-left: 0; }
 .sv-trust__k { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
@@ -185,7 +185,6 @@ body:has(.sv) .nav { background: rgba(8, 12, 22, 0.96); }
   .sv-trust { grid-template-columns: repeat(2, 1fr); gap: 18px 0; margin-top: 36px; }
   .sv-trust li { padding: 0 16px; }
   .sv-trust li:nth-child(odd) { border-left: 0; padding-left: 0; }
-  .sv-trust li:last-child { grid-column: 1 / -1; border-left: 0; padding-left: 0; }
   .sv-nav { margin-top: 28px; }
   .sv-cards, .sv-addons, .sv-steps { grid-template-columns: 1fr; }
   .sv-card { padding: 22px; }

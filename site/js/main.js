@@ -709,9 +709,12 @@
       window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
     }
 
-    // Re-refresh on resize
-    let resizeTimer;
+    // Re-refresh on resize. Width only: iPhone Safari fires resize every time its toolbar
+    // shows or hides, and a refresh mid-scroll makes the page jump (iPhone report 2026-11-20)
+    let resizeTimer, lastW = window.innerWidth;
     window.addEventListener('resize', () => {
+      if (window.innerWidth === lastW) return;
+      lastW = window.innerWidth;
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 150);
     });

@@ -226,18 +226,30 @@
   #live-visibility .erp-feature__icon { border-radius: 12px; }
   #live-visibility .erp-cta-row .btn { min-height: 50px; border-radius: 14px; }
 
-  /* ---------- 07 partners (white) ---------- */
-  #home-partners .pn-home__inner { gap: 20px; }
-  #home-partners .pn-home__content { text-align: left; align-items: flex-start; }
-  #home-partners .pn-home__title { text-align: left; }
-  #home-partners .pn-home__sub { text-align: left; }
-  #home-partners .careers-open-roles { justify-content: flex-start; margin-bottom: 18px; }
+  /* ---------- 07 partners (white). Owner pick 2026-11-20, option C "mosaic + strip":
+     the content and media wrappers stop being boxes so each piece is ordered on one column;
+     the Cangaroo plate sits under the two photos as one unit instead of hanging over the heading ---------- */
+  #home-partners { padding: 56px 0 64px; }
+  #home-partners .container { display: flex; flex-direction: column; }
+  #home-partners .pn-home__inner, #home-partners .pn-home__content { display: contents; }
+  #home-partners .pn-home__title { order: 1; margin: 0 0 20px; text-align: left; }
+  #home-partners .pn-home__media { order: 2; position: relative; display: flex; flex-direction: column; width: 100%; max-width: none; margin: 0 0 24px; }
+  #home-partners .pn-home__sub { order: 3; margin: 0 0 8px; text-align: left; }
+  #home-partners .kla-more { order: 4; margin: 0 0 18px; align-self: flex-start; }
+  #home-partners .careers-open-roles { order: 5; margin: 0 0 24px; gap: 8px; justify-content: flex-start; }
   #home-partners .role-badge { padding: 8px 14px; min-height: 36px; display: inline-flex; align-items: center; }
-  #home-partners .pn-home__cta { width: 100%; }
-  #home-partners .pn-home__media { width: 100%; max-width: none; margin: 0 0 30px; }  /* room for the Cangaroo badge that hangs 26px below */
-  #home-partners .pn-home__shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--kla-line); }
-  #home-partners .pn-home__shot img { transform-origin: 50% 50%; }
-  #home-partners .pn-home__proof { margin-top: 20px; display: grid; gap: 10px; }
+  #home-partners .pn-home__cta { order: 6; margin: 0; width: 100%; }
+  #home-partners .pn-home__mosaic { height: 230px; gap: 6px; grid-template-columns: 1.6fr 1fr; }
+  #home-partners .pn-home__shot { border-radius: 6px; border: 0; overflow: hidden; box-shadow: none; }
+  #home-partners .pn-home__shot::after { display: none; }
+  #home-partners .pn-home__shot--main { border-top-left-radius: 20px; }
+  #home-partners .pn-home__shot--side { border-top-right-radius: 20px; }
+  /* solid plate, no glass: the blur is weak on iPhone */
+  #home-partners .pn-home__badge {
+    position: static; margin-top: 6px; padding: 14px 16px; border-radius: 6px 6px 20px 20px;
+    background: #131a2a; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  #home-partners .pn-home__proof { order: 7; margin: 32px 0 0; display: grid; gap: 12px; }
   #home-partners .pn-home__proof .erp-feature { border-radius: 16px; padding: 14px 16px; gap: 14px; }
   #home-partners .pn-home__proof .erp-feature__title { color: var(--kla-ink); }
   #home-partners .pn-home__proof .erp-feature__desc { color: var(--kla-ink2); }

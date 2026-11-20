@@ -9345,7 +9345,7 @@ body .faq-strip, .careers-strip:not(.pn-home) { padding-top: var(--kl-strip-y); 
   .svh__status-dot { width: 8px; height: 8px; }
   .svh__status-text { color: #fff; font-size: 0.72rem; letter-spacing: 0.14em; }
   .svh__title { color: #fff; font-size: clamp(2.6rem, 13vw, 3.4rem); line-height: 0.95; margin-bottom: 0; }
-  .svh__title em { color: #7fe0d4; }
+  .svh__title em { color: var(--teal-lt); }  /* brand teal (owner 2026-11-20), was mint #7fe0d4 */
   .svh__video {
     order: 2; position: relative; inset: auto; z-index: 1; flex: none;
     width: 100%; height: auto; max-height: none; aspect-ratio: 16 / 10;

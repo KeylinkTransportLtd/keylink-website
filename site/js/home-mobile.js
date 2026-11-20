@@ -139,7 +139,9 @@
     gsap.set(m, { clipPath: 'inset(0 0 100% 0)' });
     gsap.to(m, { clipPath: 'inset(0 0 0% 0)', duration: 0.9, ease: EASE, scrollTrigger: enter(m, '90%') });
   });
-  $('#home-services .svc-card__media, #routes .route-card__media img, #home-partners .pn-home__shot img, #home-coverage .coverage-m__map img, .careers-strip:not(.pn-home) .careers-strip__video, #live-visibility .erp-media__video').forEach(function (img) {
+  // services media are background spans, not img in a frame: scaling them pushed the photo over the card title (iPhone report 2026-11-20)
+  // partners photos stay still: the owner saw that section "move around" while scrolling (2026-11-20)
+  $('#routes .route-card__media img, #home-coverage .coverage-m__map img, .careers-strip:not(.pn-home) .careers-strip__video, #live-visibility .erp-media__video').forEach(function (img) {
     gsap.fromTo(img, { yPercent: -7, scale: 1.16 }, { yPercent: 7, scale: 1.16, ease: 'none',
       scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: 0.4 } });
   });

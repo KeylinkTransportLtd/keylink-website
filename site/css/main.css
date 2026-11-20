@@ -9250,3 +9250,76 @@ body .faq-strip, .careers-strip:not(.pn-home) { padding-top: var(--kl-strip-y); 
 @media (max-width: 768px) {
   .office-banner__inner { background: rgba(4, 10, 22, 0.96); }
 }
+
+/* ============================================================
+   PHONE MENU (owner pick 2026-11-19, Option B)
+   Menu button left, Keylink logo right. Full-screen solid menu
+   from the left, big heading-font links that rise in one by one,
+   current page in gold, Book a Load + Book Appointment + call.
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav__actions { display: none; }
+  .nav__hamburger { order: -1; width: 44px; height: 44px; padding: 10px; margin-left: -10px; align-items: flex-start; }
+  .nav__hamburger span { width: 24px; }
+  .nav__hamburger span:nth-child(2) { width: 18px; }
+  .nav__logo { margin-left: auto; }
+
+  .nav__mobile { left: 0; right: auto; width: 100vw; height: 100dvh; background: #080d18;
+    -webkit-backdrop-filter: none; backdrop-filter: none; border: 0; box-shadow: none;
+    padding: 92px 28px 28px; gap: 0; transform: none;
+    /* opens as a circle growing out of the menu button; closes faster than it opens */
+    clip-path: circle(0px at 32px 38px);
+    transition: clip-path 0.38s cubic-bezier(0.77, 0, 0.175, 1), visibility 0s linear 0.38s; }
+  .nav__mobile.open { clip-path: circle(150% at 32px 38px);
+    transition: clip-path 0.7s cubic-bezier(0.32, 0.72, 0, 1), visibility 0s; }
+  /* close button sits exactly where the menu button was; its icon un-blurs and turns in */
+  #mobileClose { left: calc(var(--kl-gutter, 20px) - 10px); right: auto; top: 16px; width: 44px; height: 44px; border-radius: 999px;
+    opacity: 0; filter: blur(4px); transform: rotate(-90deg) scale(0.8);
+    transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), filter 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), background 0.2s ease; }
+  .nav__mobile.open #mobileClose { opacity: 1; filter: none; transform: none;
+    transition-duration: 0.35s; transition-delay: 0.12s; }
+  .nav__hamburger { transition: transform 0.16s cubic-bezier(0.23, 1, 0.32, 1); }
+  .nav__hamburger, #mobileClose, .nav__mobile a { -webkit-tap-highlight-color: transparent; }
+  .nav__hamburger:active, .nav__mobile.open #mobileClose:active { transform: scale(0.94); }
+  .nav__mobile a:active { transform: scale(0.97); }
+  .nav__mobile a { transition: transform 0.16s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s ease, background 0.2s ease; }
+
+  .nav__mobile-links { gap: 0; }
+  .nav__mobile .nav__mobile-links a { font-family: var(--font-head); font-size: clamp(2rem, 6.2svh, 2.7rem); line-height: 1;
+    letter-spacing: 0.01em; color: #e8edf5; padding: 7px 0; border-radius: 0; background: none; }
+  .nav__mobile .nav__mobile-links a[aria-current="page"] { color: #ffb928; }
+  .nav__mobile .nav__mobile-links a[aria-current="page"]::before { content: ""; display: inline-block; width: 18px; height: 3px;
+    background: #ffb928; vertical-align: 0.32em; margin-right: 12px; border-radius: 2px; }
+  /* links rise and un-blur one by one while the circle opens; buttons follow */
+  .nav__mobile.open .nav__mobile-links a { animation: mmRise 0.6s cubic-bezier(0.23, 1, 0.32, 1) backwards; animation-delay: 90ms; }
+  .nav__mobile.open .nav__mobile-links a:nth-child(2) { animation-delay: 130ms; }
+  .nav__mobile.open .nav__mobile-links a:nth-child(3) { animation-delay: 170ms; }
+  .nav__mobile.open .nav__mobile-links a:nth-child(4) { animation-delay: 210ms; }
+  .nav__mobile.open .nav__mobile-links a:nth-child(5) { animation-delay: 250ms; }
+  .nav__mobile.open .nav__mobile-links a:nth-child(6) { animation-delay: 290ms; }
+  .nav__mobile.open .nav__mobile-links a:nth-child(7) { animation-delay: 330ms; }
+  .nav__mobile.open .nav__mobile-links a:nth-child(8) { animation-delay: 370ms; }
+  .nav__mobile.open .nav__mobile-book, .nav__mobile.open .nav__mobile-footer { animation: mmFade 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.4s backwards; }
+  .nav__mobile-divider { display: none; }
+
+  .nav__mobile .nav__mobile-book { margin-top: auto; background: linear-gradient(135deg, #ffb928, #f0940a); color: #14181f;
+    text-shadow: none; border-radius: 999px; padding: 15px 20px; font-size: 1rem; }
+  .nav__mobile .nav__mobile-book--alt { order: 1; margin-top: 10px; background: transparent; color: #fff;
+    border: 1px solid rgba(255,255,255,0.22); box-shadow: none; }
+
+  .nav__mobile-footer { order: 2; margin-top: 0; padding-top: 12px; gap: 14px; }
+  .nav__mobile-footer-links { flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 6px; }
+  /* footer links were picking up the big heading style of the menu links */
+  .nav__mobile .nav__mobile-footer-link { display: inline-flex; font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; letter-spacing: 0; padding: 8px 4px; }
+  .nav__mobile-footer-link svg { flex: none; }
+  .nav__mobile .nav__mobile-footer-link[href^="tel"] { order: -1; flex: 1 0 100%; justify-content: center; border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px; padding: 13px; color: #fff; font-weight: 600; margin-bottom: 6px; }
+}
+@keyframes mmRise { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes mmFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  .nav__mobile, .nav__mobile.open { clip-path: none; opacity: 0; transition: opacity 0.2s ease, visibility 0s linear 0.2s; }
+  .nav__mobile.open { opacity: 1; transition: opacity 0.2s ease, visibility 0s; }
+  .nav__mobile.open .nav__mobile-links a, .nav__mobile.open .nav__mobile-book, .nav__mobile.open .nav__mobile-footer { animation: none; }
+  #mobileClose, .nav__mobile.open #mobileClose { opacity: 1; filter: none; transform: none; transition: none; }
+}

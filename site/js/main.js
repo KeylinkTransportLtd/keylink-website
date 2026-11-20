@@ -347,6 +347,14 @@
   if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenu);
 
   if (mobileMenu) {
+    // Mark the current page in the phone menu, same link the desktop nav marks
+    const cur = document.querySelector('.nav__links a[aria-current="page"]');
+    if (cur) mobileMenu.querySelectorAll('.nav__mobile-links a').forEach(a => {
+      if (a.getAttribute('href') === cur.getAttribute('href')) a.setAttribute('aria-current', 'page');
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) { closeMenu(); if (hamburger) hamburger.focus(); }
+    });
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMenu);
     });

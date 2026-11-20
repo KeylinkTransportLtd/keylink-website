@@ -70,9 +70,9 @@
     .svh__video{display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;padding:24px 48px 24px 16px}
     .svh__overlay{padding:0 32px 0 64px;z-index:3}
   </style>
-  <link rel="stylesheet" href="css/main.css?v=60">
-  <link rel="stylesheet" href="css/home-mobile.css?v=1">
-  <noscript><link rel="stylesheet" href="css/main.css?v=60"></noscript>
+  <link rel="stylesheet" href="css/main.css?v=61">
+  <link rel="stylesheet" href="css/home-mobile.css?v=2">
+  <noscript><link rel="stylesheet" href="css/main.css?v=61"></noscript>
   <style>
     /* ================================================================
        HOME PAGE PROGRESS RAIL
@@ -202,6 +202,8 @@
       position: relative;
     }
 
+    .trust-item__link { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: rgba(255,255,255,0.35); }
+    .trust-item__link:hover { text-decoration-color: currentColor; }
     .logo-marquee-label {
       text-align: center;
       font-family: 'Inter', sans-serif;
@@ -847,49 +849,27 @@
     <div class="container">
       <div class="trust-bar__inner">
         <div class="trust-item">
-          <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-          </svg>
-          <span><span class="trust-item__label">USDOT</span> 2832041</span>
+<a class="trust-item__link" href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&amp;query_type=queryCarrierSnapshot&amp;query_param=USDOT&amp;query_string=2832041" target="_blank" rel="noopener noreferrer" title="Verify on FMCSA SAFER"><span class="trust-item__label">USDOT</span> 2832041</a>
         </div>
         <div class="trust-bar__divider" aria-hidden="true"></div>
         <div class="trust-item">
-          <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <rect x="2" y="7" width="20" height="14" rx="2"/>
-            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-          </svg>
-          <span><span class="trust-item__label">MC#</span> 946449</span>
+<a class="trust-item__link" href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&amp;query_type=queryCarrierSnapshot&amp;query_param=USDOT&amp;query_string=2832041" target="_blank" rel="noopener noreferrer" title="Verify on FMCSA SAFER"><span class="trust-item__label">MC#</span> 946449</a>
         </div>
         <div class="trust-bar__divider" aria-hidden="true"></div>
         <div class="trust-item">
-          <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          <span><span class="trust-item__label">$750K</span> ICBC Insured</span>
+<span><span class="trust-item__label">$750K</span> ICBC Insured</span>
         </div>
         <div class="trust-bar__divider" aria-hidden="true"></div>
         <div class="trust-item">
-          <svg class="trust-item__icon" viewBox="0 0 24 24" fill="var(--gold)" aria-hidden="true">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
-          <span><span class="trust-item__label">5-Star</span> Industry Rated</span>
+<span><span class="trust-item__label">5-Star</span> Industry Rated</span>
         </div>
         <div class="trust-bar__divider" aria-hidden="true"></div>
         <div class="trust-item">
-          <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
-          </svg>
-          <span>Founded <span class="trust-item__label">2019</span></span>
+<span>Founded <span class="trust-item__label">2019</span></span>
         </div>
         <div class="trust-bar__divider" aria-hidden="true"></div>
         <div class="trust-item">
-          <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-          </svg>
-          <span><span class="trust-item__label">Save 90%</span> vs Carrier Direct</span>
+<span><span class="trust-item__label">Save 90%</span> vs Carrier Direct</span>
         </div>
       </div>
     </div>
@@ -907,13 +887,11 @@
 
       <div class="svc-header">
         <div class="svc-header__text">
-          <div class="tag">Our Specializations</div>
-          <h2 class="section-title" id="services-heading" style="color:var(--white);margin:0;">
+<h2 class="section-title" id="services-heading" style="color:var(--white);margin:0;">
             Freight solutions built around reliability<span style="color:var(--teal);">.</span>
           </h2>
           <p class="section-sub">
-            From full truckload to cross-border and dedicated lanes, we deliver every shipment
-            with accountability, transparency, and zero surprises.
+            Full truckload, cross-border Canada–USA, and dedicated lanes. 53-foot dry or reefer trailers, one carrier from pickup to delivery.
           </p>
         </div>
         <div class="svc-header__media">
@@ -932,15 +910,12 @@
         <!-- FTL -->
         <article class="svc-card svc-card--ftl">
           <div class="svc-card__head">
-            <div class="svc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="8" width="22" height="12" rx="2"/><path d="M1 12h22"/><circle cx="7" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>
-            </div>
-            <h3 class="svc-card__title">Full Truckload or LTL</h3>
-            <p class="svc-card__desc">Dry or Reefer. 53-foot trailers for general cargo. Full accountability from pickup to delivery: no co-loading, no hand-offs, no excuses.</p>
+<h3 class="svc-card__title">Full Truckload or LTL</h3>
+            <p class="svc-card__desc">53-foot dry or reefer trailers. Your freight rides alone: no co-loading, no hand-offs.</p>
           </div>
           <span class="svc-card__media svc-card__media--ftl" aria-hidden="true"></span>
           <a href="services.html#ftl" class="svc-card__cta" aria-label="Learn more about Dry Van FTL service">
-            Explore Dry Van FTL
+            Dry van FTL details
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
@@ -949,15 +924,12 @@
         <article class="svc-card svc-card--cb is-featured">
           <span class="svc-card__badge">Most Requested</span>
           <div class="svc-card__head">
-            <div class="svc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.33 4-3.5 8-3.5 9s1.17 5 3.5 9M12 3c2.33 4 3.5 8 3.5 9s-1.17 5-3.5 9"/></svg>
-            </div>
-            <h3 class="svc-card__title">Cross-Border <span class="t-accent">Canada-USA</span></h3>
-            <p class="svc-card__desc">Licensed, insured, and USDOT certified for seamless border crossings. We handle the paperwork so your freight doesn't stop at the line.</p>
+<h3 class="svc-card__title">Cross-Border <span class="t-accent">Canada-USA</span></h3>
+            <p class="svc-card__desc">USDOT 2832041, MC 946449, $750K ICBC insured. We handle the border paperwork.</p>
           </div>
           <span class="svc-card__media svc-card__media--cb" aria-hidden="true"></span>
           <a href="services.html#crossborder" class="svc-card__cta" aria-label="Learn more about cross-border freight service">
-            Explore Cross-Border
+            Cross-border details
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
@@ -965,15 +937,12 @@
         <!-- Corridors -->
         <article class="svc-card svc-card--corridors">
           <div class="svc-card__head">
-            <div class="svc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6 3m6 7l-5.447 2.724A1 1 0 0115 19.382V8.618a1 1 0 00-1.447-.894L9 10m6-3V17"/></svg>
-            </div>
-            <h3 class="svc-card__title">Dedicated Freight Corridors</h3>
-            <p class="svc-card__desc">BC to California. Alberta to Ontario. Regular lanes, reliable schedules. Known routes mean fewer surprises and better pricing for your business.</p>
+<h3 class="svc-card__title">Dedicated Freight Corridors</h3>
+            <p class="svc-card__desc">BC to California. Alberta to Ontario. Regular lanes on a set schedule.</p>
           </div>
           <span class="svc-card__media svc-card__media--map" role="img" aria-label="Map of Keylink freight corridors connecting British Columbia, Alberta, Ontario, and California"></span>
           <a href="services.html#corridors" class="svc-card__cta" aria-label="Learn more about freight corridors">
-            Explore Freight Corridors
+            Freight corridor details
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </article>
@@ -988,16 +957,14 @@
 
       <!-- Header + Text Roll -->
       <div class="spec-header gsap-reveal">
-        <div class="tag">Our Specializations</div>
-
-        <div class="spec-roll-label">15 Years Moving</div>
+<div class="spec-roll-label">15 Years Moving</div>
 
         <div class="spec-roll-outer" aria-live="polite" aria-atomic="true" aria-label="Rotating specialization categories">
           <div class="spec-roll-container" id="specTextRotate"></div>
         </div>
 
         <p class="spec-context">
-          With over 15 years of experience, we've moved all kinds of produce from BC to California &amp; Arizona,
+          15 years of accumulated experience: we've moved produce from BC to California &amp; Arizona,
           delivered fresh fish to downtown markets, and hauled nursery products to Home Depot, Walmart, and Costco
           across the USA and Canada. Whatever the load, we've run the route.
         </p>
@@ -1047,7 +1014,7 @@
           <h2 class="section-title" id="process-heading" style="color:var(--white);">
             From Quote to<br>Delivery in 5 Steps
           </h2>
-          <p class="proc__sub">No wasted time. No hidden costs. No massive wait times.</p>
+          <p class="proc__sub">A quote within 24 hours. One all-inclusive rate.</p>
         </div>
 
         <div class="proc__drum-track" id="procDrumTrack" aria-label="Step navigation">
@@ -1162,7 +1129,7 @@
       <div class="pms-hdr">
         <div class="tag">How It Works</div>
         <h2 class="section-title" style="color:#fff;">From Quote to<br>Delivery in 5 Steps</h2>
-        <p class="proc__sub">No wasted time. No hidden costs. No massive wait times.</p>
+        <p class="proc__sub">A quote within 24 hours. One all-inclusive rate.</p>
       </div>
 
       <div class="pms-slider" id="pmSlider">
@@ -1244,15 +1211,13 @@
     <div class="container">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
         <div class="gsap-reveal">
-          <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">Save More. Ship Smarter.</div>
-          <div style="font-family:var(--font-head);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#111;line-height:1.1;">
+<div style="font-family:var(--font-head);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#111;line-height:1.1;">
             Save up to <span style="color:var(--teal);">90%</span> off<br>carrier direct pricing.
           </div>
         </div>
         <div class="gsap-reveal" style="max-width:400px;">
           <p style="color:#333;line-height:1.7;margin-bottom:24px;">
-            Most shippers overpay because they book direct. Keylink's network
-            pricing means enterprise-level rates for businesses of every size.
+            Keylink quotes through its partner-carrier network, so a small shipper gets network rates instead of one carrier's direct rate.
           </p>
           <a href="contact.html" class="btn btn--teal">
             Start a Quote &rarr;
@@ -1306,18 +1271,12 @@
 
         <!-- RIGHT: Copy + features -->
         <div class="erp-copy gsap-reveal">
-          <div class="tag">Live Visibility · In-House ERP</div>
-          <h2 class="section-title" id="erp-heading" style="color:var(--white);">
+<h2 class="section-title" id="erp-heading" style="color:var(--white);">
             Every Load,<br>
             <span style="color:var(--teal-lt);">in real time.</span>
           </h2>
           <p class="erp-sub">
-            Our in-house ERP platform replaces the "where is my truck?" phone call with
-            a single source of truth. Dispatch, drivers, and accounting run the floor on
-            one system. Shippers and consignees follow every shipment from pickup to
-            proof of delivery, with zero hassle. No accounts to create, no passwords to
-            remember, no portal logins. Just a secure link from your booking
-            confirmation and you are in.
+            Every booking confirmation includes a private tracking link. Open it to see live GPS, the ETA, BOLs and PODs from pickup to delivery. No account, no password. Dispatch, drivers, and accounting run on the same system.
           </p>
 
           <ul class="erp-features" role="list">
@@ -1330,49 +1289,32 @@
               </span>
               <div>
                 <div class="erp-feature__title">Live GPS &amp; ETA</div>
-                <div class="erp-feature__desc">Every milestone updates the second it happens on the road.</div>
+                <div class="erp-feature__desc">GPS position and ETA update as the truck moves.</div>
               </div>
             </li>
             <li class="erp-feature">
-              <span class="erp-feature__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                  <path d="M10 13a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1 1"/>
-                  <path d="M14 11a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1-1"/>
-                </svg>
-              </span>
-              <div>
+<div>
                 <div class="erp-feature__title">No sign-in, no hassle</div>
                 <div class="erp-feature__desc">Each booking ships with a private tracking URL. No accounts, no passwords, no portal logins.</div>
               </div>
             </li>
             <li class="erp-feature">
-              <span class="erp-feature__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                  <path d="M14 2v6h6M9 13h6M9 17h6"/>
-                </svg>
-              </span>
-              <div>
+<div>
                 <div class="erp-feature__title">Documents in one place</div>
                 <div class="erp-feature__desc">BOLs, POD signatures, and invoices on a single shipment timeline.</div>
               </div>
             </li>
             <li class="erp-feature">
-              <span class="erp-feature__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                  <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
-                </svg>
-              </span>
-              <div>
+<div>
                 <div class="erp-feature__title">Built on the floor</div>
-                <div class="erp-feature__desc">Designed by our dispatch team, refined every release. No third-party black box.</div>
+                <div class="erp-feature__desc">Built and updated by our own dispatch team in Abbotsford, BC.</div>
               </div>
             </li>
           </ul>
 
           <div class="erp-cta-row">
             <a href="contact.html" class="btn btn--teal">
-              See It On Your Next Shipment
+              Get a quote with live tracking
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -1392,8 +1334,7 @@
     <div class="container">
       <div class="careers-strip__inner pn-home__inner">
         <div class="careers-strip__content pn-home__content gsap-reveal-left">
-          <div class="tag">Keylink Partner Network</div>
-          <h2 class="careers-strip__title pn-home__title" id="pn-home-heading">
+<h2 class="careers-strip__title pn-home__title" id="pn-home-heading">
             Our Main Partner Carrier.<br>
             <span style="color:var(--teal-lt);">Billed Through Keylink.</span>
           </h2>
@@ -1449,13 +1390,7 @@
       <ul class="erp-features pn-home__proof" role="list" aria-label="What partner loads get">
         <li class="gsap-reveal">
           <div class="erp-feature">
-            <span class="erp-feature__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                <path d="M14 2v6h6M9 13h6M9 17h6"/>
-              </svg>
-            </span>
-            <div>
+<div>
               <div class="erp-feature__title">Billed through Keylink</div>
               <div class="erp-feature__desc">Your quote and invoice come from Keylink, the same as any Keylink load.</div>
             </div>
@@ -1463,13 +1398,7 @@
         </li>
         <li class="gsap-reveal" style="transition-delay:0.1s">
           <div class="erp-feature">
-            <span class="erp-feature__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                <path d="M10 13a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1 1"/>
-                <path d="M14 11a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1-1"/>
-              </svg>
-            </span>
-            <div>
+<div>
               <div class="erp-feature__title">Same live tracking link</div>
               <div class="erp-feature__desc">Live GPS and ETA on <a href="#live-visibility">Keylink ERP</a>, through the secure link in your booking confirmation.</div>
             </div>
@@ -1477,13 +1406,7 @@
         </li>
         <li class="gsap-reveal" style="transition-delay:0.2s">
           <div class="erp-feature">
-            <span class="erp-feature__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="M9 12l2 2 4-4"/>
-              </svg>
-            </span>
-            <div>
+<div>
               <div class="erp-feature__title">Keylink standards</div>
               <div class="erp-feature__desc">Keylink's in-house systems keep BOLs, PODs and invoices on one shipment timeline.</div>
             </div>
@@ -1510,40 +1433,27 @@
         </div>
 
         <div class="coverage-m__body">
-        <span class="coverage-m__eyebrow">Service Area</span>
-        <h2 class="coverage-m__title" id="coverage-heading">Trusted Freight Corridors Across North America<span class="coverage-m__dot">.</span></h2>
+<h2 class="coverage-m__title" id="coverage-heading">Trusted Freight Corridors Across North America<span class="coverage-m__dot">.</span></h2>
         <span class="coverage-m__rule" aria-hidden="true"></span>
-        <p class="coverage-m__sub">Operating regular lanes from our Abbotsford, BC headquarters to key markets across Canada and the western United States.</p>
+        <p class="coverage-m__sub">Regular lanes from Abbotsford, BC to Alberta, Saskatchewan, Manitoba, Ontario, and the western United States.</p>
 
         <div class="coverage-m__chips">
-          <span class="coverage-m__chip">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 3.8 3.5-1.3-1.3 3.5 3.8 1.6-3 2 2.2 2.9-3.6-.4.2 3.6L12 18.8 9.4 21.3l.2-3.6-3.6.4L8.2 15.2 5.2 13.2l3.8-1.6-1.3-3.5 3.5 1.3L12 2z"/></svg>
-            British Columbia
+          <span class="coverage-m__chip">British Columbia
           </span>
-          <span class="coverage-m__chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 19l5.5-9 3.5 5 2-3 4.5 7z"/><path d="M7 13l1.5-2.5"/></svg>
-            Alberta
+          <span class="coverage-m__chip">Alberta
           </span>
-          <span class="coverage-m__chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V8"/><path d="M12 9c-1.6 0-2.8-1.2-2.8-2.8C10.8 6.2 12 7.4 12 9zM12 9c1.6 0 2.8-1.2 2.8-2.8C13.2 6.2 12 7.4 12 9z"/><path d="M12 13c-1.6 0-2.8-1.2-2.8-2.8C10.8 10.2 12 11.4 12 13zM12 13c1.6 0 2.8-1.2 2.8-2.8C13.2 10.2 12 11.4 12 13z"/><path d="M12 17c-1.6 0-2.8-1.2-2.8-2.8C10.8 14.2 12 15.4 12 17zM12 17c1.6 0 2.8-1.2 2.8-2.8C13.2 14.2 12 15.4 12 17z"/></svg>
-            Saskatchewan
+          <span class="coverage-m__chip">Saskatchewan
           </span>
-          <span class="coverage-m__chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l4 5h-2.5l3 4H15l2.5 4H6.5L9 12H6.5l3-4H7z"/><path d="M12 16v5"/></svg>
-            Manitoba
+          <span class="coverage-m__chip">Manitoba
           </span>
-          <span class="coverage-m__chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V11l4-2v3l4-3v4l4-3v5l3-2v9z"/><path d="M11 6V3"/></svg>
-            Ontario
+          <span class="coverage-m__chip">Ontario
           </span>
         </div>
 
-        <a href="contact.html" class="coverage-m__cta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h13v11H1z"/><path d="M14 8h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
-          Book a Load Today
+        <a href="contact.html" class="coverage-m__cta">Book a Load Today
           <span class="coverage-m__cta-arrow" aria-hidden="true">&#8250;</span>
         </a>
-        <a href="services.html" class="coverage-m__link">Learn more about our services <span aria-hidden="true">&#8250;</span></a>
+        <a href="services.html" class="coverage-m__link">See all 6 services <span aria-hidden="true">&#8250;</span></a>
         </div>
       </div>
     </div>
@@ -1555,11 +1465,9 @@
 
       <!-- Header -->
       <div class="routes-header gsap-reveal">
-        <div class="tag">Freight Corridors</div>
-        <h2 class="section-title routes-title" id="routes-heading">Ever&#8209;Expanding<br>Routes</h2>
+<h2 class="section-title routes-title" id="routes-heading">Ever&#8209;Expanding<br>Routes</h2>
         <p class="routes-sub">
-          Based in Abbotsford, BC, we keep adding new lanes to our network. Proven corridors
-          coast-to-coast and cross-border, growing with every client relationship we build.
+          Four lanes we run regularly out of Abbotsford, BC. New lanes are added as clients need them.
         </p>
       </div>
 
@@ -1623,7 +1531,7 @@
       <!-- CTA -->
       <div class="routes-footer gsap-reveal">
         <a href="contact.html" class="btn btn--teal routes-cta">
-          Book a Lane
+          Get a quote for a lane
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -1635,8 +1543,7 @@
   <section class="section testimonials-section" id="home-testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="gsap-reveal" style="text-align:center;max-width:560px;margin:0 auto;">
-        <div class="tag">Social Proof</div>
-        <h2 class="section-title" id="testimonials-heading" style="color:var(--white);">
+<h2 class="section-title" id="testimonials-heading" style="color:var(--white);">
           What Our Partners Say.
         </h2>
       </div>
@@ -1725,8 +1632,7 @@
     <div class="container">
       <div class="faq-strip__inner">
         <div class="faq-strip__left">
-          <span class="faq-strip__label">Got Questions?</span>
-          <h2 class="faq-strip__title">We've answered the most common ones.</h2>
+<h2 class="faq-strip__title">We've answered the most common ones.</h2>
           <p class="faq-strip__sub">Pricing, cross-border docs, reefer temps, seafood handling and more: all in one place.</p>
         </div>
         <div class="faq-strip__links">
@@ -1763,7 +1669,7 @@
           </div>
           <div class="careers-strip__cta" style="margin-top:24px;">
             <a href="careers.html" class="btn" style="background:var(--teal);color:white;font-weight:700;font-size:1rem;padding:16px 32px;">
-              See Open Roles →
+              See the 3 open roles →
             </a>
           </div>
         </div>
@@ -1778,9 +1684,8 @@
       <!-- Header -->
       <div class="blog-slider__header">
         <div>
-          <p class="blog-slider__eyebrow">From the Keylink Blog</p>
-          <h2 class="blog-slider__title" id="blog-slider-heading">From the Road</h2>
-          <p class="blog-slider__sub">Industry insights, driver stories, and freight expertise from our team.</p>
+<h2 class="blog-slider__title" id="blog-slider-heading">From the Road</h2>
+          <p class="blog-slider__sub">Posts from our team on cross-border freight, driving, and dispatch.</p>
         </div>
         <a href="blog.html" class="btn--blog-all">View All Posts &rarr;</a>
       </div>
@@ -1836,86 +1741,38 @@
 
         <!-- LEFT: Copy + Service Icons -->
         <div class="bal-left gsap-reveal">
-          <p class="bal-eyebrow">We get it. Cross-border freight can be complex.</p>
-          <h2 class="bal-headline" id="bal-heading">But it doesn't<br>have to be.</h2>
+<h2 class="bal-headline" id="bal-heading">Book a load.<br>Quote back within 24 hours.</h2>
           <p class="bal-body">
-            When you partner with the right carrier, freight moves efficiently,
-            on schedule, and without surprises. Full truckload, coast to coast,
-            handled with precision and full compliance.
+            Full truckload across Canada and into the USA in 53-foot dry or reefer trailers. USDOT 2832041, $750K ICBC insured, and a live tracking link on every load.
           </p>
 
           <ul class="bal-services" aria-label="Our services">
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">Full Truckload (FTL)</span>
+<span class="bal-service__label">Full Truckload (FTL)</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">Cross-Border Canada–USA</span>
+<span class="bal-service__label">Cross-Border Canada–USA</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">Real-Time Tracking</span>
+<span class="bal-service__label">Live tracking link</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">USDOT Certified &amp; Insured</span>
+<span class="bal-service__label">USDOT Certified &amp; Insured</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">Dry Van Service</span>
+<span class="bal-service__label">53-foot dry van</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">24/7 Direct Dispatch</span>
+<span class="bal-service__label">24/7 Direct Dispatch</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">Transparent Documentation</span>
+<span class="bal-service__label">BOLs and PODs on one link</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">Competitive Flat Rates</span>
+<span class="bal-service__label">All-inclusive flat rate</span>
             </li>
             <li class="bal-service">
-              <span class="bal-service__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-              </span>
-              <span class="bal-service__label">One Point of Contact</span>
+<span class="bal-service__label">One Point of Contact</span>
             </li>
           </ul>
         </div>
@@ -1924,7 +1781,7 @@
         <div class="bal-right gsap-reveal">
           <div class="bal-card">
             <div class="bal-card__header">
-              <h3 class="bal-card__title">Cross-Border Freight?<br>Leave the Logistics to Us.</h3>
+              <h3 class="bal-card__title">Where is it going?<br>We quote within 24 hours.</h3>
             </div>
             <div class="bal-card__body">
 
@@ -1947,7 +1804,7 @@
 
               <!-- ===== PANEL A: Freight Quote ===== -->
               <div class="bal-panel bal-panel--active" id="balQuotePanel" data-form-id="balForm" role="tabpanel">
-                <p class="bal-card__sub">Just a few details to get your free quote:</p>
+                <p class="bal-card__sub">A few details and we send your rate:</p>
                 <form class="bal-form" id="balForm" action="https://formspree.io/f/mqenaqko" method="POST">
                   <input type="hidden" name="_subject" value="New Freight Quote Request | Keylink Transport">
                   <div class="bal-form__row">
@@ -1989,7 +1846,7 @@
                     <textarea class="bal-form__input bal-form__textarea" id="balDetails" name="details" placeholder="Weight, dimensions, commodity, special requirements..." rows="3"></textarea>
                   </div>
                   <button type="submit" class="bal-form__submit" id="balSubmit">
-                    Book This Load &nbsp;&rarr;
+                    Get my quote &nbsp;&rarr;
                   </button>
                 </form>
 
@@ -2269,8 +2126,7 @@
           <img src="assets/logo-keylink.png"
                alt="Keylink Transport Logo" loading="lazy" width="160" height="44">
           <p class="footer__tagline">
-            BC-based full truckload carrier. Reliable Canada–USA freight solutions
-            for businesses that can't afford surprises.
+            BC-based full truckload carrier. Canada–USA dry van and reefer freight. Abbotsford, BC.
           </p>
           <div class="footer__social">
             <a href="https://www.linkedin.com/company/keylink-transport" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Keylink Transport on LinkedIn">
@@ -2413,7 +2269,7 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="js/main.js?v=15" defer></script>
+  <script src="js/main.js?v=16" defer></script>
   <script>
     (function () {
       var track = document.querySelector('.logo-marquee-track');

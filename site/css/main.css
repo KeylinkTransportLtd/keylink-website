@@ -9369,3 +9369,93 @@ body .faq-strip, .careers-strip:not(.pn-home) { padding-top: var(--kl-strip-y); 
 }
 @keyframes hbCard { from { opacity: 0; transform: scale(0.97); clip-path: inset(6% 4% round 22px); } to { opacity: 1; transform: none; clip-path: inset(0 round 22px); } }
 @media (max-width: 768px) and (prefers-reduced-motion: reduce) { .svh__video { animation: none; } }
+
+
+/* ============================================================
+   VIBE FIXES ROUND 2 (owner, 2026-11-20): solid surfaces instead of glass,
+   no ambient glows, no cursor glow, AA contrast on navy, one lead card
+   instead of three equal cards, one section padding scale.
+   Colours, fonts, photos and the hero are unchanged.
+   ============================================================ */
+:root { --sec-y: clamp(64px, 9vw, 112px); --raised: #121a2b; --hair: rgba(255,255,255,0.08); --text-2: #d3d9e3; }
+
+/* #19 cursor-following glow */
+.hero-grid { display: none !important; }
+
+/* #11 ambient glows / orbs / radial glow layers */
+.careers-strip::before, .blog-slider-section::before, .blog-slider-section::after, .routes-section::after,
+.blog-newsletter__inner::after, .service-card::before, .mv-showcase__glow, .mv-showcase__bg,
+.service-detail__visual--has-image::before, body .svc-shot::before, body .faq-hero::before, body .faq-cta::before,
+body .cv-section__dots { display: none !important; }
+.corridor-map-img { filter: drop-shadow(0 24px 48px rgba(0,0,0,0.7)); }
+
+/* #7 glass -> solid raised navy + hairline (white-page cards already use the approved white system) */
+.form-card, .about-value-item, .proc__stack-badge, .mv-showcase__switcher, .standards-split-cta,
+.testimonial-card, .erp-feature, .route-card, .why-pillar, .bsc__body,
+body .cv-card, body .cv-stats, body .svc-chips, body .faq-search__input, body .hp-rail-inner, body .office-banner__inner {
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  background: var(--raised) !important; border-color: var(--hair) !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.28) !important;
+}
+.why-pillars { background: var(--hair); }
+.erp-feature:hover, .route-card:hover, body .cv-card:hover { background: #16203a !important; }
+.proc__stack-badge, .mv-showcase__switcher { box-shadow: none !important; }
+.testimonial-card { border-top: 2px solid var(--teal) !important; }
+.mv-showcase__layout { background: var(--midnight) !important; border-color: var(--hair) !important; }  /* was translucent over a radial glow */
+
+/* #20 contrast: description text on navy at >= 4.5:1, small labels >= 12px */
+.section--midnight .section-sub, .section--navy .section-sub, .cta-section .section-sub,
+.erp-feature__desc, .erp-sub, .pn-home__sub, .careers-strip__sub, .bal-body, .bal-card__sub, .bal-service__label,
+.testimonial-text, .author-role, .proc__stack-desc, .route-card__desc, .routes-sub, .svc-card__desc,
+.footer__tagline, .footer p, .footer a, .footer li, .contact-detail__value, .contact-detail__value a,
+.blog-header__sub, .faq-hero__subtitle, .vm-panel__sub, .about-stat__label, .cv-stat__label,
+body .cv-card__desc, body .cv-sub, body .pn-perk p, body .pn-hero__sub, body .svc-block__lead, body .pn-faq__a p,
+body .faq-cta p, .trust-item, .proc__sub, .spec-context, .coverage-sub, .section-sub {
+  color: var(--text-2) !important; opacity: 1 !important;
+}
+.section--light .section-sub, .section--light p { color: #4B5D73 !important; }
+.svh__stat-label, .about-stat__label, .cv-stat__label, .trust-item__label, .role-card__type, .author-role { font-size: max(0.75rem, 12px) !important; }
+@media (max-width: 768px) { .svh__stat-label { color: rgba(255,255,255,0.85) !important; } }
+
+/* #2 three identical cards -> one lead card (desktop) */
+@media (min-width: 1025px) {
+  .svc-grid { grid-template-columns: 1.15fr 1fr; grid-template-rows: auto auto; }
+  .svc-card--cb { grid-column: 1; grid-row: 1 / 3; }
+  .svc-card--cb .svc-card__media { height: 320px; }
+  .svc-card--cb .svc-card__title { font-size: 2rem; }
+  .svc-card--cb .svc-card__desc { font-size: 1.05rem; }
+}
+@media (min-width: 769px) {
+  body .cv-grid { grid-template-columns: repeat(3, 1fr); }
+  body .cv-card:first-child { grid-column: 1 / 3; align-items: flex-start; text-align: left; padding: 44px 36px; }
+  body .cv-card:first-child .cv-card__title { font-size: 2rem; }
+  body .cv-card:first-child .cv-card__desc { font-size: 1.08rem; max-width: 48ch; }
+  .why-pillars { grid-template-columns: 1.5fr 1fr 1fr; }
+  .why-pillar:first-child { padding: 48px 40px; }
+  .why-pillar:first-child .why-pillar__title { font-size: 1.7rem; }
+  .why-pillar:first-child .why-pillar__desc { font-size: 1.05rem; }
+  body .pn-perks { grid-template-columns: 1.5fr 1fr 1fr; }
+  body .pn-perk:first-child h3 { font-size: 1.6rem; }
+  body .pn-perk:first-child p { font-size: 1.05rem; }
+  .roles-grid { grid-template-columns: 1.35fr 1fr 1fr; }
+  .roles-grid .role-card:first-child .role-card__title { font-size: 1.7rem; }
+  body .cred-grid { grid-template-columns: 1.4fr 1fr 1fr !important; }
+  body .cred-grid > div:first-child > div:nth-child(2) { font-size: 2.6rem !important; }
+}
+
+/* #21 one section padding scale */
+@media (min-width: 769px) {
+  .section, .sv-sec, .pn-section, .careers-why, .cta-section, .routes-section, .testimonials-section,
+  .faq-strip, .careers-strip, .blog-slider-section, .bal-section, .cv-section, .erp-section, .about-mission-wrap,
+  .about-standards-section, .faq-content, .contact-section {
+    padding-top: var(--sec-y) !important; padding-bottom: calc(var(--sec-y) + 16px) !important;
+  }
+}
+/* phone: the homepage keeps its own approved spacing (home-mobile.css, owner pick 2026-11-20) */
+@media (max-width: 768px) {
+  body:not(:has(#svh)) :is(.section, .sv-sec, .pn-section, .careers-why, .cta-section, .routes-section, .testimonials-section, .faq-strip, .careers-strip, .blog-slider-section, .bal-section, .cv-section, .erp-section, .about-mission-wrap, .about-standards-section, .faq-content, .contact-section) {
+    padding-top: var(--sec-y) !important; padding-bottom: calc(var(--sec-y) + 16px) !important;
+  }
+}
+.section-title, .sv-h2, .cv-title, .pn-home__title, .careers-strip__title { margin-bottom: 16px; }
+.section-sub, .sv-sub, .cv-sub { margin-bottom: 40px; }

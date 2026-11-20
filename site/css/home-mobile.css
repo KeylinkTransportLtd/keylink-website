@@ -159,9 +159,6 @@
     border-radius: 12px; font: 600 0.84rem/1.3 var(--font-body); text-align: left; letter-spacing: 0; text-transform: none;
     color: var(--kla-ink); border-right: 0;
   }
-  #specializations .spec-list__item::before {
-    content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--kla-teal); flex-shrink: 0;
-  }
 
   /* ---------- 04 how it works: sticky storytelling ---------- */
   #how-it-works { padding: 0; }

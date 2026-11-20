@@ -220,3 +220,7 @@ body:has(.sv) .nav { background: rgba(8, 12, 22, 0.96); }
   .sv-hero__phone { color: rgba(255,255,255,0.75) !important; }
   .sv-hero__phone strong { color: #fff; }
 }
+
+/* credential numbers link to the FMCSA SAFER record */
+.sv-trust li > a { display: grid; gap: 4px; align-content: space-between; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: rgba(0,0,0,0.3); }
+.sv-trust li > a:hover { text-decoration-color: currentColor; }

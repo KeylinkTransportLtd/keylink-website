@@ -9308,6 +9308,9 @@ body .faq-strip, .careers-strip:not(.pn-home) { padding-top: var(--kl-strip-y); 
     border: 1px solid rgba(255,255,255,0.22); box-shadow: none; }
 
   .nav__mobile-footer { order: 2; margin-top: 0; padding-top: 12px; gap: 14px; }
+  /* blog posts have a lone CRM link instead of the footer block: keep it under the buttons */
+  .nav__mobile > .nav__mobile-footer-link { order: 2; align-self: center; margin-top: 14px !important; }
+  .nav__mobile.open > .nav__mobile-footer-link { animation: mmFade 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.4s backwards; }
   .nav__mobile-footer-links { flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 6px; }
   /* footer links were picking up the big heading style of the menu links */
   .nav__mobile .nav__mobile-footer-link { display: inline-flex; font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; letter-spacing: 0; padding: 8px 4px; }

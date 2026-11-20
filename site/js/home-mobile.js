@@ -32,6 +32,22 @@
     });
   });
 
+  /* ---------- hero video: iPhone Safari pauses a muted video that scrolls off screen and only
+     resumes it by itself when it is marked autoplay; restart it whenever it is back in view ---------- */
+  var hv = document.getElementById('heroVideo');
+  if (hv) {
+    hv.muted = true; hv.loop = true; hv.autoplay = true; hv.playsInline = true;
+    var playHero = function () { if (hv.paused) hv.play().catch(function () {}); };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) playHero(); else hv.pause(); }); }).observe(hv);
+    }
+    document.addEventListener('visibilitychange', function () {
+      var r = hv.getBoundingClientRect();
+      if (!document.hidden && r.bottom > 0 && r.top < window.innerHeight) playHero();
+    });
+    playHero();
+  }
+
   if (reduced || !hasGsap) return;
   gsap.registerPlugin(ScrollTrigger);
 
@@ -134,7 +150,8 @@
     card.style.zIndex = String(i + 1);
     reveal([card.querySelector('.svc-card__head'), card.querySelector('.svc-card__cta')], { trigger: card });
     if (i === svc.length - 1) return;
-    gsap.to(card, { scale: 0.92, opacity: 0.55, ease: 'none',
+    // scale only: a faded card is see-through and the card under it bleeds into it (iPhone report 2026-11-20)
+    gsap.to(card, { scale: 0.92, ease: 'none',
       scrollTrigger: { trigger: svc[i + 1], start: 'top bottom', end: 'top 74px', scrub: 0.3 } });
   });
 
@@ -166,8 +183,9 @@
       onUpdate: function (st) { var k = Math.min(cards.length - 1, Math.round(st.progress * (cards.length - 1))); dots.forEach(function (d, i) { d.classList.toggle('is-on', i <= k); }); } } });
     cards.forEach(function (c, i) {
       if (!i) return;
-      tl.to(cards[i - 1], { scale: 0.94, opacity: 0, yPercent: -4, duration: 1, ease: 'power2.inOut' }, i - 1)
-        .to(c, { opacity: 1, yPercent: 0, scale: 1, duration: 1, ease: 'power2.inOut' }, i - 1);
+      // old step is gone before the new one fades in, so two steps never show on top of each other
+      tl.to(cards[i - 1], { scale: 0.94, opacity: 0, yPercent: -4, duration: 0.5, ease: 'power2.in' }, i - 1)
+        .to(c, { opacity: 1, yPercent: 0, scale: 1, duration: 0.5, ease: 'power2.out' }, i - 0.5);
     });
     tl.fromTo(fill, { scaleY: 0 }, { scaleY: 1, duration: cards.length - 1, ease: 'none' }, 0);
     // tapping a rail number scrolls to that step

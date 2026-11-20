@@ -20,6 +20,9 @@
     border-radius: 28px 28px 0 0; margin-top: -28px; position: relative; z-index: 3;
   }
   .video-duo-bg, .video-duo-overlay { display: none; }
+  .trust-bar { padding-bottom: 48px; }  /* the white sheet above overlaps 28px; keep the last row clear */
+  /* header: solid once scrolled; the glass blur is weak on iPhone and text showed through */
+  .nav.scrolled { background: #131a2a !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
   .gradient-band { background: #fff; }
   .gradient-band::before { display: none; }
   .gradient-band > * { position: relative; z-index: 1; }
@@ -231,7 +234,7 @@
   #home-partners .careers-open-roles { justify-content: flex-start; margin-bottom: 18px; }
   #home-partners .role-badge { padding: 8px 14px; min-height: 36px; display: inline-flex; align-items: center; }
   #home-partners .pn-home__cta { width: 100%; }
-  #home-partners .pn-home__media { width: 100%; max-width: none; margin: 0; }
+  #home-partners .pn-home__media { width: 100%; max-width: none; margin: 0 0 30px; }  /* room for the Cangaroo badge that hangs 26px below */
   #home-partners .pn-home__shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--kla-line); }
   #home-partners .pn-home__shot img { transform-origin: 50% 50%; }
   #home-partners .pn-home__proof { margin-top: 20px; display: grid; gap: 10px; }
